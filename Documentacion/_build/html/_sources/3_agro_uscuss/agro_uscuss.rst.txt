@@ -1,0 +1,20 @@
+4. **Resultados.**
+
+
+5. **Referencias**
+
+- MAATE. (n.d.). 5ta Comunicación Nacional.
+
+- MAATE. (2024). Plan Nacional de Mitigación del Cambio Climático.
+
+- MAATE (2025). Segunda Contribución Determinada a Nivel Nacional
+
+.. |The diagram illustrates a hierarchical classification of land types in an ecosystem, ranging from native forests, unprotected forests, to agricultural lands, including various levels of protection and types of vegetation. El contenido generado por IA puede ser incorrecto.| image:: media/image1.png
+   :width: 4.4984in
+   :height: 3.64653in
+.. |The image depicts a line graph showing the trend in CO2 emissions (measured in million kg CO2-equivalent) from the agricultural sector over a period from 2011 to 2034. El contenido generado por IA puede ser incorrecto.| image:: media/image2.png
+   :width: 5.90556in
+   :height: 3.54577in
+.. |The diagram shows a line graph depicting the trend of CO2 emissions (in million KtCO2-eq) for the US sector from 2010 to 2035. El contenido generado por IA puede ser incorrecto.| image:: media/image3.png
+   :width: 5.90556in
+   :height: 3.54577in

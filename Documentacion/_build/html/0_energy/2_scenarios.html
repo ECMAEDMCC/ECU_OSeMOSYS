@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3. Escenarios &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="4.4. Resultados" href="3_results.html" />
+    <link rel="prev" title="4.2. Datos de Entrada" href="1_inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Emisiones Nacionales del nuevo proceso de modelado</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Modelo del Sector Energía</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_structure.html">4.1. Estructura del modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_inputs.html">4.2. Datos de Entrada</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">4.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">4.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_ippu/index.html">5. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_agro_uscuss/index.html">7. Modelo del Sector Agricultura y USCUSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">8. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">9. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4. </span>Modelo del Sector Energía</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.3. </span>Escenarios</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/0_energy/2_scenarios.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="escenarios">
+<h1><span class="section-number">4.3. </span>Escenarios<a class="headerlink" href="#escenarios" title="Link to this heading"></a></h1>
+<p>El nuevo proceso de modelado considera la construcción de dos escenarios
+de análisis, definidos a partir de la configuración de parámetros
+específicos del modelo y orientados a representar trayectorias
+diferenciadas de evolución del sistema energético y de las emisiones de
+gases de efecto invernadero (GEI).</p>
+<p>El Escenario Tendencial Nacional representa una trayectoria de
+referencia caracterizada por la ausencia de medidas adicionales
+posteriores a la Segunda NDC. Este escenario se utiliza como línea base
+para el análisis comparativo y se construye a partir de la información
+histórica y los supuestos de proyección definidos en el modelo sin la
+incorporación de nuevas acciones de mitigación.</p>
+<p>El Escenario Plan de Acción se diseña como un escenario referencial que
+incorpora medidas de mitigación validadas mediante reuniones
+técnicas. Este escenario considera la inclusión de proyectos de
+energías renovables en el período 2010–2035, la implementación de
+medidas de eficiencia energética y la introducción progresiva de la
+electromovilidad. La representación de este escenario se logra mediante
+la modificación de parámetros específicos del modelo, con el fin de
+reflejar trayectorias divergentes respecto al escenario tendencial.</p>
+<p>La comparación entre ambos escenarios permite analizar las diferencias
+en términos de capacidad instalada, generación por tipo de fuente,
+consumo energético sectorial y emisiones de GEI, así como identificar
+brechas de mitigación asociadas a la implementación de las medidas
+consideradas en el Escenario Plan de Acción.</p>
+<p>En la <a class="reference internal" href="#table-efficiency-initiatives-energy"><span class="std std-numref">Tabla 4.6</span></a> se detallan las iniciativas de eficiencia energética y
+movilidad sostenible del escenario Plan de Acción del nuevo proceso de
+modelado.</p>
+<span id="table-efficiency-initiatives-energy"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 4.6 </span><span class="caption-text">Iniciativas de eficiencia Energética y Movilidad sostenible en el escenario Plan de Acción del nuevo proceso de modelado</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de
+iniciativa</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Horizonte
+temporal</p></th>
+<th class="head"><p>Línea de
+acción
+estratégica
+(PLANMICC)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Eficiencia
+energética</p></td>
+<td><p>Acciones orientadas a
+implementar y fortalecer la
+eficiencia energética en los
+sectores productivos y
+promover un consumo
+energético sostenible.</p></td>
+<td><p>Hasta
+2035</p></td>
+<td><p>LA2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Movilidad
+sostenible</p></td>
+<td><p>Acciones orientadas a
+implementar, fortalecer y
+promover sistemas de
+movilidad baja en carbono y
+accesible en todos los tipos
+de transporte.</p></td>
+<td><p>Hasta
+2035</p></td>
+<td><p>LA3</p></td>
+</tr>
+<tr class="row-even"><td><p>Energías
+renovables</p></td>
+<td><p>Acciones orientadas a
+incrementar la participación
+de energía renovable para la
+generación de electricidad,
+como parte del enfoque
+integral del sector
+energético.</p></td>
+<td><p>Hasta
+2035</p></td>
+<td><p>LA1</p></td>
+</tr>
+</tbody>
+</table>
+<p>En la <a class="reference internal" href="#table-electric-generation-energy"><span class="std std-numref">Tabla 4.7</span></a> se detallan las iniciativas generación eléctrica del
+escenario Plan de acción del nuevo proceso de modelado.</p>
+<span id="table-electric-generation-energy"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tabla 4.7 </span><span class="caption-text">Iniciativas de Generación Eléctrica incluidas en el escenario Plan de Acción</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>No.</p></th>
+<th class="head"><p>Proyecto</p></th>
+<th class="head"><p>Potencia
+(MW)</p></th>
+<th class="head"><p>Tecnología</p></th>
+<th class="head"><p>Combustible
+desplazado</p></th>
+<th class="head"><p>Categoría</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Sistema Híbrido
+Isabela (Fase II)</p></td>
+<td><p>0,958</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Conolophus</p></td>
+<td><p>14,8</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Huascachaca</p></td>
+<td><p>19,73</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Sistema Solar
+Fotovoltaica San
+Cristóbal (Fase
+II)</p></td>
+<td><p>2,26</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Malchingui
+(prefactibilidad)</p></td>
+<td><p>100</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Tocachi
+(prefactibilidad)</p></td>
+<td><p>45</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Pifo-Pintag
+(prefactibilidad)</p></td>
+<td><p>75</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Mazar Flotante
+(prefactibilidad)</p></td>
+<td><p>160</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Isla Floreana
+100% Renovable</p></td>
+<td><p>0,226</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>San Miguel Ibarra
+(prefactibilidad)</p></td>
+<td><p>126,6</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Crudo</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Ilapo
+(prefactibilidad)</p></td>
+<td><p>153,3</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Crudo</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>La Ceiba
+(prefactibilidad)</p></td>
+<td><p>200</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Matala
+(prefactibilidad)</p></td>
+<td><p>100</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Complejo
+Fotovoltaico
+NEOEN Solar
+(consolidado)</p></td>
+<td><p>180</p></td>
+<td><p>PP_SPV_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+solares</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Villonaco</p></td>
+<td><p>16,5</p></td>
+<td><p>PP_WND_US</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Eólicos</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Villonaco 2
+(prefactibilidad)</p></td>
+<td><p>80,5</p></td>
+<td><p>PP_WND_US</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Eólicos</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>El Pimo (perfil)</p></td>
+<td><p>150</p></td>
+<td><p>PP_WND_US</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Eólicos</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Mazar</p></td>
+<td><p>170</p></td>
+<td><p>PP_HYDAMADAMMED</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Central
+Hidroeléctrica
+Coca Codo
+Sinclair</p></td>
+<td><p>1.500</p></td>
+<td><p>PP_HYDAMARORLAR</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Manduriacu</p></td>
+<td><p>65</p></td>
+<td><p>PP_HYDPACRORMED</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Minas San
+Francisco</p></td>
+<td><p>270</p></td>
+<td><p>PP_HYDPACRORMED</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>Delsitanisagua</p></td>
+<td><p>180</p></td>
+<td><p>PP_HYDAMARORMED</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>Toachi Pilatón
+(Sarapullo)</p></td>
+<td><p>49</p></td>
+<td><p>PP_HYDPACDAMSMA</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>Toachi Pilatón
+(Alluriquín)</p></td>
+<td><p>205,4</p></td>
+<td><p>PP_HYDPACDAMMED</p></td>
+<td><p>Diésel</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Ocaña II</p></td>
+<td><p>29</p></td>
+<td><p>PP_HYDPACRORSMA</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Soldados Yanuncay</p></td>
+<td><p>7,2</p></td>
+<td><p>PP_HYDAMADAMSMA</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>Sopladora</p></td>
+<td><p>487</p></td>
+<td><p>PP_HYDAMARORLAR</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Santiago</p></td>
+<td><p>2.400</p></td>
+<td><p>PP_HYDAMADAMLAR</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>Cardenillo</p></td>
+<td><p>595,6</p></td>
+<td><p>PP_HYDAMADAMLAR</p></td>
+<td><p>Fuel oil</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>Mazar Dudas (San
+Antonio) -
+factibilidad</p></td>
+<td><p>72</p></td>
+<td><p>PP_HYDAMADAMSMA</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>Quijos (diseños
+definitivos)</p></td>
+<td><p>50</p></td>
+<td><p>PP_HYDAMADAMSMA</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>La Unión (diseños
+definitivos)</p></td>
+<td><p>92,2</p></td>
+<td><p>PP_HYDAMADAMMED</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>Abitagua
+(prefactibilidad)</p></td>
+<td><p>166,3</p></td>
+<td><p>PP_HYDAMADAMMED</p></td>
+<td><p>Gas Natural</p></td>
+<td><p>Proyectos
+Hidroeléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>Chachimbiro
+(prefactibilidad)</p></td>
+<td><p>50</p></td>
+<td><p>PP_GEO</p></td>
+<td><p>Crudo</p></td>
+<td><p>Proyectos
+geotérmicos</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="1_inputs.html" class="btn btn-neutral float-left" title="4.2. Datos de Entrada" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="3_results.html" class="btn btn-neutral float-right" title="4.4. Resultados" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Climate Lead Group.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

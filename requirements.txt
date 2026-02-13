@@ -1,0 +1,15 @@
+sphinx
+sphinx_rtd_theme
+xlsxwriter
+xlrd
+pyyaml
+pandas
+numpy
+scipy
+openpyxl
+matplotlib
+plotly
+nbformat
+numpy-financial
+setuptools
+ipykernel

@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.1. Estructura del modelo &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="7.2. Datos de entrada" href="1_inputs.html" />
+    <link rel="prev" title="7. Modelo del Sector Agricultura y USCUSS" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Emisiones Nacionales del nuevo proceso de modelado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_energy/index.html">4. Modelo del Sector Energía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_ippu/index.html">5. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. Modelo del Sector Agricultura y USCUSS</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.1. Estructura del modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_inputs.html">7.2. Datos de Entrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_scenarios.html">7.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">7.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">7.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">8. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">9. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">7. </span>Modelo del Sector Agricultura y USCUSS</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7.1. </span>Estructura del modelo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/3_agro_uscuss/0_structure.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="estructura-del-modelo">
+<h1><span class="section-number">7.1. </span>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Link to this heading"></a></h1>
+<p>Los sectores Agricultura y USCUSS fueron modelados de manera conjunta,
+utilizando una única estructura para estos 2 sectores, similar a la
+planteada en el PLANMICC. Este modelo no corresponde únicamente al
+PLANMICC, sino que integra información actualizada de la NDC.</p>
+<p>En particular:</p>
+<ul class="simple">
+<li><p>Del PLANMICC se toman las estructuras base de tecnologías y factores
+de emisión y datos históricos</p></li>
+<li><p>Del NDC se toman datos de actividad, factores de emisión actualizados
+con información de la 5CN2BTR</p></li>
+</ul>
+<p><strong>Representación Gráfica del Modelo</strong></p>
+<p>El modelo de los sectores Agricultura y USCUSS fue estructurado a partir
+de la base desarrollada en el PLANMICC (Proyecto CZZ 2739), no se
+aumentaron tecnologías ni se adicionaron variables únicamente se
+actualizó información.</p>
+<p>En la <a class="reference internal" href="#agro-uscuss-model-structure"><span class="std std-numref">Figura 7.1</span></a> se presenta la estructura final del modelo de Agricultura
+y USCUSS que constituye el insumo de referencia para el sector.</p>
+<figure class="align-center" id="agro-uscuss-model-structure">
+<img alt="Estructura base del Modelo de Agricultura y USCUSS." src="../_images/model_structure1.png" />
+<figcaption>
+<p><span class="caption-number">Figura 7.1 </span><span class="caption-text">Estructura base del Modelo de Agricultura y USCUSS</span><a class="headerlink" href="#agro-uscuss-model-structure" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la <a class="reference internal" href="#table-agro-uscuss-techs"><span class="std std-numref">Tabla 7.1</span></a> se detallan los nombres de las tecnologías/fuels y las
+unidades de la actividad de cada tecnología/fuel acorde a Proyecto
+PLANMICC mismos que se encuentran en los documentos:</p>
+<span id="table-agro-uscuss-techs"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 7.1 </span><span class="caption-text">Tecnologías incluidas en el modelo del sector Residuos.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de
+Set</p></th>
+<th class="head"><p>Nomenclatura</p></th>
+<th class="head"><p>Detalle</p></th>
+<th class="head"><p>Unidades
+físicas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Banano</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Arroz</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cacao</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Cafe</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cana</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Maiz</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Palma</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Soya</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Palmito</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Legumbres</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cereales</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Tuberculos</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Fruta</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Verduras</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Floricolas</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Otros_cultivos</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Banano</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Arroz</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Cacao</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Cafe</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Cana</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Maiz</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Palma</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Soya</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Palmito</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Legumbres</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Cereales</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Tuberculos</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Fruta</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Verduras</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Floricolas</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Banano</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Arroz</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Cacao</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Cafe</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Cana</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Maiz</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Palma</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Soya</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Palmito</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Legumbres</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Cereales</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Tuberculos</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Fruta</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Verduras</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Floricolas</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Pastizales</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Humedal</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Zona_atropica</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Otras_tierras</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Bosque_nativo_protegido</p></td>
+<td><p>Área de bosque con
+algún régimen de
+protección legal: Socio
+Bosque, SNAP, BVP</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Bosque_nativo_sinproteger</p></td>
+<td><p>Área de bosque sin
+régimen de protección
+legal</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Plantacion_forestal</p></td>
+<td><p>Área de Plantaciones
+Forestales</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Ganaderia_importada</p></td>
+<td><p>Área de ganado bobino</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Ganaderia_criolla</p></td>
+<td><p>Área de ganado bobino</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Ganaderia_mestiza</p></td>
+<td><p>Área de ganado bobino</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Carne</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Leche</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Carne</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Leche</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Gallinas_campos</p></td>
+<td><p>Cantidad de aves de
+corral</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Gallinas_planteles</p></td>
+<td><p>Cantidad de aves de
+corral</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Pasturas</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Vacuno_porcino</p></td>
+<td><p>Cantidad de cabeza de
+ganado</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Vacuno_ovino</p></td>
+<td><p>Cantidad de cabeza de
+ganado</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Vacuno_otras_especies</p></td>
+<td><p>Cantidad de cabeza de
+ganado</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cambio_de_uso</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>area_restaurada</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="7. Modelo del Sector Agricultura y USCUSS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="1_inputs.html" class="btn btn-neutral float-right" title="7.2. Datos de entrada" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Climate Lead Group.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

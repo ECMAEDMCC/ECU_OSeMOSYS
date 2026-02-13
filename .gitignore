@@ -1,0 +1,5 @@
+.idea/
+__pycache__/
+.venv/
+~$*
+AgriculturaUSCUSS/2_Model/*/data_land_output.txt
