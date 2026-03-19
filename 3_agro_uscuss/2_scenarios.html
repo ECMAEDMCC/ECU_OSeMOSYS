@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.3. Escenarios &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="7.4. Resultados" href="3_results.html" />
+    <link rel="prev" title="7.2. Datos de entrada" href="1_inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_energy/index.html">4. Modelo del Sector Energía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_ippu/index.html">5. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. Modelo del Sector Agricultura y USCUSS</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_structure.html">7.1. Estructura del modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_inputs.html">7.2. Datos de Entrada</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">7.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">7.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">8. ¿Cómo usar el modelo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">10. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">7. </span>Modelo del Sector Agricultura y USCUSS</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7.3. </span>Escenarios</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/3_agro_uscuss/2_scenarios.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="escenarios">
+<h1><span class="section-number">7.3. </span>Escenarios<a class="headerlink" href="#escenarios" title="Link to this heading"></a></h1>
+<p>En los sectores <strong>Agricultura y Uso del Suelo, cambio de Uso del Suelo y
+Silvicultura (USCUSS)</strong> se modelaron <strong>dos escenarios de proyección</strong>,
+ambos construidos a partir de la información descrita en los apartados
+anteriores.</p>
+<ul class="simple">
+<li><p><strong>Escenario Tendencial:</strong> Representa el «business as usual» sin
+intervenciones adicionales, considera únicamente los datos históricos
+y proyecciones sin la incorporación de medidas adicionales de
+mitigación. Este escenario sirve como línea de base para evaluar el
+impacto de las políticas y acciones propuestas.</p></li>
+</ul>
+<span id="table-agro-uscuss-scenario-tendencial"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 7.4 </span><span class="caption-text">Parámetros y supuestos de cambio utilizados para el escenario tendencial</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Supuesto</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bosques: Deforestación Bruta</p>
+<p>Deforestación Neta</p>
+<p>** Deforestación en áreas
+protegidas</p>
+</td>
+<td><p>-0.78 Se mantiene constante</p>
+<p>-0.76 Se mantiene constante</p>
+<p>** El Modelo NDC aplica una
+tasa de deforestación de 0,049%
+para áreas protegidas.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Plantaciones Forestales</p></td>
+<td><p>Tasa de crecimiento al 1% de
+crecimiento del PIB</p></td>
+</tr>
+<tr class="row-even"><td><p>Cultivos</p></td>
+<td><p>Tasa de crecimiento sectorial</p>
+<p>Contribución del sector al PIB</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Pasturas</p></td>
+<td><p>Categoría flexible o de ajuste</p></td>
+</tr>
+<tr class="row-even"><td><p>Vegetación arbustiva y herbácea</p></td>
+<td><p>Tasa de crecimiento de suelo de
+cultivos</p>
+<p>Tasa de crecimiento destinada a
+ganadería</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Humedales</p></td>
+<td><p>Tasa de cambio de humedales</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Escenario Plan de Acción (PAC):</strong> integra las iniciativas
+establecidas en la Segunda NDC del Ecuador (condicional e
+incondicional) que aplican a los dos sectores. Estas iniciativas son
+consideradas de manera integral reflejándose en las metas finales.</p></li>
+</ul>
+<p>El Escenario Plan de Acción comparte similar información en los años
+2010 – 2022. Los Principales cambios se resumen en la siguiente tabla:</p>
+<span id="table-agro-uscuss-scenario-changes"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tabla 7.5 </span><span class="caption-text">Cambios efectuados en los archivos del modelo mixto de Agricultura y USCUSS (PAC)</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Archivo</p></th>
+<th class="head"><p>Hoja</p></th>
+<th class="head"><p>Tecnología/Fuel</p></th>
+<th class="head"><p>parámetro</p></th>
+<th class="head"><p>Observación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>EmmisionActivitiyRatio</p></td>
+<td><p>Bosque_nativo_protegido</p></td>
+<td><p>co2_remocion</p></td>
+<td><p>Se considera
+el aumento de
+área de
+bosque bajo
+régimen de
+protección
+legal hasta
+llegar al
+2035 a 7,9
+Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>TotalTechnologyAnnualActivityLo</p></td>
+<td><p>Bosque_nativo_sinproteger</p></td>
+<td><p>Mha</p></td>
+<td><p>Se resta el
+área que se
+adiciona a
+Bosque Nativo
+Protegido</p></td>
+</tr>
+<tr class="row-even"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>EmmisionActivitiyRatio</p></td>
+<td><p>Area_restaurada</p></td>
+<td><p>co2_remocion</p></td>
+<td><p>Se considera
+un aumento
+progresivo de
+la tasa de
+restauración
+hasta llegar
+a un promedio
+de 3200
+ha/año</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>TotalTechnologyAnnualActivityLo</p></td>
+<td><p>Plantacion_forestal</p></td>
+<td><p>Mh</p></td>
+<td><p>Se considera
+un amento
+progresivo
+hasta llegar
+a un valor de
+198600 ha</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="1_inputs.html" class="btn btn-neutral float-left" title="7.2. Datos de entrada" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="3_results.html" class="btn btn-neutral float-right" title="7.4. Resultados" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador..</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3. Escenarios &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="4.4. Resultados" href="3_results.html" />
+    <link rel="prev" title="4.2. Datos de Entrada" href="1_inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Modelo del Sector Energía</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_structure.html">4.1. Estructura del modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_inputs.html">4.2. Datos de Entrada</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">4.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">4.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_ippu/index.html">5. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_agro_uscuss/index.html">7. Modelo del Sector Agricultura y USCUSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">8. ¿Cómo usar el modelo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">10. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4. </span>Modelo del Sector Energía</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.3. </span>Escenarios</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/0_energy/2_scenarios.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="escenarios">
+<h1><span class="section-number">4.3. </span>Escenarios<a class="headerlink" href="#escenarios" title="Link to this heading"></a></h1>
+<p>En el sector Energía se modelaron dos escenarios, construidos con base
+en la información y los supuestos descritos en el apartado 4.2, con el
+propósito de representar trayectorias diferenciadas en la evolución del
+sector Energía y en sus emisiones de GEI.</p>
+<ul class="simple">
+<li><p><strong>El Escenario Tendencial Nacional</strong> representa una trayectoria de
+referencia caracterizada por la ausencia de medidas de mitigación.
+Este escenario se utiliza como línea base para el análisis comparativo
+y se construye a partir de la información histórica y los supuestos de
+proyección definidos en el modelo OSeMOSYS del PLANMICC (CC2070) sin
+la incorporación de nuevas acciones de mitigación.</p></li>
+<li><p><strong>El Escenario Plan de Acción del PLANMICC, Fase I</strong> se diseña como un
+escenario referencial que incorpora medidas de mitigación validadas
+mediante un proceso de construcción participativa que incluyó
+entrevistas con expertos y actores estratégicos del sector Energía.
+Este escenario considera: i) la integración de proyectos de energías
+renovables en el período 2010–2035, ii) la implementación de medidas
+de eficiencia energética y iii) la introducción progresiva de
+alternativas de electromovilidad. Con el fin de representar el posible
+cambio en la tendencia de generación de emisiones de GEI como
+resultado de la aplicación de las acciones consideradas en el
+documento Plan de Acción del PLANMICC, Fase I.</p></li>
+</ul>
+<p>La comparación entre ambos escenarios permite analizar las diferencias
+en términos de capacidad instalada, generación por tipo de fuente,
+consumo energético sectorial y emisiones de GEI, así como identificar
+brechas de mitigación asociadas a la implementación de las medidas
+consideradas en el Escenario Plan de Acción del PLANMICC, Fase I.</p>
+<p>En la <a class="reference internal" href="#table-efficiency-initiatives-energy"><span class="std std-numref">Tabla 4.6</span></a> se detallan las iniciativas de mitigación consideradas en
+el Escenario Plan de Acción del PLANMICC, Fase I.</p>
+<span id="table-efficiency-initiatives-energy"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 4.6 </span><span class="caption-text">Iniciativas consideradas en el Escenario Plan de Acción del PLANMICC, Fase I</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Categoría</p></td>
+<td><p>Iniciativa</p></td>
+<td><p>Año de
+implementación</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td rowspan="14"><p>LA-E1 Incrementar la
+participación de
+energías renovables en
+la generación
+eléctrica para reducir
+la dependencia de
+combustibles fósiles y
+las emisiones de GEI.
+Solar Fotovoltaico</p></td>
+<td><p>Sistema Híbrido
+Isabela (Fase II)</p></td>
+<td><p>2027</p></td>
+<td><p>Proyecto de 0,958
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Conolophus</p></td>
+<td><p>2027</p></td>
+<td><p>Proyecto de 14,8
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-even"><td><p>Huascachaca</p></td>
+<td><p>2028</p></td>
+<td><p>Proyecto de 19,73
+MW que desplaza
+gas natural.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sistema Solar
+Fotovoltaica San
+Cristóbal (Fase
+II)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 2,26
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Malchingui
+(prefactibilidad)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 100
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tocachi
+(prefactibilidad)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 45 MW
+que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Pifo-Pintag
+(prefactibilidad)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 75 MW
+que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mazar Flotante
+(prefactibilidad)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 160
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Isla Floreana
+100% Renovable</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 0,226
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>San Miguel Ibarra
+(prefactibilidad)</p></td>
+<td><p>2030</p></td>
+<td><p>Proyecto de 126,6
+MW que desplaza
+crudo.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ilapo
+(prefactibilidad)</p></td>
+<td><p>2030</p></td>
+<td><p>Proyecto de 153,3
+MW que desplaza
+crudo.</p></td>
+</tr>
+<tr class="row-odd"><td><p>La Ceiba
+(prefactibilidad)</p></td>
+<td><p>2031</p></td>
+<td><p>Proyecto de 200
+MW que desplaza
+gas natural.</p></td>
+</tr>
+<tr class="row-even"><td><p>Matala
+(prefactibilidad)</p></td>
+<td><p>2031</p></td>
+<td><p>Proyecto de 100
+MW que desplaza
+gas natural.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Complejo
+Fotovoltaico
+NEOEN Solar
+(consolidado)</p></td>
+<td><p>2032</p></td>
+<td><p>Proyecto de 180
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>LA-E1. Incrementar la
+participación de
+energías renovables en
+la generación
+eléctrica para reducir
+la dependencia de
+combustibles fósiles y
+las emisiones de GEI.
+Eólico</p></td>
+<td><p>Villonaco</p></td>
+<td><p>2013</p></td>
+<td><p>Proyecto de 16,5
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Villonaco 2
+(prefactibilidad)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 80,5
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-even"><td><p>El Pimo (perfil)</p></td>
+<td><p>2030</p></td>
+<td><p>Proyecto de 150
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="16"><p>LA-E1. Incrementar la
+participación de
+energías renovables en
+la generación
+eléctrica para reducir
+la dependencia de
+combustibles fósiles y
+las emisiones de GEI.
+Hidroeléctricas</p></td>
+<td><p>Mazar</p></td>
+<td><p>2010</p></td>
+<td><p>Proyecto de 170
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Central
+Hidroeléctrica
+Coca Codo
+Sinclair</p></td>
+<td><p>2015</p></td>
+<td><p>Proyecto de 1.500
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Manduriacu</p></td>
+<td><p>2015</p></td>
+<td><p>Proyecto de 65 MW
+que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Minas San
+Francisco</p></td>
+<td><p>2019</p></td>
+<td><p>Proyecto de 270
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Delsitanisagua</p></td>
+<td><p>2019</p></td>
+<td><p>Proyecto de 180
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Toachi Pilatón
+(Sarapullo)</p></td>
+<td><p>2022</p></td>
+<td><p>Proyecto de 49 MW
+que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Toachi Pilatón
+(Alluriquín)</p></td>
+<td><p>2025</p></td>
+<td><p>Proyecto de 205,4
+MW que desplaza
+diésel.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ocaña II</p></td>
+<td><p>2026</p></td>
+<td><p>Proyecto de 29 MW
+que desplaza fuel
+oil.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Soldados Yanuncay</p></td>
+<td><p>2026</p></td>
+<td><p>Proyecto de 7,2
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sopladora</p></td>
+<td><p>2026</p></td>
+<td><p>Proyecto de 487
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Santiago</p></td>
+<td><p>2030</p></td>
+<td><p>Proyecto de 2.400
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cardenillo</p></td>
+<td><p>2030</p></td>
+<td><p>Proyecto de 595,6
+MW que desplaza
+fuel oil.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mazar Dudas (San
+Antonio) -
+factibilidad</p></td>
+<td><p>2031</p></td>
+<td><p>Proyecto de 72 MW
+que desplaza gas
+natural.</p></td>
+</tr>
+<tr class="row-even"><td><p>Quijos (diseños
+definitivos)</p></td>
+<td><p>2031</p></td>
+<td><p>Proyecto de 50 MW
+que desplaza gas
+natural.</p></td>
+</tr>
+<tr class="row-odd"><td><p>La Unión (diseños
+definitivos)</p></td>
+<td><p>2029</p></td>
+<td><p>Proyecto de 92,2
+MW que desplaza
+gas natural.</p></td>
+</tr>
+<tr class="row-even"><td><p>Abitagua
+(prefactibilidad)</p></td>
+<td><p>2030</p></td>
+<td><p>Proyecto de 166,3
+MW que desplaza
+gas natural.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LA-E1. Incrementar la
+participación de
+energías renovables en
+la generación
+eléctrica para reducir
+la dependencia de
+combustibles fósiles y
+las emisiones de GEI.
+Geotérmico</p></td>
+<td><p>Chachimbiro
+(prefactibilidad)</p></td>
+<td><p>2034</p></td>
+<td><p>Proyecto de 50 MW
+que desplaza
+crudo.</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>LA-E2. Fortalecer la
+eficiencia energética
+en los sectores
+productivos y de
+consumo para optimizar
+el uso de la energía,
+disminuir costos y
+reducir impactos
+ambientales.
+Eficiencia energética</p></td>
+<td rowspan="6"><p>Implementación de
+programas
+integrales de
+eficiencia
+energética en
+todos los
+sectores de
+consumo de
+energía.</p></td>
+<td><p>2025-2035</p></td>
+<td><p>Eficiencia
+energética en el
+sector
+industrial.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2025-2035</p></td>
+<td><p>Eficiencia
+energética en el
+sector
+residencial.</p></td>
+</tr>
+<tr class="row-even"><td><p>2025-2035</p></td>
+<td><p>Eficiencia
+energética en el
+sector comercial
+y servicios.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2025-2035</p></td>
+<td><p>Modelos ESCO.</p></td>
+</tr>
+<tr class="row-even"><td><p>2025-2035</p></td>
+<td><p>Programa
+soluciones
+energéticas en el
+sector petrolero.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2025-2035</p></td>
+<td><p>Eficiencia
+energética en el
+sector transporte
+pesado.</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>LA-E3. Promover una
+movilidad accesible y
+baja en emisiones
+mediante
+electrificación,
+transporte público
+eficiente e
+infraestructura
+sostenible. Movilidad
+baja en emisiones</p></td>
+<td rowspan="4"><p>Auxiliar la
+transformación
+del sector
+transporte
+mediante la
+electrificación
+del parque
+automotor.</p></td>
+<td><p>2025-2035</p></td>
+<td><p>Electromovilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2025-2035</p></td>
+<td><p>Transporte
+público
+eficiente.</p></td>
+</tr>
+<tr class="row-even"><td><p>2025-2035</p></td>
+<td><p>Infraestructura
+de carga
+eléctrica.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2025-2035</p></td>
+<td><p>Movilidad no
+motorizada.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="1_inputs.html" class="btn btn-neutral float-left" title="4.2. Datos de Entrada" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="3_results.html" class="btn btn-neutral float-right" title="4.4. Resultados" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador..</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

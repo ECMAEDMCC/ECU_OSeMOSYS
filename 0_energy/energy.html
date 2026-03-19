@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">1. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">2. Emisiones Nacionales del nuevo proceso de modelado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">3. Modelo del Sector Energía</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/0_energy/energy.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><strong>9. ¿Cómo usar el modelo?</strong></p>
+<p>En primer lugar, es importante tener en cuenta el flujo de trabajo que
+se muestra en la Figura 1. Este flujo de trabajo nos indica cuáles son
+los archivos importantes para ejecutar cada paso y proporciona una mejor
+comprensión general.</p>
+<p><a class="reference internal" href="0_energy/media/image10.png"><img alt="Figura 1 Flujo de trabajo del modelo OSeMOSYS-ECU" src="0_energy/media/image10.png" style="width: 5.90556in; height: 3.73403in;" /></a></p>
+<p><strong>Figura 1: Flujo de trabajo del modelo OSeMOSYS-ECU</strong></p>
+<p><strong>9.1. Crear la estructura del modelo (A1)</strong></p>
+<p>El primer paso del OSeMOSYS-ECU es crear la estructura del modelo. Para
+ello, necesita ejecutar el script de Python A1_Model_Structure. Para
+realizar esta ejecución, es necesario parametrizar los archivos de Excel
+dentro de A1_Inputs:</p>
+<ul class="simple">
+<li><p>A-I_Classifier_Modes_Demand</p></li>
+<li><p>A-I_Classifier_Modes_Supply</p></li>
+<li><p>A-I_Classifier_Modes_Transport</p></li>
+<li><p>A-I_Horizon_Configuration</p></li>
+</ul>
+<p>Luego, debes ejecutar el script de Python A1_Model_Structure. Al
+finalizar la ejecución, se generarán algunos archivos dentro
+de A1_Outputs:</p>
+<ul class="simple">
+<li><p>A-O_AR_Model_Base_Year.xlsx</p></li>
+<li><p>A-O_AR_Projections.xlsx</p></li>
+<li><p>A-O_Demand.xlsx</p></li>
+<li><p>A-O_Fleet.xlsx</p></li>
+<li><p>A-O_Parametrization.xlsx</p></li>
+<li><p>A-O_Fleet_Groups.pickle</p></li>
+</ul>
+<p>Estos archivos se reescriben con la estructura predeterminada cada vez
+que se ejecuta el script de Python, por lo que se recomienda ejecutar
+este script solo una vez.</p>
+<p><strong>9.2. Compilador del modelo (A2)</strong></p>
+<p>El segundo paso consiste en definir el proceso para compilar el modelo
+en archivos por parámetro. Para ello, toma como entradas los archivos de
+Excel de A1_Outputs, además de los archivos de Excel de la
+carpeta A2_Xtra_Inputs y el archivo A2_Structure_Lists. Luego, ejecuta
+este script de Python.</p>
+<p>Es importante tener en la carpeta A2_Outputs_Params/Default, los
+archivos predeterminados por parámetro utilizados por el script de
+Python A2_Compiler. Este script genera algunos archivos en las
+carpetas A1_Outputs y A2_Outputs_Params. En la segunda carpeta, se
+genera la misma cantidad de subcarpetas que escenarios tiene el modelo,
+y dentro de estas subcarpetas se encuentran los archivos de Excel con
+datos por parámetro.</p>
+<p><strong>9.3. Crear el archivo de entrada (B1)</strong></p>
+<p>El siguiente paso es más largo y requiere cuidado. Es importante seguir
+el flujo de trabajo en la figura al inicio de la sección. Primero, ve a
+la carpeta B1_Output_Params y elimina cualquier subcarpeta que
+encuentres allí. Luego, ve a la carpeta A2_Outputs_Params, copia las
+carpetas con el nombre de los escenarios, y pégalas en B1_Output_Params.
+También es necesario copiar manualmente los datos del
+archivo A2_Structure_Lists.xlsx al archivo B1_Model_Structure.</p>
+<p>A continuación, debes parametrizar el modelo en los
+archivos B1_Scenario_Config.xlsx.</p>
+<p>Para escribir el modelo, usa el
+script B1_Base_Scenarios_Adj_Parallel.py.</p>
+<p>Los resultados de esta ejecución se encuentran en la
+carpeta B1_Output_Params. Los archivos en esta carpeta sobrescriben los
+de las salidas del paso A2. Además, el archivo del modelo se encuentra
+en la carpeta Executables, dentro de una subcarpeta para cada escenario.
+Este archivo es un archivo de texto, por ejemplo:</p>
+<ul class="simple">
+<li><p>BAU_0.txt</p></li>
+</ul>
+<p><strong>9.4. Ejecución del modelo (B1)</strong></p>
+<p>Para ejecutar el modelo, usa el
+script B1_Base_Scenarios_Adj_Parallel.py.</p>
+<p>Los resultados de esta ejecución se encuentran en la
+carpeta Executables, dentro de una subcarpeta para cada escenario, y
+generan tres archivos.</p>
+<p><strong>9.5. Concatenación de resultados (B2)</strong></p>
+<p>Este paso facilita el análisis de los resultados. Al ejecutar el script
+de Python B2_Results_Creator_f0.py, este toma los archivos CSV con datos
+de entrada y salida del modelo de cada escenario, los concatena y crea
+cuatro archivos:</p>
+<ul class="simple">
+<li><p>Nombre_de_Escenario_Input.csv</p></li>
+<li><p>Nombre_de_Escenario_Input_2024_10_22.csv</p></li>
+<li><p>Nombre_de_Escenario_Output.csv</p></li>
+<li><p>Nombre_de_Escenario_Output_2024_10_22.csv</p></li>
+</ul>
+<p>Los archivos con fecha permiten rastrear ejecuciones realizadas en
+diferentes fechas, ya que los archivos sin fecha se sobrescriben con
+cada ejecución.</p>
+<p><strong>10. Navegación en GitHub</strong></p>
+<p>GitHub es una plataforma de control de versiones donde los proyectos se
+organizan en repositorios. A continuación, te mostramos cómo explorar un
+repositorio de manera eficiente.</p>
+<p><strong>Estructura de un Repositorio</strong></p>
+<p>Un repositorio de GitHub generalmente tiene la siguiente estructura:</p>
+<ul class="simple">
+<li><p><strong>README.md</strong>: Archivo de bienvenida con una descripción del proyecto.</p></li>
+<li><p><strong>docs/</strong>: Carpeta con la documentación del proyecto (incluir
+archivos <em>.rst</em>).</p></li>
+<li><p><strong>Agriculture/</strong>: Código fuente del modelo de <em>Agricultura</em>.</p></li>
+<li><p><strong>Energy/</strong>: Código fuente del modelo de <em>Energía</em>.</p></li>
+<li><p><strong>IPPU/</strong>: Código fuente del modelo de Procesos Industriales y Uso de
+Productos <em>IPPU</em>.</p></li>
+<li><p><strong>UTCUTS/</strong>: Código fuente del modelo de Uso del Suelo y Cambio de Uso
+del Suelo <em>USCUS</em>.</p></li>
+<li><p><strong>Waste/</strong>: Código fuente del modelo de <em>Residuos</em>.</p></li>
+<li><p><strong>Data/</strong>: Carperta con archivos de datos de entrada de los diferentes
+modelos sectoriales.</p></li>
+<li><p><strong>requirements.txt</strong>: Dependencias del proyecto (para poder ejecutar
+la simulación, son librerías de Python).</p></li>
+<li><p><strong>.github/</strong>: Configuraciones para CI/CD, plantillas de issues y PRs
+(únicamente disponible en la PC cuando se clona el repositorio).</p></li>
+</ul>
+<p><strong>Cómo Explorar Archivos en GitHub</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Usar la Barra de Búsqueda</strong> - En la página del repositorio, usa la
+barra de búsqueda para encontrar archivos o directorios específicos.</p></li>
+<li><p><strong>Ver el Historial de Cambios</strong> - Cada archivo tiene un historial de
+cambios accesible desde la pestaña «History» o en la opción <em>#
+Commits</em>, bajo el botón verde &lt;&gt; Code.</p></li>
+<li><p><strong>Descargar el Código</strong> - Puedes descargar el repositorio en
+formato <em>.zip</em> presionando clic izquierdo el botón verde &lt;&gt; Code y
+después clic izquierdo en la opción Download ZIP. También se puede
+clonar con el siguiente comando por medio de <em>Git Bash</em>: git
+clone <a class="reference external" href="https://github.com/PLANACCION-PLANMICC/ECU_OSeMOSYS">https://github.com/PLANACCION-PLANMICC/ECU_OSeMOSYS</a></p></li>
+</ol>
+<p><strong>License</strong></p>
+<p>Copyright 2025 Climate Lead Group</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+“Software”), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<p><a href="#id1"><span class="problematic" id="id2">:mark:`This work is based on software and documentation originally
+developed by Climate Lead Group for the Government of Ecuador and
+licensed under the MIT License. Modifications, updates, data
+harmonization, and methodological integration between the PLANMICC and
+the Second Nationally Determined Contribution (NDC) scenarios were
+carried out by the Pontificia Universidad Católica del Ecuador (PUCE).`</span></a></p>
+<p><strong>12. Contributors</strong></p>
+<p><strong>:mark:`Anadir links de githu`b de cada colaborador.</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="0_energy/media/image9.png"><img alt="GitHub" src="0_energy/media/image9.png" style="width: 0.1771in; height: 0.1771in;" /></a>XXXX</p></li>
+<li><p><a class="reference internal" href="0_energy/media/image9.png"><img alt="GitHub" src="0_energy/media/image9.png" style="width: 0.1771in; height: 0.1771in;" /></a>XXXX</p></li>
+<li><p><a class="reference internal" href="0_energy/media/image9.png"><img alt="GitHub" src="0_energy/media/image9.png" style="width: 0.1771in; height: 0.1771in;" /></a>XXXX</p></li>
+<li><p><a class="reference internal" href="0_energy/media/image9.png"><img alt="GitHub" src="0_energy/media/image9.png" style="width: 0.1771in; height: 0.1771in;" /></a><a class="reference external" href="https://github.com/danielhidalgo5916">Daniel Hidalgo
+Cháfuel</a></p></li>
+</ul>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CETCIS - PUCE.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

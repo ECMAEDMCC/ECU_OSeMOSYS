@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.2. Datos de entrada &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="5.3. Escenarios" href="2_scenarios.html" />
+    <link rel="prev" title="5.1. Estructura del modelo" href="0_structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_energy/index.html">4. Modelo del Sector Energía</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Modelo del Sector Procesos Industriales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_structure.html">5.1. Estructura del modelo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. Datos de Entrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_scenarios.html">5.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">5.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">5.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_agro_uscuss/index.html">7. Modelo del Sector Agricultura y USCUSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">8. ¿Cómo usar el modelo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">10. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">5. </span>Modelo del Sector Procesos Industriales</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.2. </span>Datos de entrada</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/1_ippu/1_inputs.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="datos-de-entrada">
+<h1><span class="section-number">5.2. </span>Datos de entrada<a class="headerlink" href="#datos-de-entrada" title="Link to this heading"></a></h1>
+<p>En la <a class="reference internal" href="#ippu-inputs"><span class="std std-numref">Tabla 5.4</span></a> se presentan las fuentes de información utilizadas para la
+satisfacción de datos de los parámetros del modelo del sector Procesos
+Industriales.</p>
+<span id="ippu-inputs"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 5.4 </span><span class="caption-text">Fuentes de información para parametrizar el sector Procesos Industriales.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dato/Supuesto</p></th>
+<th class="head"><p>Detalle</p></th>
+<th class="head"><p>Fuente</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Producción
+nacional de
+cemento con
+clinker
+producido
+nacionalmente
+[Mt/año]</p></td>
+<td><p>Producción reportada en registros
+oficiales como INGEI, Reportes del
+sector cementero</p></td>
+<td><p>(MAE,
+Segunda NDC
+del Ecuador)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Factor de
+clinker en
+cemento [%]</p></td>
+<td><p>Factor de clinker promedio ponderado
+por planta de producción de cemento</p></td>
+<td><p>(MAE,
+Segunda NDC
+del Ecuador)</p></td>
+</tr>
+<tr class="row-even"><td><p>Factores de
+emisión sector
+cemento</p></td>
+<td><p>Valores propios para Ecuador. Datos
+presentes el INGEI de la 5ta
+Comunicación Nacional.</p></td>
+<td><p>INGEI de la
+5ta
+(1994-2022)
+(5CN/1RBT,
+2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Emisiones por
+sectores
+industriales
+(cal, vidrio,
+cerámica, soda
+ash, acero,
+plomo,
+lubricantes,
+ceras de
+parafina)</p></td>
+<td><p>Valores propios para Ecuador. Datos
+presentes el INGEI de la 5ta
+Comunicación Nacional.</p></td>
+<td><p>INGEI de la
+5ta
+(1994-2022)
+(5CN/1RBT,
+2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>Emisiones por
+HFC (uso de
+refrigerantes
+y espumas) y</p></td>
+<td><p>Valores propios para Ecuador. Datos
+presentes el INGEI de la 5ta
+Comunicación Nacional.</p></td>
+<td><p>INGEI de la
+5ta
+(1994-2022)
+(5CN/1RBT,
+2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Producción de
+cemento futura</p></td>
+<td><p>Se toman los datos históricos y se
+proyecta un crecimiento del 2023 al
+2035 siguiendo el escenario tendencial
+del sector PIUP.</p></td>
+<td><p>(MAATE,
+2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>Factor de
+Clinker futuro</p></td>
+<td><p>Se toma el último valor histórico
+conocido de este indicador y se
+mantiene constante.</p></td>
+<td><p>(MAATE,
+n.d.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trayectoria de
+emisiones de
+Refrigeración</p></td>
+<td><p>Estimado haciendo uso del escenario
+tendencial presente en la Hoja de Ruta
+de la Enmienda de Kigali.</p></td>
+<td><p>Segunda NDC
+del Ecuador,</p>
+<p>NGEI 2024
+(5CN/1RBT,
+2024), y
+Hoja Ruta
+para reducir
+los HFC en
+el Ecuador,
+(MPCEI,2023)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Para acceder a la versión completa de los datos de entrada del sector,
+descargue el archivo de datos del sector Procesos Industriales aquí: <a class="reference download internal" download="" href="../_downloads/891d9086d830a4f36d4413c9b4bfe73a/Modelo%20Procesos%20Industriales%20Plan%20de%20Acci%C3%B3n.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">Modelo</span> <span class="pre">Procesos</span> <span class="pre">Industriales</span> <span class="pre">Plan</span> <span class="pre">de</span> <span class="pre">Acción</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="0_structure.html" class="btn btn-neutral float-left" title="5.1. Estructura del modelo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="2_scenarios.html" class="btn btn-neutral float-right" title="5.3. Escenarios" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador..</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
