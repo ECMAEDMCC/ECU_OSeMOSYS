@@ -266,6 +266,7 @@ def data_processor(case, unpackaged_useful_elements):
                 #--%
                 if useful_data_cell != '0':
                     #
+                    
                     if the_variable not in vars_as_appear:
                         vars_as_appear.append(the_variable)
                         all_vars_output_dict[case].update({ the_variable:{} })

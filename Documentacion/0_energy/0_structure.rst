@@ -2,1152 +2,1281 @@
 Estructura del modelo
 ===================================
 
-El sector energético analiza el consumo de energía, considerando la oferta primaria de combustibles, su producción, importación y exportación. Las categorías utilizadas se basan en el INGEI de la 5ta Comunicación Nacional (5CN) del Ecuador (MAATE, n.d.).
+El sector Energía del Escenario Tendencial Nacional, se modeló
+recurriendo a la herramienta OSeMOSYS (sistema de modelado de código
+abierto para la evaluación integrada a largo plazo y la planificación
+energética).
 
-.. _table_categories_energy:
-.. table:: Categorías del INGEI consideradas en el modelo de Energía
+En particular:
 
-   +-----------+----------------+--------------------------------------+
-   | Categoría | Nombre         | Descripción                          |
-   | INGEI     |                |                                      |
-   +===========+================+======================================+
-   | 1A1       | Industrias de  | Abarca tecnologías de generación     |
-   |           | energía como   | eléctrica reportadas en informes de  |
-   |           | actividad      | ARCONEL (2022)                       |
-   |           | principal      |                                      |
-   +-----------+----------------+--------------------------------------+
-   | 1A2       | Industrias     | Engloba el consumo por tipo de       |
-   |           | manufactureras | combustible según el Balance de      |
-   |           | y de la        | Energía Nacional (MEM, 2023).        |
-   |           | construcción   |                                      |
-   +-----------+----------------+--------------------------------------+
-   | 1A3       | Transporte     | Incluye el consumo energético del    |
-   |           |                | sector transporte en todas sus       |
-   |           |                | formas.                              |
-   +-----------+----------------+--------------------------------------+
-   | 1A4       | Otros sectores | Registra el consumo por tipo de      |
-   |           |                | combustible en el sector             |
-   |           |                | residencial, comercial y público.    |
-   +-----------+----------------+--------------------------------------+
-   | 1A5       | No             | Incluye otras categorías energéticas |
-   |           | especificado   | no detalladas en el Balance de       |
-   |           |                | Energía Nacional.                    |
-   +-----------+----------------+--------------------------------------+
-   | 1B        | Emisiones      | Se asocian a la producción de        |
-   |           | fugitivas      | petróleo y gas natural.              |
-   +-----------+----------------+--------------------------------------+
+- Del modelo OSeMOSYS que da soporte al PLANMICC se toman las
+  estructuras y parametrizaciones base de tecnologías con la misma
+  desagregación especificada, para el caso de Transporte se toman los
+  mismos valores en oferta y demanda energética desde el 2018 hasta el
+  2035. Por falta de información, se considera también constante la
+  demanda en el sector Transporte desde el 2010 hasta el 2017. Además,
+  se consideran los costos fijos y variables por tipo de tecnología y
+  factores de emisión históricos.
 
+- Del modelo OSeMOSYS utilizado para estructurar la segunda NDC se toman
+  datos de generación de electricidad por tipo de tecnología máxima y
+  mínima, demandas energéticas por sectores, factores de capacidad por
+  tipo de tecnología y capacidades residuales y máximas.
+
+**Representación Gráfica del Modelo**
+
+El modelo del sector Energía fue estructurado a partir de la base
+desarrollada en modelo OSeMOSYS que da soporte al PLANMICC (Proyecto CZZ
+2739). No se aumentaron tecnologías ni se adicionaron variables,
+únicamente se actualizó información.
+
+En la :numref:`model_structure_energy` se presenta la estructura final del modelo de Energía
+utilizando la tipología RES (del inglés reference energy system) que
+constituye el insumo de referencia para el sector.
 
 .. figure:: ../_static/images/energy/model_structure.png
    :name: model_structure_energy
    :align: center
-   :alt: Estructura del modelo de Energía
+   :alt: Estructura Base del modelo de Energía
 
-   Estructura del modelo de Energía
+   Estructura Base del modelo de Energía
 
-**Vectores energéticos**
 
-.. _table_vector_energy:
-.. table:: Vectores energético incluidos en el modelo de Energía
-
-   +-------------------------+----------------+
-   | Vector energético       | Código         |
-   +=========================+================+
-   | Transport Demand - Non  | DEMTRN_NOMOT   |
-   | motorized reductions    |                |
-   +-------------------------+----------------+
-   | Transport Demand -      | DEMTRNFREHEA   |
-   | Heavy Freight           |                |
-   +-------------------------+----------------+
-   | Transport Demand -      | DEMTRNFRELIG   |
-   | Light Freight           |                |
-   +-------------------------+----------------+
-   | Transport Demand -      | DEMTRNFREMED   |
-   | Medium Freight          |                |
-   +-------------------------+----------------+
-   | Transport Demand -      | DEMTRNPASPRI   |
-   | Passsenger Private      |                |
-   +-------------------------+----------------+
-   | Transport Demand -      | DEMTRNPASPUB   |
-   | Passenger Public        |                |
-   +-------------------------+----------------+
-   | Aceite_Pinon            | E0_ACP         |
-   +-------------------------+----------------+
-   | Produced Biogas         | E0_BGS         |
-   +-------------------------+----------------+
-   | Produced Biomass        | E0_BMS         |
-   +-------------------------+----------------+
-   | Coal                    | E0_COA         |
-   +-------------------------+----------------+
-   | Crude_reserves          | E0_CRU         |
-   +-------------------------+----------------+
-   | Produced Firewood       | E0_FIR         |
-   +-------------------------+----------------+
-   | Natural_Gas             | E0_NGS         |
-   +-------------------------+----------------+
-   | Produced Sugarcane      | E0_SUG         |
-   +-------------------------+----------------+
-   | Waste                   | E0_WAS         |
-   +-------------------------+----------------+
-   | Biodiesel               | E1_BIODSL      |
-   +-------------------------+----------------+
-   | Coke                    | E1_COK         |
-   +-------------------------+----------------+
-   | Crude_Oil_Transport     | E1_CRU         |
-   +-------------------------+----------------+
-   | Diesel                  | E1_DSL         |
-   +-------------------------+----------------+
-   | Electricity             | E1_ELE         |
-   +-------------------------+----------------+
-   | Etanol                  | E1_ETA         |
-   +-------------------------+----------------+
-   | Fuel_Oil                | E1_FOI         |
-   +-------------------------+----------------+
-   | Gases from Natural Gas  | E1_GAS         |
-   +-------------------------+----------------+
-   | Gasoline                | E1_GSL         |
-   +-------------------------+----------------+
-   | Heat_from_cogeneration  | E1_HEC         |
-   +-------------------------+----------------+
-   | Kerosene                | E1_KJF         |
-   +-------------------------+----------------+
-   | LPG from Natural Gas    | E1_LPG         |
-   +-------------------------+----------------+
-   | Produced Natural_Gas    | E1_NGS         |
-   +-------------------------+----------------+
-   | Non_energy              | E1_NOE         |
-   +-------------------------+----------------+
-   | Pure_Diesel             | E1_PURDSL      |
-   +-------------------------+----------------+
-   | Pure_Gasoline           | E1_PURGSL      |
-   +-------------------------+----------------+
-   | Reduced oil             | E1_REDCRU      |
-   +-------------------------+----------------+
-   | Crude_Oil_Transport     | E2_CRU         |
-   +-------------------------+----------------+
-   | Secondary - Electricity | E2_ELE         |
-   | from Transmission       |                |
-   +-------------------------+----------------+
-   | Secondary - Produced    | E2_HYD         |
-   | Green Hydrogen          |                |
-   +-------------------------+----------------+
-   | Natural_Gas_distributed | E2_NGS         |
-   +-------------------------+----------------+
-   | Crude_Oil_Refineries    | E3_CRU         |
-   +-------------------------+----------------+
-   | Electricity             | E3_ELE         |
-   +-------------------------+----------------+
-   | Secondary - Transported | E3_HYD         |
-   | Hydrogen                |                |
-   +-------------------------+----------------+
-   | Distributed Diesel for  | E4_DSLHEA      |
-   | Heavy Freight           |                |
-   +-------------------------+----------------+
-   | Distributed Diesel for  | E4_DSLLIG      |
-   | Light Freight           |                |
-   +-------------------------+----------------+
-   | Distributed Diesel for  | E4_DSLMED      |
-   | Medium Freight          |                |
-   +-------------------------+----------------+
-   | Distributed Diesel for  | E4_DSLPRI      |
-   | Private                 |                |
-   +-------------------------+----------------+
-   | Distributed Diesel for  | E4_DSLPUB      |
-   | Public                  |                |
-   +-------------------------+----------------+
-   | Electricity             | E4_ELE         |
-   +-------------------------+----------------+
-   | Distributed Electricity | E4_ELEHEA      |
-   | for Heavy Freight       |                |
-   +-------------------------+----------------+
-   | Distributed Electricity | E4_ELELIG      |
-   | for Light Freight       |                |
-   +-------------------------+----------------+
-   | Distributed Electricity | E4_ELEMED      |
-   | for Medium Freight      |                |
-   +-------------------------+----------------+
-   | Distributed Electricity | E4_ELEPRI      |
-   | for Private             |                |
-   +-------------------------+----------------+
-   | Distributed Electricity | E4_ELEPUB      |
-   | for Public              |                |
-   +-------------------------+----------------+
-   | Distributed Gasoline    | E4_GSLHEA      |
-   | for Heavy Freight       |                |
-   +-------------------------+----------------+
-   | Distributed Gasoline    | E4_GSLLIG      |
-   | for Light Freight       |                |
-   +-------------------------+----------------+
-   | Distributed Gasoline    | E4_GSLMED      |
-   | for Medium Freight      |                |
-   +-------------------------+----------------+
-   | Distributed Gasoline    | E4_GSLPRI      |
-   | for Private             |                |
-   +-------------------------+----------------+
-   | Distributed Gasoline    | E4_GSLPUB      |
-   | for Public              |                |
-   +-------------------------+----------------+
-   | Distributed Hydrogen    | E4_HYDHEA      |
-   | for Heavy Freight       |                |
-   +-------------------------+----------------+
-   | Distributed Hydrogen    | E4_HYDMED      |
-   | for Medium Freight      |                |
-   +-------------------------+----------------+
-   | Distributed Hydrogen    | E4_HYDPUB      |
-   | for Public              |                |
-   +-------------------------+----------------+
-   | Distributed LPG for     | E4_LPGHEA      |
-   | Heavy Freight           |                |
-   +-------------------------+----------------+
-   | Distributed LPG for     | E4_LPGLIG      |
-   | Light Freight           |                |
-   +-------------------------+----------------+
-   | Distributed LPG for     | E4_LPGMED      |
-   | Medium Freight          |                |
-   +-------------------------+----------------+
-   | Distributed LPG for     | E4_LPGPRI      |
-   | Private                 |                |
-   +-------------------------+----------------+
-   | Distributed LPG for     | E4_LPGPUB      |
-   | Public                  |                |
-   +-------------------------+----------------+
-   | Distributed Natural Gas | E4_NGSLIG      |
-   | for Light Freight       |                |
-   +-------------------------+----------------+
-   | Distributed Natural Gas | E4_NGSMED      |
-   | for Medium Freight      |                |
-   +-------------------------+----------------+
-   | Distributed Natural Gas | E4_NGSPRI      |
-   | for Private             |                |
-   +-------------------------+----------------+
-   | Distributed Natural Gas | E4_NGSPUB      |
-   | for Public              |                |
-   +-------------------------+----------------+
-   | Demand Biomass for      | T5BMSEXP       |
-   | power for Exports       |                |
-   +-------------------------+----------------+
-   | Demand for bunkers      | T5BUN          |
-   +-------------------------+----------------+
-   | Demand Petroleum Coke   | T5COKIND       |
-   | for Industrial          |                |
-   +-------------------------+----------------+
-   | Demand Crude for SOTE   | T5CRUCRUTRN    |
-   +-------------------------+----------------+
-   | Demand Crude Oil for    | T5CRUEXP       |
-   | Exports                 |                |
-   +-------------------------+----------------+
-   | Demand Electricity for  | T5ELEAGR       |
-   | Agriculture             |                |
-   +-------------------------+----------------+
-   | Demand Electricity for  | T5ELECOM       |
-   | Commercial              |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5ELECON       |
-   | for Construction        |                |
-   +-------------------------+----------------+
-   | Demand Electricity for  | T5ELECRUTRN    |
-   | SOTE                    |                |
-   +-------------------------+----------------+
-   | Demand Electricity for  | T5ELEEXP       |
-   | Exports                 |                |
-   +-------------------------+----------------+
-   | Demand Electricity for  | T5ELEIND       |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Electricity for  | T5ELERES       |
-   | Residential             |                |
-   +-------------------------+----------------+
-   | Demand Firewood for     | T5FIRIND       |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Firewood for     | T5FIRRES       |
-   | Residential             |                |
-   +-------------------------+----------------+
-   | Demand Fuel Oil for     | T5FOICOM       |
-   | Commercial              |                |
-   +-------------------------+----------------+
-   | Demand Fuel Oil for     | T5FOIEXP       |
-   | Exports                 |                |
-   +-------------------------+----------------+
-   | Demand Fuel Oil for     | T5FOIIND       |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Fuel Oil for     | T5FOIREF       |
-   | Refineries              |                |
-   +-------------------------+----------------+
-   | Demand Fuel Oil for     | T5FOISHITRN    |
-   | Shipping                |                |
-   +-------------------------+----------------+
-   | Demand Gasoline for     | T5GSLCRUTRN    |
-   | SOTE                    |                |
-   +-------------------------+----------------+
-   | Demand Heat from        | T5HECIND       |
-   | cogeneration for        |                |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Hydrogen for     | T5HYDIND       |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Kerosene and Jet | T5KJFAERTRN    |
-   | Fuel for Air Transport  |                |
-   +-------------------------+----------------+
-   | Demand Kerosene and Jet | T5KJFCON       |
-   | Fuel for Construction   |                |
-   +-------------------------+----------------+
-   | Demand Kerosene and Jet | T5KJFREF       |
-   | Fuel for Refineries     |                |
-   +-------------------------+----------------+
-   | Demand LPG for          | T5LPGAGR       |
-   | Agriculture             |                |
-   +-------------------------+----------------+
-   | Demand LPG for          | T5LPGCOM       |
-   | Commercial              |                |
-   +-------------------------+----------------+
-   | Demand LPG for          | T5LPGCON       |
-   | Construction            |                |
-   +-------------------------+----------------+
-   | Demand LPG for SOTE     | T5LPGCRUTRN    |
-   +-------------------------+----------------+
-   | Demand LPG for Exports  | T5LPGEXP       |
-   +-------------------------+----------------+
-   | Demand LPG for          | T5LPGIND       |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand GLP for          | T5LPGREF       |
-   | Refineries              |                |
-   +-------------------------+----------------+
-   | Demand LPG for          | T5LPGRES       |
-   | Residential             |                |
-   +-------------------------+----------------+
-   | Demand Natural Gas for  | T5NGSIND       |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Natural Gas for  | T5NGSRES       |
-   | Residential             |                |
-   +-------------------------+----------------+
-   | Demand Non energy for   | T5NOEAGR       |
-   | Agriculture             |                |
-   +-------------------------+----------------+
-   | Demand Non energy for   | T5NOECON       |
-   | Construction            |                |
-   +-------------------------+----------------+
-   | Demand Propane and Gas  | T5PROGAS       |
-   | for multiple            |                |
-   +-------------------------+----------------+
-   | Demand Pure_Diesel for  | T5PURDSLCOM    |
-   | Commercial              |                |
-   +-------------------------+----------------+
-   | Demand Pure_Diesel for  | T5PURDSLCON    |
-   | Construction            |                |
-   +-------------------------+----------------+
-   | Demand Pure_Diesel for  | T5PURDSLEXP    |
-   | Exports                 |                |
-   +-------------------------+----------------+
-   | Demand Pure_Diesel for  | T5PURDSLIND    |
-   | Industrial              |                |
-   +-------------------------+----------------+
-   | Demand Diesel for       | T5PURDSLREF    |
-   | Refineries              |                |
-   +-------------------------+----------------+
-   | Demand Pure_Diesel for  | T5PURDSLSHITRN |
-   | Shipping                |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLAERTRN |
-   | for Air Transport       |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLAGR    |
-   | for Agriculture         |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLCOM    |
-   | for Commercial          |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLCON    |
-   | for Construction        |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLEXP    |
-   | for Exports             |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLIND    |
-   | for Industrial          |                |
-   +-------------------------+----------------+
-   | Demand Gasoline for     | T5PURGSLREF    |
-   | Refineries              |                |
-   +-------------------------+----------------+
-   | Demand Pure_Gasoline    | T5PURGSLSHITRN |
-   | for Shipping            |                |
-   +-------------------------+----------------+
-   | Demand Reduced Crude    | T5REDCRUEXP    |
-   | for Exports             |                |
-   +-------------------------+----------------+
-   | Demand Sugarcane and    | T5SUGIND       |
-   | subproducts for         |                |
-   | Industrial              |                |
-   +-------------------------+----------------+
-
-**Emisiones**
-
-.. _table_emission_types_energy:
-.. table:: Clasificación de emisiones estimadas en el modelo de Energía
-
-   +-------------------+-------------------------------------------------------+
-   |   Código          | Descripción                                           |
-   +===================+=======================================================+
-   | CO2               | Dióxido de carbono equivalente del combustible        |
-   +-------------------+-------------------------------------------------------+
-   | CO2_scc           | Dióxido de carbono equivalente específico del         |
-   |                   | combustible                                           |
-   +-------------------+-------------------------------------------------------+
-   | CO2_fugitivas     | Dióxido de carbono equivalente no intencionales de    |
-   |                   | gases que se escapan durante la producción,           |
-   |                   | procesamiento, transporte, almacenamiento o           |
-   |                   | distribución de combustibles, sin que exista          |
-   |                   | combustión.                                           |
-   +-------------------+-------------------------------------------------------+
-   | CO2_fugitivas_scc | Dióxido de carbono equivalente específico no          |
-   |                   | intencionales de gases que se escapan durante la      |
-   |                   | producción, procesamiento, transporte, almacenamiento |
-   |                   | o distribución de combustibles, sin que exista        |
-   |                   | combustión.                                           |
-   +-------------------+-------------------------------------------------------+
+.. note:: Puede acceder a la Estructura base del modelo completo a través del siguiente enlace:
+         :download:`RES Energía <../_static/docs/RES Energía.vsdx>`
 
 **Tecnologías**
 
 .. _table_techs_energy:
-.. table:: Tecnologías incluidas en el modelo de Energía
+.. table:: Tecnologías incluidas en el modelo del sector energía del Escenario Tendencial Nacional
 
-   +------------------------+-----------------+
-   | Descripción            | Código          |
-   +========================+=================+
-   | Blend diesel           | BLEND_DSL       |
-   +------------------------+-----------------+
-   | Blend gasoline         | BLEND_GSL       |
-   +------------------------+-----------------+
-   | Centros de Gas         | CENGASGSL       |
-   | Gasoline               |                 |
-   +------------------------+-----------------+
-   | Centros de Gas LPG     | CENGASLPG       |
-   +------------------------+-----------------+
-   | Centros de Gas Propano | CENGASPRO       |
-   +------------------------+-----------------+
-   | Secondary - Power      | ELE_DISTR       |
-   | Distribution           |                 |
-   +------------------------+-----------------+
-   | Secondary - Power      | ELE_TRANS       |
-   | Transmission           |                 |
-   +------------------------+-----------------+
-   | Secondary -            | HYD_DISTR       |
-   | Distribution of        |                 |
-   | Hydrogen               |                 |
-   +------------------------+-----------------+
-   | Secondary - Green      | HYDPROBIO       |
-   | Hydrogen Production -  |                 |
-   | Biomass                |                 |
-   +------------------------+-----------------+
-   | Secondary - Green      | HYDPROELEGRI    |
-   | Hydrogen Production -  |                 |
-   | Electrolysis-Grid      |                 |
-   +------------------------+-----------------+
-   | Secondary - Green      | HYDPROELEISO    |
-   | Hydrogen Production -  |                 |
-   | Electrolysis-Isolated  |                 |
-   | Systems                |                 |
-   +------------------------+-----------------+
-   | Secondary - Green      | HYDPRONGS       |
-   | Hydrogen Production -  |                 |
-   | Natural_Gas Reforming  |                 |
-   +------------------------+-----------------+
-   | Import/Distribution -  | IMPCOA          |
-   | Coal                   |                 |
-   +------------------------+-----------------+
-   | Import - Petroleum     | IMPCOK          |
-   | Coke                   |                 |
-   +------------------------+-----------------+
-   | Import - Crude         | IMPCRU          |
-   +------------------------+-----------------+
-   | Import - Electricity   | IMPELE          |
-   +------------------------+-----------------+
-   | Import/Distribution -  | IMPFOI          |
-   | Fuel_Oil               |                 |
-   +------------------------+-----------------+
-   | Import/Distribution -  | IMPKJF          |
-   | Kerosene and Jet Fuel  |                 |
-   +------------------------+-----------------+
-   | Import/Distribution -  | IMPLPG          |
-   | LPG                    |                 |
-   +------------------------+-----------------+
-   | Imports - Natural_Gas  | IMPNGS          |
-   | (LNG and               |                 |
-   | Regasification)        |                 |
-   +------------------------+-----------------+
-   | Import/Distribution -  | IMPPURDSL       |
-   | Pure Diesel            |                 |
-   +------------------------+-----------------+
-   | Import/Distribution -  | IMPPURGSL       |
-   | Pure Gasoline          |                 |
-   +------------------------+-----------------+
-   | Distribution of        | NGS_DISTR       |
-   | Natural_Gas            |                 |
-   +------------------------+-----------------+
-   | Power Plant Biogas -   | PP_BGSICE       |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Power Plant Biomass -  | PP_BMSTST       |
-   | Steam Trubine          |                 |
-   +------------------------+-----------------+
-   | Power Plant            | PP_CHP          |
-   | Sugarcane_Cogeneration |                 |
-   +------------------------+-----------------+
-   | Power Plant Coal       | PP_COA          |
-   +------------------------+-----------------+
-   | Power Plant Crude      | PP_CRU          |
-   +------------------------+-----------------+
-   | Power Plant Diesel -   | PP_DSLICE       |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Power Plant Diesel -   | PP_DSLTGS       |
-   | Gas turbine            |                 |
-   +------------------------+-----------------+
-   | Power Plant Fuel_Oil - | PP_FOIICE       |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Power Plant Fuel_Oil - | PP_FOITST       |
-   | Steam Trubine          |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_GEO          |
-   | Transformation -       |                 |
-   | Geothermal             |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDAMADAMLAR |
-   | Transformation -       |                 |
-   | Hydroelectric Amazonas |                 |
-   | dam (large)            |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDAMADAMMED |
-   | Transformation -       |                 |
-   | Hydroelectric Amazonas |                 |
-   | dam (medium)           |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDAMADAMSMA |
-   | Transformation -       |                 |
-   | Hydroelectric Amazonas |                 |
-   | dam (small)            |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDAMARORLAR |
-   | Transformation -       |                 |
-   | Hydroelectric Amazonas |                 |
-   | Run-of-the-river       |                 |
-   | (large)                |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDAMARORMED |
-   | Transformation -       |                 |
-   | Hydroelectric Amazonas |                 |
-   | Run-of-the-river       |                 |
-   | (medium)               |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDAMARORSMA |
-   | Transformation -       |                 |
-   | Hydroelectric Amazonas |                 |
-   | Run-of-the-river       |                 |
-   | (small)                |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDPACDAMLAR |
-   | Transformation -       |                 |
-   | Hydroelectric Pacific  |                 |
-   | dam (large)            |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDPACDAMMED |
-   | Transformation -       |                 |
-   | Hydroelectric Pacific  |                 |
-   | dam (medium)           |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDPACDAMSMA |
-   | Transformation -       |                 |
-   | Hydroelectric Pacific  |                 |
-   | dam (small)            |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDPACRORLAR |
-   | Transformation -       |                 |
-   | Hydroelectric Pacific  |                 |
-   | Run-of-the-river       |                 |
-   | (large)                |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDPACRORMED |
-   | Transformation -       |                 |
-   | Hydroelectric Pacific  |                 |
-   | Run-of-the-river       |                 |
-   | (medium)               |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_HYDPACRORSMA |
-   | Transformation -       |                 |
-   | Hydroelectric Pacific  |                 |
-   | Run-of-the-river       |                 |
-   | (small)                |                 |
-   +------------------------+-----------------+
-   | Power Plant            | PP_NGSTGS       |
-   | Natural_Gas - Gas      |                 |
-   | turbine                |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_SPV_DG       |
-   | Transformation - Solar |                 |
-   | distributed            |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_SPV_US       |
-   | Transformation -       |                 |
-   | Photovoltaic           |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_SPV_US_H2    |
-   | Transformation -       |                 |
-   | Photovoltaic for H2    |                 |
-   +------------------------+-----------------+
-   | Power Plant Sugarcane  | PP_SUG          |
-   +------------------------+-----------------+
-   | Power Plant Waste -    | PP_WASICE       |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_WND_OF       |
-   | Transformation -       |                 |
-   | Offshore wind          |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_WND_OF_H2    |
-   | Transformation -       |                 |
-   | Offshore wind for H2   |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_WND_US       |
-   | Transformation - Wind  |                 |
-   +------------------------+-----------------+
-   | Primary -              | PP_WND_US_H2    |
-   | Transformation - Wind  |                 |
-   | for H2                 |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPICRUPETICE    |
-   | - Power Plant Crude -  |                 |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPICRUPETTST    |
-   | - Power Plant Crude -  |                 |
-   | Steam Turbine          |                 |
-   +------------------------+-----------------+
-   | Isolated - Cementeras  | PPIDSLCEMTST    |
-   | - Power Plant Diesel - |                 |
-   | Steam Trubine          |                 |
-   +------------------------+-----------------+
-   | Isolated - Rural       | PPIDSLELRICE    |
-   | Electrification -      |                 |
-   | Power Plant Diesel -   |                 |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Isolated - Rural       | PPIDSLELRTST    |
-   | Electrification -      |                 |
-   | Power Plant Diesel -   |                 |
-   | Steam Trubine          |                 |
-   +------------------------+-----------------+
-   | Isolated - Galapagos - | PPIDSLGALICE    |
-   | Power Plant Diesel -   |                 |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPIDSLPETICE    |
-   | - Power Plant Diesel - |                 |
-   | Internal Combustion    |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPIDSLPETTGS    |
-   | - Power Plant Diesel - |                 |
-   | Gas turbine            |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPIFOIPETICE    |
-   | - Power Plant Fuel_Oil |                 |
-   | - Internal Combustion  |                 |
-   | Engine                 |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPIHYDAMACEM    |
-   | Transformation -       |                 |
-   | Cementeras -           |                 |
-   | Hydroelectric Amazonas |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPIHYDAMAELR    |
-   | Transformation - Rural |                 |
-   | Electrification -      |                 |
-   | Hydroelectric Amazonas |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPIHYDPACCEM    |
-   | Transformation -       |                 |
-   | Cementeras -           |                 |
-   | Hydroelectric Pacific  |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPIHYDPACELR    |
-   | Transformation - Rural |                 |
-   | Electrification -      |                 |
-   | Hydroelectric Pacific  |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPINGSPETICE    |
-   | - Power Plant          |                 |
-   | Natural_Gas - Internal |                 |
-   | Combustion Engine      |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPINGSPETTGS    |
-   | - Power Plant          |                 |
-   | Natural_Gas - Gas      |                 |
-   | turbine                |                 |
-   +------------------------+-----------------+
-   | Isolated - Petroleras  | PPINGSPETTST    |
-   | - Power Plant          |                 |
-   | Natural_Gas - Steam    |                 |
-   | Turbine                |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPISPVELR       |
-   | Transformation - Rural |                 |
-   | Electrification -      |                 |
-   | Solar PV               |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPISPVGAL       |
-   | Transformation -       |                 |
-   | Galapagos - Solar PV   |                 |
-   +------------------------+-----------------+
-   | Primary -              | PPIWNDGAL       |
-   | Transformation -       |                 |
-   | Galapagos - Wind       |                 |
-   +------------------------+-----------------+
-   | Aceite de Piñón        | PROACG          |
-   +------------------------+-----------------+
-   | Production - Biogas    | PROBGS          |
-   +------------------------+-----------------+
-   | Produce biodiesel      | PROBIODSL       |
-   +------------------------+-----------------+
-   | Production - Biomass   | PROBMS          |
-   +------------------------+-----------------+
-   | Production - Crude     | PROCRU          |
-   +------------------------+-----------------+
-   | Produce etanol         | PROETA          |
-   +------------------------+-----------------+
-   | Production - Firewood  | PROFIR          |
-   +------------------------+-----------------+
-   | Production -           | PRONGS          |
-   | Natural_Gas            |                 |
-   +------------------------+-----------------+
-   | Production - Sugarcane | PROSUG          |
-   +------------------------+-----------------+
-   | Production - Waste     | PROWAS          |
-   +------------------------+-----------------+
-   | Refineries             | REFCRU          |
-   +------------------------+-----------------+
-   | Refinery coke          | REFCRUCOK       |
-   +------------------------+-----------------+
-   | Refinery diesel        | REFCRUDSL       |
-   +------------------------+-----------------+
-   | Refinery Fuel_Oil      | REFCRUFOI       |
-   +------------------------+-----------------+
-   | Refinery gasoline      | REFCRUGSL       |
-   +------------------------+-----------------+
-   | Refinery KJF           | REFCRUKJF       |
-   +------------------------+-----------------+
-   | Refinery LPG           | REFCRULPG       |
-   +------------------------+-----------------+
-   | Refinery reduced oil   | REFCRURED       |
-   +------------------------+-----------------+
-   | Refinery Non energy    | REFNONENE       |
-   +------------------------+-----------------+
-   | Reserves - Crude       | RSVCRU          |
-   +------------------------+-----------------+
-   | Reserves - Natural Gas | RSVNGS          |
-   +------------------------+-----------------+
-   | Distribute Diesel for  | T4_DSLHEA       |
-   | Heavy Freight          |                 |
-   +------------------------+-----------------+
-   | Distribute Diesel for  | T4_DSLLIG       |
-   | Light Freight          |                 |
-   +------------------------+-----------------+
-   | Distribute Diesel for  | T4_DSLMED       |
-   | Medium Freight         |                 |
-   +------------------------+-----------------+
-   | Distribute Diesel for  | T4_DSLPRI       |
-   | Private                |                 |
-   +------------------------+-----------------+
-   | Distribute Diesel for  | T4_DSLPUB       |
-   | Public                 |                 |
-   +------------------------+-----------------+
-   | Distribute Electricity | T4_ELEHEA       |
-   | for Heavy Freight      |                 |
-   +------------------------+-----------------+
-   | Distribute Electricity | T4_ELELIG       |
-   | for Light Freight      |                 |
-   +------------------------+-----------------+
-   | Distribute Electricity | T4_ELEMED       |
-   | for Medium Freight     |                 |
-   +------------------------+-----------------+
-   | Distribute Electricity | T4_ELEPRI       |
-   | for Private            |                 |
-   +------------------------+-----------------+
-   | Distribute Electricity | T4_ELEPUB       |
-   | for Public             |                 |
-   +------------------------+-----------------+
-   | Distribute Gasoline    | T4_GSLHEA       |
-   | for Heavy Freight      |                 |
-   +------------------------+-----------------+
-   | Distribute Gasoline    | T4_GSLLIG       |
-   | for Light Freight      |                 |
-   +------------------------+-----------------+
-   | Distribute Gasoline    | T4_GSLMED       |
-   | for Medium Freight     |                 |
-   +------------------------+-----------------+
-   | Distribute Gasoline    | T4_GSLPRI       |
-   | for Private            |                 |
-   +------------------------+-----------------+
-   | Distribute Gasoline    | T4_GSLPUB       |
-   | for Public             |                 |
-   +------------------------+-----------------+
-   | Distribute Hydrogen    | T4_HYDHEA       |
-   | for Heavy Freight      |                 |
-   +------------------------+-----------------+
-   | Distribute Hydrogen    | T4_HYDMED       |
-   | for Medium Freight     |                 |
-   +------------------------+-----------------+
-   | Distribute Hydrogen    | T4_HYDPUB       |
-   | for Public             |                 |
-   +------------------------+-----------------+
-   | Distribute LPG for     | T4_LPGHEA       |
-   | Heavy Freight          |                 |
-   +------------------------+-----------------+
-   | Distribute LPG for     | T4_LPGLIG       |
-   | Light Freight          |                 |
-   +------------------------+-----------------+
-   | Distribute LPG for     | T4_LPGMED       |
-   | Medium Freight         |                 |
-   +------------------------+-----------------+
-   | Distribute LPG for     | T4_LPGPRI       |
-   | Private                |                 |
-   +------------------------+-----------------+
-   | Distribute LPG for     | T4_LPGPUB       |
-   | Public                 |                 |
-   +------------------------+-----------------+
-   | Distribute Natural Gas | T4_NGSLIG       |
-   | for Light Freight      |                 |
-   +------------------------+-----------------+
-   | Distribute Natural Gas | T4_NGSMED       |
-   | for Medium Freight     |                 |
-   +------------------------+-----------------+
-   | Distribute Natural Gas | T4_NGSPRI       |
-   | for Private            |                 |
-   +------------------------+-----------------+
-   | Distribute Natural Gas | T4_NGSPUB       |
-   | for Public             |                 |
-   +------------------------+-----------------+
-   | Demand Biomass for     | T5BMSEXP        |
-   | power for Exports      |                 |
-   +------------------------+-----------------+
-   | Demand for bunkers     | T5BUN           |
-   +------------------------+-----------------+
-   | Demand Petroleum Coke  | T5COKIND        |
-   | for Industrial         |                 |
-   +------------------------+-----------------+
-   | Demand Crude for SOTE  | T5CRUCRUTRN     |
-   +------------------------+-----------------+
-   | Demand Crude Oil for   | T5CRUEXP        |
-   | Exports                |                 |
-   +------------------------+-----------------+
-   | Demand Electricity for | T5ELEAGR        |
-   | Agriculture            |                 |
-   +------------------------+-----------------+
-   | Demand Electricity for | T5ELECOM        |
-   | Commercial             |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5ELECON        |
-   | for Construction       |                 |
-   +------------------------+-----------------+
-   | Demand Electricity for | T5ELECRUTRN     |
-   | SOTE                   |                 |
-   +------------------------+-----------------+
-   | Demand Electricity for | T5ELEEXP        |
-   | Exports                |                 |
-   +------------------------+-----------------+
-   | Demand Electricity for | T5ELEIND        |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Electricity for | T5ELERES        |
-   | Residential            |                 |
-   +------------------------+-----------------+
-   | Demand Firewood for    | T5FIRIND        |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Firewood for    | T5FIRRES        |
-   | Residential            |                 |
-   +------------------------+-----------------+
-   | Demand Fuel Oil for    | T5FOICOM        |
-   | Commercial             |                 |
-   +------------------------+-----------------+
-   | Demand Fuel Oil for    | T5FOIEXP        |
-   | Exports                |                 |
-   +------------------------+-----------------+
-   | Demand Fuel Oil for    | T5FOIIND        |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Fuel Oil for    | T5FOIREF        |
-   | Refineries             |                 |
-   +------------------------+-----------------+
-   | Demand Fuel Oil for    | T5FOISHITRN     |
-   | Shipping               |                 |
-   +------------------------+-----------------+
-   | Demand Gasoline for    | T5GSLCRUTRN     |
-   | SOTE                   |                 |
-   +------------------------+-----------------+
-   | Demand Heat from       | T5HECIND        |
-   | cogeneration for       |                 |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Hydrogen for    | T5HYDIND        |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Kerosene and    | T5KJFAERTRN     |
-   | Jet Fuel for Air       |                 |
-   | Transport              |                 |
-   +------------------------+-----------------+
-   | Demand Kerosene and    | T5KJFCON        |
-   | Jet Fuel for           |                 |
-   | Construction           |                 |
-   +------------------------+-----------------+
-   | Demand Kerosene and    | T5KJFREF        |
-   | Jet Fuel for           |                 |
-   | Refineries             |                 |
-   +------------------------+-----------------+
-   | Demand LPG for         | T5LPGAGR        |
-   | Agriculture            |                 |
-   +------------------------+-----------------+
-   | Demand LPG for         | T5LPGCOM        |
-   | Commercial             |                 |
-   +------------------------+-----------------+
-   | Demand LPG for         | T5LPGCON        |
-   | Construction           |                 |
-   +------------------------+-----------------+
-   | Demand LPG for SOTE    | T5LPGCRUTRN     |
-   +------------------------+-----------------+
-   | Demand LPG for Exports | T5LPGEXP        |
-   +------------------------+-----------------+
-   | Demand LPG for         | T5LPGIND        |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand GLP for         | T5LPGREF        |
-   | Refineries             |                 |
-   +------------------------+-----------------+
-   | Demand LPG for         | T5LPGRES        |
-   | Residential            |                 |
-   +------------------------+-----------------+
-   | Demand Natural Gas for | T5NGSIND        |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Natural Gas for | T5NGSRES        |
-   | Residential            |                 |
-   +------------------------+-----------------+
-   | Demand Non energy for  | T5NOEAGR        |
-   | Agriculture            |                 |
-   +------------------------+-----------------+
-   | Demand Non energy for  | T5NOECON        |
-   | Construction           |                 |
-   +------------------------+-----------------+
-   | Demand Propane and Gas | T5PROGAS        |
-   | for multiple           |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Diesel for | T5PURDSLCOM     |
-   | Commercial             |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Diesel for | T5PURDSLCON     |
-   | Construction           |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Diesel for | T5PURDSLEXP     |
-   | Exports                |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Diesel for | T5PURDSLIND     |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Demand Diesel for      | T5PURDSLREF     |
-   | Refineries             |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Diesel for | T5PURDSLSHITRN  |
-   | Shipping               |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLAERTRN  |
-   | for Air Transport      |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLAGR     |
-   | for Agriculture        |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLCOM     |
-   | for Commercial         |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLCON     |
-   | for Construction       |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLEXP     |
-   | for Exports            |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLIND     |
-   | for Industrial         |                 |
-   +------------------------+-----------------+
-   | Demand Gasoline for    | T5PURGSLREF     |
-   | Refineries             |                 |
-   +------------------------+-----------------+
-   | Demand Pure_Gasoline   | T5PURGSLSHITRN  |
-   | for Shipping           |                 |
-   +------------------------+-----------------+
-   | Demand Reduced Crude   | T5REDCRUEXP     |
-   | for Exports            |                 |
-   +------------------------+-----------------+
-   | Demand Sugarcane and   | T5SUGIND        |
-   | subproducts for        |                 |
-   | Industrial             |                 |
-   +------------------------+-----------------+
-   | Buses Diesel           | TRNBUSDSL       |
-   +------------------------+-----------------+
-   | Buses Electric         | TRNBUSELE       |
-   +------------------------+-----------------+
-   | Buses Hybrid Diesel    | TRNBUSHYBDSL    |
-   +------------------------+-----------------+
-   | Buses Hydrogen         | TRNBUSHYD       |
-   +------------------------+-----------------+
-   | Buses LPG              | TRNBUSLPG       |
-   +------------------------+-----------------+
-   | Buses Natural Gas      | TRNBUSNGV       |
-   | Vehicular              |                 |
-   +------------------------+-----------------+
-   | Minivan Diesel         | TRNCAMDSL       |
-   +------------------------+-----------------+
-   | Minivan Electric       | TRNCAMELE       |
-   +------------------------+-----------------+
-   | Minivan Gasoline       | TRNCAMGSL       |
-   +------------------------+-----------------+
-   | Minivan Hybrid Diesel  | TRNCAMHYBDSL    |
-   +------------------------+-----------------+
-   | Minivan Hybrid         | TRNCAMHYBGSL    |
-   | Gasoline               |                 |
-   +------------------------+-----------------+
-   | Minivan LPG            | TRNCAMLPG       |
-   +------------------------+-----------------+
-   | Minivan Natural Gas    | TRNCAMNGV       |
-   | Vehicular              |                 |
-   +------------------------+-----------------+
-   | Catenary trucking      | TRNCATTRUELE    |
-   | Electric               |                 |
-   +------------------------+-----------------+
-   | Transport of crude     | TRNCRU          |
-   +------------------------+-----------------+
-   | Heavy freight Diesel   | TRNFREHEADSL    |
-   +------------------------+-----------------+
-   | Heavy freight Electric | TRNFREHEAELE    |
-   +------------------------+-----------------+
-   | Heavy freight Gasoline | TRNFREHEAGSL    |
-   +------------------------+-----------------+
-   | Heavy freight Hybrid   | TRNFREHEAHYBDSL |
-   | Diesel                 |                 |
-   +------------------------+-----------------+
-   | Heavy freight Hydrogen | TRNFREHEAHYD    |
-   +------------------------+-----------------+
-   | Heavy freight LPG      | TRNFREHEALPG    |
-   +------------------------+-----------------+
-   | Light freight Diesel   | TRNFRELIGDSL    |
-   +------------------------+-----------------+
-   | Light freight Electric | TRNFRELIGELE    |
-   +------------------------+-----------------+
-   | Light freight Gasoline | TRNFRELIGGSL    |
-   +------------------------+-----------------+
-   | Light freight Hybrid   | TRNFRELIGHYBDSL |
-   | Diesel                 |                 |
-   +------------------------+-----------------+
-   | Light freight Hybrid   | TRNFRELIGHYBGSL |
-   | Gasoline               |                 |
-   +------------------------+-----------------+
-   | Light freight LPG      | TRNFRELIGLPG    |
-   +------------------------+-----------------+
-   | Light freight Natural  | TRNFRELIGNGV    |
-   | Gas Vehicular          |                 |
-   +------------------------+-----------------+
-   | Medium freight Diesel  | TRNFREMEDDSL    |
-   +------------------------+-----------------+
-   | Medium freight         | TRNFREMEDELE    |
-   | Electric               |                 |
-   +------------------------+-----------------+
-   | Medium freight         | TRNFREMEDGSL    |
-   | Gasoline               |                 |
-   +------------------------+-----------------+
-   | Medium freight Hybrid  | TRNFREMEDHYBDSL |
-   | Diesel                 |                 |
-   +------------------------+-----------------+
-   | Medium freight         | TRNFREMEDHYD    |
-   | Hydrogen               |                 |
-   +------------------------+-----------------+
-   | Medium freight LPG     | TRNFREMEDLPG    |
-   +------------------------+-----------------+
-   | Medium freight Natural | TRNFREMEDNGV    |
-   | Gas Vehicular          |                 |
-   +------------------------+-----------------+
-   | Freight rail Diesel    | TRNFRERAIDSL    |
-   +------------------------+-----------------+
-   | Freight rail Electric  | TRNFRERAIELE    |
-   +------------------------+-----------------+
-   | Freight rail Hydrogen  | TRNFRERAIHYD    |
-   +------------------------+-----------------+
-   | Microbuses Diesel      | TRNMICDSL       |
-   +------------------------+-----------------+
-   | Microbuses Electric    | TRNMICELE       |
-   +------------------------+-----------------+
-   | Microbuses Gasoline    | TRNMICGSL       |
-   +------------------------+-----------------+
-   | Microbuses Hybrid      | TRNMICHYBDSL    |
-   | Diesel                 |                 |
-   +------------------------+-----------------+
-   | Microbuses Hydrogen    | TRNMICHYD       |
-   +------------------------+-----------------+
-   | Microbuses LPG         | TRNMICLPG       |
-   +------------------------+-----------------+
-   | Motorcycles Electric   | TRNMOTELE       |
-   +------------------------+-----------------+
-   | Motorcycles Gasoline   | TRNMOTGSL       |
-   +------------------------+-----------------+
-   | Rail Diesel            | TRNPASRAIDSL    |
-   +------------------------+-----------------+
-   | Rail Electric          | TRNPASRAIELE    |
-   +------------------------+-----------------+
-   | Rail Hydrogen          | TRNPASRAIHYD    |
-   +------------------------+-----------------+
-   | Sedanes Diesel         | TRNSEDDSL       |
-   +------------------------+-----------------+
-   | Sedanes Electric       | TRNSEDELE       |
-   +------------------------+-----------------+
-   | Sedanes Gasoline       | TRNSEDGSL       |
-   +------------------------+-----------------+
-   | Sedanes Hybrid         | TRNSEDHYBGSL    |
-   | Gasoline               |                 |
-   +------------------------+-----------------+
-   | Sedanes LPG            | TRNSEDLPG       |
-   +------------------------+-----------------+
-   | SUVs Diesel            | TRNSUVDSL       |
-   +------------------------+-----------------+
-   | SUVs Electric          | TRNSUVELE       |
-   +------------------------+-----------------+
-   | SUVs Gasoline          | TRNSUVGSL       |
-   +------------------------+-----------------+
-   | SUVs Hybrid Diesel     | TRNSUVHYBDSL    |
-   +------------------------+-----------------+
-   | SUVs Hybrid Gasoline   | TRNSUVHYBGSL    |
-   +------------------------+-----------------+
-   | SUVs LPG               | TRNSUVLPG       |
-   +------------------------+-----------------+
-   | SUVs Natural Gas       | TRNSUVNGV       |
-   | Vehicular              |                 |
-   +------------------------+-----------------+
-   | Taxis Diesel           | TRNTAXDSL       |
-   +------------------------+-----------------+
-   | Taxis Electric         | TRNTAXELE       |
-   +------------------------+-----------------+
-   | Taxis Gasoline         | TRNTAXGSL       |
-   +------------------------+-----------------+
-   | Taxis Hybrid Diesel    | TRNTAXHYBDSL    |
-   +------------------------+-----------------+
-   | Taxis Hybrid Gasoline  | TRNTAXHYBGSL    |
-   +------------------------+-----------------+
-   | Taxis LPG              | TRNTAXLPG       |
-   +------------------------+-----------------+
+   +-----------------------+--------------------------+
+   | Código                | Detalle                  |
+   +=======================+==========================+
+   | BLEND_DSL             | Mezcla de diésel         |
+   +-----------------------+--------------------------+
+   | BLEND_GSL             | Mezcla de gasolina       |
+   +-----------------------+--------------------------+
+   | CENGASGSL             | Centros de gas gasolina  |
+   +-----------------------+--------------------------+
+   | CENGASLPG             | Centros de gas GLP       |
+   +-----------------------+--------------------------+
+   | CENGASPRO             | Centros de gas propano   |
+   +-----------------------+--------------------------+
+   | ELE_DISTR             | Secundario -             |
+   |                       | Distribución de energía  |
+   |                       | eléctrica                |
+   +-----------------------+--------------------------+
+   | ELE_TRANS             | Secundario - Transmisión |
+   |                       | de energía eléctrica     |
+   +-----------------------+--------------------------+
+   | HYD_DISTR             | Secundario -             |
+   |                       | Distribución de          |
+   |                       | hidrógeno                |
+   +-----------------------+--------------------------+
+   | HYDPROBIO             | Secundario - Producción  |
+   |                       | de hidrógeno verde -     |
+   |                       | biomasa                  |
+   +-----------------------+--------------------------+
+   | HYDPROELEGRI          | Secundario - Producción  |
+   |                       | de hidrógeno verde -     |
+   |                       | electrólisis con red     |
+   +-----------------------+--------------------------+
+   | HYDPROELEISO          | Secundario - Producción  |
+   |                       | de hidrógeno verde -     |
+   |                       | electrólisis en sistemas |
+   |                       | aislados                 |
+   +-----------------------+--------------------------+
+   | HYDPRONGS             | Secundario - Producción  |
+   |                       | de hidrógeno verde -     |
+   |                       | reformado de gas natural |
+   +-----------------------+--------------------------+
+   | IMPCOA                | Importación/Distribución |
+   |                       | - carbón                 |
+   +-----------------------+--------------------------+
+   | IMPCOK                | Importación - coque de   |
+   |                       | petróleo                 |
+   +-----------------------+--------------------------+
+   | IMPCRU                | Importación - crudo      |
+   +-----------------------+--------------------------+
+   | IMPELE                | Importación -            |
+   |                       | electricidad             |
+   +-----------------------+--------------------------+
+   | IMPFOI                | Importación/Distribución |
+   |                       | - fuel oil               |
+   +-----------------------+--------------------------+
+   | IMPKJF                | Importación/Distribución |
+   |                       | - queroseno y jet fuel   |
+   +-----------------------+--------------------------+
+   | IMPLPG                | Importación/Distribución |
+   |                       | - GLP                    |
+   +-----------------------+--------------------------+
+   | IMPNGS                | Importaciones - gas      |
+   |                       | natural (GNL y           |
+   |                       | regasificación)          |
+   +-----------------------+--------------------------+
+   | IMPPURDSL             | Importación/Distribución |
+   |                       | - diésel puro            |
+   +-----------------------+--------------------------+
+   | IMPPURGSL             | Importación/Distribución |
+   |                       | - gasolina pura          |
+   +-----------------------+--------------------------+
+   | NGS_DISTR             | Distribución de gas      |
+   |                       | natural                  |
+   +-----------------------+--------------------------+
+   | PP_BGSICE             | Central eléctrica biogás |
+   |                       | - motor de combustión    |
+   |                       | interna                  |
+   +-----------------------+--------------------------+
+   | PP_BMSTST             | Central eléctrica        |
+   |                       | biomasa - turbina de     |
+   |                       | vapor                    |
+   +-----------------------+--------------------------+
+   | PP_CHP                | Central eléctrica        |
+   |                       | cogeneración caña de     |
+   |                       | azúcar                   |
+   +-----------------------+--------------------------+
+   | PP_COA                | Central eléctrica carbón |
+   +-----------------------+--------------------------+
+   | PP_CRU                | Central eléctrica crudo  |
+   +-----------------------+--------------------------+
+   | PP_DSLICE             | Central eléctrica diésel |
+   |                       | - motor de combustión    |
+   |                       | interna                  |
+   +-----------------------+--------------------------+
+   | PP_DSLTGS             | Central eléctrica diésel |
+   |                       | - turbina de gas         |
+   +-----------------------+--------------------------+
+   | PP_FOIICE             | Central eléctrica fuel   |
+   |                       | oil - motor de           |
+   |                       | combustión interna       |
+   +-----------------------+--------------------------+
+   | PP_FOITST             | Central eléctrica fuel   |
+   |                       | oil - turbina de vapor   |
+   +-----------------------+--------------------------+
+   | PP_GEO                | Primario -               |
+   |                       | Transformación -         |
+   |                       | geotérmica               |
+   +-----------------------+--------------------------+
+   | PP_HYDAMADAMLAR       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Amazonas  |
+   |                       | represa (grande)         |
+   +-----------------------+--------------------------+
+   | PP_HYDAMADAMMED       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Amazonas  |
+   |                       | represa (mediana)        |
+   +-----------------------+--------------------------+
+   | PP_HYDAMADAMSMA       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Amazonas  |
+   |                       | represa (pequeña)        |
+   +-----------------------+--------------------------+
+   | PP_HYDAMARORLAR       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Amazonas  |
+   |                       | de pasada (grande)       |
+   +-----------------------+--------------------------+
+   | PP_HYDAMARORMED       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Amazonas  |
+   |                       | de pasada (mediana)      |
+   +-----------------------+--------------------------+
+   | PP_HYDAMARORSMA       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Amazonas  |
+   |                       | de pasada (pequeña)      |
+   +-----------------------+--------------------------+
+   | PP_HYDPACDAMLAR       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Pacific   |
+   |                       | represa (grande)         |
+   +-----------------------+--------------------------+
+   | PP_HYDPACDAMMED       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Pacific   |
+   |                       | represa (mediana)        |
+   +-----------------------+--------------------------+
+   | PP_HYDPACDAMSMA       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Pacific   |
+   |                       | represa (pequeña)        |
+   +-----------------------+--------------------------+
+   | PP_HYDPACRORLAR       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Pacific   |
+   |                       | de pasada (grande)       |
+   +-----------------------+--------------------------+
+   | PP_HYDPACRORMED       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Pacific   |
+   |                       | de pasada (mediana)      |
+   +-----------------------+--------------------------+
+   | PP_HYDPACRORSMA       | Primario -               |
+   |                       | Transformación -         |
+   |                       | hidroeléctrica Pacific   |
+   |                       | de pasada (pequeña)      |
+   +-----------------------+--------------------------+
+   | PP_NGSTGS             | Central eléctrica gas    |
+   |                       | natural - turbina de gas |
+   +-----------------------+--------------------------+
+   | PP_SPV_DG             | Primario -               |
+   |                       | Transformación - solar   |
+   |                       | distribuida              |
+   +-----------------------+--------------------------+
+   | PP_SPV_US             | Primario -               |
+   |                       | Transformación -         |
+   |                       | fotovoltaica             |
+   +-----------------------+--------------------------+
+   | PP_SPV_US_H2          | Primario -               |
+   |                       | Transformación -         |
+   |                       | fotovoltaica para H2     |
+   +-----------------------+--------------------------+
+   | PP_SUG                | Central eléctrica caña   |
+   |                       | de azúcar                |
+   +-----------------------+--------------------------+
+   | PP_WASICE             | Central eléctrica        |
+   |                       | residuos - motor de      |
+   |                       | combustión interna       |
+   +-----------------------+--------------------------+
+   | PP_WND_OF             | Primario -               |
+   |                       | Transformación - eólica  |
+   |                       | marina                   |
+   +-----------------------+--------------------------+
+   | PP_WND_OF_H2          | Primario -               |
+   |                       | Transformación - eólica  |
+   |                       | marina para H2           |
+   +-----------------------+--------------------------+
+   | PP_WND_US             | Primario -               |
+   |                       | Transformación - eólica  |
+   +-----------------------+--------------------------+
+   | PP_WND_US_H2          | Primario -               |
+   |                       | Transformación - eólica  |
+   |                       | para H2                  |
+   +-----------------------+--------------------------+
+   | PPICRUPETICE          | Aislado - petroleras -   |
+   |                       | central eléctrica crudo  |
+   |                       | - motor de combustión    |
+   |                       | interna                  |
+   +-----------------------+--------------------------+
+   | PPICRUPETTST          | Aislado - petroleras -   |
+   |                       | central eléctrica crudo  |
+   |                       | - turbina de vapor       |
+   +-----------------------+--------------------------+
+   | PPIDSLCEMTST          | Aislado - cementeras -   |
+   |                       | central eléctrica diésel |
+   |                       | - turbina de vapor       |
+   +-----------------------+--------------------------+
+   | PPIDSLELRICE          | Aislado -                |
+   |                       | electrificación rural -  |
+   |                       | central eléctrica diésel |
+   |                       | - motor de combustión    |
+   |                       | interna                  |
+   +-----------------------+--------------------------+
+   | PPIDSLELRTST          | Aislado -                |
+   |                       | electrificación rural -  |
+   |                       | central eléctrica diésel |
+   |                       | - turbina de vapor       |
+   +-----------------------+--------------------------+
+   | PPIDSLGALICE          | Aislado - Galápagos -    |
+   |                       | central eléctrica diésel |
+   |                       | - motor de combustión    |
+   |                       | interna                  |
+   +-----------------------+--------------------------+
+   | PPIDSLPETICE          | Aislado - petroleras -   |
+   |                       | central eléctrica diésel |
+   |                       | - motor de combustión    |
+   |                       | interna                  |
+   +-----------------------+--------------------------+
+   | PPIDSLPETTGS          | Aislado - petroleras -   |
+   |                       | central eléctrica diésel |
+   |                       | - turbina de gas         |
+   +-----------------------+--------------------------+
+   | PPIFOIPETICE          | Aislado - petroleras -   |
+   |                       | central eléctrica fuel   |
+   |                       | oil - motor de           |
+   |                       | combustión interna       |
+   +-----------------------+--------------------------+
+   | PPIHYDAMACEM          | Primario -               |
+   |                       | Transformación -         |
+   |                       | cementeras -             |
+   |                       | hidroeléctrica Amazonas  |
+   +-----------------------+--------------------------+
+   | PPIHYDAMAELR          | Primario -               |
+   |                       | Transformación -         |
+   |                       | electrificación rural -  |
+   |                       | hidroeléctrica Amazonas  |
+   +-----------------------+--------------------------+
+   | PPIHYDPACCEM          | Primario -               |
+   |                       | Transformación -         |
+   |                       | cementeras -             |
+   |                       | hidroeléctrica Pacific   |
+   +-----------------------+--------------------------+
+   | PPIHYDPACELR          | Primario -               |
+   |                       | Transformación -         |
+   |                       | electrificación rural -  |
+   |                       | hidroeléctrica Pacific   |
+   +-----------------------+--------------------------+
+   | PPINGSPETICE          | Aislado - petroleras -   |
+   |                       | central eléctrica gas    |
+   |                       | natural - motor de       |
+   |                       | combustión interna       |
+   +-----------------------+--------------------------+
+   | PPINGSPETTGS          | Aislado - petroleras -   |
+   |                       | central eléctrica gas    |
+   |                       | natural - turbina de gas |
+   +-----------------------+--------------------------+
+   | PPINGSPETTST          | Aislado - petroleras -   |
+   |                       | central eléctrica gas    |
+   |                       | natural - turbina de     |
+   |                       | vapor                    |
+   +-----------------------+--------------------------+
+   | PPISPVELR             | Primario -               |
+   |                       | Transformación -         |
+   |                       | electrificación rural -  |
+   |                       | solar FV                 |
+   +-----------------------+--------------------------+
+   | PPISPVGAL             | Primario -               |
+   |                       | Transformación -         |
+   |                       | Galápagos - solar FV     |
+   +-----------------------+--------------------------+
+   | PPIWNDGAL             | Primario -               |
+   |                       | Transformación -         |
+   |                       | Galápagos - eólica       |
+   +-----------------------+--------------------------+
+   | PROACG                | Aceite de piñón          |
+   +-----------------------+--------------------------+
+   | PROBGS                | Producción - biogás      |
+   +-----------------------+--------------------------+
+   | PROBIODSL             | Producción de biodiésel  |
+   +-----------------------+--------------------------+
+   | PROBMS                | Producción - biomasa     |
+   +-----------------------+--------------------------+
+   | PROCRU                | Producción - crudo       |
+   +-----------------------+--------------------------+
+   | PROETA                | Producción de etanol     |
+   +-----------------------+--------------------------+
+   | PROFIR                | Producción - leña        |
+   +-----------------------+--------------------------+
+   | PRONGS                | Producción - gas natural |
+   +-----------------------+--------------------------+
+   | PROSUG                | Producción - caña de     |
+   |                       | azúcar                   |
+   +-----------------------+--------------------------+
+   | PROWAS                | Producción - residuos    |
+   +-----------------------+--------------------------+
+   | REFCRU                | Refinerías               |
+   +-----------------------+--------------------------+
+   | REFCRUCOK             | Refinería coque          |
+   +-----------------------+--------------------------+
+   | REFCRUDSL             | Refinería diésel         |
+   +-----------------------+--------------------------+
+   | REFCRUFOI             | Refinería fuel oil       |
+   +-----------------------+--------------------------+
+   | REFCRUGSL             | Refinería gasolina       |
+   +-----------------------+--------------------------+
+   | REFCRUKJF             | Refinería KJF            |
+   +-----------------------+--------------------------+
+   | REFCRULPG             | Refinería GLP            |
+   +-----------------------+--------------------------+
+   | REFCRURED             | Refinería crudo reducido |
+   +-----------------------+--------------------------+
+   | REFNONENE             | Refinería no energético  |
+   +-----------------------+--------------------------+
+   | RSVCRU                | Reservas - crudo         |
+   +-----------------------+--------------------------+
+   | RSVNGS                | Reservas - gas natural   |
+   +-----------------------+--------------------------+
+   | T4_DSLHEA             | Distribuir diésel para   |
+   |                       | carga pesada             |
+   +-----------------------+--------------------------+
+   | T4_DSLLIG             | Distribuir diésel para   |
+   |                       | carga ligera             |
+   +-----------------------+--------------------------+
+   | T4_DSLMED             | Distribuir diésel para   |
+   |                       | carga media              |
+   +-----------------------+--------------------------+
+   | T4_DSLPRI             | Distribuir diésel para   |
+   |                       | privado                  |
+   +-----------------------+--------------------------+
+   | T4_DSLPUB             | Distribuir diésel para   |
+   |                       | público                  |
+   +-----------------------+--------------------------+
+   | T4_ELEHEA             | Distribuir electricidad  |
+   |                       | para carga pesada        |
+   +-----------------------+--------------------------+
+   | T4_ELELIG             | Distribuir electricidad  |
+   |                       | para carga ligera        |
+   +-----------------------+--------------------------+
+   | T4_ELEMED             | Distribuir electricidad  |
+   |                       | para carga media         |
+   +-----------------------+--------------------------+
+   | T4_ELEPRI             | Distribuir electricidad  |
+   |                       | para privado             |
+   +-----------------------+--------------------------+
+   | T4_ELEPUB             | Distribuir electricidad  |
+   |                       | para público             |
+   +-----------------------+--------------------------+
+   | T4_GSLHEA             | Distribuir gasolina para |
+   |                       | carga pesada             |
+   +-----------------------+--------------------------+
+   | T4_GSLLIG             | Distribuir gasolina para |
+   |                       | carga ligera             |
+   +-----------------------+--------------------------+
+   | T4_GSLMED             | Distribuir gasolina para |
+   |                       | carga media              |
+   +-----------------------+--------------------------+
+   | T4_GSLPRI             | Distribuir gasolina para |
+   |                       | privado                  |
+   +-----------------------+--------------------------+
+   | T4_GSLPUB             | Distribuir gasolina para |
+   |                       | público                  |
+   +-----------------------+--------------------------+
+   | T4_HYDHEA             | Distribuir hidrógeno     |
+   |                       | para carga pesada        |
+   +-----------------------+--------------------------+
+   | T4_HYDMED             | Distribuir hidrógeno     |
+   |                       | para carga media         |
+   +-----------------------+--------------------------+
+   | T4_HYDPUB             | Distribuir hidrógeno     |
+   |                       | para público             |
+   +-----------------------+--------------------------+
+   | T4_LPGHEA             | Distribuir GLP para      |
+   |                       | carga pesada             |
+   +-----------------------+--------------------------+
+   | T4_LPGLIG             | Distribuir GLP para      |
+   |                       | carga ligera             |
+   +-----------------------+--------------------------+
+   | T4_LPGMED             | Distribuir GLP para      |
+   |                       | carga media              |
+   +-----------------------+--------------------------+
+   | T4_LPGPRI             | Distribuir GLP para      |
+   |                       | privado                  |
+   +-----------------------+--------------------------+
+   | T4_LPGPUB             | Distribuir GLP para      |
+   |                       | público                  |
+   +-----------------------+--------------------------+
+   | T4_NGSLIG             | Distribuir gas natural   |
+   |                       | para carga ligera        |
+   +-----------------------+--------------------------+
+   | T4_NGSMED             | Distribuir gas natural   |
+   |                       | para carga media         |
+   +-----------------------+--------------------------+
+   | T4_NGSPRI             | Distribuir gas natural   |
+   |                       | para privado             |
+   +-----------------------+--------------------------+
+   | T4_NGSPUB             | Distribuir gas natural   |
+   |                       | para público             |
+   +-----------------------+--------------------------+
+   | T5BMSEXP              | Demanda de biomasa para  |
+   |                       | generación eléctrica     |
+   |                       | para exportaciones       |
+   +-----------------------+--------------------------+
+   | T5BUN                 | Demanda para bunkers     |
+   +-----------------------+--------------------------+
+   | T5COKIND              | Demanda de coque de      |
+   |                       | petróleo para industria  |
+   +-----------------------+--------------------------+
+   | T5CRUCRUTRN           | Demanda de crudo para    |
+   |                       | SOTE                     |
+   +-----------------------+--------------------------+
+   | T5CRUEXP              | Demanda de crudo para    |
+   |                       | exportaciones            |
+   +-----------------------+--------------------------+
+   | T5ELEAGR              | Demanda de electricidad  |
+   |                       | para agricultura         |
+   +-----------------------+--------------------------+
+   | T5ELECOM              | Demanda de electricidad  |
+   |                       | para comercial           |
+   +-----------------------+--------------------------+
+   | T5ELECON              | Demanda de gasolina pura |
+   |                       | para construcción        |
+   +-----------------------+--------------------------+
+   | T5ELECRUTRN           | Demanda de electricidad  |
+   |                       | para SOTE                |
+   +-----------------------+--------------------------+
+   | T5ELEEXP              | Demanda de electricidad  |
+   |                       | para exportaciones       |
+   +-----------------------+--------------------------+
+   | T5ELEIND              | Demanda de electricidad  |
+   |                       | para industria           |
+   +-----------------------+--------------------------+
+   | T5ELERES              | Demanda de electricidad  |
+   |                       | para residencial         |
+   +-----------------------+--------------------------+
+   | T5FIRIND              | Demanda de leña para     |
+   |                       | industria                |
+   +-----------------------+--------------------------+
+   | T5FIRRES              | Demanda de leña para     |
+   |                       | residencial              |
+   +-----------------------+--------------------------+
+   | T5FOICOM              | Demanda de fuel oil para |
+   |                       | comercial                |
+   +-----------------------+--------------------------+
+   | T5FOIEXP              | Demanda de fuel oil para |
+   |                       | exportaciones            |
+   +-----------------------+--------------------------+
+   | T5FOIIND              | Demanda de fuel oil para |
+   |                       | industria                |
+   +-----------------------+--------------------------+
+   | T5FOIREF              | Demanda de fuel oil para |
+   |                       | refinerías               |
+   +-----------------------+--------------------------+
+   | T5FOISHITRN           | Demanda de fuel oil para |
+   |                       | transporte marítimo      |
+   +-----------------------+--------------------------+
+   | T5GSLCRUTRN           | Demanda de gasolina para |
+   |                       | SOTE                     |
+   +-----------------------+--------------------------+
+   | T5HECIND              | Demanda de calor de      |
+   |                       | cogeneración para        |
+   |                       | industria                |
+   +-----------------------+--------------------------+
+   | T5HYDIND              | Demanda de hidrógeno     |
+   |                       | para industria           |
+   +-----------------------+--------------------------+
+   | T5KJFAERTRN           | Demanda de queroseno y   |
+   |                       | jet fuel para transporte |
+   |                       | aéreo                    |
+   +-----------------------+--------------------------+
+   | T5KJFCON              | Demanda de queroseno y   |
+   |                       | jet fuel para            |
+   |                       | construcción             |
+   +-----------------------+--------------------------+
+   | T5KJFREF              | Demanda de queroseno y   |
+   |                       | jet fuel para refinerías |
+   +-----------------------+--------------------------+
+   | T5LPGAGR              | Demanda de GLP para      |
+   |                       | agricultura              |
+   +-----------------------+--------------------------+
+   | T5LPGCOM              | Demanda de GLP para      |
+   |                       | comercial                |
+   +-----------------------+--------------------------+
+   | T5LPGCON              | Demanda de GLP para      |
+   |                       | construcción             |
+   +-----------------------+--------------------------+
+   | T5LPGCRUTRN           | Demanda de GLP para SOTE |
+   +-----------------------+--------------------------+
+   | T5LPGEXP              | Demanda de GLP para      |
+   |                       | exportaciones            |
+   +-----------------------+--------------------------+
+   | T5LPGIND              | Demanda de GLP para      |
+   |                       | industria                |
+   +-----------------------+--------------------------+
+   | T5LPGREF              | Demanda de GLP para      |
+   |                       | refinerías               |
+   +-----------------------+--------------------------+
+   | T5LPGRES              | Demanda de GLP para      |
+   |                       | residencial              |
+   +-----------------------+--------------------------+
+   | T5NGSIND              | Demanda de gas natural   |
+   |                       | para industria           |
+   +-----------------------+--------------------------+
+   | T5NGSRES              | Demanda de gas natural   |
+   |                       | para residencial         |
+   +-----------------------+--------------------------+
+   | T5NOEAGR              | Demanda no energética    |
+   |                       | para agricultura         |
+   +-----------------------+--------------------------+
+   | T5NOECON              | Demanda no energética    |
+   |                       | para construcción        |
+   +-----------------------+--------------------------+
+   | T5PROGAS              | Demanda de propano y gas |
+   |                       | para múltiples           |
+   +-----------------------+--------------------------+
+   | T5PURDSLCOM           | Demanda de diésel puro   |
+   |                       | para comercial           |
+   +-----------------------+--------------------------+
+   | T5PURDSLCON           | Demanda de diésel puro   |
+   |                       | para construcción        |
+   +-----------------------+--------------------------+
+   | T5PURDSLEXP           | Demanda de diésel puro   |
+   |                       | para exportaciones       |
+   +-----------------------+--------------------------+
+   | T5PURDSLIND           | Demanda de diésel puro   |
+   |                       | para industria           |
+   +-----------------------+--------------------------+
+   | T5PURDSLREF           | Demanda de diésel para   |
+   |                       | refinerías               |
+   +-----------------------+--------------------------+
+   | T5PURDSLSHITRN        | Demanda de diésel puro   |
+   |                       | para transporte marítimo |
+   +-----------------------+--------------------------+
+   | T5PURGSLAERTRN        | Demanda de gasolina pura |
+   |                       | para transporte aéreo    |
+   +-----------------------+--------------------------+
+   | T5PURGSLAGR           | Demanda de gasolina pura |
+   |                       | para agricultura         |
+   +-----------------------+--------------------------+
+   | T5PURGSLCOM           | Demanda de gasolina pura |
+   |                       | para comercial           |
+   +-----------------------+--------------------------+
+   | T5PURGSLCON           | Demanda de gasolina pura |
+   |                       | para construcción        |
+   +-----------------------+--------------------------+
+   | T5PURGSLEXP           | Demanda de gasolina pura |
+   |                       | para exportaciones       |
+   +-----------------------+--------------------------+
+   | T5PURGSLIND           | Demanda de gasolina pura |
+   |                       | para industria           |
+   +-----------------------+--------------------------+
+   | T5PURGSLREF           | Demanda de gasolina para |
+   |                       | refinerías               |
+   +-----------------------+--------------------------+
+   | T5PURGSLSHITRN        | Demanda de gasolina pura |
+   |                       | para transporte marítimo |
+   +-----------------------+--------------------------+
+   | T5REDCRUEXP           | Demanda de crudo         |
+   |                       | reducido para            |
+   |                       | exportaciones            |
+   +-----------------------+--------------------------+
+   | T5SUGIND              | Demanda de caña de       |
+   |                       | azúcar y subproductos    |
+   |                       | para industria           |
+   +-----------------------+--------------------------+
+   | TRNBUSDSL             | Buses diésel             |
+   +-----------------------+--------------------------+
+   | TRNBUSELE             | Buses eléctricos         |
+   +-----------------------+--------------------------+
+   | TRNBUSHYBDSL          | Buses híbridos diésel    |
+   +-----------------------+--------------------------+
+   | TRNBUSHYD             | Buses hidrógeno          |
+   +-----------------------+--------------------------+
+   | TRNBUSLPG             | Buses GLP                |
+   +-----------------------+--------------------------+
+   | TRNBUSNGV             | Buses gas natural        |
+   |                       | vehicular                |
+   +-----------------------+--------------------------+
+   | TRNCAMDSL             | Minivan diésel           |
+   +-----------------------+--------------------------+
+   | TRNCAMELE             | Minivan eléctrica        |
+   +-----------------------+--------------------------+
+   | TRNCAMGSL             | Minivan gasolina         |
+   +-----------------------+--------------------------+
+   | TRNCAMHYBDSL          | Minivan híbrida diésel   |
+   +-----------------------+--------------------------+
+   | TRNCAMHYBGSL          | Minivan híbrida gasolina |
+   +-----------------------+--------------------------+
+   | TRNCAMLPG             | Minivan GLP              |
+   +-----------------------+--------------------------+
+   | TRNCAMNGV             | Minivan gas natural      |
+   |                       | vehicular                |
+   +-----------------------+--------------------------+
+   | TRNCATTRUELE          | Camión con catenaria     |
+   |                       | eléctrico                |
+   +-----------------------+--------------------------+
+   | TRNCRU                | Transporte de crudo      |
+   +-----------------------+--------------------------+
+   | TRNFREHEADSL          | Carga pesada diésel      |
+   +-----------------------+--------------------------+
+   | TRNFREHEAELE          | Carga pesada eléctrica   |
+   +-----------------------+--------------------------+
+   | TRNFREHEAGSL          | Carga pesada gasolina    |
+   +-----------------------+--------------------------+
+   | TRNFREHEAHYBDSL       | Carga pesada híbrida     |
+   |                       | diésel                   |
+   +-----------------------+--------------------------+
+   | TRNFREHEAHYD          | Carga pesada hidrógeno   |
+   +-----------------------+--------------------------+
+   | TRNFREHEALPG          | Carga pesada GLP         |
+   +-----------------------+--------------------------+
+   | TRNFRELIGDSL          | Carga ligera diésel      |
+   +-----------------------+--------------------------+
+   | TRNFRELIGELE          | Carga ligera eléctrica   |
+   +-----------------------+--------------------------+
+   | TRNFRELIGGSL          | Carga ligera gasolina    |
+   +-----------------------+--------------------------+
+   | TRNFRELIGHYBDSL       | Carga ligera híbrida     |
+   |                       | diésel                   |
+   +-----------------------+--------------------------+
+   | TRNFRELIGHYBGSL       | Carga ligera híbrida     |
+   |                       | gasolina                 |
+   +-----------------------+--------------------------+
+   | TRNFRELIGLPG          | Carga ligera GLP         |
+   +-----------------------+--------------------------+
+   | TRNFRELIGNGV          | Carga ligera gas natural |
+   |                       | vehicular                |
+   +-----------------------+--------------------------+
+   | TRNFREMEDDSL          | Carga media diésel       |
+   +-----------------------+--------------------------+
+   | TRNFREMEDELE          | Carga media eléctrica    |
+   +-----------------------+--------------------------+
+   | TRNFREMEDGSL          | Carga media gasolina     |
+   +-----------------------+--------------------------+
+   | TRNFREMEDHYBDSL       | Carga media híbrida      |
+   |                       | diésel                   |
+   +-----------------------+--------------------------+
+   | TRNFREMEDHYD          | Carga media hidrógeno    |
+   +-----------------------+--------------------------+
+   | TRNFREMEDLPG          | Carga media GLP          |
+   +-----------------------+--------------------------+
+   | TRNFREMEDNGV          | Carga media gas natural  |
+   |                       | vehicular                |
+   +-----------------------+--------------------------+
+   | TRNFRERAIDSL          | Ferrocarril de carga     |
+   |                       | diésel                   |
+   +-----------------------+--------------------------+
+   | TRNFRERAIELE          | Ferrocarril de carga     |
+   |                       | eléctrico                |
+   +-----------------------+--------------------------+
+   | TRNFRERAIHYD          | Ferrocarril de carga     |
+   |                       | hidrógeno                |
+   +-----------------------+--------------------------+
+   | TRNMICDSL             | Microbuses diésel        |
+   +-----------------------+--------------------------+
+   | TRNMICELE             | Microbuses eléctricos    |
+   +-----------------------+--------------------------+
+   | TRNMICGSL             | Microbuses gasolina      |
+   +-----------------------+--------------------------+
+   | TRNMICHYBDSL          | Microbuses híbridos      |
+   |                       | diésel                   |
+   +-----------------------+--------------------------+
+   | TRNMICHYD             | Microbuses hidrógeno     |
+   +-----------------------+--------------------------+
+   | TRNMICLPG             | Microbuses GLP           |
+   +-----------------------+--------------------------+
+   | TRNMOTELE             | Motocicletas eléctricas  |
+   +-----------------------+--------------------------+
+   | TRNMOTGSL             | Motocicletas gasolina    |
+   +-----------------------+--------------------------+
+   | TRNPASRAIDSL          | Tren diésel              |
+   +-----------------------+--------------------------+
+   | TRNPASRAIELE          | Tren eléctrico           |
+   +-----------------------+--------------------------+
+   | TRNPASRAIHYD          | Tren hidrógeno           |
+   +-----------------------+--------------------------+
+   | TRNSEDDSL             | Sedanes diésel           |
+   +-----------------------+--------------------------+
+   | TRNSEDELE             | Sedanes eléctricos       |
+   +-----------------------+--------------------------+
+   | TRNSEDGSL             | Sedanes gasolina         |
+   +-----------------------+--------------------------+
+   | TRNSEDHYBGSL          | Sedanes híbridos         |
+   |                       | gasolina                 |
+   +-----------------------+--------------------------+
+   | TRNSEDLPG             | Sedanes GLP              |
+   +-----------------------+--------------------------+
+   | TRNSUVDSL             | SUV diésel               |
+   +-----------------------+--------------------------+
+   | TRNSUVELE             | SUV eléctricos           |
+   +-----------------------+--------------------------+
+   | TRNSUVGSL             | SUV gasolina             |
+   +-----------------------+--------------------------+
+   | TRNSUVHYBDSL          | SUV híbridos diésel      |
+   +-----------------------+--------------------------+
+   | TRNSUVHYBGSL          | SUV híbridos gasolina    |
+   +-----------------------+--------------------------+
+   | TRNSUVLPG             | SUV GLP                  |
+   +-----------------------+--------------------------+
+   | TRNSUVNGV             | SUV gas natural          |
+   |                       | vehicular                |
+   +-----------------------+--------------------------+
+   | TRNTAXDSL             | Taxis diésel             |
+   +-----------------------+--------------------------+
+   | TRNTAXELE             | Taxis eléctricos         |
+   +-----------------------+--------------------------+
+   | TRNTAXGSL             | Taxis gasolina           |
+   +-----------------------+--------------------------+
+   | TRNTAXHYBDSL          | Taxis híbridos diésel    |
+   +-----------------------+--------------------------+
+   | TRNTAXHYBGSL          | Taxis híbridos gasolina  |
+   +-----------------------+--------------------------+
+   | TRNTAXLPG             | Taxis GLP                |
+   +-----------------------+--------------------------+
+
+**Commodities**
+
+.. _table_techs_commodities:
+.. table:: Commodities incluidos en el modelo del sector Energía del Escenario Tendencial Nacional
+
+   +-----------------+-----------------+
+   | Código          | Detalle         |
+   +=================+=================+
+   | DEMTRN_NOMOT    | Demanda de      |
+   |                 | transporte -    |
+   |                 | reducciones no  |
+   |                 | motorizadas     |
+   +-----------------+-----------------+
+   | DEMTRNFREHEA    | Demanda de      |
+   |                 | transporte -    |
+   |                 | carga pesada    |
+   +-----------------+-----------------+
+   | DEMTRNFRELIG    | Demanda de      |
+   |                 | transporte -    |
+   |                 | carga ligera    |
+   +-----------------+-----------------+
+   | DEMTRNFREMED    | Demanda de      |
+   |                 | transporte -    |
+   |                 | carga media     |
+   +-----------------+-----------------+
+   | DEMTRNPASPRI    | Demanda de      |
+   |                 | transporte -    |
+   |                 | pasajeros       |
+   |                 | privados        |
+   +-----------------+-----------------+
+   | DEMTRNPASPUB    | Demanda de      |
+   |                 | transporte -    |
+   |                 | pasajeros       |
+   |                 | públicos        |
+   +-----------------+-----------------+
+   | E0_ACP          | Aceite_Pinon    |
+   +-----------------+-----------------+
+   | E0_BGS          | Biogás          |
+   |                 | producido       |
+   +-----------------+-----------------+
+   | E0_BMS          | Biomasa         |
+   |                 | producida       |
+   +-----------------+-----------------+
+   | E0_COA          | Carbón          |
+   +-----------------+-----------------+
+   | E0_CRU          | Reservas de     |
+   |                 | crudo           |
+   +-----------------+-----------------+
+   | E0_FIR          | Leña producida  |
+   +-----------------+-----------------+
+   | E0_NGS          | Gas natural     |
+   +-----------------+-----------------+
+   | E0_SUG          | Caña de azúcar  |
+   |                 | producida       |
+   +-----------------+-----------------+
+   | E0_WAS          | Residuos        |
+   +-----------------+-----------------+
+   | E1_BIODSL       | Biodiésel       |
+   +-----------------+-----------------+
+   | E1_COK          | Coque           |
+   +-----------------+-----------------+
+   | E1_CRU          | Transporte de   |
+   |                 | crudo           |
+   +-----------------+-----------------+
+   | E1_DSL          | Diésel          |
+   +-----------------+-----------------+
+   | E1_ELE          | Electricidad    |
+   +-----------------+-----------------+
+   | E1_ETA          | Etanol          |
+   +-----------------+-----------------+
+   | E1_FOI          | Fuel oil        |
+   +-----------------+-----------------+
+   | E1_GAS          | Gases de gas    |
+   |                 | natural         |
+   +-----------------+-----------------+
+   | E1_GSL          | Gasolina        |
+   +-----------------+-----------------+
+   | E1_HEC          | Calor de        |
+   |                 | cogeneración    |
+   +-----------------+-----------------+
+   | E1_KJF          | Queroseno       |
+   +-----------------+-----------------+
+   | E1_LPG          | GLP de gas      |
+   |                 | natural         |
+   +-----------------+-----------------+
+   | E1_NGS          | Gas natural     |
+   |                 | producido       |
+   +-----------------+-----------------+
+   | E1_NOE          | No energético   |
+   +-----------------+-----------------+
+   | E1_PURDSL       | Diésel puro     |
+   +-----------------+-----------------+
+   | E1_PURGSL       | Gasolina pura   |
+   +-----------------+-----------------+
+   | E1_REDCRU       | Crudo reducido  |
+   +-----------------+-----------------+
+   | E2_CRU          | Transporte de   |
+   |                 | crudo           |
+   +-----------------+-----------------+
+   | E2_ELE          | Secundario -    |
+   |                 | Electricidad de |
+   |                 | transmisión     |
+   +-----------------+-----------------+
+   | E2_HYD          | Secundario -    |
+   |                 | Hidrógeno verde |
+   |                 | producido       |
+   +-----------------+-----------------+
+   | E2_NGS          | Gas natural     |
+   |                 | distribuido     |
+   +-----------------+-----------------+
+   | E3_CRU          | Crudo para      |
+   |                 | refinerías      |
+   +-----------------+-----------------+
+   | E3_ELE          | Electricidad    |
+   +-----------------+-----------------+
+   | E3_HYD          | Secundario -    |
+   |                 | Hidrógeno       |
+   |                 | transportado    |
+   +-----------------+-----------------+
+   | E4_DSLHEA       | Diésel          |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | pesada          |
+   +-----------------+-----------------+
+   | E4_DSLLIG       | Diésel          |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | ligera          |
+   +-----------------+-----------------+
+   | E4_DSLMED       | Diésel          |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | media           |
+   +-----------------+-----------------+
+   | E4_DSLPRI       | Diésel          |
+   |                 | distribuido     |
+   |                 | para privado    |
+   +-----------------+-----------------+
+   | E4_DSLPUB       | Diésel          |
+   |                 | distribuido     |
+   |                 | para público    |
+   +-----------------+-----------------+
+   | E4_ELE          | Electricidad    |
+   +-----------------+-----------------+
+   | E4_ELEHEA       | Electricidad    |
+   |                 | distribuida     |
+   |                 | para carga      |
+   |                 | pesada          |
+   +-----------------+-----------------+
+   | E4_ELELIG       | Electricidad    |
+   |                 | distribuida     |
+   |                 | para carga      |
+   |                 | ligera          |
+   +-----------------+-----------------+
+   | E4_ELEMED       | Electricidad    |
+   |                 | distribuida     |
+   |                 | para carga      |
+   |                 | media           |
+   +-----------------+-----------------+
+   | E4_ELEPRI       | Electricidad    |
+   |                 | distribuida     |
+   |                 | para privado    |
+   +-----------------+-----------------+
+   | E4_ELEPUB       | Electricidad    |
+   |                 | distribuida     |
+   |                 | para público    |
+   +-----------------+-----------------+
+   | E4_GSLHEA       | Gasolina        |
+   |                 | distribuida     |
+   |                 | para carga      |
+   |                 | pesada          |
+   +-----------------+-----------------+
+   | E4_GSLLIG       | Gasolina        |
+   |                 | distribuida     |
+   |                 | para carga      |
+   |                 | ligera          |
+   +-----------------+-----------------+
+   | E4_GSLMED       | Gasolina        |
+   |                 | distribuida     |
+   |                 | para carga      |
+   |                 | media           |
+   +-----------------+-----------------+
+   | E4_GSLPRI       | Gasolina        |
+   |                 | distribuida     |
+   |                 | para privado    |
+   +-----------------+-----------------+
+   | E4_GSLPUB       | Gasolina        |
+   |                 | distribuida     |
+   |                 | para público    |
+   +-----------------+-----------------+
+   | E4_HYDHEA       | Hidrógeno       |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | pesada          |
+   +-----------------+-----------------+
+   | E4_HYDMED       | Hidrógeno       |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | media           |
+   +-----------------+-----------------+
+   | E4_HYDPUB       | Hidrógeno       |
+   |                 | distribuido     |
+   |                 | para público    |
+   +-----------------+-----------------+
+   | E4_LPGHEA       | GLP distribuido |
+   |                 | para carga      |
+   |                 | pesada          |
+   +-----------------+-----------------+
+   | E4_LPGLIG       | GLP distribuido |
+   |                 | para carga      |
+   |                 | ligera          |
+   +-----------------+-----------------+
+   | E4_LPGMED       | GLP distribuido |
+   |                 | para carga      |
+   |                 | media           |
+   +-----------------+-----------------+
+   | E4_LPGPRI       | GLP distribuido |
+   |                 | para privado    |
+   +-----------------+-----------------+
+   | E4_LPGPUB       | GLP distribuido |
+   |                 | para público    |
+   +-----------------+-----------------+
+   | E4_NGSLIG       | Gas natural     |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | ligera          |
+   +-----------------+-----------------+
+   | E4_NGSMED       | Gas natural     |
+   |                 | distribuido     |
+   |                 | para carga      |
+   |                 | media           |
+   +-----------------+-----------------+
+   | E4_NGSPRI       | Gas natural     |
+   |                 | distribuido     |
+   |                 | para privado    |
+   +-----------------+-----------------+
+   | E4_NGSPUB       | Gas natural     |
+   |                 | distribuido     |
+   |                 | para público    |
+   +-----------------+-----------------+
+   | T5BMSEXP        | Demanda de      |
+   |                 | biomasa para    |
+   |                 | generación      |
+   |                 | eléctrica para  |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5BUN           | Demanda para    |
+   |                 | bunkers         |
+   +-----------------+-----------------+
+   | T5COKIND        | Demanda de      |
+   |                 | coque de        |
+   |                 | petróleo para   |
+   |                 | industria       |
+   +-----------------+-----------------+
+   | T5CRUCRUTRN     | Demanda de      |
+   |                 | crudo para SOTE |
+   +-----------------+-----------------+
+   | T5CRUEXP        | Demanda de      |
+   |                 | crudo para      |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5ELEAGR        | Demanda de      |
+   |                 | electricidad    |
+   |                 | para            |
+   |                 | agricultura     |
+   +-----------------+-----------------+
+   | T5ELECOM        | Demanda de      |
+   |                 | electricidad    |
+   |                 | para comercial  |
+   +-----------------+-----------------+
+   | T5ELECON        | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para            |
+   |                 | construcción    |
+   +-----------------+-----------------+
+   | T5ELECRUTRN     | Demanda de      |
+   |                 | electricidad    |
+   |                 | para SOTE       |
+   +-----------------+-----------------+
+   | T5ELEEXP        | Demanda de      |
+   |                 | electricidad    |
+   |                 | para            |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5ELEIND        | Demanda de      |
+   |                 | electricidad    |
+   |                 | para industria  |
+   +-----------------+-----------------+
+   | T5ELERES        | Demanda de      |
+   |                 | electricidad    |
+   |                 | para            |
+   |                 | residencial     |
+   +-----------------+-----------------+
+   | T5FIRIND        | Demanda de leña |
+   |                 | para industria  |
+   +-----------------+-----------------+
+   | T5FIRRES        | Demanda de leña |
+   |                 | para            |
+   |                 | residencial     |
+   +-----------------+-----------------+
+   | T5FOICOM        | Demanda de fuel |
+   |                 | oil para        |
+   |                 | comercial       |
+   +-----------------+-----------------+
+   | T5FOIEXP        | Demanda de fuel |
+   |                 | oil para        |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5FOIIND        | Demanda de fuel |
+   |                 | oil para        |
+   |                 | industria       |
+   +-----------------+-----------------+
+   | T5FOIREF        | Demanda de fuel |
+   |                 | oil para        |
+   |                 | refinerías      |
+   +-----------------+-----------------+
+   | T5FOISHITRN     | Demanda de fuel |
+   |                 | oil para        |
+   |                 | transporte      |
+   |                 | marítimo        |
+   +-----------------+-----------------+
+   | T5GSLCRUTRN     | Demanda de      |
+   |                 | gasolina para   |
+   |                 | SOTE            |
+   +-----------------+-----------------+
+   | T5HECIND        | Demanda de      |
+   |                 | calor de        |
+   |                 | cogeneración    |
+   |                 | para industria  |
+   +-----------------+-----------------+
+   | T5HYDIND        | Demanda de      |
+   |                 | hidrógeno para  |
+   |                 | industria       |
+   +-----------------+-----------------+
+   | T5KJFAERTRN     | Demanda de      |
+   |                 | queroseno y jet |
+   |                 | fuel para       |
+   |                 | transporte      |
+   |                 | aéreo           |
+   +-----------------+-----------------+
+   | T5KJFCON        | Demanda de      |
+   |                 | queroseno y jet |
+   |                 | fuel para       |
+   |                 | construcción    |
+   +-----------------+-----------------+
+   | T5KJFREF        | Demanda de      |
+   |                 | queroseno y jet |
+   |                 | fuel para       |
+   |                 | refinerías      |
+   +-----------------+-----------------+
+   | T5LPGAGR        | Demanda de GLP  |
+   |                 | para            |
+   |                 | agricultura     |
+   +-----------------+-----------------+
+   | T5LPGCOM        | Demanda de GLP  |
+   |                 | para comercial  |
+   +-----------------+-----------------+
+   | T5LPGCON        | Demanda de GLP  |
+   |                 | para            |
+   |                 | construcción    |
+   +-----------------+-----------------+
+   | T5LPGCRUTRN     | Demanda de GLP  |
+   |                 | para SOTE       |
+   +-----------------+-----------------+
+   | T5LPGEXP        | Demanda de GLP  |
+   |                 | para            |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5LPGIND        | Demanda de GLP  |
+   |                 | para industria  |
+   +-----------------+-----------------+
+   | T5LPGREF        | Demanda de GLP  |
+   |                 | para refinerías |
+   +-----------------+-----------------+
+   | T5LPGRES        | Demanda de GLP  |
+   |                 | para            |
+   |                 | residencial     |
+   +-----------------+-----------------+
+   | T5NGSIND        | Demanda de gas  |
+   |                 | natural para    |
+   |                 | industria       |
+   +-----------------+-----------------+
+   | T5NGSRES        | Demanda de gas  |
+   |                 | natural para    |
+   |                 | residencial     |
+   +-----------------+-----------------+
+   | T5NOEAGR        | Demanda no      |
+   |                 | energética para |
+   |                 | agricultura     |
+   +-----------------+-----------------+
+   | T5NOECON        | Demanda no      |
+   |                 | energética para |
+   |                 | construcción    |
+   +-----------------+-----------------+
+   | T5PROGAS        | Demanda de      |
+   |                 | propano y gas   |
+   |                 | para múltiples  |
+   +-----------------+-----------------+
+   | T5PURDSLCOM     | Demanda de      |
+   |                 | diésel puro     |
+   |                 | para comercial  |
+   +-----------------+-----------------+
+   | T5PURDSLCON     | Demanda de      |
+   |                 | diésel puro     |
+   |                 | para            |
+   |                 | construcción    |
+   +-----------------+-----------------+
+   | T5PURDSLEXP     | Demanda de      |
+   |                 | diésel puro     |
+   |                 | para            |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5PURDSLIND     | Demanda de      |
+   |                 | diésel puro     |
+   |                 | para industria  |
+   +-----------------+-----------------+
+   | T5PURDSLREF     | Demanda de      |
+   |                 | diésel para     |
+   |                 | refinerías      |
+   +-----------------+-----------------+
+   | T5PURDSLSHITRN  | Demanda de      |
+   |                 | diésel puro     |
+   |                 | para transporte |
+   |                 | marítimo        |
+   +-----------------+-----------------+
+   | T5PURGSLAERTRN  | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para transporte |
+   |                 | aéreo           |
+   +-----------------+-----------------+
+   | T5PURGSLAGR     | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para            |
+   |                 | agricultura     |
+   +-----------------+-----------------+
+   | T5PURGSLCOM     | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para comercial  |
+   +-----------------+-----------------+
+   | T5PURGSLCON     | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para            |
+   |                 | construcción    |
+   +-----------------+-----------------+
+   | T5PURGSLEXP     | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para            |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5PURGSLIND     | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para industria  |
+   +-----------------+-----------------+
+   | T5PURGSLREF     | Demanda de      |
+   |                 | gasolina para   |
+   |                 | refinerías      |
+   +-----------------+-----------------+
+   | T5PURGSLSHITRN  | Demanda de      |
+   |                 | gasolina pura   |
+   |                 | para transporte |
+   |                 | marítimo        |
+   +-----------------+-----------------+
+   | T5REDCRUEXP     | Demanda de      |
+   |                 | crudo reducido  |
+   |                 | para            |
+   |                 | exportaciones   |
+   +-----------------+-----------------+
+   | T5SUGIND        | Demanda de caña |
+   |                 | de azúcar y     |
+   |                 | subproductos    |
+   |                 | para industria  |
+   +-----------------+-----------------+
+
+**Emisiones**
+
+.. _table_emission_types_energy:
+.. table:: Clasificación de las emisiones estimadas en el modelo del sector Energía del Escenario Tendencial Nacional
+
+   +-------------------+-------------------------------------------------------------+
+   |   Código          |   Detalle                                                   |
+   +===================+=============================================================+
+   | CO2-eq            | Dióxido de carbono equivalente del combustible              |
+   +-------------------+-------------------------------------------------------------+
+   | CO2_scc           | Dióxido de carbono equivalente específico del combustible   |
+   +-------------------+-------------------------------------------------------------+
+   | CO2_fugitivas     | Dióxido de carbono equivalente no intencionales de gases    |
+   |                   | que se escapan durante la producción, procesamiento,        |
+   |                   | transporte, almacenamiento o distribución de combustibles,  |
+   |                   | sin que exista combustión.                                  |
+   +-------------------+-------------------------------------------------------------+
+   | CO2_fugitivas_scc | Dióxido de carbono equivalente específico no intencionales  |
+   |                   | de gases que se escapan durante la producción,              |
+   |                   | procesamiento, transporte, almacenamiento o distribución de |
+   |                   | combustibles, sin que exista combustión.                    |
+   +-------------------+-------------------------------------------------------------+

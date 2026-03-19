@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'ECU_OSeMOSYS'
-copyright = '2025, Climate Lead Group'
-author = 'Climate Lead Group'
+copyright = '2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador.'
+author = 'Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------

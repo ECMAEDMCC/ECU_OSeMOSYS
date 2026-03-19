@@ -14,7 +14,7 @@ Estructura de la Documentación
 
    Introducción <introduction>
    Metodología <methods>
-   Emisiones Nacionales del nuevo proceso de modelado <emissions>
+   Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional <emissions>
    Modelo del Sector Energía <0_energy/index>
    Modelo del Sector Procesos Industriales <1_ippu/index>
    Modelo del Sector Residuos <2_waste/index>
