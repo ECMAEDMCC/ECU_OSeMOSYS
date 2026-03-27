@@ -25,7 +25,6 @@ actualizó información.
 En la :numref:`agro_uscuss_model_structure` se presenta la estructura final del modelo de Agricultura
 y USCUSS que constituye el insumo de referencia para el sector.
 
-
 .. figure:: ../_static/images/agro_uscuss/model_structure.png
    :align: center
    :name: agro_uscuss_model_structure
@@ -34,215 +33,150 @@ y USCUSS que constituye el insumo de referencia para el sector.
    Estructura base del Modelo de Agricultura y USCUSS
 
 En la :numref:`table_agro_uscuss_techs` se detallan los nombres de las tecnologías/fuels y las
-unidades de la actividad de cada tecnología/fuel acorde a Proyecto
-PLANMICC mismos que se encuentran en los documentos:
+unidades de la actividad de cada tecnología/fuel acorde a Proyecto PLANMICC:
 
 .. _table_agro_uscuss_techs:
 .. table:: Tecnologías incluidas en el modelo del sector Residuos.
 
-   +------------+---------------------------+-------------------------+------------+
-   | Tipo de    | Nomenclatura              |   Detalle               | Unidades   |
-   | Set        |                           |                         | físicas    |
-   +============+===========================+=========================+============+
-   | Tecnología | Banano                    | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Arroz                     | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Cacao                     | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Cafe                      | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Cana                      | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Maiz                      | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Palma                     | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Soya                      | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Palmito                   | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Legumbres                 | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Cereales                  | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Tuberculos                | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Fruta                     | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Verduras                  | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Floricolas                | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Otros_cultivos            | Área de cultivo         | Mha        |
-   |            |                           | cosechado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Banano                | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Arroz                 | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Cacao                 | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Cafe                  | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Cana                  | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Maiz                  | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Palma                 | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Soya                  | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Palmito               | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Legumbres             | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Cereales              | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Tuberculos            | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Fruta                 | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Verduras              | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Floricolas            | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Banano                | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Arroz                 | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Cacao                 | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Cafe                  | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Cana                  | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Maiz                  | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Palma                 | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Soya                  | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Palmito               | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Legumbres             | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Cereales              | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Tuberculos            | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Fruta                 | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Verduras              | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Floricolas            | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Pastizales                | Área de categoría de    | Mha        |
-   |            |                           | suelo                   |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Humedal                   | Área de categoría de    | Mha        |
-   |            |                           | suelo                   |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Zona_atropica             | Área de categoría de    | Mha        |
-   |            |                           | suelo                   |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Otras_tierras             | Área de categoría de    | Mha        |
-   |            |                           | suelo                   |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Bosque_nativo_protegido   | Área de bosque con      | Mha        |
-   |            |                           | algún régimen de        |            |
-   |            |                           | protección legal: Socio |            |
-   |            |                           | Bosque, SNAP, BVP       |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Bosque_nativo_sinproteger | Área de bosque sin      | Mha        |
-   |            |                           | régimen de protección   |            |
-   |            |                           | legal                   |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Plantacion_forestal       | Área de Plantaciones    | Mha        |
-   |            |                           | Forestales              |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Ganaderia_importada       | Área de ganado bobino   | Mha        |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Ganaderia_criolla         | Área de ganado bobino   | Mha        |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Ganaderia_mestiza         | Área de ganado bobino   | Mha        |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Carne                 | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Exp_Leche                 | Volumen de producto     | Mton       |
-   |            |                           | exportado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Carne                 | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Imp_Leche                 | Volumen de producto     | Mton       |
-   |            |                           | importado               |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Gallinas_campos           | Cantidad de aves de     | k cabezas  |
-   |            |                           | corral                  |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Gallinas_planteles        | Cantidad de aves de     | k cabezas  |
-   |            |                           | corral                  |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Pasturas                  | Área de categoría de    | Mha        |
-   |            |                           | suelo                   |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Vacuno_porcino            | Cantidad de cabeza de   | k cabezas  |
-   |            |                           | ganado                  |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Vacuno_ovino              | Cantidad de cabeza de   | k cabezas  |
-   |            |                           | ganado                  |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Vacuno_otras_especies     | Cantidad de cabeza de   | k cabezas  |
-   |            |                           | ganado                  |            |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | Cambio_de_uso             | /                       |   /        |
-   +------------+---------------------------+-------------------------+------------+
-   | Tecnología | area_restaurada           | /                       |   /        |
-   +------------+---------------------------+-------------------------+------------+
+   +----------------------------+-----------------------------------------+
+   | **Código**                 | **Detalle**                             |
+   +============================+=========================================+
+   | Banano                     | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Arroz                      | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Cacao                      | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Cafe                       | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Cana                       | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Maiz                       | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Palma                      | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Soya                       | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Palmito                    | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Legumbres                  | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Cereales                   | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Tuberculos                 | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Fruta                      | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Verduras                   | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Floricolas                 | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Otros_cultivos             | Área de cultivo cosechado Mha           |
+   +----------------------------+-----------------------------------------+
+   | Exp_Banano                 | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Arroz                  | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Cacao                  | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Cafe                   | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Cana                   | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Maiz                   | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Palma                  | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Soya                   | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Palmito                | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Legumbres              | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Cereales               | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Tuberculos             | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Fruta                  | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Verduras               | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Floricolas             | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Banano                 | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Arroz                  | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Cacao                  | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Cafe                   | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Cana                   | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Maiz                   | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Palma                  | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Soya                   | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Palmito                | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Legumbres              | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Cereales               | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Tuberculos             | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Fruta                  | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Verduras               | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Floricolas             | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Pastizales                 | Área de categoría de suelo Mha          |
+   +----------------------------+-----------------------------------------+
+   | Humedal                    | Área de categoría de suelo Mha          |
+   +----------------------------+-----------------------------------------+
+   | Zona_atropica              | Área de categoría de suelo Mha          |
+   +----------------------------+-----------------------------------------+
+   | Otras_tierras              | Área de categoría de suelo Mha          |
+   +----------------------------+-----------------------------------------+
+   | Bosque_nativo_protegido    | Área de bosque con algún régimen de     |
+   |                            | protección legal: Socio Bosque, SNAP,   |
+   |                            | BVP Mha                                 |
+   +----------------------------+-----------------------------------------+
+   | Bosque_nativo_sinproteger  | Área de bosque sin régimen de           |
+   |                            | protección legal Mha                    |
+   +----------------------------+-----------------------------------------+
+   | Plantacion_forestal        | Área de Plantaciones Forestales Mha     |
+   +----------------------------+-----------------------------------------+
+   | Ganaderia_importada        | Área de ganado bobino Mha               |
+   +----------------------------+-----------------------------------------+
+   | Ganaderia_criolla          | Área de ganado bobino Mha               |
+   +----------------------------+-----------------------------------------+
+   | Ganaderia_mestiza          | Área de ganado bobino Mha               |
+   +----------------------------+-----------------------------------------+
+   | Exp_Carne                  | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Exp_Leche                  | Volumen de producto exportado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Carne                  | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Imp_Leche                  | Volumen de producto importado Mton      |
+   +----------------------------+-----------------------------------------+
+   | Gallinas_campos            | Cantidad de aves de corral k cabezas    |
+   +----------------------------+-----------------------------------------+
+   | Gallinas_planteles         | Cantidad de aves de corral k cabezas    |
+   +----------------------------+-----------------------------------------+
+   | Pasturas                   | Área de categoría de suelo Mha          |
+   +----------------------------+-----------------------------------------+
+   | Vacuno_porcino             | Cantidad de cabeza de ganado k cabezas  |
+   +----------------------------+-----------------------------------------+
+   | Vacuno_ovino               | Cantidad de cabeza de ganado k cabezas  |
+   +----------------------------+-----------------------------------------+
+   | Vacuno_otras_especies      | Cantidad de cabeza de ganado k cabezas  |
+   +----------------------------+-----------------------------------------+
+   | Cambio_de_uso              | /                                       |
+   +----------------------------+-----------------------------------------+
+   | area_restaurada            | /                                       |
+   +----------------------------+-----------------------------------------+

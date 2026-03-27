@@ -3,12 +3,12 @@ Escenarios
 ===================================================
 
 En lo que respecta al sector Residuos, al igual que en los sectores
-anteriores, primeramente, se construye un escenario *Tendencial*. Este
+anteriores, se construyó un escenario Tendencial Nacional. Este
 escenario pretende reflejar un futuro sin iniciativas que combina la
 variabilidad temporal de los FE del modelo NDC con la estructura
 tecnológica del PLANMICC.
 
-El segundo escenario es el escenario *Plan de Acción*. Este escenario
+El segundo escenario es el escenario Plan de Acción. Este escenario
 integra la trayectoria del escenario tendencial (2010–2035) y añade de
 forma progresiva las iniciativas identificadas en las Contribuciones
 Determinadas a Nivel Nacional (NDC) del Ecuador tanto la primera como la
@@ -39,202 +39,127 @@ Cada iniciativa fue caracterizada según los siguientes criterios:
 - Trayectoria de incorporación anual, que permite reflejar la
   gradualidad en la implementación.
 
-- Asignación tecnológica en OSeMOSYS, garantizando su integración en el
-  modelo nacional de planificación energética y de mitigación.
-
 En la :numref:`table_waste_scenarios` se detallan de mejor forma las iniciativas mencionadas.
 
 .. _table_waste_scenarios:
 .. table:: Descripción de iniciativas del sector Residuos para el escenario Plan de Acción.
 
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | NRO. | DESCRIPCIÓN       | POTENCIAL  | AÑO DE         | TECNOLOGÍA    | META PLANMICC     |
-   |      |                   | DE         | IMPLEMENTACIÓN | OSEMOSYS      | -2035             |
-   |      |                   | MITIGACIÓN |                |               |                   |
-   |      |                   | AL 2035    |                |               |                   |
-   |      |                   | [KT        |                |               |                   |
-   |      |                   | CO₂EQ/AÑO] |                |               |                   |
-   +======+===================+============+================+===============+===================+
-   | 1    | Captura y         | 7.50       | 2026-2035      | LANDFILL_ELEC | R.1 10% procesado |
-   |      | aprovechamiento   |            |                |               | en plantas nuevas |
-   |      | de biogás en      |            |                |               | de generación de  |
-   |      | rellenos          |            |                |               | energía eléctrica |
-   |      | sanitario         |            |                |               | a partir de       |
-   |      |                   |            |                |               | biogás en esos    |
-   |      |                   |            |                |               | rellenos          |
-   |      |                   |            |                |               | sanitarios.       |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 2    | Captura y quema   | 1710.0     | 2026-2035      | LANDFILL_ELEC | R.1 10% procesado |
-   |      | de biogás en      |            |                |               | en plantas nuevas |
-   |      | rellenos          |            |                |               | de generación de  |
-   |      | sanitarios        |            |                |               | energía eléctrica |
-   |      |                   |            |                |               | a partir de       |
-   |      |                   |            |                |               | biogás en esos    |
-   |      |                   |            |                |               | rellenos          |
-   |      |                   |            |                |               | sanitarios.       |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 3    | Tratamiento de    | 37.0       | 2026-2035      | WWWT          | R.2 8% de aguas   |
-   |      | aguas residuales  |            |                |               | residuales        |
-   |      |                   |            |                |               | tratadas mediante |
-   |      |                   |            |                |               | plantas de        |
-   |      |                   |            |                |               | tratamiento       |
-   |      |                   |            |                |               | biológico de      |
-   |      |                   |            |                |               | aguas residuales  |
-   |      |                   |            |                |               | (PTAR).           |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 4    | Tratamiento de    | 51.0       | 2027-2035      | WWWT          | R.2 8% de aguas   |
-   |      | aguas residuales  |            |                |               | residuales        |
-   |      |                   |            |                |               | tratadas mediante |
-   |      |                   |            |                |               | plantas de        |
-   |      |                   |            |                |               | tratamiento       |
-   |      |                   |            |                |               | biológico de      |
-   |      |                   |            |                |               | aguas residuales  |
-   |      |                   |            |                |               | (PTAR).           |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 5    | Tratamiento de    | 44.5       | 2026-2035      | IWW           | R.2 8% de aguas   |
-   |      | aguas residuales  |            |                |               | residuales        |
-   |      |                   |            |                |               | tratadas mediante |
-   |      |                   |            |                |               | plantas de        |
-   |      |                   |            |                |               | tratamiento       |
-   |      |                   |            |                |               | biológico de      |
-   |      |                   |            |                |               | aguas residuales  |
-   |      |                   |            |                |               | (PTAR).           |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 6    | Compostaje        | 11.0       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | municipal de      |            |                |               | 10% de residuos   |
-   |      | residuos          |            |                |               | sólidos generados |
-   |      | orgánicos         |            |                |               | son gestionados   |
-   |      |                   |            |                |               | mediante          |
-   |      |                   |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 7    | Compostaje        | 6.97       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | privado o de      |            |                |               | 10% de residuos   |
-   |      | pequeña escala    |            |                |               | sólidos generados |
-   |      |                   |            |                |               | son gestionados   |
-   |      |                   |            |                |               | mediante          |
-   |      |                   |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 8    | Tratamiento de    | 14.0       | 2026-2035      | WWWT          | R.2 33% instalado |
-   |      | aguas residuales  |            |                |               | y funcionando     |
-   |      | (Plantas          |            |                |               | óptimamente.      |
-   |      | descentralizadas) |            |                |               |                   |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 9    | Tratamiento de    | 7.0        | 2026-2035      | WWWT          | R.2 33% instalado |
-   |      | aguas residuales  |            |                |               | y funcionando     |
-   |      |                   |            |                |               | óptimamente.      |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 10   | Captura y         | 860.428    | 2025-2035      | LANDFILL_ELEC | R.1 10% procesado |
-   |      | aprovechamiento   |            |                |               | en plantas nuevas |
-   |      | de biogás en      |            |                |               | de generación de  |
-   |      | rellenos          |            |                |               | energía eléctrica |
-   |      | sanitario         |            |                |               | a partir de       |
-   |      |                   |            |                |               | biogás en esos    |
-   |      |                   |            |                |               | rellenos          |
-   |      |                   |            |                |               | sanitarios.       |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 11   | Aprovechamiento y | 5.0        | 2028-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | valorización de   |            |                |               | 10% de residuos   |
-   |      | residuos          |            |                |               | sólidos generados |
-   |      |                   |            |                |               | son gestionados   |
-   |      |                   |            |                |               | mediante          |
-   |      |                   |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 12   | Gestión integral  | 90.0       | 2030-2035      | LANDFILL_ELEC | R.1 Gestión del   |
-   |      | de residuos con   |            |                |               | 5% de residuos    |
-   |      | aprovechamiento   |            |                |               | sólidos orgánicos |
-   |      | de biogás         |            |                |               | en plantas de     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | orgánicos a gran  |
-   |      |                   |            |                |               | escala para MBT   |
-   |      |                   |            |                |               | (tratamiento      |
-   |      |                   |            |                |               | mecánico          |
-   |      |                   |            |                |               | biológico).       |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 13   | Captura y quema   | 50.0       | 2026-2035      | LANDFILL_ELEC | R.1 70% de los    |
-   |      | de biogás en      |            |                |               | sitios de         |
-   |      | relleno sanitario |            |                |               | disposición final |
-   |      |                   |            |                |               | de residuos       |
-   |      |                   |            |                |               | sólidos operan    |
-   |      |                   |            |                |               | técnicamente.     |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 14   | Reducción y       | 4.0        | 2026-2035      | TSW           | R.1 Corto plazo:  |
-   |      | perdidas de       |            |                |               | -1% de reducción  |
-   |      | desperdicio de    |            |                |               | de kilogramos de  |
-   |      | alimentos         |            |                |               | residuos sólidos  |
-   |      |                   |            |                |               | generados per     |
-   |      |                   |            |                |               | cápita a escala   |
-   |      |                   |            |                |               | nacional          |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 15   | Compostaje        | 0.02       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | municipal de      |            |                |               | 10% de residuos   |
-   |      | residuos          |            |                |               | sólidos generados |
-   |      | orgánicos         |            |                |               | son gestionados   |
-   |      |                   |            |                |               | mediante          |
-   |      |                   |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 16   | Compostaje en     | 10.1       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | centros de abasto |            |                |               | 10% de residuos   |
-   |      | y mercados        |            |                |               | sólidos generados |
-   |      | mayoristas        |            |                |               | son gestionados   |
-   |      |                   |            |                |               | mediante          |
-   |      |                   |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 17   | Tratamiento de    | 0.1        | 2026-2035      | WWWT          | R.2 33% instalado |
-   |      | aguas residuales  |            |                |               | y funcionando     |
-   |      | institucional     |            |                |               | óptimamente.      |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 18   | Tratamiento       | 0.108      | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | biológico de      |            |                |               | 10% de residuos   |
-   |      | residuos          |            |                |               | sólidos generados |
-   |      | orgánicos en      |            |                |               | son gestionados   |
-   |      | instalaciones     |            |                |               | mediante          |
-   |      | aeroportuarias    |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 19   | Aprovechamiento   | 2.5        | 2028-2035      | COMPOST       | R.1 Corto plazo:  |
-   |      | orgánico y        |            |                |               | 10% de residuos   |
-   |      | lombricultura     |            |                |               | sólidos generados |
-   |      | municipal         |            |                |               | son gestionados   |
-   |      |                   |            |                |               | mediante          |
-   |      |                   |            |                |               | tecnologías de    |
-   |      |                   |            |                |               | reciclaje como    |
-   |      |                   |            |                |               | tratamiento y     |
-   |      |                   |            |                |               | valorización de   |
-   |      |                   |            |                |               | residuos sólidos  |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 20   | Planta de         | 60         | 2034-2035      | WWWT          | 8 % de aguas      |
-   |      | Tratamiento de    |            |                |               | residuales        |
-   |      | Aguas Residuales  |            |                |               | tratadas mediante |
-   |      | (PTAR) domésticas |            |                |               | plantas de        |
-   |      |                   |            |                |               | tratamiento       |
-   |      |                   |            |                |               | biológico de      |
-   |      |                   |            |                |               | aguas             |
-   +------+-------------------+------------+----------------+---------------+-------------------+
-   | 21   | Planta de         | 0.17       | 2026-2035      | WWWT          | 33% instalado y   |
-   |      | Tratamiento de    |            |                |               | funcionando       |
-   |      | Aguas Residuales  |            |                |               | óptimamente.      |
-   |      | (PTAR) domésticas |            |                |               |                   |
-   +------+-------------------+------------+----------------+---------------+-------------------+
+   +-------------+-------------------------+---------------+-----------------+
+   | Categoría   | Iniciativa              | Año de        | Descripción     |
+   |             |                         | Implementación|                 |
+   |             |                         |               |                 |
+   +=============+=========================+===============+=================+
+   |             | Captura y               | 2026–2029     | Potencial de    |
+   | Residuos    | aprovechamiento de      |               | reducción de    |
+   | sólidos     | biogás para generación  |               | emisiones: **30 |
+   |             | de energía eléctrica    |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Captura y quema de      | 2026–2035     | Potencial de    |
+   |             | biogás en rellenos      |               | reducción de    |
+   |             | sanitarios              |               | emisiones:      |
+   |             |                         |               | **1710 kt       |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Captura de biogás y     | 2025–2028     | Potencial de    |
+   |             | generación eléctrica    |               | reducción de    |
+   |             | con gas de relleno      |               | emisiones:      |
+   |             |                         |               | **860.43 kt     |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Captura y quema de      | 2026–2035     | Potencial de    |
+   |             | biogás en rellenos      |               | reducción de    |
+   |             | sanitarios              |               | emisiones: **50 |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Compostaje municipal de | 2026–2035     | Potencial de    |
+   |             | residuos orgánicos-     |               | reducción de    |
+   |             | Biocompost              |               | emisiones: **11 |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Compostaje privado o de | 2026–2035     | Potencial de    |
+   |             | pequeña escala          |               | reducción de    |
+   |             |                         |               | emisiones:      |
+   |             |                         |               | **6.97 kt       |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Compostaje municipal de | 2026–2035     | Potencial de    |
+   |             | residuos orgánicos-     |               | reducción de    |
+   |             | lombricultura           |               | emisiones:      |
+   |             |                         |               | **0.02 kt       |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Compostaje en centros   | 2026–2035     | Potencial de    |
+   |             | de abasto y mercados    |               | reducción de    |
+   |             | mayoristas              |               | emisiones:      |
+   |             |                         |               | **7.5 kt        |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Tratamiento biológico   | 2026–2035     | Potencial de    |
+   |             | de residuos orgánicos   |               | reducción de    |
+   |             | en instalaciones        |               | emisiones:      |
+   |             | aeroportuarias          |               | **0.108 kt      |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Aprovechamiento         | 2028–2035     | Potencial de    |
+   |             | orgánico y              |               | reducción de    |
+   |             | lombricultura municipal |               | emisiones:      |
+   |             |                         |               | **2.5 kt        |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Aprovechamiento y       | 2028–2035     | Potencial de    |
+   |             | valorización            |               | reducción de    |
+   |             | mancomunado de residuos |               | emisiones: **5  |
+   |             | orgánicos               |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Gestión integral de     | 2030–2035     | Potencial de    |
+   |             | residuos con            |               | reducción de    |
+   |             | aprovechamiento de      |               | emisiones: **90 |
+   |             | biogás                  |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Reducción de pérdidas y | 2026–2035     | Potencial de    |
+   |             | desperdicio de          |               | reducción de    |
+   |             | alimentos               |               | emisiones: **4  |
+   |             |                         |               | kt CO₂eq/año**  |
+   +-------------+-------------------------+---------------+-----------------+
+   | Aguas       | PTAR en municipio       | 2026–2035     | Potencial de    |
+   | residuales  |                         |               | reducción de    |
+   |             |                         |               | emisiones: **37 |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Tratamiento de aguas    | 2027–2035     | Potencial de    |
+   |             | residuales municipales  |               | reducción de    |
+   |             |                         |               | emisiones: **51 |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Tratamiento de aguas    | 2026–2035     | Potencial de    |
+   |             | residuales municipales  |               | reducción de    |
+   |             |                         |               | emisiones: **7  |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Tratamiento de aguas    | 2026–2035     | Potencial de    |
+   |             | residuales (plantas     |               | reducción de    |
+   |             | descentralizadas)       |               | emisiones: **14 |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Tratamiento de aguas    | 2026–2035     | Potencial de    |
+   |             | residuales              |               | reducción de    |
+   |             | institucional           |               | emisiones:      |
+   |             |                         |               | **0.1 kt        |
+   |             |                         |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Planta de Tratamiento   | 2034–2035     | Potencial de    |
+   |             | de Aguas Residuales     |               | reducción de    |
+   |             | (PTAR) domésticas       |               | emisiones: **60 |
+   |             |                         |               | kt CO₂eq/año**  |
+   +             +-------------------------+---------------+-----------------+
+   |             | Planta de Tratamiento   | 2026–2035     | Potencial de    |
+   |             | de Aguas Residuales     |               | reducción de    |
+   |             | (PTAR) domésticas       |               | emisiones:      |
+   |             | descentralizadas (21    |               | **0.17 kt       |
+   |             | plantas)                |               | CO₂eq/año**     |
+   +             +-------------------------+---------------+-----------------+
+   |             | Tratamiento de aguas    | 2026–2035     | Potencial de    |
+   |             | residuales industriales |               | reducción de    |
+   |             |                         |               | emisiones: **8  |
+   |             |                         |               | kt CO₂eq/año**  |
+   +-------------+-------------------------+---------------+-----------------+

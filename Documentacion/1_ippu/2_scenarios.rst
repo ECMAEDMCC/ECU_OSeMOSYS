@@ -31,39 +31,35 @@ En la :numref:`table_ippu_scenarios` se detallan de mejor forma las iniciativas 
 .. _table_ippu_scenarios:
 .. table:: Descripción de iniciativas del sector Procesos Industriales para el escenario Plan de Acción.
 
-   +------+---------------------+------------+----------------+-------------------+-------------+
-   | NRO. | DESCRIPCIÓN         | POTENCIAL  | AÑO DE         | TECNOLOGÍA        | META        |
-   |      |                     | DE         | IMPLEMENTACIÓN | OSEMOSYS          | PLANMICC    |
-   |      |                     | MITIGACIÓN |                |                   | -2035       |
-   |      |                     | AL 2035    |                |                   |             |
-   |      |                     | [KT        |                |                   |             |
-   |      |                     | CO₂EQ/AÑO] |                |                   |             |
-   +======+=====================+============+================+===================+=============+
-   | 1    | Sustitución de      | 530.14     | 2026-2035      | PROD_CEM;CLK_PROD | P.1 Reducir |
-   |      | clinker por         |            |                |                   | el factor   |
-   |      | adiciones en la     |            |                |                   | clínker en  |
-   |      | producción de       |            |                |                   | la          |
-   |      | cemento             |            |                |                   | producción  |
-   |      |                     |            |                |                   | de cemento  |
-   |      |                     |            |                |                   | al 68%.     |
-   +------+---------------------+------------+----------------+-------------------+-------------+
-   | 2    | Reducir             | 635.8      | 2026-2035      | HFC_use           | P.2 Reducir |
-   |      | progresivamente el  |            |                |                   | la          |
-   |      | consumo de          |            |                |                   | importación |
-   |      | hidrofluorocarbonos |            |                |                   | del 30% de  |
-   |      | (HFC) y PFC en el   |            |                |                   | los HFC y   |
-   |      | país conforme Hoja  |            |                |                   | PFC.        |
-   |      | de Ruta para        |            |                |                   |             |
-   |      | reducción los HFC   |            |                |                   |             |
-   |      | en Ecuador, bajo la |            |                |                   |             |
-   |      | enmienda de Kigali  |            |                |                   |             |
-   |      | al protocolo de     |            |                |                   |             |
-   |      | Montreal.           |            |                |                   |             |
-   +------+---------------------+------------+----------------+-------------------+-------------+
-   | 3    | Eliminación         | 1.00       | 2029-2035      | HFC_use           | P.2 Reducir |
-   |      | progresiva de       |            |                |                   | la          |
-   |      | compuestos que      |            |                |                   | importación |
-   |      | contienen HFC y PFC |            |                |                   | del 30% de  |
-   |      | contenidos en       |            |                |                   | los HFC y   |
-   |      | equipos             |            |                |                   | PFC.        |
-   +------+---------------------+------------+----------------+-------------------+-------------+
+   +------+------------+----------------------+----------------+-------------+
+   |Nro.  | Categoría  | Iniciativa           |Año de          | Descripción |
+   |      |            |                      |Implementación  |             |
+   +======+============+======================+================+=============+
+   | 1    |            | Sustitución de       | 2025-2035      | Reducción   |
+   |      | Sustitución| clinker por          |                | al 68% a    |
+   |      | de clínker | adiciones en la      |                | 2030        |
+   |      |            | producción de        |                |             |
+   |      |            | cemento              |                |             |
+   +------+------------+----------------------+----------------+-------------+
+   | 2    | Reducción  | Reducir              | 2025-2035      | Reducción   |
+   |      | progresiva | progresivamente el   |                | del consumo |
+   |      | del        | consumo de           |                | de 10% de   |
+   |      | consumo de | hidrofluorocarbonos  |                | la línea    |
+   |      | HFC        | (HFC) y PFC en el    |                | base al     |
+   |      | conforme a | país conforme Hoja   |                | 2029 y de   |
+   |      | la         | de Ruta para         |                | 30% al      |
+   |      | Enmienda   | reducción los HFC en |                | 2035.*      |
+   |      | de Kigali  | Ecuador, bajo la     |                |             |
+   |      |            | enmienda de Kigali   |                |             |
+   |      |            | al protocolo de      |                |             |
+   |      |            | Montreal.            |                |             |
+   +------+            +----------------------+----------------+             +
+   | 3    |            | Eliminación          | 2029-2035      |             |
+   |      |            | progresiva de        |                |             |
+   |      |            | compuestos que       |                |             |
+   |      |            | contienen HFC y PFC  |                |             |
+   |      |            | contenidos en        |                |             |
+   |      |            | equipos              |                |             |
+   +------+------------+----------------------+----------------+-------------+
+
+*Este indicador es de carácter normativo y se rige por la reducción obligatoria establecida en la Resolución COMEX 014-2023 para la importación de HFC y PFC, y no deriva de la iniciativa modelada.

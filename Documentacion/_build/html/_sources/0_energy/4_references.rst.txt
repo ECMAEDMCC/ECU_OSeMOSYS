@@ -1,35 +1,19 @@
 ﻿===================================
 Referencias
 ===================================
-- **MAATE.** (s.f.). 5ta Comunicación Nacional.
-
-- **ARCONEL.** (2022). Estadística del Sector Eléctrico
-  Ecuatoriano. https://anda.inec.gob.ec/anda/index.php/catalog/ARCERNNR
-
-- **MEM.** (2023). Balance Energético Nacional
-  2023. https://www.recursosyenergia.gob.ec/wp-content/uploads/2024/08/BEN_2023-cap_7.pdf
-
-- **República del Ecuador.** (2025). Segunda Contribución Determinada a
-  Nivel Nacional de la República del Ecuador 2026-2035.
-  https://unfccc.int/sites/default/files/2025-02/Segunda%20NDC%20de%20Ecuador.pdf
-
-- **MAATE.** (2024). Plan Nacional de Mitigación del Cambio Climático
-  (PLANMICC) 2024-2070. https://planmicc.ambiente.gob.ec/
-
-
-- **Ministerio del Ambiente, Agua y Transición Ecológica (MAATE).** (2024).
+- **Ministerio del Ambiente, Agua y Transición Ecológica (MAATE). (2024).**
   Quinta Comunicación Nacional y Primer Reporte Bienal de Transparencia
   del Ecuador a la Convención Marco de las Naciones Unidas sobre Cambio
   Climático. Quito, Ecuador.
 
-- **Ministerio del Ambiente, Agua y Transición Ecológica (MAATE).** (2024).
-  Plan Nacional de Mitigación al Cambio Climático - PLANMICC. Quito,
+- **Ministerio del Ambiente, Agua y Transición Ecológica (MAATE). (2024).**
+  Plan Nacional de Mitigación al Cambio Climático -PLANMICC. Quito,
   Ecuador.
 
-- **Ministerio de Ambiente y Energía.** (2023). Balance Energético Nacional
+- **Ministerio de Ambiente y Energía. (2023).** Balance Energético Nacional
   2023. Quito, Ecuador.
 
-- **Ministerio de Ambiente y Energía.** (2024). Balance Energético Nacional
+- **Ministerio de Ambiente y Energía. (2024).** Balance Energético Nacional
   2024. Quito, Ecuador.
 
 - **Gobierno de Ecuador. (2019).** Primera Actualización de la Contribución
@@ -59,23 +43,23 @@ Referencias
 - **CENACE. (2023).** Informe Anual de Operación del Sistema Nacional
   Interconectado 2022. Quito, Ecuador.
 
-- **Instituto Nacional de Estadística y Censos (INEC).** (2023).
+- **Instituto Nacional de Estadística y Censos (INEC). (2023).**
   Proyecciones Poblacionales 2010-2050. Quito, Ecuador.
 
 - **Banco Central del Ecuador. (2023).** Cuentas Nacionales Trimestrales y
   Anuales. Quito, Ecuador.
 
-- **Agencia Nacional de Tránsito (ANT).** (2023). Anuario Estadístico de
+- **Agencia Nacional de Tránsito (ANT). (2023).** Anuario Estadístico de
   Transporte Terrestre 2022. Quito, Ecuador.
 
-- **Instituto Ecuatoriano de Normalización (INEN).** (2012). Norma Técnica
-  Ecuatoriana NTE INEN 2656:2012 - Clasificación Vehicular. Quito,
+- **Instituto Ecuatoriano de Normalización (INEN). (2012).** Norma Técnica
+  Ecuatoriana NTE INEN 2656:2012 -Clasificación Vehicular. Quito,
   Ecuador.
 
-- **World Business Council for Sustainable Development (WBCSD).** (1992).
+- **World Business Council for Sustainable Development (WBCSD). (1992).**
   Changing course: A global business perspective on development and the
   environment. MIT Press.
 
-- **Comisión Económica para América Latina y el Caribe (CEPAL).** (2005).
+- **Comisión Económica para América Latina y el Caribe (CEPAL). (2005).**
   Ecoeficiencia: marco de análisis, indicadores y experiencias (Serie
   Medio Ambiente y Desarrollo, Nº 107). Naciones Unidas.

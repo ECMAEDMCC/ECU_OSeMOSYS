@@ -2,44 +2,67 @@
 Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional
 ====================================================================================
 
-El Escenario Tendencial Nacional Acumulado presenta una visión consolidada de las emisiones de gases 
-de efecto invernadero (GEI) en los cinco sectores priorizados de la mitigación del cambio climático. 
-El escenario Plan de Acción del PLANMICC, que muestra el potencial de reducción de emisiones de GEI 
-que se alcanzaría en los cinco sectores priorizados al implementar las iniciativas de mitigación 
-identificadas en los talleres de formulación conforme la metodología planteada en la Sección 4 
-del documento Plan de Acción. Cabe destacar que el Escenario Tendencial Nacional Acumulado se presenta 
-considerando el año reportado considerado en la primera NDC (2010) y el año de término de la 
+El Escenario Tendencial Nacional presenta las emisiones de gases de
+efecto invernadero (GEI) en los cinco sectores priorizados de la
+mitigación del cambio climático y refleja la evolución del sistema en
+ausencia de intervenciones de mitigación. Este escenario constituye una
+línea de referencia operativa, que permite identificar las trayectorias
+de emisiones que se derivan de la continuidad de las tendencias actuales
+de extracción, producción, consumo y desecho. Desde una perspectiva de
+implementación, el Escenario Tendencial Nacional no describe un estado
+deseable, sino un escenario de inercia, que refleja lo que ocurre cuando
+las condiciones estructurales del sistema que se conforma alrededor de
+la mitigación del cambio climático no se modifican de manera sustantiva.
+Su análisis resulta fundamental para dimensionar la magnitud del desafío
+de la mitigación y para evidenciar las brechas entre la trayectoria
+actual y los objetivos nacionales de reducción de emisiones. Cabe
+destacar que el Escenario Tendencial Nacional se presenta considerando
+el año base reportado en la primera NDC (2010) y el año de término de la
 fase I del Plan de Acción del PLANMICC (2035).
 
-En la :numref:`national_emissions`, el Escenario Tendencial Nacional (curva de color azul) muestra la tendencia en la
-que evolucionarían las emisiones de GEI a partir del año base no se implementaban iniciativas de 
-mitigación de cambio climático en ningún sector. De acuerdo con el Escenario Tendencial Nacional 
-Acumulado (curva de color azul) las emisiones de GEI en el año 2035 alcanzarían aproximadamente 
-128.000 kton CO2-eq. Esta magnitud representa un incremento del 37% en las emisiones de GEI respecto
-al año base 2010. Por otro lado, el Escenario Plan de Acción del PLANMICC (curva de color roja) 
-refleja la trayectoria de emisiones de GEI que resultaría de la implementación de las medidas de
-mitigación estructuradas y priorizadas en el escenario Plan de Acción. A diferencia del Escenario 
-Tendencial Nacional, de acuerdo con el Escenario Plan de Acción, las emisiones de GEI en el año 2035 
-alcanzarían las 95.000 - 98.000 kton CO₂-eq.
+El escenario Plan de Acción incorpora al modelado las medidas y
+orientaciones definidas para la Fase I (2025–2035) del Plan de Acción
+del PLANMICC, permitiendo evaluar cómo la implementación coordinada de
+estas acciones modifica la trayectoria de emisiones de gases de efecto
+invernadero (GEI) en comparación con el Escenario Tendencial Nacional.
+Este escenario representa, por tanto, la trayectoria de intervención, y
+constituye el principal insumo técnico para respaldar la priorización y
+secuenciación de acciones durante la fase inicial de implementación.
+
+De acuerdo con la :numref:`national_emissions` en el Escenario Tendencial Nacional (curva
+de color azul), las emisiones de GEI en el año 2035 alcanzarían 128.000
+kton CO2-eq. Esta magnitud representa un incremento del 37% en las
+emisiones de GEI respecto al año base 2010. Por otro lado, el Escenario
+Plan de Acción del PLANMICC, Fase I (curva de color rojo) refleja la
+trayectoria de emisiones de GEI que resultaría de la implementación de
+las medidas de mitigación estructuradas y priorizadas en el escenario
+Plan de Acción. De acuerdo con el Escenario Plan de Acción, las
+emisiones de GEI en el año 2035 alcanzarían 98.000 kton CO₂-eq. El punto
+rojo, representa la comparación con el inventario INGEI 2022. Asimismo,
+los puntos verdes muestran la trayectoria proyectada del inventario
+INGEI al Escenario Plan de Acción que empieza desde el año 2025.
 
 .. figure:: _static/images/national_emissions.png
    :name: national_emissions
-   :alt: Escenario Tendencial Nacional Acumulado (periodo 2010 - 2035) vs Escenario Plan de Acción del PLANMICC (periodo 2025 – 2035)
+   :alt: Escenarios para la Mitigación del Cambio Climático en Ecuador utilizados en el Plan de Acción del PLANMICC, Fase I
 
-   Escenario Tendencial Nacional Acumulado (periodo 2010 - 2035) vs Escenario Plan de Acción del PLANMICC (periodo 2025 – 2035)
+   Escenarios para la Mitigación del Cambio Climático en Ecuador utilizados en el Plan de Acción del PLANMICC, Fase I
 
-
-El Escenario Tendencial Nacional Acumulado muestra una representación referenciada del PLANMICC para
-los cinco sectores priorizados conforme las tendencias de emisiones de GEI reportadas por la NDC. 
-En conclusión, la diferencia entre ambos escenarios representa el potencial de mitigación vinculado 
-al despliegue del escenario Plan de Acción. Este potencial de mitigación se estima en aproximadamente 
-31.000 - 34.000 ktCO2-eq evitados al año 2035. Esta reducción de emisiones de GEI equivale al 26% 
-respecto del Escenario Tendencial Nacional Acumulado.
+De acuerdo con las instrucciones proporcionadas por el Ministerio del
+Ambiente y Energía, el Escenario Tendencial Nacional se construye como
+una representación referenciada del PLANMICC para los cinco sectores
+priorizados conforme las tendencias de emisiones de GEI reportadas por
+la NDC. Por lo tanto, la diferencia entre ambos escenarios representa el
+potencial de mitigación vinculado al despliegue del escenario Plan de
+Acción del PLANMICC, Fase I. Este potencial de mitigación se estima en
+34.000 kton CO\ :sub:`2`-eq evitados al año 2035. Esta reducción de
+emisiones de GEI equivale al 26% respecto del Escenario Tendencial
+Nacional al año 2035.
 
 El análisis por sector para el escenario Tendencial se muestra en la :numref:`table_emissions_tendencial`.
 
 .. _table_emissions_tendencial:
-.. table:: Emisiones kton CO2-eq por Sector - Escenario Tendencial
+.. table:: Emisiones de GEI en kton CO2-eq por Sector - Escenario Tendencial
 
    +--------------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+
    |   Sector     | 2025     | 2026     | 2027     | 2028     | 2029     | 2030     | 2031     | 2032     | 2033     | 2034     | 2035     |
@@ -64,7 +87,7 @@ El análisis por sector para el escenario Tendencial se muestra en la :numref:`t
 El análisis por sector para el escenario Plan de acción se muestra en la :numref:`table_emissions_plandeaccion`.
 
 .. _table_emissions_plandeaccion:
-.. table:: Emisiones kton CO2-eq por Sector - Escenario Plan de Acción
+.. table:: Emisiones de GEI en kton CO2-eq por Sector - Escenario Plan de Acción del PLANMICC, Fase I
 
    +--------------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+
    |   Sector     | 2025     | 2026     | 2027     | 2028     | 2029     | 2030     | 2031     | 2032     | 2033     | 2034     | 2035     |

@@ -8,14 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4.2. Datos de Entrada &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6fe3c23b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=6fcc102b"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/translations.js?v=f85f4cfb"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
@@ -89,21 +90,27 @@
            <div itemprop="articleBody">
              
   <section id="datos-de-entrada">
-<h1><span class="section-number">4.2. </span>Datos de Entrada<a class="headerlink" href="#datos-de-entrada" title="Link to this heading"></a></h1>
-<p>La Tabla <a class="reference internal" href="#table-inputs-energy"><span class="std std-numref">Tabla 4.4</span></a> presenta una síntesis de fuentes de información empleadas
-para la construcción del Escenario Tendencial Nacional del sector
-Energía. El proceso de modelado que da lugar al Escenario Tendencial
-Nacional integra información proveniente tanto del PLANMICC como de la
-Segunda NDC, garantizando consistencia con las Directrices del IPCC
-(2006), su refinamiento de 2019 y el Inventario Nacional de GEI 2022 de
-la 5CN2BTR</p>
+<span id="energy-data-input"></span><h1><span class="section-number">4.2. </span>Datos de Entrada<a class="headerlink" href="#datos-de-entrada" title="Link to this heading"></a></h1>
+<p>La <a class="reference internal" href="#table-inputs-energy"><span class="std std-numref">Tabla 4.4</span></a> presenta una síntesis de las fuentes de información
+utilizadas para la construcción del Escenario Tendencial Nacional del
+sector Energía. Como se puede notar, y conforme la instrucción
+proporcionada por el Ministerio del Ambiente y Energía, el proceso de
+modelado que da lugar al Escenario Tendencial Nacional integra
+información proveniente tanto del modelo OSeMOSYS que da soporte al
+PLANMICC como del modelo OSeMOSYS que da soporte a la Segunda NDC. En
+todos los casos, se garantizan la consistencia con las Directrices del
+IPCC (2006), su refinamiento de 2019 y el Inventario Nacional de GEI
+2022 de la Quinta Comunicación Nacional, segundo reporte bienal de
+transparencia (5CN2BTR).</p>
 <span id="table-inputs-energy"></span><table class="docutils align-default" id="id1">
 <caption><span class="caption-number">Tabla 4.4 </span><span class="caption-text">Fuentes de información utilizadas para el proceso de modelado del Escenario Tendencial Nacional del sector Energía</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
-<tbody>
-<tr class="row-odd"><td><p>Ítem</p></td>
-<td><p>Información Utilizada</p></td>
-<td><p>Fuente</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Ítem</strong></p></th>
+<th class="head"><p><strong>Información Utilizada</strong></p></th>
+<th class="head"><p><strong>Fuente</strong></p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>1</p></td>
 <td><p>Tecnologías generadoras de
 electricidad: fuente
@@ -115,16 +122,17 @@ de operación, energía generada
 de Energía y Control
 (CENACE), Inventario Nacional
 de Gases de Efecto
-Invernadero (INGEI de la 5ta
-(1994-2022)</p></td>
+Invernadero (INGEI de la
+quinta comunicación nacional
+1994-2022)</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
 <td><p>Demanda de energía por fuente
 energética en el sector
 industrial y construcción (TJ)</p></td>
 <td><p>Balance de Energía Nacional
-202 4, INGEI (1994-2022)
-(5CN/1RBT, 2024)</p></td>
+2024, INGEI (1994-2022)
+(5CN/2RBT, 2024)</p></td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
 <td><p>Demanda de energía por fuente
@@ -134,7 +142,7 @@ transporte: terrestre
 aéreo (TJ)</p></td>
 <td><p>Balance de Energía Nacional
 2024, ANT, INGEI (1994-2022)</p>
-<p>(5CN/1RBT, 2024)</p>
+<p>(5CN/2RBT,, 2024)</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>4</p></td>
@@ -146,7 +154,7 @@ agricultura/pesca/minería (TJ)</p></td>
 <td><p>Balance de Energía Nacional
 2024, INGEI de la 5ta
 (1994-2022)</p>
-<p>(5CN/1RBT, 2024)</p>
+<p>(5CN/2RBT,, 2024)</p>
 </td>
 </tr>
 <tr class="row-even"><td><p>5</p></td>
@@ -154,8 +162,8 @@ agricultura/pesca/minería (TJ)</p></td>
 fuente energética en otros
 sectores no clasificados (TJ)</p></td>
 <td><p>Balance de Energía Nacional
-202 4, INGEI de la 5ta
-(1994-2022) (5CN/1RBT, 2024)</p></td>
+2024, INGEI de la 5ta
+(1994-2022) (5CN/2RBT, 2024)</p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
 <td><p>Producción de crudo de petróleo
@@ -179,128 +187,152 @@ proyecciones de crecimiento</p></td>
 <td><p>Vehículos matriculados por tipo
 y año, clasificación NTE INEN
 2656</p></td>
-<td><p>Agencia Nacional de Tránsito</p></td>
+<td><p>Agencia Nacional de Tránsit
+(PLANMICC)</p></td>
 </tr>
 </tbody>
 </table>
-<p>La Tabla <a class="reference internal" href="#table-inputs-params"><span class="std std-numref">Tabla 4.5</span></a> resume los parámetros de modelación y supuestos adoptados
+<p>La <a class="reference internal" href="#table-inputs-params"><span class="std std-numref">Tabla 4.5</span></a> presenta los parámetros de modelación y supuestos adoptados
 para la construcción del Escenario Tendencial Nacional del sector
-Energía. En ella se establecen los criterios utilizados para proyectar
-la generación eléctrica, producción petrolera, demanda de energía,
-transporte, variables económicas y demográficas, así como la métrica y
-factores de emisión empleados en el modelo.</p>
+Energía. La <a class="reference internal" href="#table-inputs-params"><span class="std std-numref">Tabla 4.5</span></a> además establece los criterios utilizados para
+proyectar la generación eléctrica, producción petrolera, demanda de
+energía, transporte, variables económicas y demográficas, así como la
+métrica y factores de emisión empleados en el modelo.</p>
 <span id="table-inputs-params"></span><table class="docutils align-default" id="id2">
-<caption><span class="caption-number">Tabla 4.5 </span><span class="caption-text">Fuentes de información para parametrizar el Escenario Tendencial Nacional del sector Energía</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
-<tbody>
-<tr class="row-odd"><td><p>ítem</p></td>
-<td><p>Parámetros de
-modelación</p></td>
-<td><p>Supuestos</p></td>
+<caption><span class="caption-number">Tabla 4.5 </span><span class="caption-text">Fuentes de información utilizadas para parametrizar el Escenario Tendencial Nacional del sector Energía</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ítem</p></th>
+<th class="head"><p>Parámetros de
+modelación</p></th>
+<th class="head"><p>Supuestos</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>1</p></td>
 <td><p>Generación eléctrica</p></td>
-<td><p>Desde 2010, la generación eléctrica
+<td><ul class="simple">
+<li><p>Desde 2010, la generación eléctrica
 no considera el ingreso de proyectos
-de generación renovable.</p>
-<p>Expansión de capacidad de generación
-basada en tendencias históricas sin
-políticas de promoción de energías
-renovables.</p>
-<p>Participación de generación
+de generación renovable.</p></li>
+<li><p>Expansión de capacidad de
+generación basada en tendencias
+históricas sin políticas de promoción
+de energías renovables.</p></li>
+<li><p>Participación de generación
 termoeléctrica mantiene niveles
-históricos.</p>
-<p>No se consideran proyectos de
+históricos.</p></li>
+<li><p>No se consideran proyectos de
 Energía Renovable no Convencional
 (solar, eólica, geotérmica)
-posteriores a 2010.</p>
+posteriores a 2010.</p></li>
+</ul>
 </td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
 <td><p>Producción petrolera</p></td>
-<td><p>Desde 2010, la producción petrolera
-y sus emisiones fugitivas no considera
-medidas de mitigación.</p>
-<p>Tasas de venteo y flaring se
+<td><ul class="simple">
+<li><p>Desde 2010, la producción petrolera
+y sus emisiones fugitivas no
+considera medidas de mitigación.</p></li>
+<li><p>Tasas de venteo y flaring se
 mantienen constantes conforme los
-niveles de 2010.</p>
+niveles de 2010.</p></li>
+</ul>
 </td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
 <td><p>Demanda de energía</p></td>
-<td><p>Desde 2010, no se implementan
+<td><ul class="simple">
+<li><p>Desde 2010, no se implementan
 medidas para reducir el consumo de
-combustibles fósiles mediante acciones
-de eficiencia energética.</p>
-<p>No se consideran programas de
+combustibles fósiles mediante
+acciones de eficiencia energética.</p></li>
+<li><p>No se consideran programas de
 recambio de equipos eficientes,
 etiquetado energético ni la
-implementación de sistemas de gestión
-de la energía conforme la norma ISO
-50001.</p>
+implementación de sistemas de
+gestión de la energía conforme
+la norma ISO 50001.</p></li>
+</ul>
 </td>
 </tr>
 <tr class="row-odd"><td><p>4</p></td>
 <td><p>Sector transporte</p></td>
-<td><p>Parque automotor evoluciona según
+<td><ul class="simple">
+<li><p>Parque automotor evoluciona según
 tendencias históricas del sector
-automotor.</p>
-<p>No se considera la penetración de
+automotor.</p></li>
+<li><p>No se considera la penetración de
 vehículos eléctricos o híbridos
-(vehículos cero/bajas emisiones).</p>
-<p>No se implementan sistemas de
+(vehículos con bajas emisiones).</p></li>
+<li><p>No se implementan sistemas de
 transporte público masivo de bajas
-emisiones de GEI.</p>
-<p>Demanda de movilidad vinculada a
-Producto Interno Bruto.</p>
-<p>La demanda de movilidad 2018 se
+emisiones de GEI.</p></li>
+<li><p>Demanda de movilidad vinculada a
+Producto Interno Bruto.</p></li>
+<li><p>La demanda de movilidad 2018 se
 mantiene constante en el periodo
 2010-2017 por falta de información
-histórica.</p>
+histórica.</p></li>
+</ul>
 </td>
 </tr>
 <tr class="row-even"><td><p>5</p></td>
 <td><p>Clasificación
 vehicular</p></td>
-<td><p>Según Norma Técnica Ecuatoriana NTE
+<td><ul class="simple">
+<li><p>Según Norma Técnica Ecuatoriana NTE
 INEN 2656: Microbuses, buses, taxis,
 motocicleta, sedanes, SUVs, Minivan,
 carga pesada, transporte con
 suministro eléctrico por catenaria,
-carga media.</p></td>
+carga media.</p></li>
+</ul>
+</td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
 <td><p>Tasas de crecimiento
 económico</p></td>
-<td><p>Crecimiento del PIB según proyecciones
-consideradas en el PLANMICC.</p></td>
+<td><ul class="simple">
+<li><p>Crecimiento del PIB según
+proyecciones consideradas
+en el PLANMICC.</p></li>
+</ul>
+</td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
 <td><p>Tasas de crecimiento
 poblacional</p></td>
-<td><p>Proyecciones demográficas del INEC.</p>
-<p>Aumento poblacional influye
+<td><ul class="simple">
+<li><p>Proyecciones demográficas del INEC.</p></li>
+<li><p>Aumento poblacional influye
 directamente en demanda energética
-residencial, comercial y transporte.</p>
-<p>Tasa de urbanización afecta patrones
-de consumo energético.</p>
+residencial, comercial y transporte.</p></li>
+<li><p>Tasa de urbanización afecta patrones
+de consumo energético.</p></li>
+</ul>
 </td>
 </tr>
 <tr class="row-odd"><td><p>8</p></td>
 <td><p>Año base y línea
 base</p></td>
-<td><p>Año base: 2010.</p>
-<p>Línea base: INGEI 2010 de la Quinta
-Comunicación Nacional y Primer Reporte
-Bienal de Transparencia.</p>
+<td><ul class="simple">
+<li><p>Año base: 2010.</p></li>
+<li><p>Línea base: INGEI 2010 de la
+Quinta Comunicación Nacional y Primer
+Reporte Bienal de Transparencia.</p></li>
+</ul>
 </td>
 </tr>
 <tr class="row-even"><td><p>9</p></td>
 <td><p>Métrica y factores
 de emisión</p></td>
-<td><p>Potencial de Calentamiento Global a
-100 años (GWP-100), valores IPCC AR5.</p>
-<p>Factores de emisión Tier 1 según
-IPCC 2006/2019.</p>
+<td><ul class="simple">
+<li><p>Potencial de Calentamiento Global a
+100 años (GWP-100), valores IPCC AR5.</p></li>
+<li><p>Factores de emisión Tier 1 según
+IPCC 2006/2019.</p></li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -320,7 +352,7 @@ descargue el archivo de datos del sector Energía aquí: <a class="reference dow
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Derechos de autor 2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador..</p>
+    <p>&#169; Derechos de autor 2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.</p>
   </div>
 
   Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un

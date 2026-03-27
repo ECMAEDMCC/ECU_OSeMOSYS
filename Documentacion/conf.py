@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'ECU_OSeMOSYS'
-copyright = '2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador.'
-author = 'Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador'
+copyright = '2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador'
+author = 'Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
@@ -26,4 +26,5 @@ language = 'es'
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = ['css/custom.css']
 numfig = True

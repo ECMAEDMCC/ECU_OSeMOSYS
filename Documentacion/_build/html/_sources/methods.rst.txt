@@ -1,18 +1,83 @@
 ﻿====================================
 Metodología
 ====================================
-La metodología utilizada para el desarrollo del modelo se basa en:
+El Plan de Acción (PA) del PLANMICC fase 1 se desarrolla mediante un
+enfoque que integra modelación energética, análisis de sistemas
+socio-técnicos y procesos participativos. El objetivo es estimar
+trayectorias de emisiones de gases de efecto invernadero (GEI) y evaluar
+el impacto de medidas de mitigación en los sectores Energía,
+Agricultura, USCUSS, Procesos Industriales y Procesos Industriales y
+Residuos y durante el período 2025–2035.
 
-1. **Definición de la estructura del modelo** Se establecieron los componentes fundamentales del modelo, incluyendo la clasificación de tecnologías y combustibles, el horizonte temporal de análisis y la configuración de los modos de oferta, demanda y transporte.
+Cada sector se analiza como un sistema socio-técnico compuesto por
+tecnologías, actores, instituciones y marcos regulatorios que influyen
+en la adopción de medidas de mitigación. Este enfoque permite incorporar
+diferentes variables en la evaluación de escenarios de reducción de
+emisiones.
 
-2. **Parametrización del año base** Se incorporaron los valores representativos del año base 2010, tales como la capacidad instalada por tecnología, la demanda energética por sector y la flota vehicular, calibrando el modelo con el Inventario Nacional de Gases de Efecto Invernadero (INGEI).
+**Modelación de escenarios**
 
-3. **Proyecciones y supuestos** Se integraron proyecciones demográficas del INEC, proyecciones económicas basadas en el PIB sectorial, proyecciones de demanda energética y factores de emisión por tecnología y combustible.
+Para la modelacion de los escenarios se emplea el Sistema de Modelado de
+Código Abierto (OSeMOSYS) que es un paquete de software versátil de
+código abierto utilizado para el modelado, análisis y la optimización,
+que permite a los responsables de la formulación de políticas,
+investigadores y expertos identificar combinaciones rentables adaptadas
+a sus necesidades específicas.
 
-4. **Configuración de escenarios** Se construyeron el Escenario Tendencial Nacional y el Escenario Plan de Acción, incorporando proyectos renovables para el período 2010–2035, medidas de eficiencia energética y la introducción de la electromovilidad, mediante la modificación de parámetros específicos del modelo.
+Se construyen dos escenarios de referencia:
 
-5. **Ejecución del modelo OSeMOSYS** Se realizó el proceso de optimización considerando el balance anual de oferta y demanda energética, la minimización de costos del sistema y la estimación de emisiones bajo restricciones técnicas, económicas y ambientales.
+- **Escenario Tendencial Nacional**, que refleja la evolución del
+  sistema en ausencia de nuevas intervenciones de mitigación.
 
-6. **Análisis de resultados** Se interpretaron los resultados generados, incluyendo la evolución de la capacidad instalada, la generación por tipo de fuente, el consumo energético sectorial y las emisiones de GEI por categorías IPCC, comparando escenarios para evaluar brechas de mitigación.
+- **Escenario Plan de Acción**, que integra las iniciativas
+  incondicionales y condicionales consideradas en la Segunda NDC, las
+  medidas estratégicas priorizadas en el PLANMICC (2024) y las
+  iniciativas estratégicas adicionales identificadas como factibles
+  durante el proceso de formulación participativa
 
-.. note:: La metodología sigue los principios de transparencia y reproducibilidad, permitiendo ajustes y mejoras futuras.
+Esta diferenciación permite evaluar de manera clara el valor agregado de
+la acción climática y sustentar la priorización de medidas desde una
+perspectiva comparativa.
+
+**Datos y variables**
+
+El modelo integra diferentes categorías de información:
+
+- **Demográficas:** proyecciones de población basadas en el Censo 2021 y
+  su proyección al 2050.
+
+- **Macroeconómicas:** proyecciones de PIB nacional y sectorial.
+
+- **Datos sectoriales:** niveles de actividad en energía, agricultura,
+  procesos industriales, residuos y USCUSS.
+
+- **Parámetros técnicos:** factores de emisión del IPCC (2006) y su
+  Refinamiento 2019.
+
+**Proceso participativo**
+
+La formulación del Plan de Acción incorpora talleres sectoriales y
+entrevistas estructuradas con actores de instituciones públicas, sector
+privado, academia y organismos internacionales. Este proceso permite
+identificar brechas-bloqueos sistémicos, oportunidades y las condiciones
+necesarias para una implementación efectiva de iniciativas de
+mitigación.
+
+Los resultados del modelado y del proceso participativo se integran para
+definir las medidas del Plan de Acción y las trayectorias de reducción
+de emisiones.
+
+La siguiente figura presenta el flujo metodológico utilizado para la
+formulación del Plan de Acción del PLANMICC. El esquema sintetiza las
+principales etapas del proceso, desde la recopilación de fuentes de
+información y la construcción de variables de referencia, hasta el
+modelamiento de emisiones mediante OSeMOSYS, la generación de escenarios
+y la integración de los resultados con procesos participativos. Este
+enfoque permite estructurar la estimación de trayectorias de emisiones y
+la definición de medidas de mitigación para el período 2025–2035.
+
+.. figure:: _static/images/methods.png
+   :name: methods
+   :alt: Flujo metodológico para la construcción del Plan de Acción del PLANMICC (2025–2035)
+
+   Flujo metodológico para la construcción del Plan de Acción del PLANMICC (2025–2035)

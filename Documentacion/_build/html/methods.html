@@ -8,14 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. Metodología &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6fe3c23b" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6fcc102b"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/translations.js?v=f85f4cfb"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="genindex.html" />
@@ -82,19 +83,73 @@
              
   <section id="metodologia">
 <h1><span class="section-number">2. </span>Metodología<a class="headerlink" href="#metodologia" title="Link to this heading"></a></h1>
-<p>La metodología utilizada para el desarrollo del modelo se basa en:</p>
-<ol class="arabic simple">
-<li><p><strong>Definición de la estructura del modelo</strong> Se establecieron los componentes fundamentales del modelo, incluyendo la clasificación de tecnologías y combustibles, el horizonte temporal de análisis y la configuración de los modos de oferta, demanda y transporte.</p></li>
-<li><p><strong>Parametrización del año base</strong> Se incorporaron los valores representativos del año base 2010, tales como la capacidad instalada por tecnología, la demanda energética por sector y la flota vehicular, calibrando el modelo con el Inventario Nacional de Gases de Efecto Invernadero (INGEI).</p></li>
-<li><p><strong>Proyecciones y supuestos</strong> Se integraron proyecciones demográficas del INEC, proyecciones económicas basadas en el PIB sectorial, proyecciones de demanda energética y factores de emisión por tecnología y combustible.</p></li>
-<li><p><strong>Configuración de escenarios</strong> Se construyeron el Escenario Tendencial Nacional y el Escenario Plan de Acción, incorporando proyectos renovables para el período 2010–2035, medidas de eficiencia energética y la introducción de la electromovilidad, mediante la modificación de parámetros específicos del modelo.</p></li>
-<li><p><strong>Ejecución del modelo OSeMOSYS</strong> Se realizó el proceso de optimización considerando el balance anual de oferta y demanda energética, la minimización de costos del sistema y la estimación de emisiones bajo restricciones técnicas, económicas y ambientales.</p></li>
-<li><p><strong>Análisis de resultados</strong> Se interpretaron los resultados generados, incluyendo la evolución de la capacidad instalada, la generación por tipo de fuente, el consumo energético sectorial y las emisiones de GEI por categorías IPCC, comparando escenarios para evaluar brechas de mitigación.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>La metodología sigue los principios de transparencia y reproducibilidad, permitiendo ajustes y mejoras futuras.</p>
-</div>
+<p>El Plan de Acción (PA) del PLANMICC fase 1 se desarrolla mediante un
+enfoque que integra modelación energética, análisis de sistemas
+socio-técnicos y procesos participativos. El objetivo es estimar
+trayectorias de emisiones de gases de efecto invernadero (GEI) y evaluar
+el impacto de medidas de mitigación en los sectores Energía,
+Agricultura, USCUSS, Procesos Industriales y Procesos Industriales y
+Residuos y durante el período 2025–2035.</p>
+<p>Cada sector se analiza como un sistema socio-técnico compuesto por
+tecnologías, actores, instituciones y marcos regulatorios que influyen
+en la adopción de medidas de mitigación. Este enfoque permite incorporar
+diferentes variables en la evaluación de escenarios de reducción de
+emisiones.</p>
+<p><strong>Modelación de escenarios</strong></p>
+<p>Para la modelacion de los escenarios se emplea el Sistema de Modelado de
+Código Abierto (OSeMOSYS) que es un paquete de software versátil de
+código abierto utilizado para el modelado, análisis y la optimización,
+que permite a los responsables de la formulación de políticas,
+investigadores y expertos identificar combinaciones rentables adaptadas
+a sus necesidades específicas.</p>
+<p>Se construyen dos escenarios de referencia:</p>
+<ul class="simple">
+<li><p><strong>Escenario Tendencial Nacional</strong>, que refleja la evolución del
+sistema en ausencia de nuevas intervenciones de mitigación.</p></li>
+<li><p><strong>Escenario Plan de Acción</strong>, que integra las iniciativas
+incondicionales y condicionales consideradas en la Segunda NDC, las
+medidas estratégicas priorizadas en el PLANMICC (2024) y las
+iniciativas estratégicas adicionales identificadas como factibles
+durante el proceso de formulación participativa</p></li>
+</ul>
+<p>Esta diferenciación permite evaluar de manera clara el valor agregado de
+la acción climática y sustentar la priorización de medidas desde una
+perspectiva comparativa.</p>
+<p><strong>Datos y variables</strong></p>
+<p>El modelo integra diferentes categorías de información:</p>
+<ul class="simple">
+<li><p><strong>Demográficas:</strong> proyecciones de población basadas en el Censo 2021 y
+su proyección al 2050.</p></li>
+<li><p><strong>Macroeconómicas:</strong> proyecciones de PIB nacional y sectorial.</p></li>
+<li><p><strong>Datos sectoriales:</strong> niveles de actividad en energía, agricultura,
+procesos industriales, residuos y USCUSS.</p></li>
+<li><p><strong>Parámetros técnicos:</strong> factores de emisión del IPCC (2006) y su
+Refinamiento 2019.</p></li>
+</ul>
+<p><strong>Proceso participativo</strong></p>
+<p>La formulación del Plan de Acción incorpora talleres sectoriales y
+entrevistas estructuradas con actores de instituciones públicas, sector
+privado, academia y organismos internacionales. Este proceso permite
+identificar brechas-bloqueos sistémicos, oportunidades y las condiciones
+necesarias para una implementación efectiva de iniciativas de
+mitigación.</p>
+<p>Los resultados del modelado y del proceso participativo se integran para
+definir las medidas del Plan de Acción y las trayectorias de reducción
+de emisiones.</p>
+<p>La siguiente figura presenta el flujo metodológico utilizado para la
+formulación del Plan de Acción del PLANMICC. El esquema sintetiza las
+principales etapas del proceso, desde la recopilación de fuentes de
+información y la construcción de variables de referencia, hasta el
+modelamiento de emisiones mediante OSeMOSYS, la generación de escenarios
+y la integración de los resultados con procesos participativos. Este
+enfoque permite estructurar la estimación de trayectorias de emisiones y
+la definición de medidas de mitigación para el período 2025–2035.</p>
+<figure class="align-default" id="methods">
+<img alt="Flujo metodológico para la construcción del Plan de Acción del PLANMICC (2025–2035)" src="_images/methods.png" />
+<figcaption>
+<p><span class="caption-number">Figura 2.1 </span><span class="caption-text">Flujo metodológico para la construcción del Plan de Acción del PLANMICC (2025–2035)</span><a class="headerlink" href="#methods" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 
 
@@ -108,7 +163,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Derechos de autor 2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador..</p>
+    <p>&#169; Derechos de autor 2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.</p>
   </div>
 
   Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un

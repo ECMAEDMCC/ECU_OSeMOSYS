@@ -11,55 +11,45 @@ del sector Procesos Industriales se identifican actividades como como la
 producción de cemento, de cal, de acero, de cerámica, de vidrio, y el
 uso de solventes, lubricantes, así como el de compuestos de
 hidrofluorocarbonos (HFC), perfluorocarbonos (PFC), principalmente en
-sistemas de refrigeración y aire acondicionado. Este sector abarca
-varias categorías y subcategorías emisoras de GEI, de acuerdo con el
-INGEI de la 5ta Comunicación Nacional (5CN) del Ecuador (MAE,2024), que
-se enlistan a continuación:
+sistemas de refrigeración y aire acondicionado.
 
-- **Categoría 2A: Industria de los minerales**
+Es pertinente notar que el presente modelo no corresponde únicamente al
+modelo OSeMOSYS que da soporte al Plan de Mitigación de cambio climático
+(PLANMICC), sino que integra información actualizada del modelo OSeMOSYS
+utilizado para estructurar la segunda NDC.
 
-  - **Subcategoría 2A1:** Producción de Cemento
+En particular:
 
-  - **Subcategoría 2A2:** Producción de Cal
+- Del modelo OSeMOSYS que da soporte al PLANMICC se toman las
+  estructuras base de tecnologías, factores de emisión y datos
+  históricos.
 
-  - **Subcategoría 2A3:** Producción de Vidrio
+- Del modelo OSeMOSYS utilizado para estructurar la segunda NDC se toman
+  datos de actividad, factores de emisión actualizados con información
+  de la Quinta Comunicación Nacional y Segundo Informe Bienal de
+  Transparencia (5CN2BTR)
 
-  - **Subcategoría 2A4a:** Cerámica
+**Representación Gráfica del Modelo**
 
-  - **Subcategoría 2A4b:** Otros Usos de la Soda Ash
-
-- **Categoría 2C: Industria de los metales**
-
-  - **Subcategoría 2C1:** Producción de Hierro y Acero
-
-  - **Subcategoría 2C5:** Producción de Plomo
-
-- **Categoría 2D: Uso de Productos no Energéticos de combustibles y de
-  solventes**
-
-  - **Subcategoría 2D1:** Uso de Lubricantes
-
-  - **Subcategoría 2D2:** Uso de Cera Parafina
-
-- **Categoría 2F: Uso de Productos como sustitutos para las substancias
-  que agotan la capa de ozono**
-
-  - **Subcategoría 2F1:** Refrigeración y Aire Acondicionado
-
-Basado en lo anterior, el modelado se basa en la plataforma OSeMOSYS y
-amplía los desarrollos previos, a través de un proceso de referenciación
-metodológica abreviado que prioriza la información de la Segunda
-Contribución Determinada a Nivel Nacional (NDC) y la complementa con
-insumos provenientes del Plan Nacional de Mitigación del Cambio
-Climático (PLANMICC). De forma simplificada, el modelo se ilustra en la
-:numref:`ippu_model_structure`.
+El modelo del sector Procesos Industriales y Uso de Productos (IPPU) fue
+estructurado a partir de la base desarrollada en OSeMOSYS, utilizada
+como soporte analítico del Plan Nacional de Mitigación del Cambio
+Climático (PLANMICC) (Proyecto CZZ 2739). Sobre esta base se integró la
+información de la Segunda Contribución Determinada a Nivel Nacional
+(NDC), complementada con insumos provenientes del PLANMICC. La
+estructura del modelo incorpora la representación de actividades
+sectoriales, parámetros tecnológicos y factores de emisión, lo que
+permite estimar la evolución de las emisiones de GEI del sector bajo
+distintos supuestos de actividad y medidas de mitigación. De forma
+esquemática, el Sistema de Referencia de Fuentes (Reference Source
+System, RSS) del sector se presenta en la :numref:`ippu_model_structure`.
 
 .. figure:: ../_static/images/energy/model_structure.png
    :name: ippu_model_structure
    :align: center
-   :alt: Diagrama de referencia del modelo del sector Procesos Industriales
+   :alt: Estructura base del Modelo de Procesos Industriales.
 
-   Diagrama de referencia del modelo del sector Procesos Industriales.
+   Estructura base del Modelo de Procesos Industriales.
 
 En la :numref:`ippu_techs`, :numref:`ippu_commodities` y :numref:`ippu_included_emissions` se incluye la nomenclatura de los
 Sets, Technologies, Commodities y Emission del modelo de la :numref:`ippu_model_structure`.
@@ -67,83 +57,80 @@ Sets, Technologies, Commodities y Emission del modelo de la :numref:`ippu_model_
 .. _ippu_techs:
 .. table:: Tecnologías incluidas en el modelo del sector Procesos Industriales.
 
-   +-------------------------------------------+---------------+
-   | Descripción                               | Código        |
-   +===========================================+===============+
-   | Energía térmica para Clinker              | ENE_TERM      |
-   +-------------------------------------------+---------------+
-   | Materiales para Clinker                   | RAW_MAT_CLK   |
-   +-------------------------------------------+---------------+
-   | Electricidad para energía térmica         | ELEC_TERM     |
-   +-------------------------------------------+---------------+
-   | Electricidad para cemento                 | ELEC_CEM      |
-   +-------------------------------------------+---------------+
-   | Materiales para cemento                   | RAW_MAT_CEM   |
-   +-------------------------------------------+---------------+
-   | Resto de emisiones del sector PIUP        | REST_PI       |
-   +-------------------------------------------+---------------+
-   | Producción de Clinker con combustibles de | PROD_CLK_TRAD |
-   | origen fósil                              |               |
-   +-------------------------------------------+---------------+
-   | Producción de Clinker con electricidad    | PROD_CLK_ELEC |
-   +-------------------------------------------+---------------+
-   | Producción de cemento                     | PROD_CEM      |
-   +-------------------------------------------+---------------+
-   | Uso de HFC                                | HFC_use       |
-   +-------------------------------------------+---------------+
-   | Producción de Cal                         | LIME_PROD     |
-   +-------------------------------------------+---------------+
-   | Producción de Vidrio                      | GLASS_PROD    |
-   +-------------------------------------------+---------------+
-   | Producción de Cerámica                    | CERAMICS      |
-   +-------------------------------------------+---------------+
-   | Otros usos de Soda Ash                    | SODA_ASH      |
-   +-------------------------------------------+---------------+
-   | Producción de Hierro y Acero              | IRON_STEEL    |
-   +-------------------------------------------+---------------+
-   | Producción de Plomo                       | LEAD_PROD     |
-   +-------------------------------------------+---------------+
-   | Uso de Lubricantes                        | LUBRI         |
-   +-------------------------------------------+---------------+
-   | Uso de Ceras de parafina                  | PARAFFIN      |
-   +-------------------------------------------+---------------+
+   +-----------------+----------------------------------------------------+
+   | Código          | Detalle                                            |
+   +=================+====================================================+
+   | ENE_TERM        | Energía térmica para Clinker                       |
+   +-----------------+----------------------------------------------------+
+   | RAW_MAT_CLK     | Materiales para Clinker                            |
+   +-----------------+----------------------------------------------------+
+   | ELEC_TERM       | Electricidad para energía térmica                  |
+   +-----------------+----------------------------------------------------+
+   | ELEC_CEM        | Electricidad para cemento                          |
+   +-----------------+----------------------------------------------------+
+   | RAW_MAT_CEM     | Materiales para cemento                            |
+   +-----------------+----------------------------------------------------+
+   | REST_PI         | Resto de emisiones del sector PIUP                 |
+   +-----------------+----------------------------------------------------+
+   | PROD_CLK_TRAD   | Producción de Clinker con combustibles de origen   |
+   |                 | fósil                                              |
+   +-----------------+----------------------------------------------------+
+   | PROD_CLK_ELEC   | Producción de Clinker con electricidad             |
+   +-----------------+----------------------------------------------------+
+   | PROD_CEM        | Producción de cemento                              |
+   +-----------------+----------------------------------------------------+
+   | HFC_use         | Uso de HFC                                         |
+   +-----------------+----------------------------------------------------+
+   | LIME_PROD       | Producción de Cal                                  |
+   +-----------------+----------------------------------------------------+
+   | Código          | Producción de Vidrio                               |
+   +-----------------+----------------------------------------------------+
+   | ENE_TERM        | Producción de Cerámica                             |
+   +-----------------+----------------------------------------------------+
+   | RAW_MAT_CLK     | Otros usos de Soda Ash                             |
+   +-----------------+----------------------------------------------------+
+   | ELEC_TERM       | Producción de Hierro y Acero                       |
+   +-----------------+----------------------------------------------------+
+   | ELEC_CEM        | Producción de Plomo                                |
+   +-----------------+----------------------------------------------------+
+   | RAW_MAT_CEM     | Uso de Lubricantes                                 |
+   +-----------------+----------------------------------------------------+
+   | REST_PI         | Uso de Ceras de parafina                           |
+   +-----------------+----------------------------------------------------+
 
 .. _ippu_commodities:
 .. table:: Commodities incluidos en el modelo del sector Procesos Industriales.
 
-   +--------------------------+-------------+
-   | Descripción              | Código      |
-   +==========================+=============+
-   | Energía térmica para     | ENE_TERM    |
-   | Clinker                  |             |
-   +--------------------------+-------------+
-   | Materiales para Clinker  | RAW_MAT_CLK |
-   +--------------------------+-------------+
-   | Electricidad para        | ELEC_TERM   |
-   | energía térmica          |             |
-   +--------------------------+-------------+
-   | Electricidad para        | ELEC_CEM    |
-   | Cemento                  |             |
-   +--------------------------+-------------+
-   | Materiales para Cemento  | RAW_MAT_CEM |
-   +--------------------------+-------------+
-   | Clinker para cemento     | CLK_PROD    |
-   +--------------------------+-------------+
-   | Producción de cemento    | CEM_PROD    |
-   +--------------------------+-------------+
+   +------------------------+---------------------------------------------+
+   | Código                 | Detalle                                     |
+   +========================+=============================================+
+   | ENE_TERM               | Energía térmica para Clinker                |
+   +------------------------+---------------------------------------------+
+   | RAW_MAT_CLK            | Materiales para Clinker                     |
+   +------------------------+---------------------------------------------+
+   | ELEC_TERM              | Electricidad para energía térmica           |
+   +------------------------+---------------------------------------------+
+   | ELEC_CEM               | Electricidad para Cemento                   |
+   +------------------------+---------------------------------------------+
+   | RAW_MAT_CEM            | Materiales para Cemento                     |
+   +------------------------+---------------------------------------------+
+   | CLK_PROD               | Clinker para cemento                        |
+   +------------------------+---------------------------------------------+
+   | CEM_PROD               | Producción de cemento                       |
+   +------------------------+---------------------------------------------+
 
 .. _ippu_included_emissions:
 .. table::  Emisiones incluidas en el modelo del sector Procesos Industriales.
 
-   +-----------------------------------------------------------+-----------+
-   | Descripción                                               | Código    |
-   +===========================================================+===========+
-   | Dióxido de carbono equivalente producido por              | CO2eq_HFC |
-   | Hidrofluorocarbonos                                       |           |
-   +-----------------------------------------------------------+-----------+
-   | Dióxido de carbono equivalente producido por el proceso   | CO2eq     |
-   | de producción de cemento                                  | \_CEM     |
-   +-----------------------------------------------------------+-----------+
-   | Dióxido de carbono equivalente producido por otros        | CO2eq     |
-   | Procesos Industriales y Uso de Productos                  | \_IPPU    |
-   +-----------------------------------------------------------+-----------+
+   +----------+-----------------------------------------------------------+
+   | Código   | Detalle                                                   |
+   +==========+===========================================================+
+   |          | Dióxido de carbono equivalente producido por              |
+   | CO2eq_HFC| Hidrofluorocarbonos                                       |
+   +----------+-----------------------------------------------------------+
+   | CO2eq    | Dióxido de carbono equivalente producido por el proceso   |
+   | \_CEM    | de producción de cemento                                  |
+   +----------+-----------------------------------------------------------+
+   | CO2eq    | Dióxido de carbono equivalente producido por otros        |
+   | \_IPPU   | Procesos Industriales y Uso de Productos                  |
+   +----------+-----------------------------------------------------------+

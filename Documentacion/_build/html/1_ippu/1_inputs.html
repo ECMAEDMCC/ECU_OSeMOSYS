@@ -8,14 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5.2. Datos de entrada &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6fe3c23b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=6fcc102b"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/translations.js?v=f85f4cfb"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
@@ -90,119 +91,114 @@
              
   <section id="datos-de-entrada">
 <h1><span class="section-number">5.2. </span>Datos de entrada<a class="headerlink" href="#datos-de-entrada" title="Link to this heading"></a></h1>
-<p>En la <a class="reference internal" href="#ippu-inputs"><span class="std std-numref">Tabla 5.4</span></a> se presentan las fuentes de información utilizadas para la
-satisfacción de datos de los parámetros del modelo del sector Procesos
-Industriales.</p>
-<span id="ippu-inputs"></span><table class="docutils align-default" id="id1">
-<caption><span class="caption-number">Tabla 5.4 </span><span class="caption-text">Fuentes de información para parametrizar el sector Procesos Industriales.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<p>En la <a class="reference internal" href="#ippu-input-info"><span class="std std-numref">Tabla 5.4</span></a> presenta una síntesis de fuentes de información empleadas
+para la construcción del Escenario Tendencial Nacional del sector
+Procesos Industriales. El proceso de modelado que da lugar al Escenario
+Tendencial Nacional integra información proveniente tanto del PLANMICC
+como de la Segunda NDC, garantizando consistencia con las Directrices
+del IPCC (2006), su refinamiento de 2019 y el Inventario Nacional de GEI
+2022 de la 5CN2BTR</p>
+<span id="ippu-input-info"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 5.4 </span><span class="caption-text">Fuentes de información empleadas en el proceso de modelado del Escenario Tendencial Nacional para el sector de Procesos Industriales.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Dato/Supuesto</p></th>
-<th class="head"><p>Detalle</p></th>
-<th class="head"><p>Fuente</p></th>
+<tr class="row-odd"><th class="head"><p>Ítem</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Fuente de Información</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Producción
-nacional de
-cemento con
-clinker
-producido
-nacionalmente
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Producción nacional de cemento con
+clinker producido nacionalmente
 [Mt/año]</p></td>
-<td><p>Producción reportada en registros
-oficiales como INGEI, Reportes del
-sector cementero</p></td>
-<td><p>(MAE,
-Segunda NDC
-del Ecuador)</p></td>
+<td><p>Segunda NDC del Ecuador</p></td>
 </tr>
-<tr class="row-odd"><td><p>Factor de
-clinker en
-cemento [%]</p></td>
-<td><p>Factor de clinker promedio ponderado
-por planta de producción de cemento</p></td>
-<td><p>(MAE,
-Segunda NDC
-del Ecuador)</p></td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Factor de clinker en cemento [%]</p></td>
+<td><p>Segunda NDC del Ecuador</p></td>
 </tr>
-<tr class="row-even"><td><p>Factores de
-emisión sector
-cemento</p></td>
-<td><p>Valores propios para Ecuador. Datos
-presentes el INGEI de la 5ta
-Comunicación Nacional.</p></td>
-<td><p>INGEI de la
-5ta
-(1994-2022)
-(5CN/1RBT,
-2024)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Emisiones por
-sectores
-industriales
-(cal, vidrio,
-cerámica, soda
-ash, acero,
-plomo,
-lubricantes,
-ceras de
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Emisiones por sectores industriales
+(cal, vidrio, cerámica, soda ash,
+acero, plomo, lubricantes, ceras de
 parafina)</p></td>
-<td><p>Valores propios para Ecuador. Datos
-presentes el INGEI de la 5ta
-Comunicación Nacional.</p></td>
-<td><p>INGEI de la
-5ta
-(1994-2022)
-(5CN/1RBT,
+<td><p>INGEI de la 5ta
+(1994-2022) (5CN/1RBT,
 2024)</p></td>
 </tr>
-<tr class="row-even"><td><p>Emisiones por
-HFC (uso de
-refrigerantes
-y espumas) y</p></td>
-<td><p>Valores propios para Ecuador. Datos
-presentes el INGEI de la 5ta
-Comunicación Nacional.</p></td>
-<td><p>INGEI de la
-5ta
-(1994-2022)
-(5CN/1RBT,
-2024)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Producción de
-cemento futura</p></td>
-<td><p>Se toman los datos históricos y se
-proyecta un crecimiento del 2023 al
-2035 siguiendo el escenario tendencial
-del sector PIUP.</p></td>
-<td><p>(MAATE,
-2024)</p></td>
-</tr>
-<tr class="row-even"><td><p>Factor de
-Clinker futuro</p></td>
-<td><p>Se toma el último valor histórico
-conocido de este indicador y se
-mantiene constante.</p></td>
-<td><p>(MAATE,
-n.d.)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Trayectoria de
-emisiones de
-Refrigeración</p></td>
-<td><p>Estimado haciendo uso del escenario
-tendencial presente en la Hoja de Ruta
-de la Enmienda de Kigali.</p></td>
-<td><p>Segunda NDC
-del Ecuador,</p>
-<p>NGEI 2024
-(5CN/1RBT,
-2024), y
-Hoja Ruta
-para reducir
-los HFC en
-el Ecuador,
-(MPCEI,2023)</p>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Emisiones por HFC (uso de
+refrigerantes y espumas)</p></td>
+<td><p>Segunda NDC del Ecuador,</p>
+<p>NGEI 2024 (5CN/1RBT,
+2024), y Hoja Ruta para
+reducir los HFC en el
+Ecuador.</p>
 </td>
+</tr>
+</tbody>
+</table>
+<p>Los parámetros considerados durante el proceso de modelado y los
+supuestos empleados para la generación del Escenario Tendencial
+Nacional, se describen en la <a class="reference internal" href="#ippu-inputs"><span class="std std-numref">Tabla 5.5</span></a>.</p>
+<span id="ippu-inputs"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tabla 5.5 </span><span class="caption-text">Parámetros de modelación y supuestos del Escenario Tendencial Nacional del sector Procesos Industriales.</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ítem</p></th>
+<th class="head"><p>Parámetros de modelación</p></th>
+<th class="head"><p>Supuestos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Producción nacional de cemento
+[Mt/año]</p></td>
+<td><p>Producción reportada en
+registros oficiales;
+corrección por
+importaciones/exportaciones
+de cemento y clinker</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Factor de clinker en cemento [%]</p></td>
+<td><p>Factor de clinker promedio
+ponderado por planta de
+producción de cemento</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Emisiones de los subsectores cal,
+vidrio, cerámica, soda ash, hierro
+y acero, plomo, lubricantes y
+ceras de parafina [Kt CO₂-eq/año]</p></td>
+<td><p>Se incorporan los datos
+del modelo de la segunda
+NDC (2010–2035) para
+coherencia con el año base
+2010 proveniente del
+Inventario Nacional de
+Gases de Efecto
+Invernadero del Ecuador
+2022 (MAE, 2024.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Emisiones de HFC [Kt CO₂-eq/año]</p></td>
+<td><p>Se incorporan a partir del
+modelo de la Segunda NDC
+(2010–2035) coherente con
+el INGEI de la 5ta
+(1994-2022)y la Hoja ruta
+para reducir los HFC en el
+Ecuador. Se asume el
+consumo de gases fluorados
+por tipo de gas y uso
+según el crecimiento del
+PIB y la población
+proporcionales a
+importaciones y vida útil
+de los equipos. Reducción
+progresiva conforme a la
+Enmienda de Kigali al
+protocolo de Montreal</p></td>
 </tr>
 </tbody>
 </table>
@@ -221,7 +217,7 @@ descargue el archivo de datos del sector Procesos Industriales aquí: <a class="
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Derechos de autor 2026, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente del Ecuador..</p>
+    <p>&#169; Derechos de autor 2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.</p>
   </div>
 
   Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
