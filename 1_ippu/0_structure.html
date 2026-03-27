@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.1. Estructura del modelo &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6fe3c23b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="5.2. Datos de entrada" href="1_inputs.html" />
+    <link rel="prev" title="5. Modelo del Sector Procesos Industriales" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_energy/index.html">4. Modelo del Sector Energía</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Modelo del Sector Procesos Industriales</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.1. Estructura del modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_inputs.html">5.2. Datos de Entrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_scenarios.html">5.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">5.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">5.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_agro_uscuss/index.html">7. Modelo del Sector Agricultura y USCUSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">8. ¿Cómo usar el modelo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">10. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">5. </span>Modelo del Sector Procesos Industriales</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.1. </span>Estructura del modelo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/1_ippu/0_structure.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="estructura-del-modelo">
+<h1><span class="section-number">5.1. </span>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Link to this heading"></a></h1>
+<p>El sector Procesos Industriales comprende las emisiones de GEI generadas
+por transformaciones químicas y físicas de materias primas en la
+fabricación y producción de bienes y en su uso. Es pertinente indicar,
+que el uso de combustibles como fuente de energía en estos procesos de
+transformación, se declaran en el sector de energía. En el país, dentro
+del sector Procesos Industriales se identifican actividades como como la
+producción de cemento, de cal, de acero, de cerámica, de vidrio, y el
+uso de solventes, lubricantes, así como el de compuestos de
+hidrofluorocarbonos (HFC), perfluorocarbonos (PFC), principalmente en
+sistemas de refrigeración y aire acondicionado.</p>
+<p>Es pertinente notar que el presente modelo no corresponde únicamente al
+modelo OSeMOSYS que da soporte al Plan de Mitigación de cambio climático
+(PLANMICC), sino que integra información actualizada del modelo OSeMOSYS
+utilizado para estructurar la segunda NDC.</p>
+<p>En particular:</p>
+<ul class="simple">
+<li><p>Del modelo OSeMOSYS que da soporte al PLANMICC se toman las
+estructuras base de tecnologías, factores de emisión y datos
+históricos.</p></li>
+<li><p>Del modelo OSeMOSYS utilizado para estructurar la segunda NDC se toman
+datos de actividad, factores de emisión actualizados con información
+de la Quinta Comunicación Nacional y Segundo Informe Bienal de
+Transparencia (5CN2BTR)</p></li>
+</ul>
+<p><strong>Representación Gráfica del Modelo</strong></p>
+<p>El modelo del sector Procesos Industriales y Uso de Productos (IPPU) fue
+estructurado a partir de la base desarrollada en OSeMOSYS, utilizada
+como soporte analítico del Plan Nacional de Mitigación del Cambio
+Climático (PLANMICC) (Proyecto CZZ 2739). Sobre esta base se integró la
+información de la Segunda Contribución Determinada a Nivel Nacional
+(NDC), complementada con insumos provenientes del PLANMICC. La
+estructura del modelo incorpora la representación de actividades
+sectoriales, parámetros tecnológicos y factores de emisión, lo que
+permite estimar la evolución de las emisiones de GEI del sector bajo
+distintos supuestos de actividad y medidas de mitigación. De forma
+esquemática, el Sistema de Referencia de Fuentes (Reference Source
+System, RSS) del sector se presenta en la <a class="reference internal" href="#ippu-model-structure"><span class="std std-numref">Figura 5.1</span></a>.</p>
+<figure class="align-center" id="ippu-model-structure">
+<img alt="Estructura base del Modelo de Procesos Industriales." src="../_images/model_structure.png" />
+<figcaption>
+<p><span class="caption-number">Figura 5.1 </span><span class="caption-text">Estructura base del Modelo de Procesos Industriales.</span><a class="headerlink" href="#ippu-model-structure" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la <a class="reference internal" href="#ippu-techs"><span class="std std-numref">Tabla 5.1</span></a>, <a class="reference internal" href="#ippu-commodities"><span class="std std-numref">Tabla 5.2</span></a> y <a class="reference internal" href="#ippu-included-emissions"><span class="std std-numref">Tabla 5.3</span></a> se incluye la nomenclatura de los
+Sets, Technologies, Commodities y Emission del modelo de la <a class="reference internal" href="#ippu-model-structure"><span class="std std-numref">Figura 5.1</span></a>.</p>
+<span id="ippu-techs"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 5.1 </span><span class="caption-text">Tecnologías incluidas en el modelo del sector Procesos Industriales.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Detalle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ENE_TERM</p></td>
+<td><p>Energía térmica para Clinker</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAW_MAT_CLK</p></td>
+<td><p>Materiales para Clinker</p></td>
+</tr>
+<tr class="row-even"><td><p>ELEC_TERM</p></td>
+<td><p>Electricidad para energía térmica</p></td>
+</tr>
+<tr class="row-odd"><td><p>ELEC_CEM</p></td>
+<td><p>Electricidad para cemento</p></td>
+</tr>
+<tr class="row-even"><td><p>RAW_MAT_CEM</p></td>
+<td><p>Materiales para cemento</p></td>
+</tr>
+<tr class="row-odd"><td><p>REST_PI</p></td>
+<td><p>Resto de emisiones del sector PIUP</p></td>
+</tr>
+<tr class="row-even"><td><p>PROD_CLK_TRAD</p></td>
+<td><p>Producción de Clinker con combustibles de origen
+fósil</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROD_CLK_ELEC</p></td>
+<td><p>Producción de Clinker con electricidad</p></td>
+</tr>
+<tr class="row-even"><td><p>PROD_CEM</p></td>
+<td><p>Producción de cemento</p></td>
+</tr>
+<tr class="row-odd"><td><p>HFC_use</p></td>
+<td><p>Uso de HFC</p></td>
+</tr>
+<tr class="row-even"><td><p>LIME_PROD</p></td>
+<td><p>Producción de Cal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Código</p></td>
+<td><p>Producción de Vidrio</p></td>
+</tr>
+<tr class="row-even"><td><p>ENE_TERM</p></td>
+<td><p>Producción de Cerámica</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAW_MAT_CLK</p></td>
+<td><p>Otros usos de Soda Ash</p></td>
+</tr>
+<tr class="row-even"><td><p>ELEC_TERM</p></td>
+<td><p>Producción de Hierro y Acero</p></td>
+</tr>
+<tr class="row-odd"><td><p>ELEC_CEM</p></td>
+<td><p>Producción de Plomo</p></td>
+</tr>
+<tr class="row-even"><td><p>RAW_MAT_CEM</p></td>
+<td><p>Uso de Lubricantes</p></td>
+</tr>
+<tr class="row-odd"><td><p>REST_PI</p></td>
+<td><p>Uso de Ceras de parafina</p></td>
+</tr>
+</tbody>
+</table>
+<span id="ippu-commodities"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tabla 5.2 </span><span class="caption-text">Commodities incluidos en el modelo del sector Procesos Industriales.</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Detalle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ENE_TERM</p></td>
+<td><p>Energía térmica para Clinker</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAW_MAT_CLK</p></td>
+<td><p>Materiales para Clinker</p></td>
+</tr>
+<tr class="row-even"><td><p>ELEC_TERM</p></td>
+<td><p>Electricidad para energía térmica</p></td>
+</tr>
+<tr class="row-odd"><td><p>ELEC_CEM</p></td>
+<td><p>Electricidad para Cemento</p></td>
+</tr>
+<tr class="row-even"><td><p>RAW_MAT_CEM</p></td>
+<td><p>Materiales para Cemento</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLK_PROD</p></td>
+<td><p>Clinker para cemento</p></td>
+</tr>
+<tr class="row-even"><td><p>CEM_PROD</p></td>
+<td><p>Producción de cemento</p></td>
+</tr>
+</tbody>
+</table>
+<span id="ippu-included-emissions"></span><table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Tabla 5.3 </span><span class="caption-text">Emisiones incluidas en el modelo del sector Procesos Industriales.</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Detalle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CO2eq_HFC</p></td>
+<td><p>Dióxido de carbono equivalente producido por
+Hidrofluorocarbonos</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO2eq
+_CEM</p></td>
+<td><p>Dióxido de carbono equivalente producido por el proceso
+de producción de cemento</p></td>
+</tr>
+<tr class="row-even"><td><p>CO2eq
+_IPPU</p></td>
+<td><p>Dióxido de carbono equivalente producido por otros
+Procesos Industriales y Uso de Productos</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="5. Modelo del Sector Procesos Industriales" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="1_inputs.html" class="btn btn-neutral float-right" title="5.2. Datos de entrada" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

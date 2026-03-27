@@ -1,0 +1,584 @@
+**MODELO SECTOR AGRICULTURA Y USCUSS**
+
+1. **Estructura del Modelo**
+
+Los sectores Agricultura y USCUSS fueron modelados de manera conjunta,
+utilizando una única estructura para estos 2 sectores, similar a la
+planteada en el PLANMICC. Este modelo no corresponde únicamente al
+PLANMICC, sino que integra información actualizada de la NDC.
+
+En particular:
+
+- Del PLANMICC se toman las estructuras base de tecnologías y factores
+  de emisión y datos históricos
+
+- Del NDC se toman datos de actividad, factores de emisión actualizados
+  con información de la 5CN2BTR
+
+**Representación Gráfica del Modelo**
+
+El modelo de los sectores Agricultura y USCUSS fue estructurado a partir
+de la base desarrollada en el PLANMICC (Proyecto CZZ 2739), no se
+aumentaron tecnologías ni se adicionaron variables únicamente se
+actualizó información.
+
+En la figura 1 se presenta la estructura final del modelo de Agricultura
+y USCUSS que constituye el insumo de referencia para el sector.
+
+**Figura 1.** Estructura base del Modelo de Agricultura y USCUSS
+
+|The diagram illustrates a hierarchical classification of land types in
+an ecosystem, ranging from native forests, unprotected forests, to
+agricultural lands, including various levels of protection and types of
+vegetation. El contenido generado por IA puede ser incorrecto.|
+
+   En la Tabla 1 se detallan los nombres de las tecnologías/fuels y las
+   unidades de la actividad de cada tecnología/fuel acorde a Proyecto
+   PLANMICC mismos que se encuentran en los documentos:
+   STRUCTURE_OSEMOSYS\_ GUA_LAND_PLANMIC.
+
+Tabla 1
+
++------------+---------------------------+-------------------------+------------+
+| **Tipo de  | **Nomenclatura**          | **Detalle**             | **Unidades |
+| Set**      |                           |                         | físicas**  |
++============+===========================+=========================+============+
+| Tecnología | Banano                    |  Área de cultivo        | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Arroz                     | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Cacao                     | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Cafe                      | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Cana                      | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Maiz                      | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Palma                     | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Soya                      | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Palmito                   | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Legumbres                 | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Cereales                  | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Tuberculos                | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Fruta                     | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Verduras                  | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Floricolas                | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Otros_cultivos            | Área de cultivo         | Mha        |
+|            |                           | cosechado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Banano                |  Volumen de producto    | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Arroz                 | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Cacao                 | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Cafe                  | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Cana                  | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Maiz                  | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Palma                 | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Soya                  | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Palmito               | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Legumbres             | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Cereales              | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Tuberculos            | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Fruta                 | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Verduras              | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Floricolas            | Volumen de producto     | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Banano                |  Volumen de producto    | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Arroz                 | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Cacao                 | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Cafe                  | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Cana                  | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Maiz                  | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Palma                 | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Soya                  | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Palmito               | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Legumbres             | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Cereales              | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Tuberculos            | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Fruta                 | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Verduras              | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Floricolas            | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Pastizales                | Área de categoría de    | Mha        |
+|            |                           | suelo                   |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Humedal                   | Área de categoría de    | Mha        |
+|            |                           | suelo                   |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Zona_atropica             | Área de categoría de    | Mha        |
+|            |                           | suelo                   |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Otras_tierras             | Área de categoría de    | Mha        |
+|            |                           | suelo                   |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Bosque_nativo_protegido   | Área de bosque con      | Mha        |
+|            |                           | algún régimen de        |            |
+|            |                           | protección legal: Socio |            |
+|            |                           | Bosque, SNAP, BVP       |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Bosque_nativo_sinproteger |  Área de bosque sin     | Mha        |
+|            |                           | régimen de protección   |            |
+|            |                           | legal                   |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Plantacion_forestal       |  Área de Plantaciones   | Mha        |
+|            |                           | Forestales              |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Ganaderia_importada       |  Área de ganado bobino  | Mha        |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Ganaderia_criolla         | Área de ganado bobino   | Mha        |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Ganaderia_mestiza         | Área de ganado bobino   | Mha        |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Carne                 |  Volumen de producto    | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Exp_Leche                 |  Volumen de producto    | Mton       |
+|            |                           | exportado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Carne                 | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Imp_Leche                 | Volumen de producto     | Mton       |
+|            |                           | importado               |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Gallinas_campos           |  Cantidad de aves de    | k cabezas  |
+|            |                           | corral                  |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Gallinas_planteles        |  Cantidad de aves de    | k cabezas  |
+|            |                           | corral                  |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Pasturas                  |  Área de categoría de   | Mha        |
+|            |                           | suelo                   |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Vacuno_porcino            |  Cantidad de cabeza de  | k cabezas  |
+|            |                           | ganado                  |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Vacuno_ovino              | Cantidad de cabeza de   | k cabezas  |
+|            |                           | ganado                  |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Vacuno_otras_especies     | Cantidad de cabeza de   | k cabezas  |
+|            |                           | ganado                  |            |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | Cambio_de_uso             |  /                      |  /         |
++------------+---------------------------+-------------------------+------------+
+| Tecnología | area_restaurada           |  /                      |  /         |
++------------+---------------------------+-------------------------+------------+
+
+2. **Datos de entrada del modelo**
+
+La Tabla 2 muestra los paquetes de datos históricos considerados en los
+procesos de modelado del sector Agricultura y USCUSS
+
+Tabla 2. Comparación de datos históricos y actuales de la producción
+agropecuaria (PLANMICC vs. NDC) empleados en el modelo
+
++--------------+-----------------------+---------------+---------------+
+| Tipo de      | Descripción           | Fuente NDC    | Fuente Plan   |
+| Información  |                       |               | MICC          |
++==============+=======================+===============+===============+
+| Datos de     | Banano [ton]          | Datos de      | ESPAC         |
+| actividad    |                       | actividad     |               |
+|              | Cacao - Almendra seca | usados para   |               |
+| Producción   | [ton]                 | la            |               |
+| Cultivos     |                       | construcción  |               |
+| cosechados:  | Café - Grano Oro      | de            |               |
+|              | [ton]                 | inventarios   |               |
+|              |                       | nacionales de |               |
+|              | Caña de azúcar [ton]  | gases de      |               |
+|              |                       | efecto        |               |
+|              | Maíz [ton]            | invernadero   |               |
+|              |                       | serie         |               |
+|              | Palma africana [ton]  | 1994-2021     |               |
+|              |                       | 5CN/1BTR,     |               |
+|              | Soya [ton]            | directrices   |               |
+|              |                       | ipcc 2006     |               |
+|              | Palmito [ha]          | refinamiento  |               |
+|              |                       | 2019          |               |
+|              | Legumbres (Pulses)    |               |               |
+|              | [ton]                 |               |               |
+|              |                       |               |               |
+|              | Cereales y            |               |               |
+|              | pseudocereales [ton]  |               |               |
+|              |                       |               |               |
+|              | Tubérculos [ton]      |               |               |
+|              |                       |               |               |
+|              | Fruta fresca [ton]    |               |               |
+|              |                       |               |               |
+|              | Verduras [ton]        |               |               |
++--------------+-----------------------+---------------+---------------+
+| Datos de     | Banano [ton/ha]       | Datos de      | ESPAC         |
+| actividad    |                       | actividad     |               |
+|              | Cacao - Almendra seca | usados para   |               |
+| Rendimientos | [ton/ha]              | la            |               |
+| de Cultivos  |                       | construcción  |               |
+| Agrícolas    | Café - Grano Oro      | de            |               |
+| Cosechados   | [ton/ha]              | inventarios   |               |
+|              |                       | nacionales de |               |
+|              | Caña de azúcar        | gases de      |               |
+|              | [ton/ha]              | efecto        |               |
+|              |                       | invernadero   |               |
+|              | Maíz [ton/ha]         | serie         |               |
+|              |                       | 1994-2021     |               |
+|              | Palma africana (Fruta | 5CN/1BTR,     |               |
+|              | Fresca) [ton/ha]      | directrices   |               |
+|              |                       | ipcc 2006     |               |
+|              | Soya [ton/ha]         | refinamiento  |               |
+|              |                       | 2019          |               |
+|              | Palmito [ton/ha]      |               |               |
+|              |                       |               |               |
+|              | Legumbres (Pulses)    |               |               |
+|              | [ton/ha]              |               |               |
+|              |                       |               |               |
+|              | Cereales y            |               |               |
+|              | pseudocereales        |               |               |
+|              | [ton/ha]              |               |               |
+|              |                       |               |               |
+|              | Tubérculos [ton/ha]   |               |               |
+|              |                       |               |               |
+|              | Fruta fresca [ton/ha] |               |               |
+|              |                       |               |               |
+|              | Verduras [ton/ha]     |               |               |
+|              |                       |               |               |
+|              | Florícola [ton/ha]    |               |               |
++--------------+-----------------------+---------------+---------------+
+| Datos de     | Misma clasificación   | BCE           | BCE           |
+| actividad    | de producción y       |               |               |
+|              | rendimiento de        | Proyecciones  | Proyecciones  |
+| Exportación  | Cultivos Agrícolas    |               | PLANMICC      |
+| e            |                       | PLANMICC      |               |
+| importación  | [Mton]                |               |               |
+| de Productos |                       |               |               |
+|              |                       |               |               |
+| Agrícolas    |                       |               |               |
++--------------+-----------------------+---------------+---------------+
+| Datos de     | Misma clasificación   | Proyección    | Datos y       |
+| actividad    | de producción y       | calculados en | Proyección    |
+|              | rendimiento de        | PLANMICC      | calculados en |
+| Demanda      | Cultivos Agrícolas    |               | PLANMICC      |
+| Local de     |                       |               |               |
+| Productos    | [Mton]                |               | Producción    |
+| Agrícolas    |                       |               |               |
+|              |                       |               | + Importación |
+|              |                       |               |               |
+|              |                       |               | - Exportación |
++--------------+-----------------------+---------------+---------------+
+| Datos de     | Vacuno total          | ESPAC         | ESPAC         |
+| actividad    | (Cabezas)             |               |               |
+|              |                       |               | MAG           |
+| Población de | Raza importada        |               | (Agrocalidad) |
+| ganado       | (Cabezas)             |               |               |
+| bobino       |                       |               |               |
+|              | Raza criolla          |               |               |
+|              | (Cabezas)             |               |               |
+|              |                       |               |               |
+|              | Raza mestiza          |               |               |
+|              | (Cabezas)             |               |               |
+|              |                       |               |               |
+|              | porcino (Cabezas)     |               |               |
+|              |                       |               |               |
+|              | ovino (Cabezas)       |               |               |
+|              |                       |               |               |
+|              | otras especies        |               |               |
+|              | (Cabezas)             |               |               |
++--------------+-----------------------+---------------+---------------+
+| Datos de     | Vacuno carne (ton)    | BCE           | BCE           |
+| actividad    |                       |               |               |
+|              | Vacuno leche (ton)    |               |               |
+| Producción,  |                       |               |               |
+| Exportación, |                       |               |               |
+|              |                       |               |               |
+| Importación  |                       |               |               |
+| de ganado    |                       |               |               |
++--------------+-----------------------+---------------+---------------+
+| Datos de     | campo (Cabezas)       | ESPAC         | ESPAC         |
+| actividad    |                       |               |               |
+|              | planteles avícolas    |               |               |
+| Aves de      | (Cabezas)             |               |               |
+| corral       |                       |               |               |
+|              | Huevos (# huevos)     |               |               |
+| Producción,  |                       |               |               |
+| consumo      | Huevos autoconsumo (# |               |               |
+|              | huevos)               |               |               |
++--------------+-----------------------+---------------+---------------+
+
+La tabla 3 muestra los datos históricos y actuales utilizados en el
+modelado para los 2 sectores
+
+Tabla 3. Datos históricos y actuales de coberturas
+
++------------+---------------------------+---------------+---------------+
+| Aspecto    | Descripción               | Fuente NDC    | Fuente Plan   |
+|            |                           |               | MICC          |
++============+===========================+===============+===============+
+| Datos de   | B. Seco Pluvioestacional  | "Datos        | “Datos        |
+| actividad  |                           | 2010-2022     | 2010-2018 4ta |
+|            | B. Siempre verde andino   |               | Comunicación” |
+| Cobertura  | Montano                   | 5ta           |               |
+| de Bosque  |                           | Comunicación" | Se separan 2  |
+|            | B. Siempre verde andino   |               | categorías:   |
+|            | Pie montano               | Cada          |               |
+|            |                           | categoría de  | Bosque nativo |
+|            | B. Siempre verde andino   | bosque es     | [ha]          |
+|            | de Ceja Andina            | analizada de  |               |
+|            |                           | manera        | Plantación    |
+|            | B. Siempre verde de       | individual    | forestal [ha] |
+|            | tierras bajas de la       |               |               |
+|            | Amazonía                  |               |               |
+|            |                           |               |               |
+|            | B. Siempre verde de       |               |               |
+|            | tierras bajas del Chocó   |               |               |
+|            |                           |               |               |
+|            | Manglar                   |               |               |
+|            |                           |               |               |
+|            | Moretal                   |               |               |
+|            |                           |               |               |
+|            | Plantación forestal       |               |               |
++------------+---------------------------+---------------+---------------+
+| Datos de   | Bosque nativo no          | "Datos        | “Datos        |
+| actividad  | protegido [Mha]           | 2010-2022     | 2010-2018 4ta |
+|            |                           |               | Comunicación” |
+| Cobertura  | Bosque nativo bajo        | 5ta           |               |
+| de Bosque  | régimen de proteccion     | Comunicación” |               |
+|            | legal [Mha]               |               |               |
+| Protegido  |                           |               |               |
+| / No       |                           |               |               |
+| protegido  |                           |               |               |
++------------+---------------------------+---------------+---------------+
+| Datos de   | Cultivo anual [ha]        | "Datos        | "Datos        |
+| actividad  |                           | 2010-2022     | 2010-2018     |
+|            | Cultivo semipermanente    |               |               |
+| Tierras de | [ha]                      | 5ta           | 4ta           |
+| Cultivo    |                           | Comunicación” | Comunicación” |
+|            | Cultivo permanente [ha]   |               |               |
+|            |                           | Analiza una   | Analiza dos   |
+|            | Pastura [ha]              | sola          | categorías:   |
+|            |                           | categoría:    |               |
+|            | Mosaico agropecuario [ha] |               | Cultivos      |
+|            |                           | Tierras de    | [Mha]         |
+|            |                           | cultivo [Mha] |               |
+|            |                           |               | Pastura [Mha] |
++------------+---------------------------+---------------+---------------+
+| Datos de   | Pastizales (grasslands)   | "Datos        | "Datos        |
+| actividad  |                           | 2010-2022     | 2010-2018     |
+|            | Humedal                   |               |               |
+| Otras      |                           | 5ta           | 4ta           |
+| coberturas | Zona antrópica            | Comunicación” | Comunicación” |
+|            | (Asentamientos)           |               |               |
+|            |                           |               |               |
+|            | Otras tierras             |               |               |
++------------+---------------------------+---------------+---------------+
+
+3. **Escenarios**
+
+En los sectores **Agricultura y Uso del Suelo, cambio de Uso del Suelo y
+Silvicultura (USCUSS)** se modelaron **dos escenarios de proyección**,
+ambos construidos a partir de la información descrita en los apartados
+anteriores.
+
+- **Escenario Tendencial:** Representa el "business as usual" sin
+  intervenciones adicionales, considera únicamente los datos históricos
+  y proyecciones sin la incorporación de medidas adicionales de
+  mitigación. Este escenario sirve como línea de base para evaluar el
+  impacto de las políticas y acciones propuestas.
+
+**Tabla 4.** Parámetros y supuestos de cambio utilizados para el
+escenario tendencial
+
++-----------------------------------+-----------------------------------+
+| Parámetro                         | Supuesto                          |
++===================================+===================================+
+| Bosques: Deforestación Bruta      | -0.78 Se mantiene constante       |
+|                                   |                                   |
+| Deforestación Neta                | -0.76 Se mantiene constante       |
+|                                   |                                   |
+| \*\* Deforestación en áreas       | \*\* El Modelo NDC aplica una     |
+| protegidas                        | tasa de deforestación de 0,049%   |
+|                                   | para áreas protegidas.            |
++-----------------------------------+-----------------------------------+
+| Plantaciones Forestales           | Tasa de crecimiento al 1% de      |
+|                                   | crecimiento del PIB               |
++-----------------------------------+-----------------------------------+
+| Cultivos                          | Tasa de crecimiento sectorial     |
+|                                   |                                   |
+|                                   | Contribución del sector al PIB    |
++-----------------------------------+-----------------------------------+
+| Pasturas                          | Categoría flexible o de ajuste    |
++-----------------------------------+-----------------------------------+
+| Vegetación arbustiva y herbácea   | Tasa de crecimiento de suelo de   |
+|                                   | cultivos                          |
+|                                   |                                   |
+|                                   | Tasa de crecimiento destinada a   |
+|                                   | ganadería                         |
++-----------------------------------+-----------------------------------+
+| Humedales                         | Tasa de cambio de humedales       |
++-----------------------------------+-----------------------------------+
+
+- **Escenario Plan de Acción (PAC):** integra las iniciativas
+  establecidas en la Segunda NDC del Ecuador (condicional e
+  incondicional) que aplican a los dos sectores. Estas iniciativas son
+  consideradas de manera integral reflejándose en las metas finales.
+
+El Escenario Plan de Acción comparte similar información en los años
+2010 – 2022. Los Principales cambios se resumen en la siguiente tabla:
+
+**Tabla 5**. Cambios efectuados en los archivos del modelo mixto de
+Agricultura y USCUSS (PAC)
+
++-----------------+---------------------------------+---------------------------+--------------+---------------+
+| Archivo         | Hoja                            | Tecnología/Fuel           | parámetro    | Observación   |
++=================+=================================+===========================+==============+===============+
+| ModeloSuelo_BAU | EmmisionActivitiyRatio          | Bosque_nativo_protegido   | co2_remocion | Se considera  |
+|                 |                                 |                           |              | el aumento de |
+|                 |                                 |                           |              | área de       |
+|                 |                                 |                           |              | bosque bajo   |
+|                 |                                 |                           |              | régimen de    |
+|                 |                                 |                           |              | protección    |
+|                 |                                 |                           |              | legal hasta   |
+|                 |                                 |                           |              | llegar al     |
+|                 |                                 |                           |              | 2035 a 7,9    |
+|                 |                                 |                           |              | Mha           |
++-----------------+---------------------------------+---------------------------+--------------+---------------+
+| ModeloSuelo_BAU | TotalTechnologyAnnualActivityLo | Bosque_nativo_sinproteger | Mha          | Se resta el   |
+|                 |                                 |                           |              | área que se   |
+|                 |                                 |                           |              | adiciona a    |
+|                 |                                 |                           |              | Bosque Nativo |
+|                 |                                 |                           |              | Protegido     |
++-----------------+---------------------------------+---------------------------+--------------+---------------+
+| ModeloSuelo_BAU | EmmisionActivitiyRatio          | Area_restaurada           | co2_remocion | Se considera  |
+|                 |                                 |                           |              | un aumento    |
+|                 |                                 |                           |              | progresivo de |
+|                 |                                 |                           |              | la tasa de    |
+|                 |                                 |                           |              | restauración  |
+|                 |                                 |                           |              | hasta llegar  |
+|                 |                                 |                           |              | a un promedio |
+|                 |                                 |                           |              | de 3200       |
+|                 |                                 |                           |              | ha/año        |
++-----------------+---------------------------------+---------------------------+--------------+---------------+
+| ModeloSuelo_BAU | TotalTechnologyAnnualActivityLo | Plantacion_forestal       | Mh           | Se considera  |
+|                 |                                 |                           |              | un amento     |
+|                 |                                 |                           |              | progresivo    |
+|                 |                                 |                           |              | hasta llegar  |
+|                 |                                 |                           |              | a un valor de |
+|                 |                                 |                           |              | 198600 ha     |
++-----------------+---------------------------------+---------------------------+--------------+---------------+
+
+4. **Resultados.**
+
+Las figuras 2 y 3, presentan las emisiones de CO2 eq tanto de los
+sectores Agricultura y USCUSS respectivamente. En las figuras el color
+azul representa el escenario tendencial modelados desde el 2010,
+mientras que la línea de color rojo representa el escenario Plan de
+Acción donde se incorporan los esfuerzos de mitigación.
+
+**Figura 2.** Evolución de emisiones del sector Agricultura
+
+|The image depicts a line graph showing the trend in CO2 emissions
+(measured in million kg CO2-equivalent) from the agricultural sector
+over a period from 2011 to 2034. El contenido generado por IA puede ser
+incorrecto.|
+
+**Figura 3.** Evolución de emisiones del sector USCUSS
+
+|The diagram shows a line graph depicting the trend of CO2 emissions (in
+million KtCO2-eq) for the US sector from 2010 to 2035. El contenido
+generado por IA puede ser incorrecto.|
+
+5. **Referencias**
+
+- MAATE. (n.d.). 5ta Comunicación Nacional.
+
+- MAATE. (2024). Plan Nacional de Mitigación del Cambio Climático.
+
+- MAATE (2025). Segunda Contribución Determinada a Nivel Nacional
+
+.. |The diagram illustrates a hierarchical classification of land types in an ecosystem, ranging from native forests, unprotected forests, to agricultural lands, including various levels of protection and types of vegetation. El contenido generado por IA puede ser incorrecto.| image:: media/image1.png
+   :width: 4.4984in
+   :height: 3.64653in
+.. |The image depicts a line graph showing the trend in CO2 emissions (measured in million kg CO2-equivalent) from the agricultural sector over a period from 2011 to 2034. El contenido generado por IA puede ser incorrecto.| image:: media/image2.png
+   :width: 5.90556in
+   :height: 3.54577in
+.. |The diagram shows a line graph depicting the trend of CO2 emissions (in million KtCO2-eq) for the US sector from 2010 to 2035. El contenido generado por IA puede ser incorrecto.| image:: media/image3.png
+   :width: 5.90556in
+   :height: 3.54577in

@@ -1,0 +1,1533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.1. Estructura del modelo &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6fe3c23b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="4.2. Datos de Entrada" href="1_inputs.html" />
+    <link rel="prev" title="4. Modelo del Sector Energía" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Modelo del Sector Energía</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. Estructura del modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_inputs.html">4.2. Datos de Entrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_scenarios.html">4.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">4.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">4.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../1_ippu/index.html">5. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_agro_uscuss/index.html">7. Modelo del Sector Agricultura y USCUSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">8. ¿Cómo usar el modelo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">10. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4. </span>Modelo del Sector Energía</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.1. </span>Estructura del modelo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/0_energy/0_structure.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="estructura-del-modelo">
+<h1><span class="section-number">4.1. </span>Estructura del modelo<a class="headerlink" href="#estructura-del-modelo" title="Link to this heading"></a></h1>
+<p>El sector Energía en el Escenario Tendencial Nacional, se modeló
+recurriendo a la herramienta OSeMOSYS (Open Source Energy Modellling
+System por sus siglas en inglés).</p>
+<p>En particular:</p>
+<ul class="simple">
+<li><p>Del modelo OSeMOSYS que da soporte al PLANMICC (Proyecto CZZ 2739) se
+toman las estructuras y parametrizaciones base de tecnologías, con la
+misma desagregación originalmente desarrollada. Para el sector
+Transporte se utilizan los mismos valores de oferta y demanda
+energética considerados en el modelo OSeMOSYS que da soporte al
+PLANMICC desde el 2018 hasta el 2035. Por falta de información, se
+considera también constante la demanda en el sector Transporte desde
+el 2010 hasta el 2017. Además, se consideran los costos fijos y
+variables por tipo de tecnología y factores de emisión históricos
+considerados en el modelo OSeMOSYS que da soporte al PLANMICC.</p></li>
+<li><p>Del modelo OSeMOSYS utilizado para estructurar la segunda NDC se
+toman: i) datos de generación de electricidad por tipo de tecnología
+máxima y mínima, ii) demandas energéticas por sectores, iii) factores
+de capacidad por tipo de tecnología y iv) capacidades residuales y
+máximas.</p></li>
+</ul>
+<p><strong>Representación Gráfica del Modelo</strong></p>
+<p>El modelo del sector Energía fue estructurado a partir de la base
+desarrollada en modelo OSeMOSYS que da soporte al PLANMICC (Proyecto CZZ
+2739). No se aumentaron tecnologías ni se adicionaron variables,
+únicamente se actualizó información.
+El modelo del sector Energía se desarrolló a partir de la estructura
+base desarrollada en el modelo OSeMOSYS que da soporte al PLANMICC. No
+se aumentaron tecnologías ni se adicionaron variables, únicamente se
+actualizó información que se pude apreciar en la <a class="reference internal" href="1_inputs.html#table-inputs-energy"><span class="std std-numref">Tabla 4.4</span></a>
+denominada <strong>Fuentes de información utilizadas para el proceso de modelado del
+Escenario Tendencial Nacional del sector Energía</strong>, de la
+sección <a class="reference internal" href="1_inputs.html#energy-data-input"><span class="std std-ref">Datos de Entrada</span></a>.</p>
+<p>En la <a class="reference internal" href="#model-structure-energy"><span class="std std-numref">Figura 4.1</span></a> se muestra la estructura final del modelo para el
+sector Energía utilizado en el proceso de formulación del Plan de Acción
+del PLANMICC, Fase I, utilizando la tipología RES (<em>Reference Energy
+System</em>, por sus siglas en inglés).</p>
+<figure class="align-center" id="model-structure-energy">
+<img alt="Estructura Base del modelo de Energía" src="../_images/model_structure.png" />
+<figcaption>
+<p><span class="caption-number">Figura 4.1 </span><span class="caption-text">Estructura Base del modelo de Energía</span><a class="headerlink" href="#model-structure-energy" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Puede acceder a la Estructura base del modelo completo a través del siguiente enlace:
+<a class="reference download internal" download="" href="../_downloads/be8f2070acf22c458a176d34236e379c/RES%20Energ%C3%ADa.vsdx"><code class="xref download docutils literal notranslate"><span class="pre">RES</span> <span class="pre">Energía</span></code></a></p>
+</div>
+<p><strong>Tecnologías</strong></p>
+<span id="table-techs-energy"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 4.1 </span><span class="caption-text">Tecnologías consideradas en el modelo del sector energía durante la construcción del Escenario Tendencial Nacional</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Detalle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BLEND_DSL</p></td>
+<td><p>Mezcla de diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>BLEND_GSL</p></td>
+<td><p>Mezcla de gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>CENGASGSL</p></td>
+<td><p>Centros de gas gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>CENGASLPG</p></td>
+<td><p>Centros de gas GLP</p></td>
+</tr>
+<tr class="row-even"><td><p>CENGASPRO</p></td>
+<td><p>Centros de gas propano</p></td>
+</tr>
+<tr class="row-odd"><td><p>ELE_DISTR</p></td>
+<td><p>Secundario - Distribución de
+energía eléctrica</p></td>
+</tr>
+<tr class="row-even"><td><p>ELE_TRANS</p></td>
+<td><p>Secundario - Transmisión de
+energía eléctrica</p></td>
+</tr>
+<tr class="row-odd"><td><p>HYD_DISTR</p></td>
+<td><p>Secundario - Distribución de
+hidrógeno</p></td>
+</tr>
+<tr class="row-even"><td><p>HYDPROBIO</p></td>
+<td><p>Secundario - Producción de
+hidrógeno verde - biomasa</p></td>
+</tr>
+<tr class="row-odd"><td><p>HYDPROELEGRI</p></td>
+<td><p>Secundario - Producción de
+hidrógeno verde - electrólisis
+con red</p></td>
+</tr>
+<tr class="row-even"><td><p>HYDPROELEISO</p></td>
+<td><p>Secundario - Producción de
+hidrógeno verde - electrólisis en
+sistemas aislados</p></td>
+</tr>
+<tr class="row-odd"><td><p>HYDPRONGS</p></td>
+<td><p>Secundario - Producción de
+hidrógeno verde - reformado de
+gas natural</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPCOA</p></td>
+<td><p>Importación/Distribución - carbón</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPCOK</p></td>
+<td><p>Importación - coque de petróleo</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPCRU</p></td>
+<td><p>Importación - crudo</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPELE</p></td>
+<td><p>Importación - electricidad</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPFOI</p></td>
+<td><p>Importación/Distribución - fuel
+oil</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPKJF</p></td>
+<td><p>Importación/Distribución -
+queroseno y jet fuel</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPLPG</p></td>
+<td><p>Importación/Distribución - GLP</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPNGS</p></td>
+<td><p>Importaciones - gas natural (GNL
+y regasificación)</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPPURDSL</p></td>
+<td><p>Importación/Distribución - diésel
+puro</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPPURGSL</p></td>
+<td><p>Importación/Distribución -
+gasolina pura</p></td>
+</tr>
+<tr class="row-even"><td><p>NGS_DISTR</p></td>
+<td><p>Distribución de gas natural</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_BGSICE</p></td>
+<td><p>Central eléctrica biogás - motor
+de combustión interna</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_BMSTST</p></td>
+<td><p>Central eléctrica biomasa -
+turbina de vapor</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_CHP</p></td>
+<td><p>Central eléctrica cogeneración
+caña de azúcar</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_COA</p></td>
+<td><p>Central eléctrica carbón</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_CRU</p></td>
+<td><p>Central eléctrica crudo</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_DSLICE</p></td>
+<td><p>Central eléctrica diésel - motor
+de combustión interna</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_DSLTGS</p></td>
+<td><p>Central eléctrica diésel -
+turbina de gas</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_FOIICE</p></td>
+<td><p>Central eléctrica fuel oil -
+motor de combustión interna</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_FOITST</p></td>
+<td><p>Central eléctrica fuel oil -
+turbina de vapor</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_GEO</p></td>
+<td><p>Primario - Transformación -
+geotérmica</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_HYDAMADAMLAR</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Amazonas represa
+(grande)</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_HYDAMADAMMED</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Amazonas represa
+(mediana)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_HYDAMADAMSMA</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Amazonas represa
+(pequeña)</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_HYDAMARORLAR</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Amazonas de pasada
+(grande)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_HYDAMARORMED</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Amazonas de pasada
+(mediana)</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_HYDAMARORSMA</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Amazonas de pasada
+(pequeña)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_HYDPACDAMLAR</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Pacific represa
+(grande)</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_HYDPACDAMMED</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Pacific represa
+(mediana)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_HYDPACDAMSMA</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Pacific represa
+(pequeña)</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_HYDPACRORLAR</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Pacific de pasada
+(grande)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_HYDPACRORMED</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Pacific de pasada
+(mediana)</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_HYDPACRORSMA</p></td>
+<td><p>Primario - Transformación -
+hidroeléctrica Pacific de pasada
+(pequeña)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_NGSTGS</p></td>
+<td><p>Central eléctrica gas natural -
+turbina de gas</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_SPV_DG</p></td>
+<td><p>Primario - Transformación - solar
+distribuida</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_SPV_US</p></td>
+<td><p>Primario - Transformación -
+fotovoltaica</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_SPV_US_H2</p></td>
+<td><p>Primario - Transformación -
+fotovoltaica para H2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_SUG</p></td>
+<td><p>Central eléctrica caña de azúcar</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_WASICE</p></td>
+<td><p>Central eléctrica residuos -
+motor de combustión interna</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_WND_OF</p></td>
+<td><p>Primario - Transformación -
+eólica marina</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_WND_OF_H2</p></td>
+<td><p>Primario - Transformación -
+eólica marina para H2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PP_WND_US</p></td>
+<td><p>Primario - Transformación -
+eólica</p></td>
+</tr>
+<tr class="row-even"><td><p>PP_WND_US_H2</p></td>
+<td><p>Primario - Transformación -
+eólica para H2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPICRUPETICE</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica crudo - motor de
+combustión interna</p></td>
+</tr>
+<tr class="row-even"><td><p>PPICRUPETTST</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica crudo - turbina de
+vapor</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIDSLCEMTST</p></td>
+<td><p>Aislado - cementeras - central
+eléctrica diésel - turbina de
+vapor</p></td>
+</tr>
+<tr class="row-even"><td><p>PPIDSLELRICE</p></td>
+<td><p>Aislado - electrificación rural -
+central eléctrica diésel - motor
+de combustión interna</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIDSLELRTST</p></td>
+<td><p>Aislado - electrificación rural -
+central eléctrica diésel -
+turbina de vapor</p></td>
+</tr>
+<tr class="row-even"><td><p>PPIDSLGALICE</p></td>
+<td><p>Aislado - Galápagos - central
+eléctrica diésel - motor de
+combustión interna</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIDSLPETICE</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica diésel - motor de
+combustión interna</p></td>
+</tr>
+<tr class="row-even"><td><p>PPIDSLPETTGS</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica diésel - turbina de gas</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIFOIPETICE</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica fuel oil - motor de
+combustión interna</p></td>
+</tr>
+<tr class="row-even"><td><p>PPIHYDAMACEM</p></td>
+<td><p>Primario - Transformación -
+cementeras - hidroeléctrica
+Amazonas</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIHYDAMAELR</p></td>
+<td><p>Primario - Transformación -
+electrificación rural -
+hidroeléctrica Amazonas</p></td>
+</tr>
+<tr class="row-even"><td><p>PPIHYDPACCEM</p></td>
+<td><p>Primario - Transformación -
+cementeras - hidroeléctrica
+Pacific</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIHYDPACELR</p></td>
+<td><p>Primario - Transformación -
+electrificación rural -
+hidroeléctrica Pacific</p></td>
+</tr>
+<tr class="row-even"><td><p>PPINGSPETICE</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica gas natural - motor de
+combustión interna</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPINGSPETTGS</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica gas natural - turbina
+de gas</p></td>
+</tr>
+<tr class="row-even"><td><p>PPINGSPETTST</p></td>
+<td><p>Aislado - petroleras - central
+eléctrica gas natural - turbina
+de vapor</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPISPVELR</p></td>
+<td><p>Primario - Transformación -
+electrificación rural - solar FV</p></td>
+</tr>
+<tr class="row-even"><td><p>PPISPVGAL</p></td>
+<td><p>Primario - Transformación -
+Galápagos - solar FV</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPIWNDGAL</p></td>
+<td><p>Primario - Transformación -
+Galápagos - eólica</p></td>
+</tr>
+<tr class="row-even"><td><p>PROACG</p></td>
+<td><p>Aceite de piñón</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROBGS</p></td>
+<td><p>Producción - biogás</p></td>
+</tr>
+<tr class="row-even"><td><p>PROBIODSL</p></td>
+<td><p>Producción de biodiésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROBMS</p></td>
+<td><p>Producción - biomasa</p></td>
+</tr>
+<tr class="row-even"><td><p>PROCRU</p></td>
+<td><p>Producción - crudo</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROETA</p></td>
+<td><p>Producción de etanol</p></td>
+</tr>
+<tr class="row-even"><td><p>PROFIR</p></td>
+<td><p>Producción - leña</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRONGS</p></td>
+<td><p>Producción - gas natural</p></td>
+</tr>
+<tr class="row-even"><td><p>PROSUG</p></td>
+<td><p>Producción - caña de azúcar</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROWAS</p></td>
+<td><p>Producción - residuos</p></td>
+</tr>
+<tr class="row-even"><td><p>REFCRU</p></td>
+<td><p>Refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>REFCRUCOK</p></td>
+<td><p>Refinería coque</p></td>
+</tr>
+<tr class="row-even"><td><p>REFCRUDSL</p></td>
+<td><p>Refinería diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>REFCRUFOI</p></td>
+<td><p>Refinería fuel oil</p></td>
+</tr>
+<tr class="row-even"><td><p>REFCRUGSL</p></td>
+<td><p>Refinería gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>REFCRUKJF</p></td>
+<td><p>Refinería KJF</p></td>
+</tr>
+<tr class="row-even"><td><p>REFCRULPG</p></td>
+<td><p>Refinería GLP</p></td>
+</tr>
+<tr class="row-odd"><td><p>REFCRURED</p></td>
+<td><p>Refinería crudo reducido</p></td>
+</tr>
+<tr class="row-even"><td><p>REFNONENE</p></td>
+<td><p>Refinería no energético</p></td>
+</tr>
+<tr class="row-odd"><td><p>RSVCRU</p></td>
+<td><p>Reservas - crudo</p></td>
+</tr>
+<tr class="row-even"><td><p>RSVNGS</p></td>
+<td><p>Reservas - gas natural</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_DSLHEA</p></td>
+<td><p>Distribuir diésel para carga
+pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_DSLLIG</p></td>
+<td><p>Distribuir diésel para carga
+ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_DSLMED</p></td>
+<td><p>Distribuir diésel para carga
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_DSLPRI</p></td>
+<td><p>Distribuir diésel para privado</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_DSLPUB</p></td>
+<td><p>Distribuir diésel para público</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_ELEHEA</p></td>
+<td><p>Distribuir electricidad para
+carga pesada</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_ELELIG</p></td>
+<td><p>Distribuir electricidad para
+carga ligera</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_ELEMED</p></td>
+<td><p>Distribuir electricidad para
+carga media</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_ELEPRI</p></td>
+<td><p>Distribuir electricidad para
+privado</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_ELEPUB</p></td>
+<td><p>Distribuir electricidad para
+público</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_GSLHEA</p></td>
+<td><p>Distribuir gasolina para carga
+pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_GSLLIG</p></td>
+<td><p>Distribuir gasolina para carga
+ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_GSLMED</p></td>
+<td><p>Distribuir gasolina para carga
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_GSLPRI</p></td>
+<td><p>Distribuir gasolina para privado</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_GSLPUB</p></td>
+<td><p>Distribuir gasolina para público</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_HYDHEA</p></td>
+<td><p>Distribuir hidrógeno para carga
+pesada</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_HYDMED</p></td>
+<td><p>Distribuir hidrógeno para carga
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_HYDPUB</p></td>
+<td><p>Distribuir hidrógeno para público</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_LPGHEA</p></td>
+<td><p>Distribuir GLP para carga pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_LPGLIG</p></td>
+<td><p>Distribuir GLP para carga ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_LPGMED</p></td>
+<td><p>Distribuir GLP para carga media</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_LPGPRI</p></td>
+<td><p>Distribuir GLP para privado</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_LPGPUB</p></td>
+<td><p>Distribuir GLP para público</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_NGSLIG</p></td>
+<td><p>Distribuir gas natural para carga
+ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_NGSMED</p></td>
+<td><p>Distribuir gas natural para carga
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>T4_NGSPRI</p></td>
+<td><p>Distribuir gas natural para
+privado</p></td>
+</tr>
+<tr class="row-odd"><td><p>T4_NGSPUB</p></td>
+<td><p>Distribuir gas natural para
+público</p></td>
+</tr>
+<tr class="row-even"><td><p>T5BMSEXP</p></td>
+<td><p>Demanda de biomasa para
+generación eléctrica para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5BUN</p></td>
+<td><p>Demanda para bunkers</p></td>
+</tr>
+<tr class="row-even"><td><p>T5COKIND</p></td>
+<td><p>Demanda de coque de petróleo para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5CRUCRUTRN</p></td>
+<td><p>Demanda de crudo para SOTE</p></td>
+</tr>
+<tr class="row-even"><td><p>T5CRUEXP</p></td>
+<td><p>Demanda de crudo para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELEAGR</p></td>
+<td><p>Demanda de electricidad para
+agricultura</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELECOM</p></td>
+<td><p>Demanda de electricidad para
+comercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELECON</p></td>
+<td><p>Demanda de gasolina pura para
+construcción</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELECRUTRN</p></td>
+<td><p>Demanda de electricidad para SOTE</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELEEXP</p></td>
+<td><p>Demanda de electricidad para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELEIND</p></td>
+<td><p>Demanda de electricidad para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELERES</p></td>
+<td><p>Demanda de electricidad para
+residencial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FIRIND</p></td>
+<td><p>Demanda de leña para industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FIRRES</p></td>
+<td><p>Demanda de leña para residencial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FOICOM</p></td>
+<td><p>Demanda de fuel oil para
+comercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FOIEXP</p></td>
+<td><p>Demanda de fuel oil para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FOIIND</p></td>
+<td><p>Demanda de fuel oil para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FOIREF</p></td>
+<td><p>Demanda de fuel oil para
+refinerías</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FOISHITRN</p></td>
+<td><p>Demanda de fuel oil para
+transporte marítimo</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5GSLCRUTRN</p></td>
+<td><p>Demanda de gasolina para SOTE</p></td>
+</tr>
+<tr class="row-even"><td><p>T5HECIND</p></td>
+<td><p>Demanda de calor de cogeneración
+para industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5HYDIND</p></td>
+<td><p>Demanda de hidrógeno para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5KJFAERTRN</p></td>
+<td><p>Demanda de queroseno y jet fuel
+para transporte aéreo</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5KJFCON</p></td>
+<td><p>Demanda de queroseno y jet fuel
+para construcción</p></td>
+</tr>
+<tr class="row-even"><td><p>T5KJFREF</p></td>
+<td><p>Demanda de queroseno y jet fuel
+para refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGAGR</p></td>
+<td><p>Demanda de GLP para agricultura</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGCOM</p></td>
+<td><p>Demanda de GLP para comercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGCON</p></td>
+<td><p>Demanda de GLP para construcción</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGCRUTRN</p></td>
+<td><p>Demanda de GLP para SOTE</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGEXP</p></td>
+<td><p>Demanda de GLP para exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGIND</p></td>
+<td><p>Demanda de GLP para industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGREF</p></td>
+<td><p>Demanda de GLP para refinerías</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGRES</p></td>
+<td><p>Demanda de GLP para residencial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5NGSIND</p></td>
+<td><p>Demanda de gas natural para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5NGSRES</p></td>
+<td><p>Demanda de gas natural para
+residencial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5NOEAGR</p></td>
+<td><p>Demanda no energética para
+agricultura</p></td>
+</tr>
+<tr class="row-even"><td><p>T5NOECON</p></td>
+<td><p>Demanda no energética para
+construcción</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PROGAS</p></td>
+<td><p>Demanda de propano y gas para
+múltiples</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURDSLCOM</p></td>
+<td><p>Demanda de diésel puro para
+comercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURDSLCON</p></td>
+<td><p>Demanda de diésel puro para
+construcción</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURDSLEXP</p></td>
+<td><p>Demanda de diésel puro para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURDSLIND</p></td>
+<td><p>Demanda de diésel puro para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURDSLREF</p></td>
+<td><p>Demanda de diésel para refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURDSLSHITRN</p></td>
+<td><p>Demanda de diésel puro para
+transporte marítimo</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLAERTRN</p></td>
+<td><p>Demanda de gasolina pura para
+transporte aéreo</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLAGR</p></td>
+<td><p>Demanda de gasolina pura para
+agricultura</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLCOM</p></td>
+<td><p>Demanda de gasolina pura para
+comercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLCON</p></td>
+<td><p>Demanda de gasolina pura para
+construcción</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLEXP</p></td>
+<td><p>Demanda de gasolina pura para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLIND</p></td>
+<td><p>Demanda de gasolina pura para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLREF</p></td>
+<td><p>Demanda de gasolina para
+refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLSHITRN</p></td>
+<td><p>Demanda de gasolina pura para
+transporte marítimo</p></td>
+</tr>
+<tr class="row-even"><td><p>T5REDCRUEXP</p></td>
+<td><p>Demanda de crudo reducido para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5SUGIND</p></td>
+<td><p>Demanda de caña de azúcar y
+subproductos para industria</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNBUSDSL</p></td>
+<td><p>Buses diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNBUSELE</p></td>
+<td><p>Buses eléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNBUSHYBDSL</p></td>
+<td><p>Buses híbridos diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNBUSHYD</p></td>
+<td><p>Buses hidrógeno</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNBUSLPG</p></td>
+<td><p>Buses GLP</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNBUSNGV</p></td>
+<td><p>Buses gas natural vehicular</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNCAMDSL</p></td>
+<td><p>Minivan diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNCAMELE</p></td>
+<td><p>Minivan eléctrica</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNCAMGSL</p></td>
+<td><p>Minivan gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNCAMHYBDSL</p></td>
+<td><p>Minivan híbrida diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNCAMHYBGSL</p></td>
+<td><p>Minivan híbrida gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNCAMLPG</p></td>
+<td><p>Minivan GLP</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNCAMNGV</p></td>
+<td><p>Minivan gas natural vehicular</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNCATTRUELE</p></td>
+<td><p>Camión con catenaria eléctrico</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNCRU</p></td>
+<td><p>Transporte de crudo</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFREHEADSL</p></td>
+<td><p>Carga pesada diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREHEAELE</p></td>
+<td><p>Carga pesada eléctrica</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFREHEAGSL</p></td>
+<td><p>Carga pesada gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREHEAHYBDSL</p></td>
+<td><p>Carga pesada híbrida diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFREHEAHYD</p></td>
+<td><p>Carga pesada hidrógeno</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREHEALPG</p></td>
+<td><p>Carga pesada GLP</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFRELIGDSL</p></td>
+<td><p>Carga ligera diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFRELIGELE</p></td>
+<td><p>Carga ligera eléctrica</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFRELIGGSL</p></td>
+<td><p>Carga ligera gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFRELIGHYBDSL</p></td>
+<td><p>Carga ligera híbrida diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFRELIGHYBGSL</p></td>
+<td><p>Carga ligera híbrida gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFRELIGLPG</p></td>
+<td><p>Carga ligera GLP</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFRELIGNGV</p></td>
+<td><p>Carga ligera gas natural
+vehicular</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREMEDDSL</p></td>
+<td><p>Carga media diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFREMEDELE</p></td>
+<td><p>Carga media eléctrica</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREMEDGSL</p></td>
+<td><p>Carga media gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFREMEDHYBDSL</p></td>
+<td><p>Carga media híbrida diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREMEDHYD</p></td>
+<td><p>Carga media hidrógeno</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFREMEDLPG</p></td>
+<td><p>Carga media GLP</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFREMEDNGV</p></td>
+<td><p>Carga media gas natural vehicular</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFRERAIDSL</p></td>
+<td><p>Ferrocarril de carga diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNFRERAIELE</p></td>
+<td><p>Ferrocarril de carga eléctrico</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNFRERAIHYD</p></td>
+<td><p>Ferrocarril de carga hidrógeno</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNMICDSL</p></td>
+<td><p>Microbuses diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNMICELE</p></td>
+<td><p>Microbuses eléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNMICGSL</p></td>
+<td><p>Microbuses gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNMICHYBDSL</p></td>
+<td><p>Microbuses híbridos diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNMICHYD</p></td>
+<td><p>Microbuses hidrógeno</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNMICLPG</p></td>
+<td><p>Microbuses GLP</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNMOTELE</p></td>
+<td><p>Motocicletas eléctricas</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNMOTGSL</p></td>
+<td><p>Motocicletas gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNPASRAIDSL</p></td>
+<td><p>Tren diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNPASRAIELE</p></td>
+<td><p>Tren eléctrico</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNPASRAIHYD</p></td>
+<td><p>Tren hidrógeno</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNSEDDSL</p></td>
+<td><p>Sedanes diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNSEDELE</p></td>
+<td><p>Sedanes eléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNSEDGSL</p></td>
+<td><p>Sedanes gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNSEDHYBGSL</p></td>
+<td><p>Sedanes híbridos gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNSEDLPG</p></td>
+<td><p>Sedanes GLP</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNSUVDSL</p></td>
+<td><p>SUV diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNSUVELE</p></td>
+<td><p>SUV eléctricos</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNSUVGSL</p></td>
+<td><p>SUV gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNSUVHYBDSL</p></td>
+<td><p>SUV híbridos diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNSUVHYBGSL</p></td>
+<td><p>SUV híbridos gasolina</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNSUVLPG</p></td>
+<td><p>SUV GLP</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNSUVNGV</p></td>
+<td><p>SUV gas natural vehicular</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNTAXDSL</p></td>
+<td><p>Taxis diésel</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNTAXELE</p></td>
+<td><p>Taxis eléctricos</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNTAXGSL</p></td>
+<td><p>Taxis gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNTAXHYBDSL</p></td>
+<td><p>Taxis híbridos diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRNTAXHYBGSL</p></td>
+<td><p>Taxis híbridos gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>TRNTAXLPG</p></td>
+<td><p>Taxis GLP</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Commodities</strong></p>
+<span id="table-techs-commodities"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tabla 4.2 </span><span class="caption-text">Commodities considerados en el modelo del sector Energía durante la construcción del Escenario Tendencial Nacional.</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Detalle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DEMTRN_NOMOT</p></td>
+<td><p>Demanda de transporte -
+reducciones no motorizadas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTRNFREHEA</p></td>
+<td><p>Demanda de transporte - carga
+pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMTRNFRELIG</p></td>
+<td><p>Demanda de transporte - carga
+ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTRNFREMED</p></td>
+<td><p>Demanda de transporte - carga
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMTRNPASPRI</p></td>
+<td><p>Demanda de transporte - pasajeros
+privados</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTRNPASPUB</p></td>
+<td><p>Demanda de transporte - pasajeros
+públicos</p></td>
+</tr>
+<tr class="row-even"><td><p>E0_ACP</p></td>
+<td><p>Aceite_Pinon</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0_BGS</p></td>
+<td><p>Biogás producido</p></td>
+</tr>
+<tr class="row-even"><td><p>E0_BMS</p></td>
+<td><p>Biomasa producida</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0_COA</p></td>
+<td><p>Carbón</p></td>
+</tr>
+<tr class="row-even"><td><p>E0_CRU</p></td>
+<td><p>Reservas de crudo</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0_FIR</p></td>
+<td><p>Leña producida</p></td>
+</tr>
+<tr class="row-even"><td><p>E0_NGS</p></td>
+<td><p>Gas natural</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0_SUG</p></td>
+<td><p>Caña de azúcar producida</p></td>
+</tr>
+<tr class="row-even"><td><p>E0_WAS</p></td>
+<td><p>Residuos</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_BIODSL</p></td>
+<td><p>Biodiésel</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_COK</p></td>
+<td><p>Coque</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_CRU</p></td>
+<td><p>Transporte de crudo</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_DSL</p></td>
+<td><p>Diésel</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_ELE</p></td>
+<td><p>Electricidad</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_ETA</p></td>
+<td><p>Etanol</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_FOI</p></td>
+<td><p>Fuel oil</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_GAS</p></td>
+<td><p>Gases de gas natural</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_GSL</p></td>
+<td><p>Gasolina</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_HEC</p></td>
+<td><p>Calor de cogeneración</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_KJF</p></td>
+<td><p>Queroseno</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_LPG</p></td>
+<td><p>GLP de gas natural</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_NGS</p></td>
+<td><p>Gas natural producido</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_NOE</p></td>
+<td><p>No energético</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_PURDSL</p></td>
+<td><p>Diésel puro</p></td>
+</tr>
+<tr class="row-even"><td><p>E1_PURGSL</p></td>
+<td><p>Gasolina pura</p></td>
+</tr>
+<tr class="row-odd"><td><p>E1_REDCRU</p></td>
+<td><p>Crudo reducido</p></td>
+</tr>
+<tr class="row-even"><td><p>E2_CRU</p></td>
+<td><p>Transporte de crudo</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2_ELE</p></td>
+<td><p>Secundario - Electricidad de
+transmisión</p></td>
+</tr>
+<tr class="row-even"><td><p>E2_HYD</p></td>
+<td><p>Secundario - Hidrógeno verde
+producido</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2_NGS</p></td>
+<td><p>Gas natural distribuido</p></td>
+</tr>
+<tr class="row-even"><td><p>E3_CRU</p></td>
+<td><p>Crudo para refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>E3_ELE</p></td>
+<td><p>Electricidad</p></td>
+</tr>
+<tr class="row-even"><td><p>E3_HYD</p></td>
+<td><p>Secundario - Hidrógeno
+transportado</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_DSLHEA</p></td>
+<td><p>Diésel distribuido para carga
+pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_DSLLIG</p></td>
+<td><p>Diésel distribuido para carga
+ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_DSLMED</p></td>
+<td><p>Diésel distribuido para carga
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_DSLPRI</p></td>
+<td><p>Diésel distribuido para privado</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_DSLPUB</p></td>
+<td><p>Diésel distribuido para público</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_ELE</p></td>
+<td><p>Electricidad</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_ELEHEA</p></td>
+<td><p>Electricidad distribuida para
+carga pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_ELELIG</p></td>
+<td><p>Electricidad distribuida para
+carga ligera</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_ELEMED</p></td>
+<td><p>Electricidad distribuida para
+carga media</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_ELEPRI</p></td>
+<td><p>Electricidad distribuida para
+privado</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_ELEPUB</p></td>
+<td><p>Electricidad distribuida para
+público</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_GSLHEA</p></td>
+<td><p>Gasolina distribuida para carga
+pesada</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_GSLLIG</p></td>
+<td><p>Gasolina distribuida para carga
+ligera</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_GSLMED</p></td>
+<td><p>Gasolina distribuida para carga
+media</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_GSLPRI</p></td>
+<td><p>Gasolina distribuida para privado</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_GSLPUB</p></td>
+<td><p>Gasolina distribuida para público</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_HYDHEA</p></td>
+<td><p>Hidrógeno distribuido para carga
+pesada</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_HYDMED</p></td>
+<td><p>Hidrógeno distribuido para carga
+media</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_HYDPUB</p></td>
+<td><p>Hidrógeno distribuido para
+público</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_LPGHEA</p></td>
+<td><p>GLP distribuido para carga pesada</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_LPGLIG</p></td>
+<td><p>GLP distribuido para carga ligera</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_LPGMED</p></td>
+<td><p>GLP distribuido para carga media</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_LPGPRI</p></td>
+<td><p>GLP distribuido para privado</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_LPGPUB</p></td>
+<td><p>GLP distribuido para público</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_NGSLIG</p></td>
+<td><p>Gas natural distribuido para
+carga ligera</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_NGSMED</p></td>
+<td><p>Gas natural distribuido para
+carga media</p></td>
+</tr>
+<tr class="row-odd"><td><p>E4_NGSPRI</p></td>
+<td><p>Gas natural distribuido para
+privado</p></td>
+</tr>
+<tr class="row-even"><td><p>E4_NGSPUB</p></td>
+<td><p>Gas natural distribuido para
+público</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5BMSEXP</p></td>
+<td><p>Demanda de biomasa para
+generación eléctrica para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5BUN</p></td>
+<td><p>Demanda para bunkers</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5COKIND</p></td>
+<td><p>Demanda de coque de petróleo para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5CRUCRUTRN</p></td>
+<td><p>Demanda de crudo para SOTE</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5CRUEXP</p></td>
+<td><p>Demanda de crudo para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELEAGR</p></td>
+<td><p>Demanda de electricidad para
+agricultura</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELECOM</p></td>
+<td><p>Demanda de electricidad para
+comercial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELECON</p></td>
+<td><p>Demanda de gasolina pura para
+construcción</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELECRUTRN</p></td>
+<td><p>Demanda de electricidad para SOTE</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELEEXP</p></td>
+<td><p>Demanda de electricidad para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5ELEIND</p></td>
+<td><p>Demanda de electricidad para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5ELERES</p></td>
+<td><p>Demanda de electricidad para
+residencial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FIRIND</p></td>
+<td><p>Demanda de leña para industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FIRRES</p></td>
+<td><p>Demanda de leña para residencial</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FOICOM</p></td>
+<td><p>Demanda de fuel oil para
+comercial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FOIEXP</p></td>
+<td><p>Demanda de fuel oil para
+exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FOIIND</p></td>
+<td><p>Demanda de fuel oil para
+industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5FOIREF</p></td>
+<td><p>Demanda de fuel oil para
+refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5FOISHITRN</p></td>
+<td><p>Demanda de fuel oil para
+transporte marítimo</p></td>
+</tr>
+<tr class="row-even"><td><p>T5GSLCRUTRN</p></td>
+<td><p>Demanda de gasolina para SOTE</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5HECIND</p></td>
+<td><p>Demanda de calor de cogeneración
+para industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5HYDIND</p></td>
+<td><p>Demanda de hidrógeno para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5KJFAERTRN</p></td>
+<td><p>Demanda de queroseno y jet fuel
+para transporte aéreo</p></td>
+</tr>
+<tr class="row-even"><td><p>T5KJFCON</p></td>
+<td><p>Demanda de queroseno y jet fuel
+para construcción</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5KJFREF</p></td>
+<td><p>Demanda de queroseno y jet fuel
+para refinerías</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGAGR</p></td>
+<td><p>Demanda de GLP para agricultura</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGCOM</p></td>
+<td><p>Demanda de GLP para comercial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGCON</p></td>
+<td><p>Demanda de GLP para construcción</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGCRUTRN</p></td>
+<td><p>Demanda de GLP para SOTE</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGEXP</p></td>
+<td><p>Demanda de GLP para exportaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGIND</p></td>
+<td><p>Demanda de GLP para industria</p></td>
+</tr>
+<tr class="row-even"><td><p>T5LPGREF</p></td>
+<td><p>Demanda de GLP para refinerías</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5LPGRES</p></td>
+<td><p>Demanda de GLP para residencial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5NGSIND</p></td>
+<td><p>Demanda de gas natural para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5NGSRES</p></td>
+<td><p>Demanda de gas natural para
+residencial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5NOEAGR</p></td>
+<td><p>Demanda no energética para
+agricultura</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5NOECON</p></td>
+<td><p>Demanda no energética para
+construcción</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PROGAS</p></td>
+<td><p>Demanda de propano y gas para
+múltiples</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURDSLCOM</p></td>
+<td><p>Demanda de diésel puro para
+comercial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURDSLCON</p></td>
+<td><p>Demanda de diésel puro para
+construcción</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURDSLEXP</p></td>
+<td><p>Demanda de diésel puro para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURDSLIND</p></td>
+<td><p>Demanda de diésel puro para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURDSLREF</p></td>
+<td><p>Demanda de diésel para refinerías</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURDSLSHITRN</p></td>
+<td><p>Demanda de diésel puro para
+transporte marítimo</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLAERTRN</p></td>
+<td><p>Demanda de gasolina pura para
+transporte aéreo</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLAGR</p></td>
+<td><p>Demanda de gasolina pura para
+agricultura</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLCOM</p></td>
+<td><p>Demanda de gasolina pura para
+comercial</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLCON</p></td>
+<td><p>Demanda de gasolina pura para
+construcción</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLEXP</p></td>
+<td><p>Demanda de gasolina pura para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLIND</p></td>
+<td><p>Demanda de gasolina pura para
+industria</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5PURGSLREF</p></td>
+<td><p>Demanda de gasolina para
+refinerías</p></td>
+</tr>
+<tr class="row-even"><td><p>T5PURGSLSHITRN</p></td>
+<td><p>Demanda de gasolina pura para
+transporte marítimo</p></td>
+</tr>
+<tr class="row-odd"><td><p>T5REDCRUEXP</p></td>
+<td><p>Demanda de crudo reducido para
+exportaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>T5SUGIND</p></td>
+<td><p>Demanda de caña de azúcar y
+subproductos para industria</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Emisiones</strong></p>
+<span id="table-emission-types-energy"></span><table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Tabla 4.3 </span><span class="caption-text">Clasificación de emisiones estimadas para el proceso de modelado del Escenario Tendencial Nacional del sector Energía</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Código</strong></p></th>
+<th class="head"><p><strong>Detalle</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CO2-eq</p></td>
+<td><p>Dióxido de carbono equivalente del combustible</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO2_scc</p></td>
+<td><p>Dióxido de carbono equivalente específico del combustible</p></td>
+</tr>
+<tr class="row-even"><td><p>CO2_fugitivas</p></td>
+<td><p>Dióxido de carbono equivalente no intencional que
+corresponde a gases que se escapan durante la producción,
+procesamiento, transporte, almacenamiento o distribución de
+combustibles, sin que exista combustión.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO2_fugitivas_scc</p></td>
+<td><p>Dióxido de carbono equivalente específico no intencional de
+gases que se escapan durante la producción, procesamiento,
+transporte, almacenamiento o distribución de combustibles,
+sin que exista combustión.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="4. Modelo del Sector Energía" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="1_inputs.html" class="btn btn-neutral float-right" title="4.2. Datos de Entrada" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

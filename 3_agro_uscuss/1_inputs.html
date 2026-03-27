@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.2. Datos de entrada &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6fe3c23b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="7.3. Escenarios" href="2_scenarios.html" />
+    <link rel="prev" title="7.1. Estructura del modelo" href="0_structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">2. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions.html">3. Escenario de referencia para las Emisiones Nacionales: Escenario Tendencial Nacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_energy/index.html">4. Modelo del Sector Energía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_ippu/index.html">5. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_waste/index.html">6. Modelo del Sector Residuos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. Modelo del Sector Agricultura y USCUSS</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_structure.html">7.1. Estructura del modelo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.2. Datos de Entrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_scenarios.html">7.3. Escenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_results.html">7.4. Resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_references.html">7.5. Referencias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">8. ¿Cómo usar el modelo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. Licencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">10. Autores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">7. </span>Modelo del Sector Agricultura y USCUSS</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7.2. </span>Datos de entrada</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/3_agro_uscuss/1_inputs.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="datos-de-entrada">
+<h1><span class="section-number">7.2. </span>Datos de entrada<a class="headerlink" href="#datos-de-entrada" title="Link to this heading"></a></h1>
+<p>La <a class="reference internal" href="#table-agro-uscuss-inputs-old"><span class="std std-numref">Tabla 7.2</span></a> muestra los paquetes de datos históricos considerados en los
+procesos de modelado del sector Agricultura y USCUSS</p>
+<span id="table-agro-uscuss-inputs-old"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tabla 7.2 </span><span class="caption-text">Comparación de datos históricos y actuales de la producción agropecuaria (PLANMICC vs. NDC) empleados en el modelo.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de
+Información
+nformación</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Fuente NDC</p></th>
+<th class="head"><p>Fuente Plan
+MICC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Producción
+Cultivos
+cosechados</p>
+</td>
+<td><p>Banano [ton]</p>
+<p>Cacao - Almendra seca
+[ton]</p>
+<p>Café - Grano Oro
+[ton]</p>
+<p>Caña de azúcar [ton]</p>
+<p>Maíz [ton]</p>
+<p>Palma africana [ton]</p>
+<p>Soya [ton]</p>
+<p>Palmito [ha]</p>
+<p>Legumbres (Pulses)
+[ton]</p>
+<p>Cereales y
+pseudocereales [ton]</p>
+<p>Tubérculos [ton]</p>
+<p>Fruta fresca [ton]</p>
+<p>Verduras [ton]</p>
+</td>
+<td><p>Datos de
+actividad
+usados para la
+construcción
+de inventarios
+nacionales de
+gases de
+efecto
+invernadero
+serie
+1994-2021
+5CN/1BTR,
+directrices
+ipcc 2006
+refinamiento
+2019</p></td>
+<td><p>ESPAC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Rendimientos
+de
+Cultivos
+Agrícolas
+Cosechados</p>
+</td>
+<td><p>Banano [ton/ha]</p>
+<p>Cacao - Almendra seca
+[ton/ha]</p>
+<p>Café - Grano Oro
+[ton/ha]</p>
+<p>Caña de azúcar
+[ton/ha]</p>
+<p>Maíz [ton/ha]</p>
+<p>Palma africana (Fruta
+Fresca) [ton/ha]</p>
+<p>Soya [ton/ha]</p>
+<p>Palmito [ton/ha]</p>
+<p>Legumbres (Pulses)
+[ton/ha]</p>
+<p>Cereales y
+pseudocereales
+[ton/ha]</p>
+<p>Tubérculos [ton/ha]</p>
+<p>Fruta fresca [ton/ha]</p>
+<p>Verduras [ton/ha]</p>
+<p>Florícola [ton/ha]</p>
+</td>
+<td><p>Datos de
+actividad
+usados para la
+construcción
+de inventarios
+nacionales de
+gases de
+efecto
+invernadero
+serie
+1994-2021
+5CN/1BTR,
+directrices
+ipcc 2006
+refinamiento
+2019</p></td>
+<td><p>ESPAC</p></td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Exportación
+e
+importación
+de
+Productos
+Agrícolas</p>
+</td>
+<td><p>Misma clasificación
+de producción y
+rendimiento de
+Cultivos Agrícolas</p>
+<p>[Mton]</p>
+</td>
+<td><p>BCE</p>
+<p>Proyecciones</p>
+<p>PLANMICC</p>
+</td>
+<td><p>BCE</p>
+<p>Proyecciones
+PLANMICC</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Demanda
+Local de
+Productos
+Agrícolas</p>
+</td>
+<td><p>Misma clasificación
+de producción y
+rendimiento de
+Cultivos Agrícolas</p>
+<p>[Mton]</p>
+</td>
+<td><p>Proyección
+calculados en
+PLANMICC</p></td>
+<td><p>Datos y
+Proyección
+calculados en
+PLANMICC</p>
+<p>Producción
++ Importación
+- Exportación</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Población
+de ganado
+bobino</p>
+</td>
+<td><p>Vacuno total
+(Cabezas)</p>
+<p>Raza importada
+(Cabezas)</p>
+<p>Raza criolla
+(Cabezas)</p>
+<p>Raza mestiza
+(Cabezas)</p>
+<p>porcino (Cabezas)</p>
+<p>ovino (Cabezas)</p>
+<p>otras especies
+(Cabezas)</p>
+</td>
+<td><p>ESPAC</p></td>
+<td><p>ESPAC</p>
+<p>MAG
+(Agrocalidad)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Producción,
+Exportación,
+Importación
+de ganado</p>
+</td>
+<td><p>Vacuno carne (ton)</p>
+<p>Vacuno leche (ton)</p>
+</td>
+<td><p>BCE</p></td>
+<td><p>BCE</p></td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Aves de
+corral</p>
+<p>Producción,
+consumo</p>
+</td>
+<td><p>campo (Cabezas)</p>
+<p>planteles avícolas
+(Cabezas)</p>
+<p>Huevos (# huevos)
+Huevos autoconsumo (#
+huevos)</p>
+</td>
+<td><p>ESPAC</p></td>
+<td><p>ESPAC</p></td>
+</tr>
+</tbody>
+</table>
+<p>La <a class="reference internal" href="#table-agro-uscuss-inputs-new"><span class="std std-numref">Tabla 7.3</span></a> muestra los datos históricos y actuales utilizados en el
+modelado para los 2 sectores</p>
+<span id="table-agro-uscuss-inputs-new"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tabla 7.3 </span><span class="caption-text">Datos históricos y actuales de coberturas.</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Fuente NDC</p></th>
+<th class="head"><p>Fuente Plan
+MICC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p><strong>Cobertura
+de Bosque</strong></p>
+</td>
+<td><ol class="upperalpha simple" start="2">
+<li><p>Seco Pluvioestacional</p></li>
+</ol>
+<p>B. Siempre verde andino
+Montano</p>
+<p>B. Siempre verde andino
+Pie montano</p>
+<p>B. Siempre verde andino
+de Ceja Andina</p>
+<p>B. Siempre verde de
+tierras bajas de la
+Amazonía</p>
+<p>B. Siempre verde de
+tierras bajas del Chocó</p>
+<p>Manglar</p>
+<p>Moretal</p>
+<p>Plantación forestal</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación»</p>
+<p>Cada
+categoría de
+bosque es
+analizada de
+manera
+individual</p>
+</td>
+<td><p>«Datos
+2010-2018
+4ta
+Comunicación»</p>
+<p>Se separan
+2
+categorías:</p>
+<p>Bosque
+nativo [ha]</p>
+<p>Plantación
+forestal
+[ha]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p><strong>Cobertura
+de Bosque
+Protegido
+/ No
+protegido</strong></p>
+</td>
+<td><p>Bosque nativo no
+protegido [Mha]</p>
+<p>Bosque nativo bajo
+régimen de proteccion
+legal [Mha]</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación”</p>
+</td>
+<td><p>«Datos
+2010-2018
+4ta
+Comunicación»</p></td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p><strong>Tierras
+de
+Cultivo</strong></p>
+</td>
+<td><p>Cultivo anual [ha]</p>
+<p>Cultivo semipermanente
+[ha]</p>
+<p>Cultivo permanente [ha]</p>
+<p>Pastura [ha]</p>
+<p>Mosaico agropecuario [ha]</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación”</p>
+<p>Analiza una
+sola
+categoría:</p>
+<p>Tierras de
+cultivo [Mha]</p>
+</td>
+<td><p>«Datos
+2010-2018
+4ta
+Comunicación»</p>
+<p>Analiza dos
+categorías:</p>
+<p>Cultivos
+[Mha]</p>
+<p>Pastura
+[Mha]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p><strong>Otras
+coberturas</strong></p>
+</td>
+<td><p>Pastizales (grasslands)</p>
+<p>Humedal</p>
+<p>Zona antrópica
+(Asentamientos)</p>
+<p>Otras tierras</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación”</p>
+</td>
+<td><p>«Datos
+2010-2018
+4ta
+Comunicación»</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para acceder a la versión completa de los datos de entrada del sector,
+descargue el archivo de datos del sector Agricultura y USCUSS aquí: <a class="reference download internal" download="" href="../_downloads/a404df876607a6fc8528afbe0462bc26/Modelo%20Agricultura%20USCUSS%20Plan%20de%20Acci%C3%B3n.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">Modelo</span> <span class="pre">Agricultura</span> <span class="pre">USCUSS</span> <span class="pre">Plan</span> <span class="pre">de</span> <span class="pre">Acción</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="0_structure.html" class="btn btn-neutral float-left" title="7.1. Estructura del modelo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="2_scenarios.html" class="btn btn-neutral float-right" title="7.3. Escenarios" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Dirección de Mitigación del Cambio Climático de la Subsecretaría de Cambio Climático del Ministerio del Ambiente y Energía del Ecuador.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
