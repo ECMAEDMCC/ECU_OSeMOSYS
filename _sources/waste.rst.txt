@@ -1,0 +1,544 @@
+**Sector residuos**
+
+**6.1. Estructura del modelo**
+
+Este sector produce emisiones por varias prácticas de disposición y
+tratamiento de residuos sólidos y aguas residuales generadas en el país.
+Para conocer el impacto de las iniciativas de mitigación del cambio
+climático, los escenarios de emisiones de GEI son representaciones
+numéricas que exploran diversas estrategias de reducción de emisiones,
+generando comprensiones y discusiones que resultan de gran utilidad para
+guiar el diseño de políticas públicas. Para la construcción de los
+escenarios del sector Residuos se recopiló y analizó información sobre
+generación producción per cápita de residuos, generación de aguas
+residuales, porcentajes de reciclaje, Además, se consideraron datos de
+emisiones de GEI sectoriales reportados en el Inventario Nacional de
+Gases de Efecto Invernadero.
+
+Las categorías y subcategorías que conforman este sector se enlistan a
+continuación:
+
+- **Las categorías y subcategorías que conforman este sector se enlistan
+  a continuación:**
+
+- 5A: Disposición de residuos sólidos
+
+  - 5A1: Sitios de disposición de residuos sólidos gestionados
+
+  - 5A2: Sitios de disposición de residuos sólidos no gestionados
+
+- 5B: Tratamiento biológico de residuos sólidos
+
+  - 5B1: Compostaje
+
+- 5C: Incineración y quema abierta de residuos
+
+  - 5C1: Incineración de residuos
+
+- 5D: Eliminación y tratamiento de aguas residuales
+
+  - 5D1: Aguas residuales domésticas
+
+  - 5D2: Aguas residuales industriales
+
+El modelo del sector Residuos fue estructurado a partir de la base
+desarrollada en el PLANMICC, pero se adaptó incorporando insumos del
+modelo NDC, con el objetivo de contar con una representación más
+completa de las tecnologías y emisiones del sector.
+
+El resultado es un Escenario Tendencial Nacional que representa la
+evolución de las emisiones de GEI del sector Residuos bajo el supuesto
+de mantener las prácticas habituales de gestión. Es decir, sin
+considerar la incorporación de iniciativas de mitigación. Este
+escenario, como se menciono es una representación del escenario
+tendencial del PLANMICC referenciando las magnitudes y tendencias de
+emisiones de GEI reportadas por la Segunda NDC, consecuentemente
+proyectada hasta el 2035.
+
+En la Figura 1. se presenta la estructura final del modelo mixto (RSS
+residuos sólidos), que constituye el insumo de referencia para el sector
+y en la Figura 2 se representa para el sector de aguas residuales.
+
+|image1|\ *Figura 1. Diagrama de referencia del modelo del sector
+Residuos Sólidos.* |image2|
+
+*Figura 2 Diagrama de referencia del modelo del sector Aguas
+Residuales.*
+
+En las Tablas 1, 2 y 3 se incluye la nomenclatura de los sets
+Technologies, Commodities y Emission del modelo de las Figura 6 y 7.
+
+*Tabla 1: Tecnologías incluidas en el modelo del sector Residuos.*
+
++------------------------------------------------------+----------------+
+| Descripción                                          | Código         |
++======================================================+================+
+| Coprocesamiento                                      | COPROC         |
++------------------------------------------------------+----------------+
+| Incineración controlada                              | INCIN          |
++------------------------------------------------------+----------------+
+| Quema a cielo abierto                                | OPEN_BURN      |
++------------------------------------------------------+----------------+
+| Disposición en sitios clandestinos                   | SIT_CLAN       |
++------------------------------------------------------+----------------+
+| Aprovechamiento del metano de relleno sanitario para | LANDFILL_ELEC  |
+| generación de electricidad                           |                |
++------------------------------------------------------+----------------+
+| Reciclaje inorgánico                                 | INORG_RCY_OS   |
++------------------------------------------------------+----------------+
+| Digestión anaerobia                                  | AD             |
++------------------------------------------------------+----------------+
+| Compostaje                                           | COMPOST        |
++------------------------------------------------------+----------------+
+| Relleno sanitario                                    | LANDFILL       |
++------------------------------------------------------+----------------+
+| Botadero a cielo abierto                             | NO_CONTR_OD    |
++------------------------------------------------------+----------------+
+| Separación de inorgánicos en sitio de disposición    | OSS_INORG      |
+| final                                                |                |
++------------------------------------------------------+----------------+
+| Separación de orgánicos en sitio de disposición      | OSS_ORG        |
+| final                                                |                |
++------------------------------------------------------+----------------+
+| No separación de mezclados en sitio de disposición   | NO_OSS_BLEND   |
+| final                                                |                |
++------------------------------------------------------+----------------+
+| Recolección diferenciada de inorgánicos              | INORG_DCOLL    |
++------------------------------------------------------+----------------+
+| Recolección diferenciada de orgánicos                | ORG_DCOLL      |
++------------------------------------------------------+----------------+
+| Recolección no diferenciada de mezclados             | BLEND_NO_DCOLL |
++------------------------------------------------------+----------------+
+| Separación de inorgánicos en la fuente               | INORG_SS       |
++------------------------------------------------------+----------------+
+| Separación de orgánicos en la fuente                 | ORG_SS         |
++------------------------------------------------------+----------------+
+| No separación en la fuente                           | NO_SS          |
++------------------------------------------------------+----------------+
+| Residuos líquidos no tratados                        | WWWOT          |
++------------------------------------------------------+----------------+
+| Residuos líquidos tratados                           | WWWT           |
++------------------------------------------------------+----------------+
+| Agua para reúso inmediato                            | WFIRU          |
++------------------------------------------------------+----------------+
+| Residuos líquidos en alcantarillado sin tratamiento  | SEWERWWWOT     |
++------------------------------------------------------+----------------+
+| Tratamiento de aguas residuales                      | SEWERWWWT      |
++------------------------------------------------------+----------------+
+| Tratamiento de aguas residuales para reúso           | WWWTFIRU       |
++------------------------------------------------------+----------------+
+| Residuos líquidos sin tratamiento                    | TWWWOT         |
++------------------------------------------------------+----------------+
+| Recolección (alcantarillado)                         | SEWERWW        |
++------------------------------------------------------+----------------+
+| Tanque séptico para aguas residuales                 | STWW           |
++------------------------------------------------------+----------------+
+| Aguas residuales industriales                        | IWW            |
++------------------------------------------------------+----------------+
+
+*Tabla 2: Commodities incluidos en el modelo del sector Residuos.*
+
++---------------------------------------------+------------+
+| Descripción                                 | Código     |
++=============================================+============+
+| Residuos inorgánicos separados en sitio de  | OSS_INORG  |
+| disposición final                           |            |
++---------------------------------------------+------------+
+| Residuos orgánicos separados en sitio de    | OSS_ORG    |
+| disposición final                           |            |
++---------------------------------------------+------------+
+| Residuos no separados en sitio de           | NO_OSS     |
+| disposición final                           |            |
++---------------------------------------------+------------+
+| Residuos inorgánicos recolectados           | COLL_INORG |
++---------------------------------------------+------------+
+| Residuos orgánicos recolectados             | COLL_ORG   |
++---------------------------------------------+------------+
+| Residuos no separados recolectados          | COLL_BLEND |
++---------------------------------------------+------------+
+| Residuos inorgánicos separados en la fuente | INORGSS    |
++---------------------------------------------+------------+
+| Residuos orgánicos separados en la fuente   | ORGSS      |
++---------------------------------------------+------------+
+| Residuo no separado en la fuente            | NOSS       |
++---------------------------------------------+------------+
+| Residuos sólidos                            | TSW        |
++---------------------------------------------+------------+
+| Residuos líquidos no tratados               | WWWOT      |
++---------------------------------------------+------------+
+| Residuos líquidos tratados                  | WWWT       |
++---------------------------------------------+------------+
+| Agua para reúso inmediato                   | WFIRU      |
++---------------------------------------------+------------+
+| Aguas residuales en alcantarillado          | SEWERWW    |
++---------------------------------------------+------------+
+| Residuos líquidos totales                   | TWW        |
++---------------------------------------------+------------+
+
+*Tabla 3: Emisiones incluidas en el modelo del sector Residuos.*
+
++-----------------------------------------------+-------------+
+| DESCRIPCIÓN                                   | CÓDIGO      |
++===============================================+=============+
+| Disposición en rellenos sanitarios            | LANDFILL    |
++-----------------------------------------------+-------------+
+| Botaderos a cielo abierto sin control         | NO_CONTR_OD |
++-----------------------------------------------+-------------+
+| Procesos de compostaje y valorización         | COMPOST     |
+| biológica de orgánicos                        |             |
++-----------------------------------------------+-------------+
+| Incineración de residuos                      | INCIN       |
++-----------------------------------------------+-------------+
+| Aguas residuales domésticas sin colecta       | TWWWOT      |
+| (*on-site*)                                   |             |
++-----------------------------------------------+-------------+
+| Aguas residuales recolectadas en sistemas de  | SEWERWW     |
+| alcantarillado                                |             |
++-----------------------------------------------+-------------+
+| Tratamiento en tanques sépticos               | STWW        |
++-----------------------------------------------+-------------+
+| Tratamiento de aguas residuales industriales  | IWW         |
++-----------------------------------------------+-------------+
+
+*\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_*
+
+**6.2. Datos de entrada del modelo**
+
+En la Tabla 18 se presentan las fuentes de información que fueron
+utilizadas para la satisfacción de datos de los parámetros del modelo
+del sector Residuos.
+
+*Tabla 18: Fuentes de información para parametrizar el sector Residuos.*
+
++-------------------------------+----------------------+---------------+
+| Dato/Supuesto                 | Detalle              | Fuente        |
++===============================+======================+===============+
+| Actividad histórica por       | Datos históricos     | (MAATE, n.d.) |
+| categoría 5A, 5B, 5C y 5D y   | (2010-2022)          |               |
+| subcategoría 5A1, 5A2, 5B1,   | presentes en las     |               |
+| 5C1, 5D1 y 5D2                | hojas de cálculo del |               |
+|                               | National Inventory   |               |
+|                               | Report (NIR o INGEI  |               |
+|                               | en español).         |               |
++-------------------------------+----------------------+---------------+
+| Factores de emisión por       | Datos históricos     | (MAATE, n.d.) |
+| categoría y subcategoría      | (2010-2022)          |               |
+|                               | presentes en las     |               |
+|                               | hojas de cálculo del |               |
+|                               | National Inventory   |               |
+|                               | Report (NIR o INGEI  |               |
+|                               | en español).         |               |
++-------------------------------+----------------------+---------------+
+| Generación nacional de        | Cantidad de residuos | (Kaza et al., |
+| residuos sólidos de Ecuador   | sólidos generados a  | 2018)         |
+| en 2016                       | nivel nacional en    |               |
+|                               | 2016: 5.3 Mt.        |               |
++-------------------------------+----------------------+---------------+
+| Población total nacional      | Cantidad de          | (INEC, 2024)  |
+| (2010-2035)                   | habitantes           |               |
+|                               | actualizada en el    |               |
+|                               | país.                |               |
++-------------------------------+----------------------+---------------+
+| Tendencia futura de           | Se toman los datos   | (MAATE, 2024) |
+| generación nacional de        | históricos y se      |               |
+| residuos sólidos y actividad  | proyecta un          |               |
+| futura de subcategorías de    | crecimiento del 2023 |               |
+| aguas residuales              | al 2035 siguiendo    |               |
+|                               | las mismas tasas de  |               |
+|                               | crecimiento anual    |               |
+|                               | tomadas en           |               |
+|                               | consideración en el  |               |
+|                               | escenario tendencial |               |
+|                               | del sector PIUP.     |               |
++-------------------------------+----------------------+---------------+
+
+Para acceder a la versión completa de los datos de entrada del sector,
+consulte el archivo Waste en: :mark:`HTTP:xxx`
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+**6.3. Escenarios**
+
+En lo que respecta al sector Residuos, al igual que en los sectores
+anteriores, primeramente, se construye un escenario *Tendencial*. Este
+escenario pretende reflejar un futuro sin iniciativas que combina la
+variabilidad temporal de los FE del modelo NDC con la estructura
+tecnológica del PLANMICC.
+
+El segundo escenario es el escenario *Plan de Acción*. Este escenario
+integra la trayectoria del escenario tendencial (2010–2035) y añade de
+forma progresiva las iniciativas identificadas en las Contribuciones
+Determinadas a Nivel Nacional (NDC) del Ecuador tanto la primera como la
+segunda, en sus componentes incondicionales y condicionales, junto con
+los proyectos estratégicos adicionales priorizados en el marco del
+PLANMICC (2024). Este escenario representa, por tanto, el conjunto de
+medidas e intervenciones de mitigación que el país se ha comprometido a
+implementar para reducir las emisiones de gases de efecto invernadero
+(GEI) en el sector Residuos, incorporando acciones de:
+
+- Captura y aprovechamiento de biogás en rellenos sanitarios.
+
+- Tratamiento de aguas residuales domésticas e industriales.
+
+- Valorización de residuos orgánicos mediante compostaje, lombricultura,
+  bokashi y tecnologías emergentes.
+
+- Reducción de pérdidas de alimentos, incluyendo iniciativas de bancos
+  de alimentos y programas de recuperación.
+
+Cada iniciativa fue caracterizada según los siguientes criterios:
+
+- Potencial de mitigación al 2035, expresado en kt CO₂eq/año.
+
+- Año de inicio, correspondiente al momento estimado en que la medida
+  entra en operación.
+
+- Trayectoria de incorporación anual, que permite reflejar la
+  gradualidad en la implementación.
+
+- Asignación tecnológica en OSeMOSYS, garantizando su integración en el
+  modelo nacional de planificación energética y de mitigación.
+
+En la Tabla 19 se detallan de mejor forma las iniciativas mencionadas.
+
+*Tabla 19: Descripción de iniciativas del sector Residuos para el
+escenario Plan de Acción.*
+
++------+-------------------+------------+----------------+---------------+-------------------+
+| NRO. | DESCRIPCIÓN       | POTENCIAL  | AÑO DE         | TECNOLOGÍA    | META PLANMICC     |
+|      |                   | DE         | IMPLEMENTACIÓN | OSEMOSYS      | -2035             |
+|      |                   | MITIGACIÓN |                |               |                   |
+|      |                   | AL 2035    |                |               |                   |
+|      |                   | [KT        |                |               |                   |
+|      |                   | CO₂EQ/AÑO] |                |               |                   |
++======+===================+============+================+===============+===================+
+| 1    | Captura y         | 7.50       | 2026-2035      | LANDFILL_ELEC | R.1 10% procesado |
+|      | aprovechamiento   |            |                |               | en plantas nuevas |
+|      | de biogás en      |            |                |               | de generación de  |
+|      | rellenos          |            |                |               | energía eléctrica |
+|      | sanitario         |            |                |               | a partir de       |
+|      |                   |            |                |               | biogás en esos    |
+|      |                   |            |                |               | rellenos          |
+|      |                   |            |                |               | sanitarios.       |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 2    | Captura y quema   | 1710.0     | 2026-2035      | LANDFILL_ELEC | R.1 10% procesado |
+|      | de biogás en      |            |                |               | en plantas nuevas |
+|      | rellenos          |            |                |               | de generación de  |
+|      | sanitarios        |            |                |               | energía eléctrica |
+|      |                   |            |                |               | a partir de       |
+|      |                   |            |                |               | biogás en esos    |
+|      |                   |            |                |               | rellenos          |
+|      |                   |            |                |               | sanitarios.       |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 3    | Tratamiento de    | 37.0       | 2026-2035      | WWWT          | R.2 8% de aguas   |
+|      | aguas residuales  |            |                |               | residuales        |
+|      |                   |            |                |               | tratadas mediante |
+|      |                   |            |                |               | plantas de        |
+|      |                   |            |                |               | tratamiento       |
+|      |                   |            |                |               | biológico de      |
+|      |                   |            |                |               | aguas residuales  |
+|      |                   |            |                |               | (PTAR).           |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 4    | Tratamiento de    | 51.0       | 2027-2035      | WWWT          | R.2 8% de aguas   |
+|      | aguas residuales  |            |                |               | residuales        |
+|      |                   |            |                |               | tratadas mediante |
+|      |                   |            |                |               | plantas de        |
+|      |                   |            |                |               | tratamiento       |
+|      |                   |            |                |               | biológico de      |
+|      |                   |            |                |               | aguas residuales  |
+|      |                   |            |                |               | (PTAR).           |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 5    | Tratamiento de    | 44.5       | 2026-2035      | IWW           | R.2 8% de aguas   |
+|      | aguas residuales  |            |                |               | residuales        |
+|      |                   |            |                |               | tratadas mediante |
+|      |                   |            |                |               | plantas de        |
+|      |                   |            |                |               | tratamiento       |
+|      |                   |            |                |               | biológico de      |
+|      |                   |            |                |               | aguas residuales  |
+|      |                   |            |                |               | (PTAR).           |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 6    | Compostaje        | 11.0       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | municipal de      |            |                |               | 10% de residuos   |
+|      | residuos          |            |                |               | sólidos generados |
+|      | orgánicos         |            |                |               | son gestionados   |
+|      |                   |            |                |               | mediante          |
+|      |                   |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 7    | Compostaje        | 6.97       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | privado o de      |            |                |               | 10% de residuos   |
+|      | pequeña escala    |            |                |               | sólidos generados |
+|      |                   |            |                |               | son gestionados   |
+|      |                   |            |                |               | mediante          |
+|      |                   |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 8    | Tratamiento de    | 14.0       | 2026-2035      | WWWT          | R.2 33% instalado |
+|      | aguas residuales  |            |                |               | y funcionando     |
+|      | (Plantas          |            |                |               | óptimamente.      |
+|      | descentralizadas) |            |                |               |                   |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 9    | Tratamiento de    | 7.0        | 2026-2035      | WWWT          | R.2 33% instalado |
+|      | aguas residuales  |            |                |               | y funcionando     |
+|      |                   |            |                |               | óptimamente.      |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 10   | Captura y         | 860.428    | 2025-2035      | LANDFILL_ELEC | R.1 10% procesado |
+|      | aprovechamiento   |            |                |               | en plantas nuevas |
+|      | de biogás en      |            |                |               | de generación de  |
+|      | rellenos          |            |                |               | energía eléctrica |
+|      | sanitario         |            |                |               | a partir de       |
+|      |                   |            |                |               | biogás en esos    |
+|      |                   |            |                |               | rellenos          |
+|      |                   |            |                |               | sanitarios.       |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 11   | Aprovechamiento y | 5.0        | 2028-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | valorización de   |            |                |               | 10% de residuos   |
+|      | residuos          |            |                |               | sólidos generados |
+|      |                   |            |                |               | son gestionados   |
+|      |                   |            |                |               | mediante          |
+|      |                   |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 12   | Gestión integral  | 90.0       | 2030-2035      | LANDFILL_ELEC | R.1 Gestión del   |
+|      | de residuos con   |            |                |               | 5% de residuos    |
+|      | aprovechamiento   |            |                |               | sólidos orgánicos |
+|      | de biogás         |            |                |               | en plantas de     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | orgánicos a gran  |
+|      |                   |            |                |               | escala para MBT   |
+|      |                   |            |                |               | (tratamiento      |
+|      |                   |            |                |               | mecánico          |
+|      |                   |            |                |               | biológico).       |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 13   | Captura y quema   | 50.0       | 2026-2035      | LANDFILL_ELEC | R.1 70% de los    |
+|      | de biogás en      |            |                |               | sitios de         |
+|      | relleno sanitario |            |                |               | disposición final |
+|      |                   |            |                |               | de residuos       |
+|      |                   |            |                |               | sólidos operan    |
+|      |                   |            |                |               | técnicamente.     |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 14   | Reducción y       | 4.0        | 2026-2035      | TSW           | R.1 Corto plazo:  |
+|      | perdidas de       |            |                |               | -1% de reducción  |
+|      | desperdicio de    |            |                |               | de kilogramos de  |
+|      | alimentos         |            |                |               | residuos sólidos  |
+|      |                   |            |                |               | generados per     |
+|      |                   |            |                |               | cápita a escala   |
+|      |                   |            |                |               | nacional          |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 15   | Compostaje        | 0.02       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | municipal de      |            |                |               | 10% de residuos   |
+|      | residuos          |            |                |               | sólidos generados |
+|      | orgánicos         |            |                |               | son gestionados   |
+|      |                   |            |                |               | mediante          |
+|      |                   |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 16   | Compostaje en     | 10.1       | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | centros de abasto |            |                |               | 10% de residuos   |
+|      | y mercados        |            |                |               | sólidos generados |
+|      | mayoristas        |            |                |               | son gestionados   |
+|      |                   |            |                |               | mediante          |
+|      |                   |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 17   | Tratamiento de    | 0.1        | 2026-2035      | WWWT          | R.2 33% instalado |
+|      | aguas residuales  |            |                |               | y funcionando     |
+|      | institucional     |            |                |               | óptimamente.      |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 18   | Tratamiento       | 0.108      | 2026-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | biológico de      |            |                |               | 10% de residuos   |
+|      | residuos          |            |                |               | sólidos generados |
+|      | orgánicos en      |            |                |               | son gestionados   |
+|      | instalaciones     |            |                |               | mediante          |
+|      | aeroportuarias    |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 19   | Aprovechamiento   | 2.5        | 2028-2035      | COMPOST       | R.1 Corto plazo:  |
+|      | orgánico y        |            |                |               | 10% de residuos   |
+|      | lombricultura     |            |                |               | sólidos generados |
+|      | municipal         |            |                |               | son gestionados   |
+|      |                   |            |                |               | mediante          |
+|      |                   |            |                |               | tecnologías de    |
+|      |                   |            |                |               | reciclaje como    |
+|      |                   |            |                |               | tratamiento y     |
+|      |                   |            |                |               | valorización de   |
+|      |                   |            |                |               | residuos sólidos  |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 20   | Planta de         | 60         | 2034-2035      | WWWT          | 8 % de aguas      |
+|      | Tratamiento de    |            |                |               | residuales        |
+|      | Aguas Residuales  |            |                |               | tratadas mediante |
+|      | (PTAR) domésticas |            |                |               | plantas de        |
+|      |                   |            |                |               | tratamiento       |
+|      |                   |            |                |               | biológico de      |
+|      |                   |            |                |               | aguas             |
++------+-------------------+------------+----------------+---------------+-------------------+
+| 21   | Planta de         | 0.17       | 2026-2035      | WWWT          | 33% instalado y   |
+|      | Tratamiento de    |            |                |               | funcionando       |
+|      | Aguas Residuales  |            |                |               | óptimamente.      |
+|      | (PTAR) domésticas |            |                |               |                   |
++------+-------------------+------------+----------------+---------------+-------------------+
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+**6.4. Resultados**
+
+La Figura 8 presenta las emisiones en CO2e para el sector Residuos por
+año y escenario. En la figura la trayectoria azul representa el
+escenario Tendencial; el escenario NDC Condicional de la 2da NDC de
+color naranja se coloca como referencia y la trayectoria morada es el
+escenario Plan de Acción.
+
+|image3|
+
+*Figura 8. Emisiones en CO\ 2 equivalente del sector residuos por año y
+escenario.*
+
+*\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_*
+
+**6.5. Referencias**
+
+- Gobierno de Ecuador. (2019). Primera contribución determinada a nivel
+  nacional para el acuerdo de parís bajo la convención marco de naciones
+  unidas sobre cambio
+  climático. https://unfccc.int/sites/default/files/NDC/2022-06/Primera%20NDC%20Ecuador.pdf
+
+- INEC. (2024). Estimaciones y Proyecciones de Población. Instituto
+  Nacional de Estadística y Censos.
+
+- Kaza, S., Yao, L., Bhada-Tata, P., & Van Woerden, F. (2018). What a
+  Waste 2.0: A Global Snapshot of Solid Waste Management to 2050. World
+  Bank
+  Group. https://openknowledge.worldbank.org/entities/publication/d3f9d45e-115f-559b-b14f-28552410e90a
+
+- MAATE. (n.d.). 5ta Comunicación Nacional.
+
+- MAATE. (2024). Plan Nacional de Mitigación del Cambio
+  Climático. https://github.com/PLANMICC/OSeMOSYS_Ecuador
+
+.. |image1| image:: media/image1.png
+   :width: 5.90556in
+   :height: 3.675in
+.. |image2| image:: media/image2.png
+   :width: 5.46111in
+   :height: 2.85606in
+.. |image3| image:: media/image3.png
+   :width: 5.90556in
+   :height: 2.32708in

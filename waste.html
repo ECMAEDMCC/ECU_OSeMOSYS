@@ -1,0 +1,868 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">1. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emissions.html">2. Emisiones Nacionales del nuevo proceso de modelado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_energy/index.html">3. Modelo del Sector Energía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_ippu/index.html">4. Modelo del Sector Procesos Industriales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/waste.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><strong>Sector residuos</strong></p>
+<p><strong>6.1. Estructura del modelo</strong></p>
+<p>Este sector produce emisiones por varias prácticas de disposición y
+tratamiento de residuos sólidos y aguas residuales generadas en el país.
+Para conocer el impacto de las iniciativas de mitigación del cambio
+climático, los escenarios de emisiones de GEI son representaciones
+numéricas que exploran diversas estrategias de reducción de emisiones,
+generando comprensiones y discusiones que resultan de gran utilidad para
+guiar el diseño de políticas públicas. Para la construcción de los
+escenarios del sector Residuos se recopiló y analizó información sobre
+generación producción per cápita de residuos, generación de aguas
+residuales, porcentajes de reciclaje, Además, se consideraron datos de
+emisiones de GEI sectoriales reportados en el Inventario Nacional de
+Gases de Efecto Invernadero.</p>
+<p>Las categorías y subcategorías que conforman este sector se enlistan a
+continuación:</p>
+<ul class="simple">
+<li><p><strong>Las categorías y subcategorías que conforman este sector se enlistan
+a continuación:</strong></p></li>
+<li><p>5A: Disposición de residuos sólidos</p>
+<ul>
+<li><p>5A1: Sitios de disposición de residuos sólidos gestionados</p></li>
+<li><p>5A2: Sitios de disposición de residuos sólidos no gestionados</p></li>
+</ul>
+</li>
+<li><p>5B: Tratamiento biológico de residuos sólidos</p>
+<ul>
+<li><p>5B1: Compostaje</p></li>
+</ul>
+</li>
+<li><p>5C: Incineración y quema abierta de residuos</p>
+<ul>
+<li><p>5C1: Incineración de residuos</p></li>
+</ul>
+</li>
+<li><p>5D: Eliminación y tratamiento de aguas residuales</p>
+<ul>
+<li><p>5D1: Aguas residuales domésticas</p></li>
+<li><p>5D2: Aguas residuales industriales</p></li>
+</ul>
+</li>
+</ul>
+<p>El modelo del sector Residuos fue estructurado a partir de la base
+desarrollada en el PLANMICC, pero se adaptó incorporando insumos del
+modelo NDC, con el objetivo de contar con una representación más
+completa de las tecnologías y emisiones del sector.</p>
+<p>El resultado es un Escenario Tendencial Nacional que representa la
+evolución de las emisiones de GEI del sector Residuos bajo el supuesto
+de mantener las prácticas habituales de gestión. Es decir, sin
+considerar la incorporación de iniciativas de mitigación. Este
+escenario, como se menciono es una representación del escenario
+tendencial del PLANMICC referenciando las magnitudes y tendencias de
+emisiones de GEI reportadas por la Segunda NDC, consecuentemente
+proyectada hasta el 2035.</p>
+<p>En la Figura 1. se presenta la estructura final del modelo mixto (RSS
+residuos sólidos), que constituye el insumo de referencia para el sector
+y en la Figura 2 se representa para el sector de aguas residuales.</p>
+<p><a class="reference internal" href="media/image1.png"><img alt="image1" src="media/image1.png" style="width: 5.90556in; height: 3.675in;" /></a><em>Figura 1. Diagrama de referencia del modelo del sector
+Residuos Sólidos.</em> <a class="reference internal" href="media/image2.png"><img alt="image2" src="media/image2.png" style="width: 5.46111in; height: 2.85606in;" /></a></p>
+<p><em>Figura 2 Diagrama de referencia del modelo del sector Aguas
+Residuales.</em></p>
+<p>En las Tablas 1, 2 y 3 se incluye la nomenclatura de los sets
+Technologies, Commodities y Emission del modelo de las Figura 6 y 7.</p>
+<p><em>Tabla 1: Tecnologías incluidas en el modelo del sector Residuos.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Descripción</p></th>
+<th class="head"><p>Código</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Coprocesamiento</p></td>
+<td><p>COPROC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Incineración controlada</p></td>
+<td><p>INCIN</p></td>
+</tr>
+<tr class="row-even"><td><p>Quema a cielo abierto</p></td>
+<td><p>OPEN_BURN</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disposición en sitios clandestinos</p></td>
+<td><p>SIT_CLAN</p></td>
+</tr>
+<tr class="row-even"><td><p>Aprovechamiento del metano de relleno sanitario para
+generación de electricidad</p></td>
+<td><p>LANDFILL_ELEC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reciclaje inorgánico</p></td>
+<td><p>INORG_RCY_OS</p></td>
+</tr>
+<tr class="row-even"><td><p>Digestión anaerobia</p></td>
+<td><p>AD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Compostaje</p></td>
+<td><p>COMPOST</p></td>
+</tr>
+<tr class="row-even"><td><p>Relleno sanitario</p></td>
+<td><p>LANDFILL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Botadero a cielo abierto</p></td>
+<td><p>NO_CONTR_OD</p></td>
+</tr>
+<tr class="row-even"><td><p>Separación de inorgánicos en sitio de disposición
+final</p></td>
+<td><p>OSS_INORG</p></td>
+</tr>
+<tr class="row-odd"><td><p>Separación de orgánicos en sitio de disposición
+final</p></td>
+<td><p>OSS_ORG</p></td>
+</tr>
+<tr class="row-even"><td><p>No separación de mezclados en sitio de disposición
+final</p></td>
+<td><p>NO_OSS_BLEND</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recolección diferenciada de inorgánicos</p></td>
+<td><p>INORG_DCOLL</p></td>
+</tr>
+<tr class="row-even"><td><p>Recolección diferenciada de orgánicos</p></td>
+<td><p>ORG_DCOLL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recolección no diferenciada de mezclados</p></td>
+<td><p>BLEND_NO_DCOLL</p></td>
+</tr>
+<tr class="row-even"><td><p>Separación de inorgánicos en la fuente</p></td>
+<td><p>INORG_SS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Separación de orgánicos en la fuente</p></td>
+<td><p>ORG_SS</p></td>
+</tr>
+<tr class="row-even"><td><p>No separación en la fuente</p></td>
+<td><p>NO_SS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos líquidos no tratados</p></td>
+<td><p>WWWOT</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos líquidos tratados</p></td>
+<td><p>WWWT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Agua para reúso inmediato</p></td>
+<td><p>WFIRU</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos líquidos en alcantarillado sin tratamiento</p></td>
+<td><p>SEWERWWWOT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tratamiento de aguas residuales</p></td>
+<td><p>SEWERWWWT</p></td>
+</tr>
+<tr class="row-even"><td><p>Tratamiento de aguas residuales para reúso</p></td>
+<td><p>WWWTFIRU</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos líquidos sin tratamiento</p></td>
+<td><p>TWWWOT</p></td>
+</tr>
+<tr class="row-even"><td><p>Recolección (alcantarillado)</p></td>
+<td><p>SEWERWW</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tanque séptico para aguas residuales</p></td>
+<td><p>STWW</p></td>
+</tr>
+<tr class="row-even"><td><p>Aguas residuales industriales</p></td>
+<td><p>IWW</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla 2: Commodities incluidos en el modelo del sector Residuos.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Descripción</p></th>
+<th class="head"><p>Código</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Residuos inorgánicos separados en sitio de
+disposición final</p></td>
+<td><p>OSS_INORG</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos orgánicos separados en sitio de
+disposición final</p></td>
+<td><p>OSS_ORG</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos no separados en sitio de
+disposición final</p></td>
+<td><p>NO_OSS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos inorgánicos recolectados</p></td>
+<td><p>COLL_INORG</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos orgánicos recolectados</p></td>
+<td><p>COLL_ORG</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos no separados recolectados</p></td>
+<td><p>COLL_BLEND</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos inorgánicos separados en la fuente</p></td>
+<td><p>INORGSS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos orgánicos separados en la fuente</p></td>
+<td><p>ORGSS</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuo no separado en la fuente</p></td>
+<td><p>NOSS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos sólidos</p></td>
+<td><p>TSW</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos líquidos no tratados</p></td>
+<td><p>WWWOT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Residuos líquidos tratados</p></td>
+<td><p>WWWT</p></td>
+</tr>
+<tr class="row-even"><td><p>Agua para reúso inmediato</p></td>
+<td><p>WFIRU</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aguas residuales en alcantarillado</p></td>
+<td><p>SEWERWW</p></td>
+</tr>
+<tr class="row-even"><td><p>Residuos líquidos totales</p></td>
+<td><p>TWW</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla 3: Emisiones incluidas en el modelo del sector Residuos.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>DESCRIPCIÓN</p></th>
+<th class="head"><p>CÓDIGO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Disposición en rellenos sanitarios</p></td>
+<td><p>LANDFILL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Botaderos a cielo abierto sin control</p></td>
+<td><p>NO_CONTR_OD</p></td>
+</tr>
+<tr class="row-even"><td><p>Procesos de compostaje y valorización
+biológica de orgánicos</p></td>
+<td><p>COMPOST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Incineración de residuos</p></td>
+<td><p>INCIN</p></td>
+</tr>
+<tr class="row-even"><td><p>Aguas residuales domésticas sin colecta
+(<em>on-site</em>)</p></td>
+<td><p>TWWWOT</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aguas residuales recolectadas en sistemas de
+alcantarillado</p></td>
+<td><p>SEWERWW</p></td>
+</tr>
+<tr class="row-even"><td><p>Tratamiento en tanques sépticos</p></td>
+<td><p>STWW</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tratamiento de aguas residuales industriales</p></td>
+<td><p>IWW</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>_________________________________________________________________________</em></p>
+<p><strong>6.2. Datos de entrada del modelo</strong></p>
+<p>En la Tabla 18 se presentan las fuentes de información que fueron
+utilizadas para la satisfacción de datos de los parámetros del modelo
+del sector Residuos.</p>
+<p><em>Tabla 18: Fuentes de información para parametrizar el sector Residuos.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dato/Supuesto</p></th>
+<th class="head"><p>Detalle</p></th>
+<th class="head"><p>Fuente</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Actividad histórica por
+categoría 5A, 5B, 5C y 5D y
+subcategoría 5A1, 5A2, 5B1,
+5C1, 5D1 y 5D2</p></td>
+<td><p>Datos históricos
+(2010-2022)
+presentes en las
+hojas de cálculo del
+National Inventory
+Report (NIR o INGEI
+en español).</p></td>
+<td><p>(MAATE, n.d.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Factores de emisión por
+categoría y subcategoría</p></td>
+<td><p>Datos históricos
+(2010-2022)
+presentes en las
+hojas de cálculo del
+National Inventory
+Report (NIR o INGEI
+en español).</p></td>
+<td><p>(MAATE, n.d.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Generación nacional de
+residuos sólidos de Ecuador
+en 2016</p></td>
+<td><p>Cantidad de residuos
+sólidos generados a
+nivel nacional en
+2016: 5.3 Mt.</p></td>
+<td><p>(Kaza et al.,
+2018)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Población total nacional
+(2010-2035)</p></td>
+<td><p>Cantidad de
+habitantes
+actualizada en el
+país.</p></td>
+<td><p>(INEC, 2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>Tendencia futura de
+generación nacional de
+residuos sólidos y actividad
+futura de subcategorías de
+aguas residuales</p></td>
+<td><p>Se toman los datos
+históricos y se
+proyecta un
+crecimiento del 2023
+al 2035 siguiendo
+las mismas tasas de
+crecimiento anual
+tomadas en
+consideración en el
+escenario tendencial
+del sector PIUP.</p></td>
+<td><p>(MAATE, 2024)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para acceder a la versión completa de los datos de entrada del sector,
+consulte el archivo Waste en: <a href="#id1"><span class="problematic" id="id2">:mark:`HTTP:xxx`</span></a></p>
+<p>_____________________________________________________________________________</p>
+<p><strong>6.3. Escenarios</strong></p>
+<p>En lo que respecta al sector Residuos, al igual que en los sectores
+anteriores, primeramente, se construye un escenario <em>Tendencial</em>. Este
+escenario pretende reflejar un futuro sin iniciativas que combina la
+variabilidad temporal de los FE del modelo NDC con la estructura
+tecnológica del PLANMICC.</p>
+<p>El segundo escenario es el escenario <em>Plan de Acción</em>. Este escenario
+integra la trayectoria del escenario tendencial (2010–2035) y añade de
+forma progresiva las iniciativas identificadas en las Contribuciones
+Determinadas a Nivel Nacional (NDC) del Ecuador tanto la primera como la
+segunda, en sus componentes incondicionales y condicionales, junto con
+los proyectos estratégicos adicionales priorizados en el marco del
+PLANMICC (2024). Este escenario representa, por tanto, el conjunto de
+medidas e intervenciones de mitigación que el país se ha comprometido a
+implementar para reducir las emisiones de gases de efecto invernadero
+(GEI) en el sector Residuos, incorporando acciones de:</p>
+<ul class="simple">
+<li><p>Captura y aprovechamiento de biogás en rellenos sanitarios.</p></li>
+<li><p>Tratamiento de aguas residuales domésticas e industriales.</p></li>
+<li><p>Valorización de residuos orgánicos mediante compostaje, lombricultura,
+bokashi y tecnologías emergentes.</p></li>
+<li><p>Reducción de pérdidas de alimentos, incluyendo iniciativas de bancos
+de alimentos y programas de recuperación.</p></li>
+</ul>
+<p>Cada iniciativa fue caracterizada según los siguientes criterios:</p>
+<ul class="simple">
+<li><p>Potencial de mitigación al 2035, expresado en kt CO₂eq/año.</p></li>
+<li><p>Año de inicio, correspondiente al momento estimado en que la medida
+entra en operación.</p></li>
+<li><p>Trayectoria de incorporación anual, que permite reflejar la
+gradualidad en la implementación.</p></li>
+<li><p>Asignación tecnológica en OSeMOSYS, garantizando su integración en el
+modelo nacional de planificación energética y de mitigación.</p></li>
+</ul>
+<p>En la Tabla 19 se detallan de mejor forma las iniciativas mencionadas.</p>
+<p><em>Tabla 19: Descripción de iniciativas del sector Residuos para el
+escenario Plan de Acción.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>NRO.</p></th>
+<th class="head"><p>DESCRIPCIÓN</p></th>
+<th class="head"><p>POTENCIAL
+DE
+MITIGACIÓN
+AL 2035
+[KT
+CO₂EQ/AÑO]</p></th>
+<th class="head"><p>AÑO DE
+IMPLEMENTACIÓN</p></th>
+<th class="head"><p>TECNOLOGÍA
+OSEMOSYS</p></th>
+<th class="head"><p>META PLANMICC
+-2035</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Captura y
+aprovechamiento
+de biogás en
+rellenos
+sanitario</p></td>
+<td><p>7.50</p></td>
+<td><p>2026-2035</p></td>
+<td><p>LANDFILL_ELEC</p></td>
+<td><p>R.1 10% procesado
+en plantas nuevas
+de generación de
+energía eléctrica
+a partir de
+biogás en esos
+rellenos
+sanitarios.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Captura y quema
+de biogás en
+rellenos
+sanitarios</p></td>
+<td><p>1710.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>LANDFILL_ELEC</p></td>
+<td><p>R.1 10% procesado
+en plantas nuevas
+de generación de
+energía eléctrica
+a partir de
+biogás en esos
+rellenos
+sanitarios.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Tratamiento de
+aguas residuales</p></td>
+<td><p>37.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>R.2 8% de aguas
+residuales
+tratadas mediante
+plantas de
+tratamiento
+biológico de
+aguas residuales
+(PTAR).</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Tratamiento de
+aguas residuales</p></td>
+<td><p>51.0</p></td>
+<td><p>2027-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>R.2 8% de aguas
+residuales
+tratadas mediante
+plantas de
+tratamiento
+biológico de
+aguas residuales
+(PTAR).</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Tratamiento de
+aguas residuales</p></td>
+<td><p>44.5</p></td>
+<td><p>2026-2035</p></td>
+<td><p>IWW</p></td>
+<td><p>R.2 8% de aguas
+residuales
+tratadas mediante
+plantas de
+tratamiento
+biológico de
+aguas residuales
+(PTAR).</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Compostaje
+municipal de
+residuos
+orgánicos</p></td>
+<td><p>11.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Compostaje
+privado o de
+pequeña escala</p></td>
+<td><p>6.97</p></td>
+<td><p>2026-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Tratamiento de
+aguas residuales
+(Plantas
+descentralizadas)</p></td>
+<td><p>14.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>R.2 33% instalado
+y funcionando
+óptimamente.</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Tratamiento de
+aguas residuales</p></td>
+<td><p>7.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>R.2 33% instalado
+y funcionando
+óptimamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Captura y
+aprovechamiento
+de biogás en
+rellenos
+sanitario</p></td>
+<td><p>860.428</p></td>
+<td><p>2025-2035</p></td>
+<td><p>LANDFILL_ELEC</p></td>
+<td><p>R.1 10% procesado
+en plantas nuevas
+de generación de
+energía eléctrica
+a partir de
+biogás en esos
+rellenos
+sanitarios.</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Aprovechamiento y
+valorización de
+residuos</p></td>
+<td><p>5.0</p></td>
+<td><p>2028-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Gestión integral
+de residuos con
+aprovechamiento
+de biogás</p></td>
+<td><p>90.0</p></td>
+<td><p>2030-2035</p></td>
+<td><p>LANDFILL_ELEC</p></td>
+<td><p>R.1 Gestión del
+5% de residuos
+sólidos orgánicos
+en plantas de
+valorización de
+orgánicos a gran
+escala para MBT
+(tratamiento
+mecánico
+biológico).</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Captura y quema
+de biogás en
+relleno sanitario</p></td>
+<td><p>50.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>LANDFILL_ELEC</p></td>
+<td><p>R.1 70% de los
+sitios de
+disposición final
+de residuos
+sólidos operan
+técnicamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Reducción y
+perdidas de
+desperdicio de
+alimentos</p></td>
+<td><p>4.0</p></td>
+<td><p>2026-2035</p></td>
+<td><p>TSW</p></td>
+<td><p>R.1 Corto plazo:
+-1% de reducción
+de kilogramos de
+residuos sólidos
+generados per
+cápita a escala
+nacional</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Compostaje
+municipal de
+residuos
+orgánicos</p></td>
+<td><p>0.02</p></td>
+<td><p>2026-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Compostaje en
+centros de abasto
+y mercados
+mayoristas</p></td>
+<td><p>10.1</p></td>
+<td><p>2026-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Tratamiento de
+aguas residuales
+institucional</p></td>
+<td><p>0.1</p></td>
+<td><p>2026-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>R.2 33% instalado
+y funcionando
+óptimamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Tratamiento
+biológico de
+residuos
+orgánicos en
+instalaciones
+aeroportuarias</p></td>
+<td><p>0.108</p></td>
+<td><p>2026-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Aprovechamiento
+orgánico y
+lombricultura
+municipal</p></td>
+<td><p>2.5</p></td>
+<td><p>2028-2035</p></td>
+<td><p>COMPOST</p></td>
+<td><p>R.1 Corto plazo:
+10% de residuos
+sólidos generados
+son gestionados
+mediante
+tecnologías de
+reciclaje como
+tratamiento y
+valorización de
+residuos sólidos</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Planta de
+Tratamiento de
+Aguas Residuales
+(PTAR) domésticas</p></td>
+<td><p>60</p></td>
+<td><p>2034-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>8 % de aguas
+residuales
+tratadas mediante
+plantas de
+tratamiento
+biológico de
+aguas</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Planta de
+Tratamiento de
+Aguas Residuales
+(PTAR) domésticas</p></td>
+<td><p>0.17</p></td>
+<td><p>2026-2035</p></td>
+<td><p>WWWT</p></td>
+<td><p>33% instalado y
+funcionando
+óptimamente.</p></td>
+</tr>
+</tbody>
+</table>
+<p>_____________________________________________________________________________</p>
+<p><strong>6.4. Resultados</strong></p>
+<p>La Figura 8 presenta las emisiones en CO2e para el sector Residuos por
+año y escenario. En la figura la trayectoria azul representa el
+escenario Tendencial; el escenario NDC Condicional de la 2da NDC de
+color naranja se coloca como referencia y la trayectoria morada es el
+escenario Plan de Acción.</p>
+<p><a class="reference internal" href="media/image3.png"><img alt="image3" src="media/image3.png" style="width: 5.90556in; height: 2.32708in;" /></a></p>
+<p><em>Figura 8. Emisiones en CO2 equivalente del sector residuos por año y
+escenario.</em></p>
+<p><em>_____________________________________________________________________</em></p>
+<p><strong>6.5. Referencias</strong></p>
+<ul class="simple">
+<li><p>Gobierno de Ecuador. (2019). Primera contribución determinada a nivel
+nacional para el acuerdo de parís bajo la convención marco de naciones
+unidas sobre cambio
+climático. <a class="reference external" href="https://unfccc.int/sites/default/files/NDC/2022-06/Primera%20NDC%20Ecuador.pdf">https://unfccc.int/sites/default/files/NDC/2022-06/Primera%20NDC%20Ecuador.pdf</a></p></li>
+<li><p>INEC. (2024). Estimaciones y Proyecciones de Población. Instituto
+Nacional de Estadística y Censos.</p></li>
+<li><p>Kaza, S., Yao, L., Bhada-Tata, P., &amp; Van Woerden, F. (2018). What a
+Waste 2.0: A Global Snapshot of Solid Waste Management to 2050. World
+Bank
+Group. <a class="reference external" href="https://openknowledge.worldbank.org/entities/publication/d3f9d45e-115f-559b-b14f-28552410e90a">https://openknowledge.worldbank.org/entities/publication/d3f9d45e-115f-559b-b14f-28552410e90a</a></p></li>
+<li><p>MAATE. (n.d.). 5ta Comunicación Nacional.</p></li>
+<li><p>MAATE. (2024). Plan Nacional de Mitigación del Cambio
+Climático. <a class="reference external" href="https://github.com/PLANMICC/OSeMOSYS_Ecuador">https://github.com/PLANMICC/OSeMOSYS_Ecuador</a></p></li>
+</ul>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CETCIS - PUCE.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">1. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emissions.html">2. Emisiones Nacionales del nuevo proceso de modelado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_energy/index.html">3. Modelo del Sector Energía</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ippu.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <ol class="arabic simple" start="5">
+<li><p>Procesos Industriales</p></li>
+</ol>
+<p><strong>5. Modelo del Sector Procesos Industriales</strong></p>
+<ul class="simple">
+<li><p>5.1. Estructura del modelo</p></li>
+<li><p>5.2. Datos de Entrada</p></li>
+<li><p>5.3. Escenarios</p></li>
+<li><p>5.4. Resultados</p></li>
+<li><p>5.5. Referencias</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>5.1. Estructura del modelo</strong></p></li>
+</ul>
+<p>El sector Procesos Industriales comprende las emisiones de GEI generadas
+por transformaciones químicas y físicas de materias primas en la
+fabricación y producción de bienes y en su uso. Es pertinente indicar,
+que el uso de combustibles como fuente de energía en estos procesos de
+transformación, se declaran en el sector de energía. En el país, dentro
+del sector Procesos Industriales se identifican actividades como como la
+producción de cemento, de cal, de acero, de cerámica, de vidrio, y el
+uso de solventes, lubricantes, así como el de compuestos de
+hidrofluorocarbonos (HFC), perfluorocarbonos (PFC), principalmente en
+sistemas de refrigeración y aire acondicionado. Este sector abarca
+varias categorías y subcategorías emisoras de GEI, de acuerdo con el
+INGEI de la 5ta Comunicación Nacional (5CN) del Ecuador (MAE,2024), que
+se enlistan a continuación:</p>
+<ul class="simple">
+<li><p><strong>Categoría 2A: Industria de los minerales</strong></p>
+<ul>
+<li><p><strong>Subcategoría 2A1:</strong> Producción de Cemento</p></li>
+<li><p><strong>Subcategoría 2A2:</strong> Producción de Cal</p></li>
+<li><p><strong>Subcategoría 2A3:</strong> Producción de Vidrio</p></li>
+<li><p><strong>Subcategoría 2A4a:</strong> Cerámica</p></li>
+<li><p><strong>Subcategoría 2A4b:</strong> Otros Usos de la Soda Ash</p></li>
+</ul>
+</li>
+<li><p><strong>Categoría 2C: Industria de los metales</strong></p>
+<ul>
+<li><p><strong>Subcategoría 2C1:</strong> Producción de Hierro y Acero</p></li>
+<li><p><strong>Subcategoría 2C5:</strong> Producción de Plomo</p></li>
+</ul>
+</li>
+<li><p><strong>Categoría 2D: Uso de Productos no Energéticos de combustibles y de
+solventes</strong></p>
+<ul>
+<li><p><strong>Subcategoría 2D1:</strong> Uso de Lubricantes</p></li>
+<li><p><strong>Subcategoría 2D2:</strong> Uso de Cera Parafina</p></li>
+</ul>
+</li>
+<li><p><strong>Categoría 2F: Uso de Productos como sustitutos para las substancias
+que agotan la capa de ozono</strong></p>
+<ul>
+<li><p><strong>Subcategoría 2F1:</strong> Refrigeración y Aire Acondicionado</p></li>
+</ul>
+</li>
+</ul>
+<p>Basado en lo anterior, el modelado se basa en la plataforma OSeMOSYS y
+amplía los desarrollos previos, a través de un proceso de referenciación
+metodológica abreviado que prioriza la información de la Segunda
+Contribución Determinada a Nivel Nacional (NDC) y la complementa con
+insumos provenientes del Plan Nacional de Mitigación del Cambio
+Climático (PLANMICC). De forma simplificada, el modelo se ilustra en la
+Figura 1.</p>
+<p><a class="reference internal" href="media/image1.emf"><img alt="image1" src="media/image1.emf" style="width: 5.90556in; height: 5.60556in;" /></a></p>
+<p><em>Figura 1. Diagrama de referencia del modelo del sector Procesos
+Industriales.</em></p>
+<p>En las Tablas 2, 3 y 4 se incluye la nomenclatura de los
+sets Technologies, Commodities y Emission del modelo de la Figura 1.</p>
+<p><em>Tabla 1: Tecnologías incluidas en el modelo del sector Procesos
+Industriales.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Descripción</p></th>
+<th class="head"><p>Código</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Energía térmica para Clinker</p></td>
+<td><p>ENE_TERM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Materiales para Clinker</p></td>
+<td><p>RAW_MAT_CLK</p></td>
+</tr>
+<tr class="row-even"><td><p>Electricidad para energía térmica</p></td>
+<td><p>ELEC_TERM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electricidad para cemento</p></td>
+<td><p>ELEC_CEM</p></td>
+</tr>
+<tr class="row-even"><td><p>Materiales para cemento</p></td>
+<td><p>RAW_MAT_CEM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resto de emisiones del sector PIUP</p></td>
+<td><p>REST_PI</p></td>
+</tr>
+<tr class="row-even"><td><p>Producción de Clinker con combustibles de
+origen fósil</p></td>
+<td><p>PROD_CLK_TRAD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Producción de Clinker con electricidad</p></td>
+<td><p>PROD_CLK_ELEC</p></td>
+</tr>
+<tr class="row-even"><td><p>Producción de cemento</p></td>
+<td><p>PROD_CEM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uso de HFC</p></td>
+<td><p>HFC_use</p></td>
+</tr>
+<tr class="row-even"><td><p>Producción de Cal</p></td>
+<td><p>LIME_PROD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Producción de Vidrio</p></td>
+<td><p>GLASS_PROD</p></td>
+</tr>
+<tr class="row-even"><td><p>Producción de Cerámica</p></td>
+<td><p>CERAMICS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Otros usos de Soda Ash</p></td>
+<td><p>SODA_ASH</p></td>
+</tr>
+<tr class="row-even"><td><p>Producción de Hierro y Acero</p></td>
+<td><p>IRON_STEEL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Producción de Plomo</p></td>
+<td><p>LEAD_PROD</p></td>
+</tr>
+<tr class="row-even"><td><p>Uso de Lubricantes</p></td>
+<td><p>LUBRI</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uso de Ceras de parafina</p></td>
+<td><p>PARAFFIN</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla 2: Commodities incluidos en el modelo del sector Procesos
+Industriales.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Descripción</p></th>
+<th class="head"><p>Código</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Energía térmica para
+Clinker</p></td>
+<td><p>ENE_TERM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Materiales para Clinker</p></td>
+<td><p>RAW_MAT_CLK</p></td>
+</tr>
+<tr class="row-even"><td><p>Electricidad para
+energía térmica</p></td>
+<td><p>ELEC_TERM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electricidad para
+Cemento</p></td>
+<td><p>ELEC_CEM</p></td>
+</tr>
+<tr class="row-even"><td><p>Materiales para Cemento</p></td>
+<td><p>RAW_MAT_CEM</p></td>
+</tr>
+<tr class="row-odd"><td><p>Clinker para cemento</p></td>
+<td><p>CLK_PROD</p></td>
+</tr>
+<tr class="row-even"><td><p>Producción de cemento</p></td>
+<td><p>CEM_PROD</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla 3: Emisiones incluidas en el modelo del sector Procesos
+Industriales.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Descripción</p></th>
+<th class="head"><p>Código</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dióxido de carbono equivalente producido por
+Hidrofluorocarbonos</p></td>
+<td><p>CO2eq_HFC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dióxido de carbono equivalente producido por el proceso
+de producción de cemento</p></td>
+<td><p>CO2eq
+_CEM</p></td>
+</tr>
+<tr class="row-even"><td><p>Dióxido de carbono equivalente producido por otros
+Procesos Industriales y Uso de Productos</p></td>
+<td><p>CO2eq
+_IPPU</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.2. Datos de entrada del modelo</strong></p>
+<p>En la Tabla 4 se presentan las fuentes de información utilizadas para la
+satisfacción de datos de los parámetros del modelo del sector Procesos
+Industriales.</p>
+<p><em>Tabla 13: Fuentes de información para parametrizar el sector Procesos
+Industriales.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dato/Supuesto</p></th>
+<th class="head"><p>Detalle</p></th>
+<th class="head"><p>Fuente</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Producción
+nacional de
+cemento con
+clinker
+producido
+nacionalmente
+[Mt/año]</p></td>
+<td><p>Producción reportada en registros
+oficiales como INGEI, Reportes del
+sector cementero</p></td>
+<td><p>(MAE,
+Segunda NDC
+del Ecuador)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Factor de
+clinker en
+cemento [%]</p></td>
+<td><p>Factor de clinker promedio ponderado
+por planta de producción de cemento</p></td>
+<td><p>(MAE,
+Segunda NDC
+del Ecuador)</p></td>
+</tr>
+<tr class="row-even"><td><p>Factores de
+emisión sector
+cemento</p></td>
+<td><p>Valores propios para Ecuador. Datos
+presentes el INGEI de la 5ta
+Comunicación Nacional.</p></td>
+<td><p>INGEI de la
+5ta
+(1994-2022)
+(5CN/1RBT,
+2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Emisiones por
+sectores
+industriales
+(cal, vidrio,
+cerámica, soda
+ash, acero,
+plomo,
+lubricantes,
+ceras de
+parafina)</p></td>
+<td><p>Valores propios para Ecuador. Datos
+presentes el INGEI de la 5ta
+Comunicación Nacional.</p></td>
+<td><p>INGEI de la
+5ta
+(1994-2022)
+(5CN/1RBT,
+2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>Emisiones por
+HFC (uso de
+refrigerantes
+y espumas) y</p></td>
+<td><p>Valores propios para Ecuador. Datos
+presentes el INGEI de la 5ta
+Comunicación Nacional.</p></td>
+<td><p>INGEI de la
+5ta
+(1994-2022)
+(5CN/1RBT,
+2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Producción de
+cemento futura</p></td>
+<td><p>Se toman los datos históricos y se
+proyecta un crecimiento del 2023 al
+2035 siguiendo el escenario tendencial
+del sector PIUP.</p></td>
+<td><p>(MAATE,
+2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>Factor de
+Clinker futuro</p></td>
+<td><p>Se toma el último valor histórico
+conocido de este indicador y se
+mantiene constante.</p></td>
+<td><p>(MAATE,
+n.d.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trayectoria de
+emisiones de
+Refrigeración</p></td>
+<td><p>Estimado haciendo uso del escenario
+tendencial presente en la Hoja de Ruta
+de la Enmienda de Kigali.</p></td>
+<td><p>Segunda NDC
+del Ecuador,</p>
+<p>NGEI 2024
+(5CN/1RBT,
+2024), y
+Hoja Ruta
+para reducir
+los HFC en
+el Ecuador,
+(MPCEI,2023)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Para acceder a la versión completa de los datos de entrada del sector,
+consulte el archivo de procesos industriales en:
+<a href="#id1"><span class="problematic" id="id2">:mark:`https:XXXXXXXXXX`</span></a></p>
+<blockquote>
+<div><p><strong>5.3. Escenarios</strong></p>
+</div></blockquote>
+<p>Para el sector Procesos Industriales primeramente se construye un
+escenario Tendencial. Este refleja la evolución natural de las emisiones
+del sector Procesos Industriales bajo el supuesto de mantener las
+prácticas habituales, sin la incorporación de medidas adicionales de
+mitigación. Este escenario, es una representación homologada del
+escenario tendencial del PLANMICC con la información contenida de la
+segunda NDC.</p>
+<p>Para la construcción del escenario Tendencial Nacional para el sector de
+procesos industriales fue necesario realizar modificaciones en distintos
+archivos de configuración de OSeMOSYS, con el fin de integrar
+coherentemente los insumos de ambos modelos.</p>
+<p>El segundo escenario es el escenario Plan de Acción (PAC), el cual
+integra las iniciativas establecidas en la Segunda NDC del Ecuador
+(condicional e incondicional) que aplican al sector Procesos
+Industriales:</p>
+<ul class="simple">
+<li><p>Sustitución de clínker por adiciones en la producción de cemento.</p></li>
+<li><p>Reducción progresiva del consumo de HFC conforme a la Enmienda de
+Kigali, lo que impacta directamente en la categoría 2F (<em>Uso de
+productos como sustitutos de sustancias que agotan la capa de ozono</em>).</p></li>
+</ul>
+<p>En la Tabla 14 se detallan de mejor forma las iniciativas mencionadas.</p>
+<p><em>Tabla 14: Descripción de iniciativas del sector Procesos Industriales
+para el escenario Plan de Acción.</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>NRO.</p></th>
+<th class="head"><p>DESCRIPCIÓN</p></th>
+<th class="head"><p>POTENCIAL
+DE
+MITIGACIÓN
+AL 2035
+[KT
+CO₂EQ/AÑO]</p></th>
+<th class="head"><p>AÑO DE
+IMPLEMENTACIÓN</p></th>
+<th class="head"><p>TECNOLOGÍA
+OSEMOSYS</p></th>
+<th class="head"><p>META
+PLANMICC
+-2035</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Sustitución de
+clinker por
+adiciones en la
+producción de
+cemento</p></td>
+<td><p>530.14</p></td>
+<td><p>2026-2035</p></td>
+<td><p>PROD_CEM;CLK_PROD</p></td>
+<td><p>P.1 Reducir
+el factor
+clínker en
+la
+producción
+de cemento
+al 68%.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Reducir
+progresivamente el
+consumo de
+hidrofluorocarbonos
+(HFC) y PFC en el
+país conforme Hoja
+de Ruta para
+reducción los HFC
+en Ecuador, bajo la
+enmienda de Kigali
+al protocolo de
+Montreal.</p></td>
+<td><p>635.8</p></td>
+<td><p>2026-2035</p></td>
+<td><p>HFC_use</p></td>
+<td><p>P.2 Reducir
+la
+importación
+del 30% de
+los HFC y
+PFC.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Eliminación
+progresiva de
+compuestos que
+contienen HFC y PFC
+contenidos en
+equipos</p></td>
+<td><p>1.00</p></td>
+<td><p>2029-2035</p></td>
+<td><p>HFC_use</p></td>
+<td><p>P.2 Reducir
+la
+importación
+del 30% de
+los HFC y
+PFC.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.4. Resultados</strong></p>
+<p>Las emisiones resultantes de CO2e del sector Procesos Industriales se
+presentan en la Figura 5 para los 2 escenarios. En color azul ilustra el
+escenario Tendencial, el escenario NDC Condicional de la 2da NDC de
+color naranja se coloca como referencia el cual se encuentra solapando
+al escenario Plan de Acción de color morado. En la Figura 2, la
+trayectoria morada queda por debajo de la trayectoria naranja.</p>
+<p><a class="reference internal" href="media/image2.png"><img alt="image2" src="media/image2.png" style="width: 5.91281in; height: 2.86448in;" /></a></p>
+<p><em>Figura 5. Emisiones en CO2e del sector Procesos Industriales</em></p>
+<p><em>por año y escenario.</em></p>
+<p><strong>5.5. Referencias</strong></p>
+<ul class="simple">
+<li><p>Gobierno de Ecuador. (2019). Primera contribución determinada a nivel
+nacional para el acuerdo de parís bajo la convención marco de naciones
+unidas sobre cambio
+climático. <a class="reference external" href="https://unfccc.int/sites/default/files/NDC/2022-06/Primera%20NDC%20Ecuador.pdf">https://unfccc.int/sites/default/files/NDC/2022-06/Primera%20NDC%20Ecuador.pdf</a></p></li>
+<li><p>Ministerio de Ambiente y Energía – MAE. (2024). <em>Documento del
+Inventario Nacional (DIN) de Gases de Efecto Invernadero del año 2022
+del Ecuador</em>. Quito, Ecuador.</p></li>
+</ul>
+<blockquote>
+<div><p><a class="reference external" href="https://unfccc.int/sites/default/files/resource/e.%202024.12.27_NID_5CN1RBT_v7_final.pdf">https://unfccc.int/sites/default/files/resource/e.%202024.12.27_NID_5CN1RBT_v7_final.pdf</a></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Ministerio de Ambiente y Energía – MAE. (2024). Plan Nacional de
+Mitigación del Cambio
+Climático. <a class="reference external" href="https://github.com/PLANMICC/OSeMOSYS_Ecuador">https://github.com/PLANMICC/OSeMOSYS_Ecuador</a></p></li>
+<li><p>Ministerio de Ambiente y Energía – MAE. (2024). Modelado Segunda NDC.
+<a class="reference external" href="https://github.com/clg-admin/ECU_NDC/blob/main/docs/nacionales.rst">https://github.com/clg-admin/ECU_NDC/blob/main/docs/nacionales.rst</a></p></li>
+<li><p>Ministerio de Producción, Comercio Exterior, Inversiones (MPCEI) &amp;
+Organización de las Naciones Unidas para el Desarrollo Industrial
+(ONUDI). (2023). <em>Hoja de Ruta hacia Kigali: Gestión y eliminación
+progresiva de HFC en el Ecuador.</em> Quito, Ecuador. Disponible en:
+<a class="reference external" href="https://ozonoecuador.produccion.gob.ec/wp-content/uploads/2023/07/HojadeRutaEcuadorbajares-final17022023_compressed.pdf">https://ozonoecuador.produccion.gob.ec/wp-content/uploads/2023/07/HojadeRutaEcuadorbajares-final17022023_compressed.pdf</a></p></li>
+</ul>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CETCIS - PUCE.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1064 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6fcc102b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ECU_OSeMOSYS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">1. Metodología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emissions.html">2. Emisiones Nacionales del nuevo proceso de modelado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_energy/index.html">3. Modelo del Sector Energía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_ippu/index.html">4. Modelo del Sector Procesos Industriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_waste/index.html">5. Modelo del Sector Residuos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ECU_OSeMOSYS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agro_uscuss.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><strong>MODELO SECTOR AGRICULTURA Y USCUSS</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Estructura del Modelo</strong></p></li>
+</ol>
+<p>Los sectores Agricultura y USCUSS fueron modelados de manera conjunta,
+utilizando una única estructura para estos 2 sectores, similar a la
+planteada en el PLANMICC. Este modelo no corresponde únicamente al
+PLANMICC, sino que integra información actualizada de la NDC.</p>
+<p>En particular:</p>
+<ul class="simple">
+<li><p>Del PLANMICC se toman las estructuras base de tecnologías y factores
+de emisión y datos históricos</p></li>
+<li><p>Del NDC se toman datos de actividad, factores de emisión actualizados
+con información de la 5CN2BTR</p></li>
+</ul>
+<p><strong>Representación Gráfica del Modelo</strong></p>
+<p>El modelo de los sectores Agricultura y USCUSS fue estructurado a partir
+de la base desarrollada en el PLANMICC (Proyecto CZZ 2739), no se
+aumentaron tecnologías ni se adicionaron variables únicamente se
+actualizó información.</p>
+<p>En la figura 1 se presenta la estructura final del modelo de Agricultura
+y USCUSS que constituye el insumo de referencia para el sector.</p>
+<p><strong>Figura 1.</strong> Estructura base del Modelo de Agricultura y USCUSS</p>
+<p><a class="reference internal" href="media/image1.png"><img alt="The diagram illustrates a hierarchical classification of land types in an ecosystem, ranging from native forests, unprotected forests, to agricultural lands, including various levels of protection and types of vegetation. El contenido generado por IA puede ser incorrecto." src="media/image1.png" style="width: 4.4984in; height: 3.64653in;" /></a></p>
+<blockquote>
+<div><p>En la Tabla 1 se detallan los nombres de las tecnologías/fuels y las
+unidades de la actividad de cada tecnología/fuel acorde a Proyecto
+PLANMICC mismos que se encuentran en los documentos:
+STRUCTURE_OSEMOSYS_ GUA_LAND_PLANMIC.</p>
+</div></blockquote>
+<p>Tabla 1</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tipo de
+Set</strong></p></th>
+<th class="head"><p><strong>Nomenclatura</strong></p></th>
+<th class="head"><p><strong>Detalle</strong></p></th>
+<th class="head"><p><strong>Unidades
+físicas</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Banano</p></td>
+<td><p> Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Arroz</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cacao</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Cafe</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cana</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Maiz</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Palma</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Soya</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Palmito</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Legumbres</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cereales</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Tuberculos</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Fruta</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Verduras</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Floricolas</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Otros_cultivos</p></td>
+<td><p>Área de cultivo
+cosechado</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Banano</p></td>
+<td><p> Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Arroz</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Cacao</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Cafe</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Cana</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Maiz</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Palma</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Soya</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Palmito</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Legumbres</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Cereales</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Tuberculos</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Fruta</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Verduras</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Floricolas</p></td>
+<td><p>Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Banano</p></td>
+<td><p> Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Arroz</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Cacao</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Cafe</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Cana</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Maiz</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Palma</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Soya</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Palmito</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Legumbres</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Cereales</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Tuberculos</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Fruta</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Verduras</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Floricolas</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Pastizales</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Humedal</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Zona_atropica</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Otras_tierras</p></td>
+<td><p>Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Bosque_nativo_protegido</p></td>
+<td><p>Área de bosque con
+algún régimen de
+protección legal: Socio
+Bosque, SNAP, BVP</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Bosque_nativo_sinproteger</p></td>
+<td><p> Área de bosque sin
+régimen de protección
+legal</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Plantacion_forestal</p></td>
+<td><p> Área de Plantaciones
+Forestales</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Ganaderia_importada</p></td>
+<td><p>Área de ganado bobino</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Ganaderia_criolla</p></td>
+<td><p>Área de ganado bobino</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Ganaderia_mestiza</p></td>
+<td><p>Área de ganado bobino</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Exp_Carne</p></td>
+<td><p> Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Exp_Leche</p></td>
+<td><p> Volumen de producto
+exportado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Imp_Carne</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Imp_Leche</p></td>
+<td><p>Volumen de producto
+importado</p></td>
+<td><p>Mton</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Gallinas_campos</p></td>
+<td><p> Cantidad de aves de
+corral</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Gallinas_planteles</p></td>
+<td><p> Cantidad de aves de
+corral</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Pasturas</p></td>
+<td><p> Área de categoría de
+suelo</p></td>
+<td><p>Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Vacuno_porcino</p></td>
+<td><p> Cantidad de cabeza de
+ganado</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Vacuno_ovino</p></td>
+<td><p>Cantidad de cabeza de
+ganado</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>Vacuno_otras_especies</p></td>
+<td><p>Cantidad de cabeza de
+ganado</p></td>
+<td><p>k cabezas</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnología</p></td>
+<td><p>Cambio_de_uso</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tecnología</p></td>
+<td><p>area_restaurada</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p><strong>Datos de entrada del modelo</strong></p></li>
+</ol>
+<p>La Tabla 2 muestra los paquetes de datos históricos considerados en los
+procesos de modelado del sector Agricultura y USCUSS</p>
+<p>Tabla 2. Comparación de datos históricos y actuales de la producción
+agropecuaria (PLANMICC vs. NDC) empleados en el modelo</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de
+Información</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Fuente NDC</p></th>
+<th class="head"><p>Fuente Plan
+MICC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Producción
+Cultivos
+cosechados:</p>
+</td>
+<td><p>Banano [ton]</p>
+<p>Cacao - Almendra seca
+[ton]</p>
+<p>Café - Grano Oro
+[ton]</p>
+<p>Caña de azúcar [ton]</p>
+<p>Maíz [ton]</p>
+<p>Palma africana [ton]</p>
+<p>Soya [ton]</p>
+<p>Palmito [ha]</p>
+<p>Legumbres (Pulses)
+[ton]</p>
+<p>Cereales y
+pseudocereales [ton]</p>
+<p>Tubérculos [ton]</p>
+<p>Fruta fresca [ton]</p>
+<p>Verduras [ton]</p>
+</td>
+<td><p>Datos de
+actividad
+usados para
+la
+construcción
+de
+inventarios
+nacionales de
+gases de
+efecto
+invernadero
+serie
+1994-2021
+5CN/1BTR,
+directrices
+ipcc 2006
+refinamiento
+2019</p></td>
+<td><p>ESPAC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Rendimientos
+de Cultivos
+Agrícolas
+Cosechados</p>
+</td>
+<td><p>Banano [ton/ha]</p>
+<p>Cacao - Almendra seca
+[ton/ha]</p>
+<p>Café - Grano Oro
+[ton/ha]</p>
+<p>Caña de azúcar
+[ton/ha]</p>
+<p>Maíz [ton/ha]</p>
+<p>Palma africana (Fruta
+Fresca) [ton/ha]</p>
+<p>Soya [ton/ha]</p>
+<p>Palmito [ton/ha]</p>
+<p>Legumbres (Pulses)
+[ton/ha]</p>
+<p>Cereales y
+pseudocereales
+[ton/ha]</p>
+<p>Tubérculos [ton/ha]</p>
+<p>Fruta fresca [ton/ha]</p>
+<p>Verduras [ton/ha]</p>
+<p>Florícola [ton/ha]</p>
+</td>
+<td><p>Datos de
+actividad
+usados para
+la
+construcción
+de
+inventarios
+nacionales de
+gases de
+efecto
+invernadero
+serie
+1994-2021
+5CN/1BTR,
+directrices
+ipcc 2006
+refinamiento
+2019</p></td>
+<td><p>ESPAC</p></td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Exportación
+e
+importación
+de Productos</p>
+<p>Agrícolas</p>
+</td>
+<td><p>Misma clasificación
+de producción y
+rendimiento de
+Cultivos Agrícolas</p>
+<p>[Mton]</p>
+</td>
+<td><p>BCE</p>
+<p>Proyecciones</p>
+<p>PLANMICC</p>
+</td>
+<td><p>BCE</p>
+<p>Proyecciones
+PLANMICC</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Demanda
+Local de
+Productos
+Agrícolas</p>
+</td>
+<td><p>Misma clasificación
+de producción y
+rendimiento de
+Cultivos Agrícolas</p>
+<p>[Mton]</p>
+</td>
+<td><p>Proyección
+calculados en
+PLANMICC</p></td>
+<td><p>Datos y
+Proyección
+calculados en
+PLANMICC</p>
+<p>Producción</p>
+<ul class="simple">
+<li><p>Importación</p></li>
+</ul>
+<ul class="simple">
+<li><p>Exportación</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Población de
+ganado
+bobino</p>
+</td>
+<td><p>Vacuno total
+(Cabezas)</p>
+<p>Raza importada
+(Cabezas)</p>
+<p>Raza criolla
+(Cabezas)</p>
+<p>Raza mestiza
+(Cabezas)</p>
+<p>porcino (Cabezas)</p>
+<p>ovino (Cabezas)</p>
+<p>otras especies
+(Cabezas)</p>
+</td>
+<td><p>ESPAC</p></td>
+<td><p>ESPAC</p>
+<p>MAG
+(Agrocalidad)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Producción,
+Exportación,</p>
+<p>Importación
+de ganado</p>
+</td>
+<td><p>Vacuno carne (ton)</p>
+<p>Vacuno leche (ton)</p>
+</td>
+<td><p>BCE</p></td>
+<td><p>BCE</p></td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Aves de
+corral</p>
+<p>Producción,
+consumo</p>
+</td>
+<td><p>campo (Cabezas)</p>
+<p>planteles avícolas
+(Cabezas)</p>
+<p>Huevos (# huevos)</p>
+<p>Huevos autoconsumo (#
+huevos)</p>
+</td>
+<td><p>ESPAC</p></td>
+<td><p>ESPAC</p></td>
+</tr>
+</tbody>
+</table>
+<p>La tabla 3 muestra los datos históricos y actuales utilizados en el
+modelado para los 2 sectores</p>
+<p>Tabla 3. Datos históricos y actuales de coberturas</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Fuente NDC</p></th>
+<th class="head"><p>Fuente Plan
+MICC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Cobertura
+de Bosque</p>
+</td>
+<td><ol class="upperalpha simple" start="2">
+<li><p>Seco Pluvioestacional</p></li>
+</ol>
+<p>B. Siempre verde andino
+Montano</p>
+<p>B. Siempre verde andino
+Pie montano</p>
+<p>B. Siempre verde andino
+de Ceja Andina</p>
+<p>B. Siempre verde de
+tierras bajas de la
+Amazonía</p>
+<p>B. Siempre verde de
+tierras bajas del Chocó</p>
+<p>Manglar</p>
+<p>Moretal</p>
+<p>Plantación forestal</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación»</p>
+<p>Cada
+categoría de
+bosque es
+analizada de
+manera
+individual</p>
+</td>
+<td><p>“Datos
+2010-2018 4ta
+Comunicación”</p>
+<p>Se separan 2
+categorías:</p>
+<p>Bosque nativo
+[ha]</p>
+<p>Plantación
+forestal [ha]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Cobertura
+de Bosque</p>
+<p>Protegido
+/ No
+protegido</p>
+</td>
+<td><p>Bosque nativo no
+protegido [Mha]</p>
+<p>Bosque nativo bajo
+régimen de proteccion
+legal [Mha]</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación”</p>
+</td>
+<td><p>“Datos
+2010-2018 4ta
+Comunicación”</p></td>
+</tr>
+<tr class="row-even"><td><p>Datos de
+actividad</p>
+<p>Tierras de
+Cultivo</p>
+</td>
+<td><p>Cultivo anual [ha]</p>
+<p>Cultivo semipermanente
+[ha]</p>
+<p>Cultivo permanente [ha]</p>
+<p>Pastura [ha]</p>
+<p>Mosaico agropecuario [ha]</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación”</p>
+<p>Analiza una
+sola
+categoría:</p>
+<p>Tierras de
+cultivo [Mha]</p>
+</td>
+<td><p>«Datos
+2010-2018</p>
+<p>4ta
+Comunicación”</p>
+<p>Analiza dos
+categorías:</p>
+<p>Cultivos
+[Mha]</p>
+<p>Pastura [Mha]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Datos de
+actividad</p>
+<p>Otras
+coberturas</p>
+</td>
+<td><p>Pastizales (grasslands)</p>
+<p>Humedal</p>
+<p>Zona antrópica
+(Asentamientos)</p>
+<p>Otras tierras</p>
+</td>
+<td><p>«Datos
+2010-2022</p>
+<p>5ta
+Comunicación”</p>
+</td>
+<td><p>«Datos
+2010-2018</p>
+<p>4ta
+Comunicación”</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p><strong>Escenarios</strong></p></li>
+</ol>
+<p>En los sectores <strong>Agricultura y Uso del Suelo, cambio de Uso del Suelo y
+Silvicultura (USCUSS)</strong> se modelaron <strong>dos escenarios de proyección</strong>,
+ambos construidos a partir de la información descrita en los apartados
+anteriores.</p>
+<ul class="simple">
+<li><p><strong>Escenario Tendencial:</strong> Representa el «business as usual» sin
+intervenciones adicionales, considera únicamente los datos históricos
+y proyecciones sin la incorporación de medidas adicionales de
+mitigación. Este escenario sirve como línea de base para evaluar el
+impacto de las políticas y acciones propuestas.</p></li>
+</ul>
+<p><strong>Tabla 4.</strong> Parámetros y supuestos de cambio utilizados para el
+escenario tendencial</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Supuesto</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bosques: Deforestación Bruta</p>
+<p>Deforestación Neta</p>
+<p>** Deforestación en áreas
+protegidas</p>
+</td>
+<td><p>-0.78 Se mantiene constante</p>
+<p>-0.76 Se mantiene constante</p>
+<p>** El Modelo NDC aplica una
+tasa de deforestación de 0,049%
+para áreas protegidas.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Plantaciones Forestales</p></td>
+<td><p>Tasa de crecimiento al 1% de
+crecimiento del PIB</p></td>
+</tr>
+<tr class="row-even"><td><p>Cultivos</p></td>
+<td><p>Tasa de crecimiento sectorial</p>
+<p>Contribución del sector al PIB</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Pasturas</p></td>
+<td><p>Categoría flexible o de ajuste</p></td>
+</tr>
+<tr class="row-even"><td><p>Vegetación arbustiva y herbácea</p></td>
+<td><p>Tasa de crecimiento de suelo de
+cultivos</p>
+<p>Tasa de crecimiento destinada a
+ganadería</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Humedales</p></td>
+<td><p>Tasa de cambio de humedales</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Escenario Plan de Acción (PAC):</strong> integra las iniciativas
+establecidas en la Segunda NDC del Ecuador (condicional e
+incondicional) que aplican a los dos sectores. Estas iniciativas son
+consideradas de manera integral reflejándose en las metas finales.</p></li>
+</ul>
+<p>El Escenario Plan de Acción comparte similar información en los años
+2010 – 2022. Los Principales cambios se resumen en la siguiente tabla:</p>
+<p><strong>Tabla 5</strong>. Cambios efectuados en los archivos del modelo mixto de
+Agricultura y USCUSS (PAC)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Archivo</p></th>
+<th class="head"><p>Hoja</p></th>
+<th class="head"><p>Tecnología/Fuel</p></th>
+<th class="head"><p>parámetro</p></th>
+<th class="head"><p>Observación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>EmmisionActivitiyRatio</p></td>
+<td><p>Bosque_nativo_protegido</p></td>
+<td><p>co2_remocion</p></td>
+<td><p>Se considera
+el aumento de
+área de
+bosque bajo
+régimen de
+protección
+legal hasta
+llegar al
+2035 a 7,9
+Mha</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>TotalTechnologyAnnualActivityLo</p></td>
+<td><p>Bosque_nativo_sinproteger</p></td>
+<td><p>Mha</p></td>
+<td><p>Se resta el
+área que se
+adiciona a
+Bosque Nativo
+Protegido</p></td>
+</tr>
+<tr class="row-even"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>EmmisionActivitiyRatio</p></td>
+<td><p>Area_restaurada</p></td>
+<td><p>co2_remocion</p></td>
+<td><p>Se considera
+un aumento
+progresivo de
+la tasa de
+restauración
+hasta llegar
+a un promedio
+de 3200
+ha/año</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModeloSuelo_BAU</p></td>
+<td><p>TotalTechnologyAnnualActivityLo</p></td>
+<td><p>Plantacion_forestal</p></td>
+<td><p>Mh</p></td>
+<td><p>Se considera
+un amento
+progresivo
+hasta llegar
+a un valor de
+198600 ha</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p><strong>Resultados.</strong></p></li>
+</ol>
+<p>Las figuras 2 y 3, presentan las emisiones de CO2 eq tanto de los
+sectores Agricultura y USCUSS respectivamente. En las figuras el color
+azul representa el escenario tendencial modelados desde el 2010,
+mientras que la línea de color rojo representa el escenario Plan de
+Acción donde se incorporan los esfuerzos de mitigación.</p>
+<p><strong>Figura 2.</strong> Evolución de emisiones del sector Agricultura</p>
+<p><a class="reference internal" href="media/image2.png"><img alt="The image depicts a line graph showing the trend in CO2 emissions (measured in million kg CO2-equivalent) from the agricultural sector over a period from 2011 to 2034. El contenido generado por IA puede ser incorrecto." src="media/image2.png" style="width: 5.90556in; height: 3.54577in;" /></a></p>
+<p><strong>Figura 3.</strong> Evolución de emisiones del sector USCUSS</p>
+<p><a class="reference internal" href="media/image3.png"><img alt="The diagram shows a line graph depicting the trend of CO2 emissions (in million KtCO2-eq) for the US sector from 2010 to 2035. El contenido generado por IA puede ser incorrecto." src="media/image3.png" style="width: 5.90556in; height: 3.54577in;" /></a></p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Referencias</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>MAATE. (n.d.). 5ta Comunicación Nacional.</p></li>
+<li><p>MAATE. (2024). Plan Nacional de Mitigación del Cambio Climático.</p></li>
+<li><p>MAATE (2025). Segunda Contribución Determinada a Nivel Nacional</p></li>
+</ul>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CETCIS - PUCE.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

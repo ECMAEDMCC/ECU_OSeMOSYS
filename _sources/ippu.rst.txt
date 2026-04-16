@@ -1,0 +1,350 @@
+5. Procesos Industriales
+
+**5. Modelo del Sector Procesos Industriales**
+
+• 5.1. Estructura del modelo
+
+• 5.2. Datos de Entrada
+
+• 5.3. Escenarios
+
+• 5.4. Resultados
+
+• 5.5. Referencias
+
+- **5.1. Estructura del modelo**
+
+El sector Procesos Industriales comprende las emisiones de GEI generadas
+por transformaciones químicas y físicas de materias primas en la
+fabricación y producción de bienes y en su uso. Es pertinente indicar,
+que el uso de combustibles como fuente de energía en estos procesos de
+transformación, se declaran en el sector de energía. En el país, dentro
+del sector Procesos Industriales se identifican actividades como como la
+producción de cemento, de cal, de acero, de cerámica, de vidrio, y el
+uso de solventes, lubricantes, así como el de compuestos de
+hidrofluorocarbonos (HFC), perfluorocarbonos (PFC), principalmente en
+sistemas de refrigeración y aire acondicionado. Este sector abarca
+varias categorías y subcategorías emisoras de GEI, de acuerdo con el
+INGEI de la 5ta Comunicación Nacional (5CN) del Ecuador (MAE,2024), que
+se enlistan a continuación:
+
+- **Categoría 2A: Industria de los minerales**
+
+  - **Subcategoría 2A1:** Producción de Cemento
+
+  - **Subcategoría 2A2:** Producción de Cal
+
+  - **Subcategoría 2A3:** Producción de Vidrio
+
+  - **Subcategoría 2A4a:** Cerámica
+
+  - **Subcategoría 2A4b:** Otros Usos de la Soda Ash
+
+- **Categoría 2C: Industria de los metales**
+
+  - **Subcategoría 2C1:** Producción de Hierro y Acero
+
+  - **Subcategoría 2C5:** Producción de Plomo
+
+- **Categoría 2D: Uso de Productos no Energéticos de combustibles y de
+  solventes**
+
+  - **Subcategoría 2D1:** Uso de Lubricantes
+
+  - **Subcategoría 2D2:** Uso de Cera Parafina
+
+- **Categoría 2F: Uso de Productos como sustitutos para las substancias
+  que agotan la capa de ozono**
+
+  - **Subcategoría 2F1:** Refrigeración y Aire Acondicionado
+
+Basado en lo anterior, el modelado se basa en la plataforma OSeMOSYS y
+amplía los desarrollos previos, a través de un proceso de referenciación
+metodológica abreviado que prioriza la información de la Segunda
+Contribución Determinada a Nivel Nacional (NDC) y la complementa con
+insumos provenientes del Plan Nacional de Mitigación del Cambio
+Climático (PLANMICC). De forma simplificada, el modelo se ilustra en la
+Figura 1.
+
+|image1|
+
+*Figura 1. Diagrama de referencia del modelo del sector Procesos
+Industriales.*
+
+En las Tablas 2, 3 y 4 se incluye la nomenclatura de los
+sets Technologies, Commodities y Emission del modelo de la Figura 1.
+
+*Tabla 1: Tecnologías incluidas en el modelo del sector Procesos
+Industriales.*
+
++-------------------------------------------+---------------+
+| Descripción                               | Código        |
++===========================================+===============+
+| Energía térmica para Clinker              | ENE_TERM      |
++-------------------------------------------+---------------+
+| Materiales para Clinker                   | RAW_MAT_CLK   |
++-------------------------------------------+---------------+
+| Electricidad para energía térmica         | ELEC_TERM     |
++-------------------------------------------+---------------+
+| Electricidad para cemento                 | ELEC_CEM      |
++-------------------------------------------+---------------+
+| Materiales para cemento                   | RAW_MAT_CEM   |
++-------------------------------------------+---------------+
+| Resto de emisiones del sector PIUP        | REST_PI       |
++-------------------------------------------+---------------+
+| Producción de Clinker con combustibles de | PROD_CLK_TRAD |
+| origen fósil                              |               |
++-------------------------------------------+---------------+
+| Producción de Clinker con electricidad    | PROD_CLK_ELEC |
++-------------------------------------------+---------------+
+| Producción de cemento                     | PROD_CEM      |
++-------------------------------------------+---------------+
+| Uso de HFC                                | HFC_use       |
++-------------------------------------------+---------------+
+| Producción de Cal                         | LIME_PROD     |
++-------------------------------------------+---------------+
+| Producción de Vidrio                      | GLASS_PROD    |
++-------------------------------------------+---------------+
+| Producción de Cerámica                    | CERAMICS      |
++-------------------------------------------+---------------+
+| Otros usos de Soda Ash                    | SODA_ASH      |
++-------------------------------------------+---------------+
+| Producción de Hierro y Acero              | IRON_STEEL    |
++-------------------------------------------+---------------+
+| Producción de Plomo                       | LEAD_PROD     |
++-------------------------------------------+---------------+
+| Uso de Lubricantes                        | LUBRI         |
++-------------------------------------------+---------------+
+| Uso de Ceras de parafina                  | PARAFFIN      |
++-------------------------------------------+---------------+
+
+*Tabla 2: Commodities incluidos en el modelo del sector Procesos
+Industriales.*
+
++--------------------------+-------------+
+| Descripción              | Código      |
++==========================+=============+
+| Energía térmica para     | ENE_TERM    |
+| Clinker                  |             |
++--------------------------+-------------+
+| Materiales para Clinker  | RAW_MAT_CLK |
++--------------------------+-------------+
+| Electricidad para        | ELEC_TERM   |
+| energía térmica          |             |
++--------------------------+-------------+
+| Electricidad para        | ELEC_CEM    |
+| Cemento                  |             |
++--------------------------+-------------+
+| Materiales para Cemento  | RAW_MAT_CEM |
++--------------------------+-------------+
+| Clinker para cemento     | CLK_PROD    |
++--------------------------+-------------+
+| Producción de cemento    | CEM_PROD    |
++--------------------------+-------------+
+
+*Tabla 3: Emisiones incluidas en el modelo del sector Procesos
+Industriales.*
+
++-----------------------------------------------------------+-----------+
+| Descripción                                               | Código    |
++===========================================================+===========+
+| Dióxido de carbono equivalente producido por              | CO2eq_HFC |
+| Hidrofluorocarbonos                                       |           |
++-----------------------------------------------------------+-----------+
+| Dióxido de carbono equivalente producido por el proceso   | CO2eq     |
+| de producción de cemento                                  | \_CEM     |
++-----------------------------------------------------------+-----------+
+| Dióxido de carbono equivalente producido por otros        | CO2eq     |
+| Procesos Industriales y Uso de Productos                  | \_IPPU    |
++-----------------------------------------------------------+-----------+
+
+**5.2. Datos de entrada del modelo**
+
+En la Tabla 4 se presentan las fuentes de información utilizadas para la
+satisfacción de datos de los parámetros del modelo del sector Procesos
+Industriales.
+
+*Tabla 13: Fuentes de información para parametrizar el sector Procesos
+Industriales.*
+
++----------------+----------------------------------------+--------------+
+| Dato/Supuesto  | Detalle                                | Fuente       |
++================+========================================+==============+
+| Producción     | Producción reportada en registros      | (MAE,        |
+| nacional de    | oficiales como INGEI, Reportes del     | Segunda NDC  |
+| cemento con    | sector cementero                       | del Ecuador) |
+| clinker        |                                        |              |
+| producido      |                                        |              |
+| nacionalmente  |                                        |              |
+| [Mt/año]       |                                        |              |
++----------------+----------------------------------------+--------------+
+| Factor de      | Factor de clinker promedio ponderado   | (MAE,        |
+| clinker en     | por planta de producción de cemento    | Segunda NDC  |
+| cemento [%]    |                                        | del Ecuador) |
++----------------+----------------------------------------+--------------+
+| Factores de    | Valores propios para Ecuador. Datos    | INGEI de la  |
+| emisión sector | presentes el INGEI de la 5ta           | 5ta          |
+| cemento        | Comunicación Nacional.                 | (1994-2022)  |
+|                |                                        | (5CN/1RBT,   |
+|                |                                        | 2024)        |
++----------------+----------------------------------------+--------------+
+| Emisiones por  | Valores propios para Ecuador. Datos    | INGEI de la  |
+| sectores       | presentes el INGEI de la 5ta           | 5ta          |
+| industriales   | Comunicación Nacional.                 | (1994-2022)  |
+| (cal, vidrio,  |                                        | (5CN/1RBT,   |
+| cerámica, soda |                                        | 2024)        |
+| ash, acero,    |                                        |              |
+| plomo,         |                                        |              |
+| lubricantes,   |                                        |              |
+| ceras de       |                                        |              |
+| parafina)      |                                        |              |
++----------------+----------------------------------------+--------------+
+| Emisiones por  | Valores propios para Ecuador. Datos    | INGEI de la  |
+| HFC (uso de    | presentes el INGEI de la 5ta           | 5ta          |
+| refrigerantes  | Comunicación Nacional.                 | (1994-2022)  |
+| y espumas) y   |                                        | (5CN/1RBT,   |
+|                |                                        | 2024)        |
++----------------+----------------------------------------+--------------+
+| Producción de  | Se toman los datos históricos y se     | (MAATE,      |
+| cemento futura | proyecta un crecimiento del 2023 al    | 2024)        |
+|                | 2035 siguiendo el escenario tendencial |              |
+|                | del sector PIUP.                       |              |
++----------------+----------------------------------------+--------------+
+| Factor de      | Se toma el último valor histórico      | (MAATE,      |
+| Clinker futuro | conocido de este indicador y se        | n.d.)        |
+|                | mantiene constante.                    |              |
++----------------+----------------------------------------+--------------+
+| Trayectoria de | Estimado haciendo uso del escenario    | Segunda NDC  |
+| emisiones de   | tendencial presente en la Hoja de Ruta | del Ecuador, |
+| Refrigeración  | de la Enmienda de Kigali.              |              |
+|                |                                        | NGEI 2024    |
+|                |                                        | (5CN/1RBT,   |
+|                |                                        | 2024), y     |
+|                |                                        | Hoja Ruta    |
+|                |                                        | para reducir |
+|                |                                        | los HFC en   |
+|                |                                        | el Ecuador,  |
+|                |                                        | (MPCEI,2023) |
++----------------+----------------------------------------+--------------+
+
+Para acceder a la versión completa de los datos de entrada del sector,
+consulte el archivo de procesos industriales en:
+:mark:`https:XXXXXXXXXX`
+
+   **5.3. Escenarios**
+
+Para el sector Procesos Industriales primeramente se construye un
+escenario Tendencial. Este refleja la evolución natural de las emisiones
+del sector Procesos Industriales bajo el supuesto de mantener las
+prácticas habituales, sin la incorporación de medidas adicionales de
+mitigación. Este escenario, es una representación homologada del
+escenario tendencial del PLANMICC con la información contenida de la
+segunda NDC.
+
+Para la construcción del escenario Tendencial Nacional para el sector de
+procesos industriales fue necesario realizar modificaciones en distintos
+archivos de configuración de OSeMOSYS, con el fin de integrar
+coherentemente los insumos de ambos modelos.
+
+El segundo escenario es el escenario Plan de Acción (PAC), el cual
+integra las iniciativas establecidas en la Segunda NDC del Ecuador
+(condicional e incondicional) que aplican al sector Procesos
+Industriales:
+
+- Sustitución de clínker por adiciones en la producción de cemento.
+
+- Reducción progresiva del consumo de HFC conforme a la Enmienda de
+  Kigali, lo que impacta directamente en la categoría 2F (*Uso de
+  productos como sustitutos de sustancias que agotan la capa de ozono*).
+
+En la Tabla 14 se detallan de mejor forma las iniciativas mencionadas.
+
+*Tabla 14: Descripción de iniciativas del sector Procesos Industriales
+para el escenario Plan de Acción.*
+
++------+---------------------+------------+----------------+-------------------+-------------+
+| NRO. | DESCRIPCIÓN         | POTENCIAL  | AÑO DE         | TECNOLOGÍA        | META        |
+|      |                     | DE         | IMPLEMENTACIÓN | OSEMOSYS          | PLANMICC    |
+|      |                     | MITIGACIÓN |                |                   | -2035       |
+|      |                     | AL 2035    |                |                   |             |
+|      |                     | [KT        |                |                   |             |
+|      |                     | CO₂EQ/AÑO] |                |                   |             |
++======+=====================+============+================+===================+=============+
+| 1    | Sustitución de      | 530.14     | 2026-2035      | PROD_CEM;CLK_PROD | P.1 Reducir |
+|      | clinker por         |            |                |                   | el factor   |
+|      | adiciones en la     |            |                |                   | clínker en  |
+|      | producción de       |            |                |                   | la          |
+|      | cemento             |            |                |                   | producción  |
+|      |                     |            |                |                   | de cemento  |
+|      |                     |            |                |                   | al 68%.     |
++------+---------------------+------------+----------------+-------------------+-------------+
+| 2    | Reducir             | 635.8      | 2026-2035      | HFC_use           | P.2 Reducir |
+|      | progresivamente el  |            |                |                   | la          |
+|      | consumo de          |            |                |                   | importación |
+|      | hidrofluorocarbonos |            |                |                   | del 30% de  |
+|      | (HFC) y PFC en el   |            |                |                   | los HFC y   |
+|      | país conforme Hoja  |            |                |                   | PFC.        |
+|      | de Ruta para        |            |                |                   |             |
+|      | reducción los HFC   |            |                |                   |             |
+|      | en Ecuador, bajo la |            |                |                   |             |
+|      | enmienda de Kigali  |            |                |                   |             |
+|      | al protocolo de     |            |                |                   |             |
+|      | Montreal.           |            |                |                   |             |
++------+---------------------+------------+----------------+-------------------+-------------+
+| 3    | Eliminación         | 1.00       | 2029-2035      | HFC_use           | P.2 Reducir |
+|      | progresiva de       |            |                |                   | la          |
+|      | compuestos que      |            |                |                   | importación |
+|      | contienen HFC y PFC |            |                |                   | del 30% de  |
+|      | contenidos en       |            |                |                   | los HFC y   |
+|      | equipos             |            |                |                   | PFC.        |
++------+---------------------+------------+----------------+-------------------+-------------+
+
+**5.4. Resultados**
+
+Las emisiones resultantes de CO2e del sector Procesos Industriales se
+presentan en la Figura 5 para los 2 escenarios. En color azul ilustra el
+escenario Tendencial, el escenario NDC Condicional de la 2da NDC de
+color naranja se coloca como referencia el cual se encuentra solapando
+al escenario Plan de Acción de color morado. En la Figura 2, la
+trayectoria morada queda por debajo de la trayectoria naranja.
+
+|image2|
+
+*Figura 5. Emisiones en CO2e del sector Procesos Industriales*
+
+*por año y escenario.*
+
+**5.5. Referencias**
+
+- Gobierno de Ecuador. (2019). Primera contribución determinada a nivel
+  nacional para el acuerdo de parís bajo la convención marco de naciones
+  unidas sobre cambio
+  climático. https://unfccc.int/sites/default/files/NDC/2022-06/Primera%20NDC%20Ecuador.pdf
+
+- Ministerio de Ambiente y Energía – MAE. (2024). *Documento del
+  Inventario Nacional (DIN) de Gases de Efecto Invernadero del año 2022
+  del Ecuador*. Quito, Ecuador.
+
+..
+
+   https://unfccc.int/sites/default/files/resource/e.%202024.12.27_NID_5CN1RBT_v7_final.pdf
+
+- Ministerio de Ambiente y Energía – MAE. (2024). Plan Nacional de
+  Mitigación del Cambio
+  Climático. https://github.com/PLANMICC/OSeMOSYS_Ecuador
+
+- Ministerio de Ambiente y Energía – MAE. (2024). Modelado Segunda NDC.
+  https://github.com/clg-admin/ECU_NDC/blob/main/docs/nacionales.rst
+
+- Ministerio de Producción, Comercio Exterior, Inversiones (MPCEI) &
+  Organización de las Naciones Unidas para el Desarrollo Industrial
+  (ONUDI). (2023). *Hoja de Ruta hacia Kigali: Gestión y eliminación
+  progresiva de HFC en el Ecuador.* Quito, Ecuador. Disponible en:
+  https://ozonoecuador.produccion.gob.ec/wp-content/uploads/2023/07/HojadeRutaEcuadorbajares-final17022023_compressed.pdf
+
+.. |image1| image:: media/image1.emf
+   :width: 5.90556in
+   :height: 5.60556in
+.. |image2| image:: media/image2.png
+   :width: 5.91281in
+   :height: 2.86448in
