@@ -3,7 +3,7 @@ Escenarios
 ===================================================
 
 Para el sector Procesos Industriales primeramente se construye un
-escenario Tendencial. Este refleja la evolución natural de las emisiones
+escenario Tendencial Nacional. Este refleja la evolución natural de las emisiones
 del sector Procesos Industriales bajo el supuesto de mantener las
 prácticas habituales, sin la incorporación de medidas adicionales de
 mitigación. Este escenario, es una representación homologada del
@@ -15,7 +15,8 @@ procesos industriales fue necesario realizar modificaciones en distintos
 archivos de configuración de OSeMOSYS, con el fin de integrar
 coherentemente los insumos de ambos modelos.
 
-El segundo escenario es el escenario Plan de Acción (PAC), el cual
+El Escenario Plan de Acción del PLANMICC, Fase I integra las iniciativas 
+establecidas en la Segunda NDC del Ecuador (condicional e incondicional), el cual
 integra las iniciativas establecidas en la Segunda NDC del Ecuador
 (condicional e incondicional) que aplican al sector Procesos
 Industriales:
@@ -62,4 +63,4 @@ En la :numref:`table_ippu_scenarios` se detallan de mejor forma las iniciativas 
    |      |            | equipos              |                |             |
    +------+------------+----------------------+----------------+-------------+
 
-*Este indicador es de carácter normativo y se rige por la reducción obligatoria establecida en la Resolución COMEX 014-2023 para la importación de HFC y PFC, y no deriva de la iniciativa modelada.
+* Este indicador es de carácter normativo y se rige por la reducción obligatoria establecida en la Resolución COMEX 014-2023 para la importación de HFC y PFC, y no deriva de la iniciativa modelada.

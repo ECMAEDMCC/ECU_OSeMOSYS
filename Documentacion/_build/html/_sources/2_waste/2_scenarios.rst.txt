@@ -2,32 +2,34 @@
 Escenarios
 ===================================================
 
-En lo que respecta al sector Residuos, al igual que en los sectores
-anteriores, se construyó un escenario Tendencial Nacional. Este
-escenario pretende reflejar un futuro sin iniciativas que combina la
-variabilidad temporal de los FE del modelo NDC con la estructura
-tecnológica del PLANMICC.
+Para el sector de Residuos se modelaron, dos escenarios de proyección, 
+ambos construidos a partir de la información descrita en los apartados anteriores.
 
-El segundo escenario es el escenario Plan de Acción. Este escenario
-integra la trayectoria del escenario tendencial (2010–2035) y añade de
-forma progresiva las iniciativas identificadas en las Contribuciones
-Determinadas a Nivel Nacional (NDC) del Ecuador tanto la primera como la
-segunda, en sus componentes incondicionales y condicionales, junto con
-los proyectos estratégicos adicionales priorizados en el marco del
-PLANMICC (2024). Este escenario representa, por tanto, el conjunto de
-medidas e intervenciones de mitigación que el país se ha comprometido a
-implementar para reducir las emisiones de gases de efecto invernadero
-(GEI) en el sector Residuos, incorporando acciones de:
+- Escenario Tendencial Nacional: Representa una trayectoria de referencia caracterizada 
+  por la ausencia de medidas de mitigación. Este escenario se utiliza como línea base para 
+  el análisis comparativo, este escenario sigue los supuestos de proyección definidos en el 
+  modelo OSeMOSYS que da soporte al PLANMICC (Proyecto CZZ 2739) pero incorpora además las 
+  magnitudes y tendencias reportadas en la NDC y en el último inventario de GEI disponible (2022).
 
-- Captura y aprovechamiento de biogás en rellenos sanitarios.
+- El Escenario Plan de Acción del PLANMICC, Fase I se diseña como un escenario referencial que 
+  incorpora medidas de mitigación validadas mediante un proceso de construcción participativa
+  que añade de forma progresiva las iniciativas identificadas en las Contribuciones Determinadas 
+  a Nivel Nacional (NDC) del Ecuador tanto la primera como la segunda, en sus componentes 
+  incondicionales y condicionales, junto con los proyectos estratégicos adicionales 
+  priorizados en el marco del PLANMICC (2024). Este escenario representa, por tanto, el conjunto 
+  de medidas e intervenciones de mitigación que el país se ha comprometido a implementar para 
+  reducir las emisiones de gases de efecto invernadero (GEI) en el sector Residuos, incorporando 
+  acciones de:
 
-- Tratamiento de aguas residuales domésticas e industriales.
+  - Captura y aprovechamiento de biogás en rellenos sanitarios.
 
-- Valorización de residuos orgánicos mediante compostaje, lombricultura,
-  bokashi y tecnologías emergentes.
+  - Tratamiento de aguas residuales domésticas e industriales.
 
-- Reducción de pérdidas de alimentos, incluyendo iniciativas de bancos
-  de alimentos y programas de recuperación.
+  - Valorización de residuos orgánicos mediante compostaje, lombricultura,
+    bokashi y tecnologías emergentes.
+
+  - Reducción de pérdidas de alimentos, incluyendo iniciativas de bancos
+    de alimentos y programas de recuperación.
 
 Cada iniciativa fue caracterizada según los siguientes criterios:
 

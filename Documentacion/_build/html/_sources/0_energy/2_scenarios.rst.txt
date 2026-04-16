@@ -47,6 +47,8 @@ en el Escenario Plan de Acción del PLANMICC, Fase I.
 
 .. _table_efficiency_initiatives_energy:
 .. table:: Iniciativas de mitigación consideradas en el Escenario Plan de Acción del PLANMICC, Fase I (2025 – 2035)
+   :widths: 35 35 15 15
+   :class: tight-table
 
    +------------------------+------------------+-------------------+------------------+
    | **Categoría**          | **Iniciativa**   | **Año de          | **Descripción**  |

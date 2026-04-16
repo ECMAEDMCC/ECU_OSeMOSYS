@@ -9,7 +9,8 @@
   <title>8. ¿Cómo usar el modelo? &mdash; documentación de ECU_OSeMOSYS - 0.0.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6fe3c23b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=18fb6bdb" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=18fb6bdb" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -93,7 +94,7 @@ comprensión general.</p>
 <p><span class="caption-number">Figura 8.1 </span><span class="caption-text">Flujo de trabajo del modelo</span><a class="headerlink" href="#model-flow" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p><strong>9.1. Crear la estructura del modelo (A1)</strong></p>
+<p><strong>8.1. Crear la estructura del modelo (A1)</strong></p>
 <p>El primer paso del OSeMOSYS-ECU es crear la estructura del modelo. Para
 ello, necesita ejecutar el script de Python A1_Model_Structure. Para
 realizar esta ejecución, es necesario parametrizar los archivos de Excel
@@ -104,7 +105,7 @@ dentro de A1_Inputs:</p>
 <li><p>A-I_Classifier_Modes_Transport</p></li>
 <li><p>A-I_Horizon_Configuration</p></li>
 </ul>
-<p>Luego, debes ejecutar el script de Python A1_Model_Structure. Al
+<p>Luego, ejecutar el script de Python A1_Model_Structure. Al
 finalizar la ejecución, se generarán algunos archivos dentro
 de A1_Outputs:</p>
 <ul class="simple">
@@ -118,7 +119,7 @@ de A1_Outputs:</p>
 <p>Estos archivos se reescriben con la estructura predeterminada cada vez
 que se ejecuta el script de Python, por lo que se recomienda ejecutar
 este script solo una vez.</p>
-<p><strong>9.2. Compilador del modelo (A2)</strong></p>
+<p><strong>8.2. Compilador del modelo (A2)</strong></p>
 <p>El segundo paso consiste en definir el proceso para compilar el modelo
 en archivos por parámetro. Para ello, toma como entradas los archivos de
 Excel de A1_Outputs, además de los archivos de Excel de la
@@ -131,7 +132,7 @@ carpetas A1_Outputs y A2_Outputs_Params. En la segunda carpeta, se
 genera la misma cantidad de subcarpetas que escenarios tiene el modelo,
 y dentro de estas subcarpetas se encuentran los archivos de Excel con
 datos por parámetro.</p>
-<p><strong>9.3. Crear el archivo de entrada (B1)</strong></p>
+<p><strong>8.3. Crear el archivo de entrada (B1)</strong></p>
 <p>El siguiente paso es más largo y requiere cuidado. Es importante seguir
 el flujo de trabajo en la figura al inicio de la sección. Primero, ve a
 la carpeta B1_Output_Params y elimina cualquier subcarpeta que
@@ -151,13 +152,13 @@ Este archivo es un archivo de texto, por ejemplo:</p>
 <ul class="simple">
 <li><p>BAU_0.txt</p></li>
 </ul>
-<p><strong>9.4. Ejecución del modelo (B1)</strong></p>
+<p><strong>8.4. Ejecución del modelo (B1)</strong></p>
 <p>Para ejecutar el modelo, usa el
 script B1_Base_Scenarios_Adj_Parallel.py.</p>
 <p>Los resultados de esta ejecución se encuentran en la
 carpeta Executables, dentro de una subcarpeta para cada escenario, y
 generan tres archivos.</p>
-<p><strong>9.5. Concatenación de resultados (B2)</strong></p>
+<p><strong>8.5. Concatenación de resultados (B2)</strong></p>
 <p>Este paso facilita el análisis de los resultados. Al ejecutar el script
 de Python B2_Results_Creator_f0.py, este toma los archivos CSV con datos
 de entrada y salida del modelo de cada escenario, los concatena y crea

@@ -7,7 +7,7 @@ Silvicultura (USCUSS)** se modelaron **dos escenarios de proyección**,
 ambos construidos a partir de la información descrita en los apartados
 anteriores.
 
-- **Escenario Tendencial:** Representa el "business as usual" sin
+- **Escenario Tendencial Nacional:** Representa el "business as usual" sin
   intervenciones adicionales, considera únicamente los datos históricos
   y proyecciones sin la incorporación de medidas adicionales de
   mitigación. Este escenario sirve como línea de base para evaluar el

@@ -4,7 +4,7 @@ Resultados
 
 La :numref:`waste_emissions` presenta la evolución de las emisiones de CO₂eq del sector
 Residuos bajo dos escenarios de análisis. La línea azul corresponde al
-Escenario Tendencial Nacional, modelado a desde el año 2010, mientras
+Escenario Tendencial Nacional, modelado considerando el año base 2010, mientras
 que la línea verde representa el Escenario Plan de Acción, en el cual se
 incorporan progresivamente las medidas de mitigación descritas en las
 secciones precedentes.

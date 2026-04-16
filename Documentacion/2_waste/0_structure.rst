@@ -5,15 +5,14 @@ Estructura del modelo
 Este sector produce emisiones por varias prácticas de disposición y
 tratamiento de residuos sólidos y aguas residuales generadas en el país.
 Para la construcción de los escenarios del sector Residuos se recopiló y
-analizó información sobre generación producción per cápita de residuos,
-generación de aguas residuales, porcentajes de reciclaje, Además, se
+analizó información sobre generación y producción per cápita de residuos,
+generación de aguas residuales, porcentajes de reciclaje. Además, se
 consideraron datos de emisiones de GEI sectoriales reportados en el
 Inventario Nacional de Gases de Efecto Invernadero.
 
 Es pertinente notar que el presente modelo no corresponde únicamente al
-modelo OSeMOSYS que da soporte al Plan de Mitigación de cambio climático
-(PLANMICC), sino que integra información actualizada del modelo OSeMOSYS
-utilizado para estructurar la segunda NDC.
+modelo OSeMOSYS que da soporte al Plan Nacional de Mitigación del Cambio Climático (PLANMICC), 
+sino que integra información actualizada del modelo OSeMOSYS utilizado para estructurar la segunda NDC.
 
 En particular:
 
@@ -42,7 +41,7 @@ medidas de mitigación.
 
 De forma esquemática, el Sistema de Referencia de Fuentes (Reference
 Source System, RSS) del sector de residuos sólidos se presenta en la
-:numref:`waste_model_structure_solids`. y en la waste_model_structure_waters` se representa para el sector de aguas
+:numref:`waste_model_structure_solids`. y en la :numref:`waste_model_structure_waters` se representa para el sector de aguas
 residuales.
 
 .. figure:: ../_static/images/waste/model_structure_solids.png

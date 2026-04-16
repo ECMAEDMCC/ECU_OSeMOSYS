@@ -14,7 +14,7 @@ comprensión general.
 
    Flujo de trabajo del modelo
 
-**9.1. Crear la estructura del modelo (A1)**
+**8.1. Crear la estructura del modelo (A1)**
 
 El primer paso del OSeMOSYS-ECU es crear la estructura del modelo. Para
 ello, necesita ejecutar el script de Python A1_Model_Structure. Para
@@ -29,7 +29,7 @@ dentro de A1_Inputs:
 
 - A-I_Horizon_Configuration
 
-Luego, debes ejecutar el script de Python A1_Model_Structure. Al
+Luego, ejecutar el script de Python A1_Model_Structure. Al
 finalizar la ejecución, se generarán algunos archivos dentro
 de A1_Outputs:
 
@@ -49,7 +49,7 @@ Estos archivos se reescriben con la estructura predeterminada cada vez
 que se ejecuta el script de Python, por lo que se recomienda ejecutar
 este script solo una vez.
 
-**9.2. Compilador del modelo (A2)**
+**8.2. Compilador del modelo (A2)**
 
 El segundo paso consiste en definir el proceso para compilar el modelo
 en archivos por parámetro. Para ello, toma como entradas los archivos de
@@ -65,7 +65,7 @@ genera la misma cantidad de subcarpetas que escenarios tiene el modelo,
 y dentro de estas subcarpetas se encuentran los archivos de Excel con
 datos por parámetro.
 
-**9.3. Crear el archivo de entrada (B1)**
+**8.3. Crear el archivo de entrada (B1)**
 
 El siguiente paso es más largo y requiere cuidado. Es importante seguir
 el flujo de trabajo en la figura al inicio de la sección. Primero, ve a
@@ -89,7 +89,7 @@ Este archivo es un archivo de texto, por ejemplo:
 
 - BAU_0.txt
 
-**9.4. Ejecución del modelo (B1)**
+**8.4. Ejecución del modelo (B1)**
 
 Para ejecutar el modelo, usa el
 script B1_Base_Scenarios_Adj_Parallel.py.
@@ -98,7 +98,7 @@ Los resultados de esta ejecución se encuentran en la
 carpeta Executables, dentro de una subcarpeta para cada escenario, y
 generan tres archivos.
 
-**9.5. Concatenación de resultados (B2)**
+**8.5. Concatenación de resultados (B2)**
 
 Este paso facilita el análisis de los resultados. Al ejecutar el script
 de Python B2_Results_Creator_f0.py, este toma los archivos CSV con datos

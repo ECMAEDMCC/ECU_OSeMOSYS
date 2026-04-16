@@ -27,10 +27,6 @@ En particular:
 
 **Representación Gráfica del Modelo**
 
-El modelo del sector Energía fue estructurado a partir de la base
-desarrollada en modelo OSeMOSYS que da soporte al PLANMICC (Proyecto CZZ
-2739). No se aumentaron tecnologías ni se adicionaron variables,
-únicamente se actualizó información.
 El modelo del sector Energía se desarrolló a partir de la estructura
 base desarrollada en el modelo OSeMOSYS que da soporte al PLANMICC. No
 se aumentaron tecnologías ni se adicionaron variables, únicamente se
